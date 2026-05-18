@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Poppins:wght@400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -212,4 +212,219 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(168, 85, 247, 0.5);
+}
+
+/* ============================================================
+   K-POPDLE HOMEPAGE
+   ============================================================ */
+
+/* Backdrop */
+.kp-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.kp-grid-noise {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, black 30%, transparent 80%);
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, black 30%, transparent 80%);
+  opacity: 0.5;
+}
+
+.kp-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: kp-drift 22s ease-in-out infinite;
+}
+
+@keyframes kp-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(60px, -40px) scale(1.08); }
+  66% { transform: translate(-40px, 50px) scale(0.95); }
+}
+
+/* ===== GROUP CARDS ===== */
+.kpop-card {
+  position: relative;
+  aspect-ratio: 0.82;
+  border-radius: 24px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  isolation: isolate;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.kpop-card.inactive {
+  cursor: default;
+  opacity: 0.65;
+}
+
+/* Specular border highlight */
+.kpop-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.35) 0%,
+    rgba(255,255,255,0.05) 40%,
+    rgba(255,255,255,0.00) 70%,
+    rgba(255,255,255,0.18) 100%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Bloom glow on hover */
+.kpop-card::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: var(--glow, transparent);
+  filter: blur(30px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -3;
+}
+
+.kpop-card:not(.inactive):hover { transform: translateY(-6px); }
+.kpop-card:not(.inactive):hover::after { opacity: 0.85; }
+.kpop-card:not(.inactive):hover .kp-card-gradient { opacity: 1; }
+.kpop-card:not(.inactive):hover .kp-play-arrow { transform: translateX(4px); }
+.kpop-card:not(.inactive):hover .kp-song-text { filter: blur(3px); }
+
+/* Solved state — green specular */
+.kpop-card.solved::before {
+  background: linear-gradient(
+    135deg,
+    rgba(34,197,94,0.4) 0%,
+    rgba(34,197,94,0.05) 50%,
+    rgba(255,255,255,0.00) 70%,
+    rgba(34,197,94,0.2) 100%
+  );
+}
+
+/* Card gradient layer */
+.kp-card-gradient {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  opacity: 0.85;
+  transition: opacity 0.4s ease;
+}
+
+/* Card frost overlay */
+.kp-card-frost {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(13,13,20,0.05) 0%, rgba(13,13,20,0.55) 100%),
+    radial-gradient(ellipse at top right, rgba(255,255,255,0.18) 0%, transparent 50%);
+}
+
+/* Stat strip */
+.kp-stat-strip {
+  position: absolute;
+  bottom: 70px;
+  left: 22px;
+  right: 22px;
+  height: 3px;
+  display: flex;
+  gap: 4px;
+  z-index: 1;
+}
+
+.kp-stat-strip > span {
+  flex: 1;
+  background: rgba(255,255,255,0.15);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.kp-stat-strip > span::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.85);
+  transform: scaleX(var(--fill, 0));
+  transform-origin: left;
+  border-radius: inherit;
+}
+
+/* Blurred song name */
+.kp-song-text {
+  filter: blur(6px);
+  transition: filter 0.3s ease;
+}
+.kpop-card.solved .kp-song-text {
+  filter: none;
+}
+
+/* Play arrow */
+.kp-play-arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  font-weight: 800;
+}
+
+/* Pulse for live dot */
+@keyframes kp-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.kp-live-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+  animation: kp-pulse 2s ease-in-out infinite;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+/* Heartbeat for footer ♥ */
+@keyframes kp-beat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+}
+.kp-heart {
+  display: inline-block;
+  animation: kp-beat 1.2s ease-in-out infinite;
+  color: #FF2D78;
+}
+
+/* Responsive card grid */
+.kp-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+@media (max-width: 1100px) { .kp-card-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 800px)  { .kp-card-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; } }
+@media (max-width: 460px)  { .kp-card-grid { grid-template-columns: 1fr; } }
+
+/* Responsive homepage page padding */
+@media (max-width: 640px) {
+  .kp-page { padding: 24px 18px 60px; }
 }

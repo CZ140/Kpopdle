@@ -1,14 +1,16 @@
-import Game from './components/Game'
-import Header from './components/Header'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import HomePage from './pages/HomePage'
+import GroupPage from './pages/GroupPage'
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-twice-dark bg-orbs">
-      <Header />
-      <main className="relative z-10 flex-1 flex flex-col items-center px-4 pb-8">
-        <Game />
-      </main>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/:group" element={<GroupPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
