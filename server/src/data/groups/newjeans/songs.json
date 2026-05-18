@@ -1,0 +1,170 @@
+[
+  {
+    "id": 1,
+    "title": "Attention",
+    "album": "NewJeans 1st EP 'New Jeans'",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1843514387
+  },
+  {
+    "id": 2,
+    "title": "Hype Boy",
+    "album": "NewJeans 1st EP 'New Jeans'",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1843514397
+  },
+  {
+    "id": 3,
+    "title": "Cookie",
+    "album": "NewJeans 1st EP 'New Jeans'",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1843514407
+  },
+  {
+    "id": 4,
+    "title": "Hurt",
+    "album": "NewJeans 1st EP 'New Jeans'",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1843514417
+  },
+  {
+    "id": 5,
+    "title": "Ditto",
+    "album": "Ditto",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 2071104987
+  },
+  {
+    "id": 6,
+    "title": "OMG",
+    "album": "NewJeans 'OMG'",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2088671947
+  },
+  {
+    "id": 7,
+    "title": "Zero",
+    "album": "Zero",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2215867137
+  },
+  {
+    "id": 8,
+    "title": "Zero (J.I.D Remix)",
+    "album": "Zero (J.I.D Remix)",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2331361615
+  },
+  {
+    "id": 9,
+    "title": "New Jeans",
+    "album": "NewJeans 'Super Shy'",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2354707735
+  },
+  {
+    "id": 10,
+    "title": "Super Shy",
+    "album": "NewJeans 'Super Shy'",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2354707745
+  },
+  {
+    "id": 11,
+    "title": "ETA",
+    "album": "NewJeans 2nd EP 'Get Up'",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2373775145
+  },
+  {
+    "id": 12,
+    "title": "Cool With You",
+    "album": "NewJeans 2nd EP 'Get Up'",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2373775155
+  },
+  {
+    "id": 13,
+    "title": "Get Up",
+    "album": "NewJeans 2nd EP 'Get Up'",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2373775165
+  },
+  {
+    "id": 14,
+    "title": "ASAP",
+    "album": "NewJeans 2nd EP 'Get Up'",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2373775175
+  },
+  {
+    "id": 15,
+    "title": "Beautiful Restriction",
+    "album": "A Time Called You (Music from The Netflix Series)",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2431808575
+  },
+  {
+    "id": 16,
+    "title": "Our Night is more beautiful than your Day",
+    "album": "NewJeans X MY DEMON",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2556572132
+  },
+  {
+    "id": 17,
+    "title": "GODS",
+    "album": "GODS",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 3496410431
+  },
+  {
+    "id": 18,
+    "title": "How Sweet",
+    "album": "How Sweet",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2813349902
+  },
+  {
+    "id": 19,
+    "title": "Bubble Gum",
+    "album": "How Sweet",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2813349912
+  },
+  {
+    "id": 20,
+    "title": "Supernatural",
+    "album": "Supernatural",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2853677102
+  },
+  {
+    "id": 21,
+    "title": "Right Now",
+    "album": "Supernatural",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2853677112
+  }
+]

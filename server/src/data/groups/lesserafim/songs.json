@@ -1,0 +1,378 @@
+[
+  {
+    "id": 1,
+    "title": "The World Is My Oyster",
+    "album": "FEARLESS",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1737159077
+  },
+  {
+    "id": 2,
+    "title": "FEARLESS",
+    "album": "FEARLESS",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1737159087
+  },
+  {
+    "id": 3,
+    "title": "Blue Flame",
+    "album": "FEARLESS",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1737159097
+  },
+  {
+    "id": 4,
+    "title": "The Great Mermaid",
+    "album": "FEARLESS",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1737159107
+  },
+  {
+    "id": 5,
+    "title": "Sour Grapes",
+    "album": "FEARLESS",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1737159117
+  },
+  {
+    "id": 6,
+    "title": "HUH YUNJIN - 'Raise your glass'",
+    "album": "HUH YUNJIN - 'Raise your glass'",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1866777697
+  },
+  {
+    "id": 7,
+    "title": "The Hydra",
+    "album": "ANTIFRAGILE",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1962896177
+  },
+  {
+    "id": 8,
+    "title": "ANTIFRAGILE",
+    "album": "ANTIFRAGILE",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1962896187
+  },
+  {
+    "id": 9,
+    "title": "Impurities",
+    "album": "ANTIFRAGILE",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1962896197
+  },
+  {
+    "id": 10,
+    "title": "No Celestial",
+    "album": "ANTIFRAGILE",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1962896207
+  },
+  {
+    "id": 11,
+    "title": "Good Parts (when the quality is bad but I am)",
+    "album": "ANTIFRAGILE",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1962896217
+  },
+  {
+    "id": 12,
+    "title": "Choices",
+    "album": "Choices",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2091304257
+  },
+  {
+    "id": 13,
+    "title": "Burn the Bridge",
+    "album": "UNFORGIVEN",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2258042657
+  },
+  {
+    "id": 14,
+    "title": "UNFORGIVEN (feat. Nile Rodgers)",
+    "album": "UNFORGIVEN",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2258042667
+  },
+  {
+    "id": 15,
+    "title": "No-Return (Into the unknown)",
+    "album": "UNFORGIVEN",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2258042677
+  },
+  {
+    "id": 16,
+    "title": "Eve, Psyche & The Bluebeard's wife",
+    "album": "UNFORGIVEN",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2258042687
+  },
+  {
+    "id": 17,
+    "title": "FEARNOT (Between you, me and the lamppost)",
+    "album": "UNFORGIVEN",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2258042697
+  },
+  {
+    "id": 18,
+    "title": "Flash Forward",
+    "album": "UNFORGIVEN",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2258042707
+  },
+  {
+    "id": 19,
+    "title": "Fire in the belly",
+    "album": "UNFORGIVEN",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2258042717
+  },
+  {
+    "id": 20,
+    "title": "Guardian",
+    "album": "BASTIONS OST Part.4",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2321366955
+  },
+  {
+    "id": 21,
+    "title": "Jewelry (Prod. imase)",
+    "album": "Jewelry (Prod. imase)",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2377330205
+  },
+  {
+    "id": 22,
+    "title": "Perfect Night",
+    "album": "Perfect Night",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2513475541
+  },
+  {
+    "id": 23,
+    "title": "Dresscode (Prod. imase)",
+    "album": "Dresscode (Prod. imase)",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2544653151
+  },
+  {
+    "id": 24,
+    "title": "Good Bones",
+    "album": "EASY",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2663894682
+  },
+  {
+    "id": 25,
+    "title": "EASY",
+    "album": "EASY",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2663894692
+  },
+  {
+    "id": 26,
+    "title": "Swan Song",
+    "album": "EASY",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2663894702
+  },
+  {
+    "id": 27,
+    "title": "Smart",
+    "album": "EASY",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2663894712
+  },
+  {
+    "id": 28,
+    "title": "We got so much",
+    "album": "EASY",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2663894722
+  },
+  {
+    "id": 29,
+    "title": "Perfect Night (for FEARNOT)",
+    "album": "Perfect Night (for FEARNOT)",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2937766941
+  },
+  {
+    "id": 30,
+    "title": "Chasing Lightning",
+    "album": "CRAZY",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2967699611
+  },
+  {
+    "id": 31,
+    "title": "CRAZY",
+    "album": "CRAZY",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2967699621
+  },
+  {
+    "id": 32,
+    "title": "Pierrot",
+    "album": "CRAZY",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2967699631
+  },
+  {
+    "id": 33,
+    "title": "1-800-hot-n-fun",
+    "album": "CRAZY",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2967699641
+  },
+  {
+    "id": 34,
+    "title": "Crazier",
+    "album": "CRAZY",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2967699651
+  },
+  {
+    "id": 35,
+    "title": "Star Signs",
+    "album": "Star Signs",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3079060561
+  },
+  {
+    "id": 36,
+    "title": "Born Fire",
+    "album": "HOT",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3256605621
+  },
+  {
+    "id": 37,
+    "title": "HOT",
+    "album": "HOT",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3256605631
+  },
+  {
+    "id": 38,
+    "title": "Come Over",
+    "album": "HOT",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3256605641
+  },
+  {
+    "id": 39,
+    "title": "Ash",
+    "album": "HOT",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3256605651
+  },
+  {
+    "id": 40,
+    "title": "So Cynical (Badum)",
+    "album": "HOT",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3256605661
+  },
+  {
+    "id": 41,
+    "title": "DIFFERENT",
+    "album": "DIFFERENT",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3395335611
+  },
+  {
+    "id": 42,
+    "title": "Kawaii (Prod. Gen Hoshino)",
+    "album": "DIFFERENT",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3417283881
+  },
+  {
+    "id": 43,
+    "title": "butterflies (feat. TAEHYUN of TOMORROW X TOGETHER & Kim Chaewon of LE SSERAFIM)",
+    "album": "butterflies (feat. TAEHYUN of TOMORROW X TOGETHER & Kim Chaewon)",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3431476011
+  },
+  {
+    "id": 44,
+    "title": "the NOISE (Contains a Samples of Into The Night)",
+    "album": "the NOISE (Contains a Samples of Into The Night)",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3570481231
+  },
+  {
+    "id": 45,
+    "title": "SPAGHETTI",
+    "album": "SPAGHETTI",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3614444782
+  },
+  {
+    "id": 46,
+    "title": "Pearlies (My oyster is the world)",
+    "album": "SPAGHETTI",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3614444792
+  },
+  {
+    "id": 47,
+    "title": "CELEBRATION",
+    "album": "CELEBRATION",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3976069491
+  }
+]

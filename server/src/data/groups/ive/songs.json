@@ -1,0 +1,466 @@
+[
+  {
+    "id": 1,
+    "title": "ELEVEN",
+    "album": "ELEVEN",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1572136282
+  },
+  {
+    "id": 2,
+    "title": "Take It",
+    "album": "ELEVEN",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1572136292
+  },
+  {
+    "id": 3,
+    "title": "LOVE DIVE",
+    "album": "LOVE DIVE",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1708995887
+  },
+  {
+    "id": 4,
+    "title": "ROYAL",
+    "album": "LOVE DIVE",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1708995897
+  },
+  {
+    "id": 5,
+    "title": "After LIKE",
+    "album": "After LIKE",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1863618717
+  },
+  {
+    "id": 6,
+    "title": "My Satisfaction",
+    "album": "After LIKE",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1863618727
+  },
+  {
+    "id": 7,
+    "title": "Queen of Hearts",
+    "album": "ELEVEN -Japanese version-",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1960728677
+  },
+  {
+    "id": 8,
+    "title": "Kitsch",
+    "album": "Kitsch",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2192220267
+  },
+  {
+    "id": 9,
+    "title": "Blue Blood",
+    "album": "I've IVE",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2227832207
+  },
+  {
+    "id": 10,
+    "title": "I AM",
+    "album": "I've IVE",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2227832217
+  },
+  {
+    "id": 11,
+    "title": "Lips",
+    "album": "I've IVE",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2227832237
+  },
+  {
+    "id": 12,
+    "title": "Heroine",
+    "album": "I've IVE",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2227832247
+  },
+  {
+    "id": 13,
+    "title": "Mine",
+    "album": "I've IVE",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2227832257
+  },
+  {
+    "id": 14,
+    "title": "섬짓 (Hypnosis)",
+    "album": "I've IVE",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2227832267
+  },
+  {
+    "id": 15,
+    "title": "NOT YOUR GIRL",
+    "album": "I've IVE",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2227832277
+  },
+  {
+    "id": 16,
+    "title": "궁금해 (Next Page)",
+    "album": "I've IVE",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2227832287
+  },
+  {
+    "id": 17,
+    "title": "Cherish",
+    "album": "I've IVE",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2227832297
+  },
+  {
+    "id": 18,
+    "title": "Shine With Me",
+    "album": "I've IVE",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2227832307
+  },
+  {
+    "id": 19,
+    "title": "WAVE",
+    "album": "WAVE",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2263303857
+  },
+  {
+    "id": 20,
+    "title": "Classic",
+    "album": "WAVE",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2263304657
+  },
+  {
+    "id": 21,
+    "title": "I WANT",
+    "album": "I WANT",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2366475035
+  },
+  {
+    "id": 22,
+    "title": "Either Way",
+    "album": "Either Way",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2465433445
+  },
+  {
+    "id": 23,
+    "title": "Off The Record",
+    "album": "Off The Record",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2482716561
+  },
+  {
+    "id": 24,
+    "title": "Baddie",
+    "album": "I'VE MINE",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2492511201
+  },
+  {
+    "id": 25,
+    "title": "Holy Moly",
+    "album": "I'VE MINE",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2492511221
+  },
+  {
+    "id": 26,
+    "title": "OTT",
+    "album": "I'VE MINE",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2492511231
+  },
+  {
+    "id": 27,
+    "title": "Payback",
+    "album": "I'VE MINE",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2492511241
+  },
+  {
+    "id": 28,
+    "title": "All Night",
+    "album": "All Night",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2622575282
+  },
+  {
+    "id": 29,
+    "title": "Will",
+    "album": "Will",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2726943221
+  },
+  {
+    "id": 30,
+    "title": "헤야 (HEYA)",
+    "album": "IVE SWITCH",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2749285281
+  },
+  {
+    "id": 31,
+    "title": "Accendio",
+    "album": "IVE SWITCH",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2749285291
+  },
+  {
+    "id": 32,
+    "title": "Blue Heart",
+    "album": "IVE SWITCH",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2749285301
+  },
+  {
+    "id": 33,
+    "title": "Ice Queen",
+    "album": "IVE SWITCH",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2749285311
+  },
+  {
+    "id": 34,
+    "title": "WOW",
+    "album": "IVE SWITCH",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2749285321
+  },
+  {
+    "id": 35,
+    "title": "RESET",
+    "album": "IVE SWITCH",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2749285331
+  },
+  {
+    "id": 36,
+    "title": "SUMMER FESTA",
+    "album": "SUMMER FESTA",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2867934382
+  },
+  {
+    "id": 37,
+    "title": "CRUSH",
+    "album": "CRUSH",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2911122301
+  },
+  {
+    "id": 38,
+    "title": "Will -Korean version-",
+    "album": "Will -Korean version-",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3023299861
+  },
+  {
+    "id": 39,
+    "title": "REBEL HEART",
+    "album": "REBEL HEART",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3153143521
+  },
+  {
+    "id": 40,
+    "title": "FLU",
+    "album": "IVE EMPATHY",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3178649881
+  },
+  {
+    "id": 41,
+    "title": "You Wanna Cry",
+    "album": "IVE EMPATHY",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3178649891
+  },
+  {
+    "id": 42,
+    "title": "Thank U",
+    "album": "IVE EMPATHY",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3178649901
+  },
+  {
+    "id": 43,
+    "title": "ATTITUDE",
+    "album": "IVE EMPATHY",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3178649911
+  },
+  {
+    "id": 44,
+    "title": "TKO",
+    "album": "IVE EMPATHY",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3178649921
+  },
+  {
+    "id": 45,
+    "title": "DARE ME",
+    "album": "DARE ME",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3314853711
+  },
+  {
+    "id": 46,
+    "title": "Be Alright",
+    "album": "Be Alright",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3442856531
+  },
+  {
+    "id": 47,
+    "title": "XOXZ",
+    "album": "IVE SECRET",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3520921381
+  },
+  {
+    "id": 48,
+    "title": "Wild Bird",
+    "album": "IVE SECRET",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3520921391
+  },
+  {
+    "id": 49,
+    "title": "Dear, My Feelings",
+    "album": "IVE SECRET",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3520921401
+  },
+  {
+    "id": 50,
+    "title": "GOTCHA (Baddest Eros)",
+    "album": "IVE SECRET",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3520921411
+  },
+  {
+    "id": 51,
+    "title": "♡beats",
+    "album": "IVE SECRET",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3520921421
+  },
+  {
+    "id": 52,
+    "title": "Midnight Kiss",
+    "album": "IVE SECRET",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3520921431
+  },
+  {
+    "id": 53,
+    "title": "BANG BANG",
+    "album": "BANG BANG",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3823100291
+  },
+  {
+    "id": 54,
+    "title": "BLACKHOLE",
+    "album": "REVIVE+",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3853730971
+  },
+  {
+    "id": 55,
+    "title": "Hush",
+    "album": "REVIVE+",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3853730991
+  },
+  {
+    "id": 56,
+    "title": "Stuck In Your Head",
+    "album": "REVIVE+",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3853731001
+  },
+  {
+    "id": 57,
+    "title": "Fireworks",
+    "album": "REVIVE+",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3853731011
+  },
+  {
+    "id": 58,
+    "title": "HOT COFFEE",
+    "album": "REVIVE+",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3853731021
+  }
+]

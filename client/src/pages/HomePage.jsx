@@ -1,75 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import GroupCard from '../components/GroupCard'
+import { fetchGroups } from '../lib/api'
 import { loadGameState, loadStats } from '../lib/storage'
-
-// Groups data — replace body of this with fetchGroups() once backend is ready
-const GROUPS = [
-  {
-    id: 'twice', index: 1,
-    displayName: 'TWICE', gameName: 'TWICEDLE',
-    tagline: 'Daily TWICE Song Quiz',
-    members: 9, active: true,
-    colors: { primary: '#FF2D78', secondary: '#A855F7' },
-    launchDate: '2026-02-20',
-  },
-  {
-    id: 'newjeans', index: 2,
-    displayName: 'NewJeans', gameName: 'NEWJEANDLE',
-    tagline: 'Daily NewJeans Song Quiz',
-    members: 5, active: false,
-    colors: { primary: '#06B6D4', secondary: '#6366F1' },
-    launchDate: null,
-  },
-  {
-    id: 'lesserafim', index: 3,
-    displayName: 'LE SSERAFIM', gameName: 'SERAFIDLE',
-    tagline: 'Daily LE SSERAFIM Song Quiz',
-    members: 5, active: false,
-    colors: { primary: '#F43F5E', secondary: '#F59E0B' },
-    launchDate: null,
-  },
-  {
-    id: 'aespa', index: 4,
-    displayName: 'aespa', gameName: 'AESPADLE',
-    tagline: 'Daily aespa Song Quiz',
-    members: 4, active: false,
-    colors: { primary: '#10B981', secondary: '#06B6D4' },
-    launchDate: null,
-  },
-  {
-    id: 'redvelvet', index: 5,
-    displayName: 'Red Velvet', gameName: 'VELVETLE',
-    tagline: 'Daily Red Velvet Song Quiz',
-    members: 5, active: false,
-    colors: { primary: '#EF4444', secondary: '#FB7185' },
-    launchDate: null,
-  },
-  {
-    id: 'kissoflife', index: 6,
-    displayName: 'KISS OF LIFE', gameName: 'KOLFDLE',
-    tagline: 'Daily KISS OF LIFE Song Quiz',
-    members: 4, active: false,
-    colors: { primary: '#F97316', secondary: '#EAB308' },
-    launchDate: null,
-  },
-  {
-    id: 'ive', index: 7,
-    displayName: 'IVE', gameName: 'IVEDLE',
-    tagline: 'Daily IVE Song Quiz',
-    members: 6, active: false,
-    colors: { primary: '#3B82F6', secondary: '#F59E0B' },
-    launchDate: null,
-  },
-  {
-    id: 'blackpink', index: 8,
-    displayName: 'BLACKPINK', gameName: 'BPINKDLE',
-    tagline: 'Daily BLACKPINK Song Quiz',
-    members: 4, active: false,
-    colors: { primary: '#1a1a2e', secondary: '#EC4899' },
-    launchDate: null,
-  },
-]
 
 const TWICE_LAUNCH = new Date('2026-02-20')
 
@@ -109,12 +42,30 @@ export default function HomePage() {
   const countdown = useKSTCountdown()
   const navigate = useNavigate()
 
+  const [groups, setGroups] = useState([])
+  const [loadingGroups, setLoadingGroups] = useState(true)
+
+  useEffect(() => {
+    fetchGroups()
+      .then((data) => setGroups(data.map((g, i) => ({ ...g, index: i + 1 }))))
+      .catch(() => setGroups([]))
+      .finally(() => setLoadingGroups(false))
+  }, [])
+
   const today = new Date().toISOString().slice(0, 10)
   const stats = loadStats('twice')
-  const twiceState = loadGameState('twice', today)
-  const twiceDone = twiceState && twiceState.gameState !== 'playing'
-  const twiceGuesses = twiceState?.guesses?.length ?? 0
-  const solvedCount = twiceDone ? 1 : 0
+
+  // Check solved state for each active group from localStorage
+  function getSolvedState(groupId) {
+    const state = loadGameState(groupId, today)
+    if (!state || state.gameState === 'playing') return { isSolved: false, guessCount: 0 }
+    return { isSolved: true, guessCount: state.guesses?.length ?? 0 }
+  }
+
+  const solvedCount = groups.filter((g) => {
+    const s = loadGameState(g.id, today)
+    return s && s.gameState !== 'playing'
+  }).length
 
   return (
     <>
@@ -150,7 +101,6 @@ export default function HomePage() {
 
         {/* Hero */}
         <header className="text-center mb-[72px]">
-          {/* Eyebrow pill */}
           <div
             className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/[0.14] font-mono text-[11px] tracking-[0.14em] uppercase text-white/62 mb-8"
             style={{ background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(20px)' }}
@@ -162,10 +112,9 @@ export default function HomePage() {
                 boxShadow: '0 0 10px rgba(255,45,120,0.8)',
               }}
             />
-            Daily song · 8 groups · resets at midnight KST
+            Daily song · {groups.length} groups · resets at midnight KST
           </div>
 
-          {/* Logo */}
           <h1
             className="font-black leading-[0.92] tracking-[-0.04em] m-0 mb-6"
             style={{
@@ -180,14 +129,12 @@ export default function HomePage() {
             K-POPDLE
           </h1>
 
-          {/* Tagline */}
           <p className="text-white/62 m-0 mb-2 font-normal" style={{ fontSize: 'clamp(16px, 1.6vw, 20px)' }}>
             <b className="text-white font-medium">Daily K-pop Song Quiz</b>
             <span className="text-white/38 mx-3">·</span>
             Listen, guess, repeat.
           </p>
 
-          {/* Countdown */}
           <div
             className="mt-9 inline-flex items-center gap-4 px-[22px] py-[14px] rounded-2xl border border-white/[0.14] font-mono"
             style={{ background: 'rgba(255,255,255,0.07)', backdropFilter: 'blur(24px) saturate(160%)' }}
@@ -205,22 +152,29 @@ export default function HomePage() {
         <div className="flex items-end justify-between mb-7 px-1">
           <h2 className="text-[22px] font-bold tracking-tight m-0">Pick your group</h2>
           <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/38">
-            <b className="text-white/62 font-medium">{GROUPS.filter(g => g.active).length}</b> games ·{' '}
+            <b className="text-white/62 font-medium">{groups.length}</b> games ·{' '}
             <b className="text-white/62 font-medium">{solvedCount}</b> solved today
           </div>
         </div>
 
         {/* Card grid */}
-        <div className="kp-card-grid">
-          {GROUPS.map(group => (
-            <GroupCard
-              key={group.id}
-              group={group}
-              isSolved={group.id === 'twice' && twiceDone}
-              guessCount={group.id === 'twice' ? twiceGuesses : 0}
-            />
-          ))}
-        </div>
+        {loadingGroups ? (
+          <div className="text-center text-white/30 font-mono text-sm py-20">Loading…</div>
+        ) : (
+          <div className="kp-card-grid">
+            {groups.map((group) => {
+              const { isSolved, guessCount } = getSolvedState(group.id)
+              return (
+                <GroupCard
+                  key={group.id}
+                  group={group}
+                  isSolved={isSolved}
+                  guessCount={guessCount}
+                />
+              )
+            })}
+          </div>
+        )}
 
         {/* Footer */}
         <footer className="mt-24 pt-8 border-t border-white/[0.08] flex justify-between items-center flex-wrap gap-4 font-mono text-[11px] uppercase tracking-[0.12em] text-white/38">

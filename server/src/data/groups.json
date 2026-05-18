@@ -18,8 +18,8 @@
     "colors": { "primary": "#06B6D4", "secondary": "#6366F1" },
     "deezerArtistName": "NewJeans",
     "members": 5,
-    "launchDate": null,
-    "active": false
+    "launchDate": "2026-05-18",
+    "active": true
   },
   {
     "id": "lesserafim",
@@ -29,8 +29,8 @@
     "colors": { "primary": "#F43F5E", "secondary": "#F59E0B" },
     "deezerArtistName": "LE SSERAFIM",
     "members": 5,
-    "launchDate": null,
-    "active": false
+    "launchDate": "2026-05-18",
+    "active": true
   },
   {
     "id": "aespa",
@@ -40,8 +40,8 @@
     "colors": { "primary": "#10B981", "secondary": "#06B6D4" },
     "deezerArtistName": "aespa",
     "members": 4,
-    "launchDate": null,
-    "active": false
+    "launchDate": "2026-05-18",
+    "active": true
   },
   {
     "id": "redvelvet",
@@ -51,8 +51,8 @@
     "colors": { "primary": "#EF4444", "secondary": "#FB7185" },
     "deezerArtistName": "Red Velvet",
     "members": 5,
-    "launchDate": null,
-    "active": false
+    "launchDate": "2026-05-18",
+    "active": true
   },
   {
     "id": "kissoflife",
@@ -62,8 +62,8 @@
     "colors": { "primary": "#F97316", "secondary": "#EAB308" },
     "deezerArtistName": "KISS OF LIFE",
     "members": 4,
-    "launchDate": null,
-    "active": false
+    "launchDate": "2026-05-18",
+    "active": true
   },
   {
     "id": "ive",
@@ -73,8 +73,8 @@
     "colors": { "primary": "#3B82F6", "secondary": "#F59E0B" },
     "deezerArtistName": "IVE",
     "members": 6,
-    "launchDate": null,
-    "active": false
+    "launchDate": "2026-05-18",
+    "active": true
   },
   {
     "id": "blackpink",
@@ -84,7 +84,7 @@
     "colors": { "primary": "#1a1a2e", "secondary": "#EC4899" },
     "deezerArtistName": "BLACKPINK",
     "members": 4,
-    "launchDate": null,
-    "active": false
+    "launchDate": "2026-05-18",
+    "active": true
   }
 ]

@@ -1,0 +1,346 @@
+[
+  {
+    "id": 1,
+    "title": "Shhh",
+    "album": "KISS OF LIFE",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2355180015
+  },
+  {
+    "id": 2,
+    "title": "Bye My Neverland",
+    "album": "KISS OF LIFE",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2355180055
+  },
+  {
+    "id": 3,
+    "title": "Sugarcoat (NATTY Solo)",
+    "album": "KISS OF LIFE",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2355180075
+  },
+  {
+    "id": 4,
+    "title": "Countdown (BELLE Solo)",
+    "album": "KISS OF LIFE",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2355180085
+  },
+  {
+    "id": 5,
+    "title": "Kitty Cat (JULIE Solo)",
+    "album": "KISS OF LIFE",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2355180095
+  },
+  {
+    "id": 6,
+    "title": "Play Love Games (HANEUL Solo)",
+    "album": "KISS OF LIFE",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2355180105
+  },
+  {
+    "id": 7,
+    "title": "Bad News",
+    "album": "Born to be XX",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2533921691
+  },
+  {
+    "id": 8,
+    "title": "Nobody Knows",
+    "album": "Born to be XX",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2533921701
+  },
+  {
+    "id": 9,
+    "title": "My 808",
+    "album": "Born to be XX",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2533921711
+  },
+  {
+    "id": 10,
+    "title": "TTG",
+    "album": "Born to be XX",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2533921721
+  },
+  {
+    "id": 11,
+    "title": "Gentleman",
+    "album": "Born to be XX",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2533921731
+  },
+  {
+    "id": 12,
+    "title": "Says It",
+    "album": "Born to be XX",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2533921741
+  },
+  {
+    "id": 13,
+    "title": "Midas Touch",
+    "album": "Midas Touch",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2735357691
+  },
+  {
+    "id": 14,
+    "title": "Nothing",
+    "album": "Midas Touch",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2735357701
+  },
+  {
+    "id": 15,
+    "title": "Sixth Sense",
+    "album": "Songstealer - Sixth Sense",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2813521402
+  },
+  {
+    "id": 16,
+    "title": "Sticky",
+    "album": "Sticky",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2870451282
+  },
+  {
+    "id": 17,
+    "title": "Te Quiero",
+    "album": "Sticky",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2870451292
+  },
+  {
+    "id": 18,
+    "title": "SUPERPOWER",
+    "album": "SUPERPOWER",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3498004961
+  },
+  {
+    "id": 19,
+    "title": "Maestro of My Heart (Prod. Czaer)",
+    "album": "STAGE FIGHTER(STF) Original Vol.1",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3004064031
+  },
+  {
+    "id": 20,
+    "title": "R.E.M",
+    "album": "R.E.M",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3030296821
+  },
+  {
+    "id": 21,
+    "title": "Get Loud",
+    "album": "Lose Yourself",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3046402771
+  },
+  {
+    "id": 22,
+    "title": "Chemistry",
+    "album": "Lose Yourself",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3046402791
+  },
+  {
+    "id": 23,
+    "title": "Igloo",
+    "album": "Lose Yourself",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3046402801
+  },
+  {
+    "id": 24,
+    "title": "Too Many Alex",
+    "album": "Lose Yourself",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3046402811
+  },
+  {
+    "id": 25,
+    "title": "Back To Me",
+    "album": "Lose Yourself",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3046402821
+  },
+  {
+    "id": 26,
+    "title": "No One But Us",
+    "album": "Lose Yourself",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3046402831
+  },
+  {
+    "id": 27,
+    "title": "Live, Love, Laugh",
+    "album": "KISS ROAD",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3349259491
+  },
+  {
+    "id": 28,
+    "title": "W.House",
+    "album": "KISS ROAD",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3349259501
+  },
+  {
+    "id": 29,
+    "title": "Lips Hips Kiss",
+    "album": "224",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3379300631
+  },
+  {
+    "id": 30,
+    "title": "Tell Me",
+    "album": "224",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3379300641
+  },
+  {
+    "id": 31,
+    "title": "k bye",
+    "album": "224",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3379300651
+  },
+  {
+    "id": 32,
+    "title": "Painting",
+    "album": "224",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3379300661
+  },
+  {
+    "id": 33,
+    "title": "Slide",
+    "album": "224",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3379300671
+  },
+  {
+    "id": 34,
+    "title": "Heart of Gold",
+    "album": "224",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3379300681
+  },
+  {
+    "id": 35,
+    "title": "Think Twice",
+    "album": "224",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3379300691
+  },
+  {
+    "id": 36,
+    "title": "Sticky (Japanese Ver.)",
+    "album": "Sticky (Japanese Ver.)",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3572145101
+  },
+  {
+    "id": 37,
+    "title": "Lucky",
+    "album": "TOKYO MISSION START",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3610237072
+  },
+  {
+    "id": 38,
+    "title": "Midas Touch (Japanese Ver.)",
+    "album": "TOKYO MISSION START",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3610237092
+  },
+  {
+    "id": 39,
+    "title": "Shhh (Japanese Ver.)",
+    "album": "TOKYO MISSION START",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3610237102
+  },
+  {
+    "id": 40,
+    "title": "Nobody Knows (Remix)",
+    "album": "TOKYO MISSION START",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3610237112
+  },
+  {
+    "id": 41,
+    "title": "R.E.M (Remix)",
+    "album": "TOKYO MISSION START",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3610237122
+  },
+  {
+    "id": 42,
+    "title": "Who is she",
+    "album": "Who is she",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3910166341
+  },
+  {
+    "id": 43,
+    "title": "Don't mind me",
+    "album": "Who is she",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3910166351
+  }
+]
