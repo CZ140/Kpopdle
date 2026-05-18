@@ -1,6 +1,3 @@
-const STATS_KEY = 'twicedle-stats'
-const GAME_KEY_PREFIX = 'twicedle-game-'
-
 const DEFAULT_STATS = {
   gamesPlayed: 0,
   gamesWon: 0,
@@ -10,9 +7,34 @@ const DEFAULT_STATS = {
   lastPlayedDate: null,
 }
 
-export function loadStats() {
+// Key helpers — namespaced by group
+const statsKey = (group) => `${group}-stats`
+const gameKey = (group, date) => `${group}-game-${date}`
+
+// One-time migration: twicedle-* → twice-* for existing players
+export function migrateStorageIfNeeded() {
   try {
-    const raw = localStorage.getItem(STATS_KEY)
+    if (localStorage.getItem('twicedle-stats') && !localStorage.getItem('twice-stats')) {
+      localStorage.setItem('twice-stats', localStorage.getItem('twicedle-stats'))
+
+      const keysToMigrate = []
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i)
+        if (key && key.startsWith('twicedle-game-')) keysToMigrate.push(key)
+      }
+      for (const key of keysToMigrate) {
+        const date = key.replace('twicedle-game-', '')
+        localStorage.setItem(`twice-game-${date}`, localStorage.getItem(key))
+      }
+    }
+  } catch {
+    // localStorage may be unavailable (private browsing edge cases)
+  }
+}
+
+export function loadStats(group = 'twice') {
+  try {
+    const raw = localStorage.getItem(statsKey(group))
     if (!raw) return { ...DEFAULT_STATS }
     return JSON.parse(raw)
   } catch {
@@ -20,13 +42,13 @@ export function loadStats() {
   }
 }
 
-export function saveStats(stats) {
-  localStorage.setItem(STATS_KEY, JSON.stringify(stats))
+export function saveStats(group, stats) {
+  localStorage.setItem(statsKey(group), JSON.stringify(stats))
 }
 
-export function loadGameState(gameDate) {
+export function loadGameState(group, date) {
   try {
-    const raw = localStorage.getItem(GAME_KEY_PREFIX + gameDate)
+    const raw = localStorage.getItem(gameKey(group, date))
     if (!raw) return null
     return JSON.parse(raw)
   } catch {
@@ -34,6 +56,6 @@ export function loadGameState(gameDate) {
   }
 }
 
-export function saveGameState(gameDate, state) {
-  localStorage.setItem(GAME_KEY_PREFIX + gameDate, JSON.stringify(state))
+export function saveGameState(group, date, state) {
+  localStorage.setItem(gameKey(group, date), JSON.stringify(state))
 }

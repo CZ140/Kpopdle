@@ -1,21 +1,24 @@
 import { Router } from 'express'
 import { getTodaysSong } from '../services/dailySong.js'
 import { getPreviewUrl } from '../services/audioProvider.js'
-import { getSongCount } from '../data/songIndex.js'
+import { getSongCountForGroup } from '../data/songIndex.js'
+import validateGroup from '../middleware/validateGroup.js'
 
-const router = Router()
+const router = Router({ mergeParams: true })
+
+router.use(validateGroup)
 
 router.get('/today', async (req, res) => {
+  const { group } = req.params
   try {
-    const { song, dateString, gameNumber } = getTodaysSong()
-
+    const { song, dateString, gameNumber } = getTodaysSong(group)
     const previewUrl = await getPreviewUrl(song)
 
     res.json({
       gameDate: dateString,
       gameNumber,
       previewUrl,
-      totalSongs: getSongCount(),
+      totalSongs: getSongCountForGroup(group),
     })
   } catch (err) {
     console.error('Error fetching daily game:', err)
@@ -24,6 +27,7 @@ router.get('/today', async (req, res) => {
 })
 
 router.post('/guess', (req, res) => {
+  const { group } = req.params
   try {
     const { gameDate, guess } = req.body
 
@@ -35,13 +39,12 @@ router.post('/guess', (req, res) => {
       return res.status(400).json({ error: 'Invalid guess' })
     }
 
-    const { song, dateString } = getTodaysSong()
+    const { song, dateString } = getTodaysSong(group)
 
     if (gameDate !== dateString) {
       return res.status(400).json({ error: 'Game date mismatch' })
     }
 
-    // Empty guess (skip on last attempt) — reveal the song
     if (!guess || guess.trim() === '') {
       return res.json({
         correct: false,

@@ -1,10 +1,13 @@
 import { Router } from 'express'
-import { getSongTitles } from '../data/songIndex.js'
+import { getSongTitlesForGroup } from '../data/songIndex.js'
+import validateGroup from '../middleware/validateGroup.js'
 
-const router = Router()
+const router = Router({ mergeParams: true })
+
+router.use(validateGroup)
 
 router.get('/', (req, res) => {
-  const songs = getSongTitles()
+  const songs = getSongTitlesForGroup(req.params.group)
   res.json({ songs })
 })
 

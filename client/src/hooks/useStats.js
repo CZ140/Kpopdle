@@ -1,8 +1,10 @@
 import { useState, useCallback } from 'react'
 import { loadStats, saveStats } from '../lib/storage'
+import { useGroup } from '../lib/GroupContext'
 
 export function useStats() {
-  const [stats, setStats] = useState(() => loadStats())
+  const group = useGroup()
+  const [stats, setStats] = useState(() => loadStats(group))
 
   const recordResult = useCallback((gameState, guessCount) => {
     setStats((prev) => {
@@ -21,10 +23,10 @@ export function useStats() {
       }
 
       updated.lastPlayedDate = new Date().toISOString().split('T')[0]
-      saveStats(updated)
+      saveStats(group, updated)
       return updated
     })
-  }, [])
+  }, [group])
 
   return { stats, recordResult }
 }

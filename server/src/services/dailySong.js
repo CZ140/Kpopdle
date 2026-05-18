@@ -1,24 +1,24 @@
 import crypto from 'crypto'
-import { getAllSongs } from '../data/songIndex.js'
+import { getSongsForGroup } from '../data/songIndex.js'
 import { getKSTDateString, getGameNumber } from '../utils/dateUtils.js'
 
 if (!process.env.DAILY_SONG_SECRET) {
   console.warn('[twicedle] DAILY_SONG_SECRET is not set — using insecure default. Set this in production.')
 }
-const SECRET = process.env.DAILY_SONG_SECRET || 'twicedle-default-secret'
+const BASE_SECRET = process.env.DAILY_SONG_SECRET || 'twicedle-default-secret'
 
-function getDailySongIndex(songCount, dateString) {
-  const hash = crypto.createHmac('sha256', SECRET)
+function getDailySongIndex(songCount, dateString, groupId) {
+  const secret = `${BASE_SECRET}-${groupId}`
+  const hash = crypto.createHmac('sha256', secret)
     .update(dateString)
     .digest('hex')
-
   return parseInt(hash.substring(0, 8), 16) % songCount
 }
 
-export function getTodaysSong() {
-  const songs = getAllSongs()
+export function getTodaysSong(groupId) {
+  const songs = getSongsForGroup(groupId)
   const dateString = getKSTDateString()
-  const index = getDailySongIndex(songs.length, dateString)
+  const index = getDailySongIndex(songs.length, dateString, groupId)
   const gameNumber = getGameNumber(dateString)
 
   return {

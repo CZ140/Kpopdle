@@ -110,8 +110,8 @@ export default function HomePage() {
   const navigate = useNavigate()
 
   const today = new Date().toISOString().slice(0, 10)
-  const stats = loadStats()
-  const twiceState = loadGameState(today)
+  const stats = loadStats('twice')
+  const twiceState = loadGameState('twice', today)
   const twiceDone = twiceState && twiceState.gameState !== 'playing'
   const twiceGuesses = twiceState?.guesses?.length ?? 0
   const solvedCount = twiceDone ? 1 : 0

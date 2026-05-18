@@ -5,29 +5,37 @@ import { dirname, join } from 'path'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
-const songs = JSON.parse(readFileSync(join(__dirname, 'songs.json'), 'utf-8'))
+// Per-group cache: groupId → { songs, byTitle }
+const cache = new Map()
 
-const songsByTitle = new Map()
-for (const song of songs) {
-  songsByTitle.set(song.title.toLowerCase(), song)
+function loadGroup(groupId) {
+  if (cache.has(groupId)) return cache.get(groupId)
+
+  const path = join(__dirname, 'groups', groupId, 'songs.json')
+  const songs = JSON.parse(readFileSync(path, 'utf-8'))
+
+  const byTitle = new Map()
+  for (const song of songs) {
+    byTitle.set(song.title.toLowerCase(), song)
+  }
+
+  const entry = { songs, byTitle }
+  cache.set(groupId, entry)
+  return entry
 }
 
-export function getAllSongs() {
-  return songs
+export function getSongsForGroup(groupId) {
+  return loadGroup(groupId).songs
 }
 
-export function getSongTitles() {
-  return songs.map((s) => s.title)
+export function getSongTitlesForGroup(groupId) {
+  return loadGroup(groupId).songs.map((s) => s.title)
 }
 
-export function findSongByTitle(title) {
-  return songsByTitle.get(title.toLowerCase()) || null
+export function findSongByTitleForGroup(groupId, title) {
+  return loadGroup(groupId).byTitle.get(title.toLowerCase()) || null
 }
 
-export function getSongById(id) {
-  return songs.find((s) => s.id === id) || null
-}
-
-export function getSongCount() {
-  return songs.length
+export function getSongCountForGroup(groupId) {
+  return loadGroup(groupId).songs.length
 }

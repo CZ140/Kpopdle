@@ -1,0 +1,90 @@
+[
+  {
+    "id": "twice",
+    "displayName": "TWICE",
+    "gameName": "TWICEDLE",
+    "tagline": "Daily TWICE Song Quiz",
+    "colors": { "primary": "#FF2D78", "secondary": "#A855F7" },
+    "deezerArtistName": "TWICE",
+    "members": 9,
+    "launchDate": "2026-02-20",
+    "active": true
+  },
+  {
+    "id": "newjeans",
+    "displayName": "NewJeans",
+    "gameName": "NEWJEANDLE",
+    "tagline": "Daily NewJeans Song Quiz",
+    "colors": { "primary": "#06B6D4", "secondary": "#6366F1" },
+    "deezerArtistName": "NewJeans",
+    "members": 5,
+    "launchDate": null,
+    "active": false
+  },
+  {
+    "id": "lesserafim",
+    "displayName": "LE SSERAFIM",
+    "gameName": "SERAFIDLE",
+    "tagline": "Daily LE SSERAFIM Song Quiz",
+    "colors": { "primary": "#F43F5E", "secondary": "#F59E0B" },
+    "deezerArtistName": "LE SSERAFIM",
+    "members": 5,
+    "launchDate": null,
+    "active": false
+  },
+  {
+    "id": "aespa",
+    "displayName": "aespa",
+    "gameName": "AESPADLE",
+    "tagline": "Daily aespa Song Quiz",
+    "colors": { "primary": "#10B981", "secondary": "#06B6D4" },
+    "deezerArtistName": "aespa",
+    "members": 4,
+    "launchDate": null,
+    "active": false
+  },
+  {
+    "id": "redvelvet",
+    "displayName": "Red Velvet",
+    "gameName": "VELVETLE",
+    "tagline": "Daily Red Velvet Song Quiz",
+    "colors": { "primary": "#EF4444", "secondary": "#FB7185" },
+    "deezerArtistName": "Red Velvet",
+    "members": 5,
+    "launchDate": null,
+    "active": false
+  },
+  {
+    "id": "kissoflife",
+    "displayName": "KISS OF LIFE",
+    "gameName": "KOLFDLE",
+    "tagline": "Daily KISS OF LIFE Song Quiz",
+    "colors": { "primary": "#F97316", "secondary": "#EAB308" },
+    "deezerArtistName": "KISS OF LIFE",
+    "members": 4,
+    "launchDate": null,
+    "active": false
+  },
+  {
+    "id": "ive",
+    "displayName": "IVE",
+    "gameName": "IVEDLE",
+    "tagline": "Daily IVE Song Quiz",
+    "colors": { "primary": "#3B82F6", "secondary": "#F59E0B" },
+    "deezerArtistName": "IVE",
+    "members": 6,
+    "launchDate": null,
+    "active": false
+  },
+  {
+    "id": "blackpink",
+    "displayName": "BLACKPINK",
+    "gameName": "BPINKDLE",
+    "tagline": "Daily BLACKPINK Song Quiz",
+    "colors": { "primary": "#1a1a2e", "secondary": "#EC4899" },
+    "deezerArtistName": "BLACKPINK",
+    "members": 4,
+    "launchDate": null,
+    "active": false
+  }
+]

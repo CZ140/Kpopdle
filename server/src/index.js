@@ -3,6 +3,7 @@ import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
 import cors from './middleware/cors.js'
 import rateLimit from './middleware/rateLimit.js'
+import groupRoutes from './routes/groups.js'
 import gameRoutes from './routes/game.js'
 import songRoutes from './routes/songs.js'
 
@@ -23,8 +24,9 @@ app.use(express.json())
 app.use(cors)
 app.use('/api', rateLimit)
 
-app.use('/api/game', gameRoutes)
-app.use('/api/songs', songRoutes)
+app.use('/api/groups', groupRoutes)
+app.use('/api/:group/game', gameRoutes)
+app.use('/api/:group/songs', songRoutes)
 
 app.use('/api', (req, res) => {
   res.status(404).json({ error: 'Not found' })
@@ -39,5 +41,5 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.listen(PORT, () => {
-  console.log(`Twicedle server running on port ${PORT}`)
+  console.log(`K-popdle server running on port ${PORT}`)
 })

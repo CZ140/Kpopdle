@@ -2,8 +2,11 @@ import { useState, useEffect, useCallback } from 'react'
 import { MAX_GUESSES, GAME_STATES } from '../lib/constants'
 import { fetchDailyGame, submitGuess } from '../lib/api'
 import { loadGameState, saveGameState } from '../lib/storage'
+import { useGroup } from '../lib/GroupContext'
 
 export function useGame() {
+  const group = useGroup()
+
   const [gameDate, setGameDate] = useState(null)
   const [gameNumber, setGameNumber] = useState(null)
   const [previewUrl, setPreviewUrl] = useState(null)
@@ -18,12 +21,12 @@ export function useGame() {
   useEffect(() => {
     async function init() {
       try {
-        const data = await fetchDailyGame()
+        const data = await fetchDailyGame(group)
         setGameDate(data.gameDate)
         setGameNumber(data.gameNumber)
         setPreviewUrl(data.previewUrl)
 
-        const saved = loadGameState(data.gameDate)
+        const saved = loadGameState(group, data.gameDate)
         if (saved) {
           setGuesses(saved.guesses)
           setGameState(saved.gameState)
@@ -36,20 +39,20 @@ export function useGame() {
       }
     }
     init()
-  }, [])
+  }, [group])
 
   useEffect(() => {
     if (gameDate && !loading) {
-      saveGameState(gameDate, { guesses, gameState, revealedSong })
+      saveGameState(group, gameDate, { guesses, gameState, revealedSong })
     }
-  }, [gameDate, guesses, gameState, revealedSong, loading])
+  }, [group, gameDate, guesses, gameState, revealedSong, loading])
 
   const makeGuess = useCallback(async (songTitle) => {
     if (gameState !== GAME_STATES.PLAYING) return
     if (currentGuessNumber >= MAX_GUESSES) return
 
     try {
-      const result = await submitGuess(gameDate, songTitle)
+      const result = await submitGuess(group, gameDate, songTitle)
 
       const newGuess = {
         song: songTitle,
@@ -69,7 +72,7 @@ export function useGame() {
     } catch {
       setError('Failed to submit guess. Please try again.')
     }
-  }, [gameState, currentGuessNumber, guesses, gameDate])
+  }, [group, gameState, currentGuessNumber, guesses, gameDate])
 
   const skipGuess = useCallback(async () => {
     if (gameState !== GAME_STATES.PLAYING) return
@@ -81,14 +84,14 @@ export function useGame() {
 
     if (newGuesses.length >= MAX_GUESSES) {
       try {
-        const result = await submitGuess(gameDate, '')
+        const result = await submitGuess(group, gameDate, '')
         setGameState(GAME_STATES.LOST)
         setRevealedSong(result.song)
       } catch {
         setError('Failed to load answer. Please refresh.')
       }
     }
-  }, [gameState, currentGuessNumber, guesses, gameDate])
+  }, [group, gameState, currentGuessNumber, guesses, gameDate])
 
   return {
     gameDate,

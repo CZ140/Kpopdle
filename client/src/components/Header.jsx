@@ -1,32 +1,47 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useGroup } from '../lib/GroupContext'
 import HowToPlayModal from './HowToPlayModal'
 import StatsModal from './StatsModal'
 
+const GROUP_META = {
+  twice:      { gameName: 'TWICEDLE',   tagline: 'Daily TWICE Song Quiz' },
+  newjeans:   { gameName: 'NEWJEANDLE', tagline: 'Daily NewJeans Song Quiz' },
+  lesserafim: { gameName: 'SERAFIDLE',  tagline: 'Daily LE SSERAFIM Song Quiz' },
+  aespa:      { gameName: 'AESPADLE',   tagline: 'Daily aespa Song Quiz' },
+  redvelvet:  { gameName: 'VELVETLE',   tagline: 'Daily Red Velvet Song Quiz' },
+  kissoflife: { gameName: 'KOLFDLE',    tagline: 'Daily KISS OF LIFE Song Quiz' },
+  ive:        { gameName: 'IVEDLE',     tagline: 'Daily IVE Song Quiz' },
+  blackpink:  { gameName: 'BPINKDLE',   tagline: 'Daily BLACKPINK Song Quiz' },
+}
+
 export default function Header() {
+  const group = useGroup()
+  const navigate = useNavigate()
   const [showHelp, setShowHelp] = useState(false)
   const [showStats, setShowStats] = useState(false)
+
+  const meta = GROUP_META[group] ?? GROUP_META.twice
 
   return (
     <>
       <header className="relative z-10 flex items-center justify-between px-5 py-4 border-b border-white/[0.06]">
         <button
-          onClick={() => setShowHelp(true)}
+          onClick={() => navigate('/')}
           className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-white/[0.08] transition-all duration-200 text-white/50 hover:text-twice-pink"
-          aria-label="How to play"
+          aria-label="Back to homepage"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-            <circle cx="12" cy="12" r="10" />
-            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
-            <line x1="12" y1="17" x2="12.01" y2="17" />
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+            <path d="M19 12H5M12 5l-7 7 7 7" />
           </svg>
         </button>
 
         <div className="text-center">
           <h1 className="text-3xl font-black tracking-wider text-gradient select-none">
-            TWICEDLE
+            {meta.gameName}
           </h1>
           <p className="text-[10px] uppercase tracking-[0.3em] text-white/30 font-medium -mt-0.5">
-            Daily TWICE Song Quiz
+            {meta.tagline}
           </p>
         </div>
 
