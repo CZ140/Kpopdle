@@ -16,8 +16,11 @@ function getDailySongIndex(songCount, dateString, groupId) {
 }
 
 export function getTodaysSong(groupId) {
+  return getSongForDate(groupId, getKSTDateString())
+}
+
+export function getSongForDate(groupId, dateString) {
   const songs = getSongsForGroup(groupId)
-  const dateString = getKSTDateString()
   const index = getDailySongIndex(songs.length, dateString, groupId)
   const gameNumber = getGameNumber(dateString)
 

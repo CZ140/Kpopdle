@@ -22,6 +22,12 @@ export async function fetchSongList(group) {
   return res.json()
 }
 
+export async function fetchArchiveGame(group, date) {
+  const res = await fetch(`${API_BASE}/${group}/game/archive/${date}`)
+  if (!res.ok) throw new Error('Failed to fetch archive game')
+  return res.json()
+}
+
 export async function fetchGroups() {
   const res = await fetch(`${API_BASE}/groups`)
   if (!res.ok) throw new Error('Failed to fetch groups')

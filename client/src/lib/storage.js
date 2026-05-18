@@ -59,3 +59,20 @@ export function loadGameState(group, date) {
 export function saveGameState(group, date, state) {
   localStorage.setItem(gameKey(group, date), JSON.stringify(state))
 }
+
+// Archive game state — separate namespace, never affects daily stats
+const archiveKey = (group, date) => `${group}-archive-${date}`
+
+export function loadArchiveGameState(group, date) {
+  try {
+    const raw = localStorage.getItem(archiveKey(group, date))
+    if (!raw) return null
+    return JSON.parse(raw)
+  } catch {
+    return null
+  }
+}
+
+export function saveArchiveGameState(group, date, state) {
+  localStorage.setItem(archiveKey(group, date), JSON.stringify(state))
+}

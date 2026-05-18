@@ -1,7 +1,7 @@
 import ShareButton from './ShareButton'
 import Countdown from './Countdown'
 
-export default function ResultModal({ gameState, revealedSong, guesses, gameNumber, onClose }) {
+export default function ResultModal({ gameState, revealedSong, guesses, gameNumber, isArchive = false, onClose }) {
   const won = gameState === 'won'
 
   return (
@@ -18,6 +18,14 @@ export default function ResultModal({ gameState, revealedSong, guesses, gameNumb
             </svg>
           </button>
         </div>
+
+        {isArchive && (
+          <div className="text-center mb-3">
+            <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-twice-pink/70 bg-twice-pink/10 px-3 py-1 rounded-full">
+              Archive #{gameNumber}
+            </span>
+          </div>
+        )}
 
         <div className="text-center mb-6">
           {won ? (
@@ -57,8 +65,14 @@ export default function ResultModal({ gameState, revealedSong, guesses, gameNumb
         )}
 
         <div className="flex flex-col items-center gap-5">
-          <ShareButton gameNumber={gameNumber} guesses={guesses} won={won} />
-          <Countdown />
+          {isArchive ? (
+            <p className="text-xs text-white/25 font-mono uppercase tracking-widest">Archive · Results not saved to stats</p>
+          ) : (
+            <>
+              <ShareButton gameNumber={gameNumber} guesses={guesses} won={won} />
+              <Countdown />
+            </>
+          )}
         </div>
       </div>
     </div>

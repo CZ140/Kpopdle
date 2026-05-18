@@ -1,11 +1,13 @@
 import { useState, useEffect, useCallback } from 'react'
 import { MAX_GUESSES, GAME_STATES } from '../lib/constants'
-import { fetchDailyGame, submitGuess } from '../lib/api'
-import { loadGameState, saveGameState } from '../lib/storage'
-import { useGroup } from '../lib/GroupContext'
+import { fetchDailyGame, fetchArchiveGame, submitGuess } from '../lib/api'
+import { loadGameState, saveGameState, loadArchiveGameState, saveArchiveGameState } from '../lib/storage'
+import { useGroup, useArchiveDate } from '../lib/GroupContext'
 
 export function useGame() {
   const group = useGroup()
+  const archiveDate = useArchiveDate()
+  const isArchive = archiveDate !== null
 
   const [gameDate, setGameDate] = useState(null)
   const [gameNumber, setGameNumber] = useState(null)
@@ -19,33 +21,50 @@ export function useGame() {
   const currentGuessNumber = guesses.length
 
   useEffect(() => {
+    setLoading(true)
+    setError(null)
+    setGuesses([])
+    setGameState(GAME_STATES.PLAYING)
+    setRevealedSong(null)
+
     async function init() {
       try {
-        const data = await fetchDailyGame(group)
+        const data = isArchive
+          ? await fetchArchiveGame(group, archiveDate)
+          : await fetchDailyGame(group)
+
         setGameDate(data.gameDate)
         setGameNumber(data.gameNumber)
         setPreviewUrl(data.previewUrl)
 
-        const saved = loadGameState(group, data.gameDate)
+        const saved = isArchive
+          ? loadArchiveGameState(group, data.gameDate)
+          : loadGameState(group, data.gameDate)
+
         if (saved) {
           setGuesses(saved.guesses)
           setGameState(saved.gameState)
           setRevealedSong(saved.revealedSong)
         }
       } catch (err) {
-        setError('Failed to load today\'s game. Please try again.')
+        setError('Failed to load game. Please try again.')
       } finally {
         setLoading(false)
       }
     }
     init()
-  }, [group])
+  }, [group, archiveDate])
 
   useEffect(() => {
     if (gameDate && !loading) {
-      saveGameState(group, gameDate, { guesses, gameState, revealedSong })
+      const state = { guesses, gameState, revealedSong }
+      if (isArchive) {
+        saveArchiveGameState(group, gameDate, state)
+      } else {
+        saveGameState(group, gameDate, state)
+      }
     }
-  }, [group, gameDate, guesses, gameState, revealedSong, loading])
+  }, [group, gameDate, guesses, gameState, revealedSong, loading, isArchive])
 
   const makeGuess = useCallback(async (songTitle) => {
     if (gameState !== GAME_STATES.PLAYING) return
@@ -103,6 +122,7 @@ export function useGame() {
     revealedSong,
     loading,
     error,
+    isArchive,
     makeGuess,
     skipGuess,
   }

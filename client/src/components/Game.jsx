@@ -19,6 +19,7 @@ export default function Game() {
     revealedSong,
     loading,
     error,
+    isArchive,
     makeGuess,
     skipGuess,
   } = useGame()
@@ -36,10 +37,10 @@ export default function Game() {
   useEffect(() => {
     if (gameState !== GAME_STATES.PLAYING && !resultRecorded.current) {
       resultRecorded.current = true
-      recordResult(gameState, guesses.length)
+      if (!isArchive) recordResult(gameState, guesses.length)
       setTimeout(() => setShowResult(true), 800)
     }
-  }, [gameState, guesses.length, recordResult])
+  }, [gameState, guesses.length, recordResult, isArchive])
 
   if (loading) {
     return (
@@ -102,6 +103,7 @@ export default function Game() {
           revealedSong={revealedSong}
           guesses={guesses}
           gameNumber={gameNumber}
+          isArchive={isArchive}
           onClose={() => setShowResult(false)}
         />
       )}
