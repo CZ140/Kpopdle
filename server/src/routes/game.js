@@ -12,7 +12,7 @@ router.get('/today', async (req, res) => {
   const { group } = req.params
   try {
     const { song, dateString, gameNumber } = getTodaysSong(group)
-    const previewUrl = await getPreviewUrl(song)
+    const previewUrl = await getPreviewUrl(song, req.groupConfig.deezerArtistName)
 
     res.json({
       gameDate: dateString,
