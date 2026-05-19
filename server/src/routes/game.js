@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import { getTodaysSong, getSongForDate } from '../services/dailySong.js'
 import { getPreviewUrl } from '../services/audioProvider.js'
-import { getSongCountForGroup } from '../data/songIndex.js'
+import { getSongsForGroup, getSongCountForGroup } from '../data/songIndex.js'
 import { getKSTDateString } from '../utils/dateUtils.js'
 import validateGroup from '../middleware/validateGroup.js'
 
@@ -60,10 +60,50 @@ router.get('/archive/:date', async (req, res) => {
   }
 })
 
+router.get('/practice', async (req, res) => {
+  const { group } = req.params
+  try {
+    const songs = getSongsForGroup(group)
+    const song = songs[Math.floor(Math.random() * songs.length)]
+    const previewUrl = await getPreviewUrl(song, req.groupConfig.deezerArtistName)
+    res.json({
+      previewUrl,
+      totalSongs: songs.length,
+      practiceSongId: song.id,
+    })
+  } catch (err) {
+    console.error('Error fetching practice game:', err)
+    res.status(500).json({ error: 'Failed to load practice game' })
+  }
+})
+
 router.post('/guess', (req, res) => {
   const { group } = req.params
   try {
-    const { gameDate, guess } = req.body
+    const { gameDate, guess, practiceSongId } = req.body
+
+    // Practice mode: validate against the specific song sent with the request
+    if (gameDate === 'practice') {
+      if (!practiceSongId || typeof practiceSongId !== 'number') {
+        return res.status(400).json({ error: 'practiceSongId required for practice mode' })
+      }
+      const songs = getSongsForGroup(group)
+      const song = songs.find(s => s.id === practiceSongId)
+      if (!song) {
+        return res.status(400).json({ error: 'Invalid practice song' })
+      }
+      const songPayload = {
+        title: song.title,
+        album: song.album,
+        releaseYear: song.releaseYear,
+        spotifyId: song.spotifyId,
+      }
+      if (!guess || guess.trim() === '') {
+        return res.json({ correct: false, gameOver: true, song: songPayload })
+      }
+      const isCorrect = guess.trim().toLowerCase() === song.title.toLowerCase()
+      return res.json({ correct: isCorrect, gameOver: isCorrect, song: songPayload })
+    }
 
     if (!gameDate || typeof gameDate !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(gameDate)) {
       return res.status(400).json({ error: 'gameDate is required (YYYY-MM-DD)' })

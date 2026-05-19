@@ -9,7 +9,7 @@ export async function getPreviewUrl(song, artistName = '') {
   // Primary: Deezer by ID
   if (song.deezerId) {
     try {
-      const url = await getDeezerPreview(song.deezerId)
+      const url = await getDeezerPreview(song.deezerId, song.title)
       if (url) {
         cache.set(cacheKey, url)
         return url

@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 
-export default function GroupCard({ group, isSolved = false, guessCount = 0 }) {
+export default function GroupCard({ group, isSolved = false, guessCount = 0, revealedSong = null }) {
   const navigate = useNavigate()
   const isActive = group.active
 
@@ -91,7 +91,7 @@ export default function GroupCard({ group, isSolved = false, guessCount = 0 }) {
               Today's game
               {isActive ? (
                 <span className="block font-sans normal-case text-[13px] font-semibold tracking-tight mt-1 text-white/95 kp-song-text">
-                  ▓▓▓▓ ▓▓▓▓▓▓
+                  {isSolved && revealedSong ? `"${revealedSong.title}"` : '▓▓▓▓ ▓▓▓▓▓▓'}
                 </span>
               ) : (
                 <span className="block font-sans normal-case text-[13px] font-medium tracking-tight mt-1 text-white/35">
@@ -103,10 +103,13 @@ export default function GroupCard({ group, isSolved = false, guessCount = 0 }) {
             {/* Play button */}
             <button
               className={`inline-flex items-center gap-2 px-[14px] py-[9px] rounded-full text-xs font-bold tracking-[0.02em] flex-shrink-0 transition-colors duration-300 ${
-                isActive
-                  ? 'bg-white/95 text-[#0d0d14]'
-                  : 'bg-white/[0.08] text-white/40 cursor-default border border-white/[0.1]'
+                !isActive
+                  ? 'bg-white/[0.08] text-white/40 cursor-default border border-white/[0.1]'
+                  : isSolved
+                  ? 'text-white/85 border border-white/[0.15]'
+                  : 'bg-white/95 text-[#0d0d14]'
               }`}
+              style={isSolved && isActive ? { background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(10px)' } : undefined}
               disabled={!isActive}
               tabIndex={isActive ? 0 : -1}
             >

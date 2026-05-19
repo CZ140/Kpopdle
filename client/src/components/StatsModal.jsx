@@ -47,8 +47,11 @@ export default function StatsModal({ onClose }) {
               <span className="text-xs font-bold text-white/40 w-3 text-right">{guess}</span>
               <div className="flex-1 h-6 relative">
                 <div
-                  className="h-full bg-gradient-to-r from-twice-hot-pink/30 to-twice-purple/20 rounded-md flex items-center justify-end px-2.5 min-w-[24px] transition-all duration-500"
-                  style={{ width: `${Math.max((count / maxDistValue) * 100, 8)}%` }}
+                  className="h-full rounded-md flex items-center justify-end px-2.5 min-w-[24px] transition-all duration-500"
+                  style={{
+                    width: `${Math.max((count / maxDistValue) * 100, 8)}%`,
+                    background: 'linear-gradient(to right, color-mix(in srgb, var(--color-primary) 30%, transparent), color-mix(in srgb, var(--color-secondary) 20%, transparent))',
+                  }}
                 >
                   <span className="text-[11px] font-bold text-white/80">{count}</span>
                 </div>

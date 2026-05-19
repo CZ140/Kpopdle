@@ -1,6 +1,6 @@
 import { SNIPPET_DURATIONS } from '../lib/constants'
 
-export default function AudioPlayer({ play, stop, isPlaying, progress, currentDuration, gameOver }) {
+export default function AudioPlayer({ play, stop, isPlaying, progress, currentDuration, gameOver, volume = 0.8, onVolumeChange }) {
   const maxDuration = SNIPPET_DURATIONS[SNIPPET_DURATIONS.length - 1]
 
   return (
@@ -24,8 +24,11 @@ export default function AudioPlayer({ play, stop, isPlaying, progress, currentDu
 
         {/* Playback progress */}
         <div
-          className={`absolute top-0 h-full rounded-full transition-none ${isPlaying ? 'progress-gradient' : 'bg-gradient-to-r from-twice-hot-pink to-twice-purple'}`}
-          style={{ width: `${(progress * currentDuration / maxDuration) * 100}%` }}
+          className={`absolute top-0 h-full rounded-full transition-none${isPlaying ? ' progress-gradient' : ''}`}
+          style={{
+            width: `${(progress * currentDuration / maxDuration) * 100}%`,
+            ...(isPlaying ? {} : { background: 'linear-gradient(to right, var(--color-primary), var(--color-secondary))' }),
+          }}
         />
       </div>
 
@@ -40,11 +43,12 @@ export default function AudioPlayer({ play, stop, isPlaying, progress, currentDu
       </div>
 
       {/* Play button */}
-      <div className="flex justify-center">
+      <div className="flex justify-center mb-5">
         <button
           onClick={isPlaying ? stop : play}
           disabled={gameOver}
-          className={`w-[72px] h-[72px] rounded-full bg-gradient-to-br from-twice-hot-pink via-twice-magenta to-twice-purple disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center transition-all duration-200 glow-btn ${isPlaying ? 'playing' : ''}`}
+          className={`w-[72px] h-[72px] rounded-full disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center transition-all duration-200 glow-btn ${isPlaying ? 'playing' : ''}`}
+          style={{ background: 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))' }}
           aria-label={isPlaying ? 'Stop' : 'Play'}
         >
           {isPlaying ? (
@@ -58,6 +62,31 @@ export default function AudioPlayer({ play, stop, isPlaying, progress, currentDu
             </svg>
           )}
         </button>
+      </div>
+
+      {/* Volume slider */}
+      <div className="flex items-center gap-3 px-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 text-white/30 flex-shrink-0">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+        </svg>
+        <input
+          type="range"
+          min="0"
+          max="1"
+          step="0.01"
+          value={volume}
+          onChange={e => onVolumeChange?.(parseFloat(e.target.value))}
+          className="flex-1 h-1 appearance-none rounded-full cursor-pointer"
+          style={{
+            background: `linear-gradient(to right, var(--color-primary) 0%, var(--color-secondary) ${volume * 100}%, rgba(255,255,255,0.1) ${volume * 100}%)`,
+          }}
+          aria-label="Volume"
+        />
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 text-white/30 flex-shrink-0">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+        </svg>
       </div>
     </div>
   )

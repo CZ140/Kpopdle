@@ -1,17 +1,14 @@
 import { useState, useEffect, useRef } from 'react'
-import { useGame } from '../hooks/useGame'
+import { usePracticeGame } from '../hooks/usePracticeGame'
 import { useAudioPlayer } from '../hooks/useAudioPlayer'
-import { useStats } from '../hooks/useStats'
 import { GAME_STATES } from '../lib/constants'
 import AudioPlayer from './AudioPlayer'
 import GuessList from './GuessList'
 import GuessInput from './GuessInput'
 import ResultModal from './ResultModal'
 
-export default function Game({ onStartPractice }) {
+export default function PracticeGame({ onPlayAgain }) {
   const {
-    gameDate,
-    gameNumber,
     previewUrl,
     guesses,
     gameState,
@@ -19,28 +16,25 @@ export default function Game({ onStartPractice }) {
     revealedSong,
     loading,
     error,
-    isArchive,
     makeGuess,
     skipGuess,
-  } = useGame()
+  } = usePracticeGame()
 
   const { play, stop, isPlaying, progress, currentDuration, setGuessNumber, volume, changeVolume } = useAudioPlayer(previewUrl)
-  const { recordResult } = useStats()
 
   const [showResult, setShowResult] = useState(false)
-  const resultRecorded = useRef(false)
+  const resultShown = useRef(false)
 
   useEffect(() => {
     setGuessNumber(currentGuessNumber)
   }, [currentGuessNumber, setGuessNumber])
 
   useEffect(() => {
-    if (gameState !== GAME_STATES.PLAYING && !resultRecorded.current) {
-      resultRecorded.current = true
-      if (!isArchive) recordResult(gameState, guesses.length)
+    if (gameState !== GAME_STATES.PLAYING && !resultShown.current) {
+      resultShown.current = true
       setTimeout(() => setShowResult(true), 800)
     }
-  }, [gameState, guesses.length, recordResult, isArchive])
+  }, [gameState])
 
   if (loading) {
     return (
@@ -105,9 +99,10 @@ export default function Game({ onStartPractice }) {
           gameState={gameState}
           revealedSong={revealedSong}
           guesses={guesses}
-          gameNumber={gameNumber}
-          isArchive={isArchive}
-          onStartPractice={!isArchive ? onStartPractice : undefined}
+          gameNumber={null}
+          isArchive={false}
+          isPractice={true}
+          onPlayAgain={onPlayAgain}
           onClose={() => setShowResult(false)}
         />
       )}

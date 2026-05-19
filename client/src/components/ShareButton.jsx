@@ -16,7 +16,8 @@ export default function ShareButton({ gameNumber, guesses, won }) {
   return (
     <button
       onClick={handleShare}
-      className="px-8 py-3 rounded-xl bg-gradient-to-r from-twice-hot-pink to-twice-purple text-white font-bold text-sm glow-btn"
+      className="px-8 py-3 rounded-xl text-white font-bold text-sm glow-btn"
+      style={{ background: 'linear-gradient(to right, var(--color-primary), var(--color-secondary))' }}
     >
       {copied ? 'Copied!' : 'Share Results'}
     </button>

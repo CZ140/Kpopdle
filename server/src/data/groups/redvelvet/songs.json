@@ -5,7 +5,7 @@
     "album": "Happiness",
     "releaseYear": 2014,
     "spotifyId": null,
-    "deezerId": 728731772
+    "deezerId": 0
   },
   {
     "id": 2,
@@ -189,7 +189,7 @@
     "album": "The Velvet - The 2nd Mini Album",
     "releaseYear": 2016,
     "spotifyId": null,
-    "deezerId": 728725632
+    "deezerId": 0
   },
   {
     "id": 25,
@@ -197,7 +197,7 @@
     "album": "Russian Roulette - The 3rd Mini Album",
     "releaseYear": 2016,
     "spotifyId": null,
-    "deezerId": 728092462
+    "deezerId": 0
   },
   {
     "id": 26,
@@ -525,7 +525,7 @@
     "album": "RBB - The 5th Mini Album",
     "releaseYear": 2018,
     "spotifyId": null,
-    "deezerId": 728229372
+    "deezerId": 0
   },
   {
     "id": 67,
@@ -565,7 +565,7 @@
     "album": "'The ReVe Festival' Day 1",
     "releaseYear": 2019,
     "spotifyId": null,
-    "deezerId": 728230562
+    "deezerId": 0
   },
   {
     "id": 72,
@@ -589,7 +589,7 @@
     "album": "'The ReVe Festival' Day 1",
     "releaseYear": 2019,
     "spotifyId": null,
-    "deezerId": 728230602
+    "deezerId": 0
   },
   {
     "id": 75,
@@ -597,7 +597,7 @@
     "album": "'The ReVe Festival' Day 1",
     "releaseYear": 2019,
     "spotifyId": null,
-    "deezerId": 728230612
+    "deezerId": 0
   },
   {
     "id": 76,
@@ -637,7 +637,7 @@
     "album": "'The ReVe Festival' Day 2",
     "releaseYear": 2019,
     "spotifyId": null,
-    "deezerId": 731216792
+    "deezerId": 0
   },
   {
     "id": 81,

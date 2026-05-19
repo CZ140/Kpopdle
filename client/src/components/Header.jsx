@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useGroup, useArchiveDate } from '../lib/GroupContext'
+import { useGroup, useArchiveDate, usePracticeMode } from '../lib/GroupContext'
 import StatsModal from './StatsModal'
 
 const GROUP_META = {
@@ -14,9 +14,10 @@ const GROUP_META = {
   blackpink:  { gameName: 'BPINKDLE',   tagline: 'Daily BLACKPINK Song Quiz' },
 }
 
-export default function Header({ onOpenArchive }) {
+export default function Header({ onOpenArchive, onExitPractice }) {
   const group = useGroup()
   const archiveDate = useArchiveDate()
+  const practiceMode = usePracticeMode()
   const navigate = useNavigate()
   const [showStats, setShowStats] = useState(false)
 
@@ -28,7 +29,7 @@ export default function Header({ onOpenArchive }) {
       <header className="relative z-10 flex items-center justify-between px-5 py-4 border-b border-white/[0.06]">
         <button
           onClick={() => navigate('/')}
-          className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-white/[0.08] transition-all duration-200 text-white/50 hover:text-twice-pink"
+          className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-white/[0.08] transition-all duration-200 text-white/50 hover-group-primary"
           aria-label="Back to homepage"
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
@@ -41,8 +42,12 @@ export default function Header({ onOpenArchive }) {
             {meta.gameName}
           </h1>
           {isArchive ? (
-            <p className="text-[10px] uppercase tracking-[0.3em] text-twice-pink/70 font-bold -mt-0.5">
+            <p className="text-[10px] uppercase tracking-[0.3em] font-bold -mt-0.5" style={{ color: 'var(--color-primary)' }}>
               Archive · {archiveDate}
+            </p>
+          ) : practiceMode ? (
+            <p className="text-[10px] uppercase tracking-[0.3em] font-bold -mt-0.5" style={{ color: 'var(--color-secondary)' }}>
+              Practice Mode
             </p>
           ) : (
             <p className="text-[10px] uppercase tracking-[0.3em] text-white/30 font-medium -mt-0.5">
@@ -52,21 +57,34 @@ export default function Header({ onOpenArchive }) {
         </div>
 
         <div className="flex items-center gap-1">
-          <button
-            onClick={onOpenArchive}
-            className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-white/[0.08] transition-all duration-200 text-white/50 hover:text-twice-pink"
-            aria-label="Archive"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-              <polyline points="21 8 21 21 3 21 3 8" />
-              <rect x="1" y="3" width="22" height="5" />
-              <line x1="10" y1="12" x2="14" y2="12" />
-            </svg>
-          </button>
+          {practiceMode ? (
+            <button
+              onClick={onExitPractice}
+              className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-white/[0.08] transition-all duration-200 text-white/50 hover-group-primary"
+              aria-label="Exit Practice"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+          ) : (
+            <button
+              onClick={onOpenArchive}
+              className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-white/[0.08] transition-all duration-200 text-white/50 hover-group-primary"
+              aria-label="Archive"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                <polyline points="21 8 21 21 3 21 3 8" />
+                <rect x="1" y="3" width="22" height="5" />
+                <line x1="10" y1="12" x2="14" y2="12" />
+              </svg>
+            </button>
+          )}
 
           <button
             onClick={() => setShowStats(true)}
-            className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-white/[0.08] transition-all duration-200 text-white/50 hover:text-twice-purple"
+            className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-white/[0.08] transition-all duration-200 text-white/50 hover-group-secondary"
             aria-label="Statistics"
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">

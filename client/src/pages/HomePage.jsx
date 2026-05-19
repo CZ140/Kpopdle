@@ -10,6 +10,12 @@ function getDayNumber() {
   return Math.floor((Date.now() - TWICE_LAUNCH.getTime()) / 86400000) + 1
 }
 
+function getKSTDateString() {
+  const now = new Date()
+  const kst = new Date(now.getTime() + 9 * 3600000 + now.getTimezoneOffset() * 60000)
+  return kst.toISOString().slice(0, 10)
+}
+
 function formatTopbarDate() {
   return new Date().toLocaleDateString('en-US', {
     month: 'short', day: 'numeric', year: 'numeric',
@@ -52,14 +58,18 @@ export default function HomePage() {
       .finally(() => setLoadingGroups(false))
   }, [])
 
-  const today = new Date().toISOString().slice(0, 10)
+  const today = getKSTDateString()
   const stats = loadStats('twice')
 
   // Check solved state for each active group from localStorage
   function getSolvedState(groupId) {
     const state = loadGameState(groupId, today)
-    if (!state || state.gameState === 'playing') return { isSolved: false, guessCount: 0 }
-    return { isSolved: true, guessCount: state.guesses?.length ?? 0 }
+    if (!state || state.gameState === 'playing') return { isSolved: false, guessCount: 0, revealedSong: null }
+    return {
+      isSolved: true,
+      guessCount: state.guesses?.length ?? 0,
+      revealedSong: state.revealedSong ?? null,
+    }
   }
 
   const solvedCount = groups.filter((g) => {
@@ -163,13 +173,14 @@ export default function HomePage() {
         ) : (
           <div className="kp-card-grid">
             {groups.map((group) => {
-              const { isSolved, guessCount } = getSolvedState(group.id)
+              const { isSolved, guessCount, revealedSong } = getSolvedState(group.id)
               return (
                 <GroupCard
                   key={group.id}
                   group={group}
                   isSolved={isSolved}
                   guessCount={guessCount}
+                  revealedSong={revealedSong}
                 />
               )
             })}

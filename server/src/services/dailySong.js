@@ -20,7 +20,12 @@ export function getTodaysSong(groupId) {
 }
 
 export function getSongForDate(groupId, dateString) {
-  const songs = getSongsForGroup(groupId)
+  const allSongs = getSongsForGroup(groupId)
+  // Only rotate through songs that have a verified Deezer ID — ensures audio always plays
+  const songs = allSongs.filter(s => s.deezerId && s.deezerId !== 0)
+  if (songs.length === 0) {
+    throw new Error(`No songs with Deezer previews available for group: ${groupId}`)
+  }
   const index = getDailySongIndex(songs.length, dateString, groupId)
   const gameNumber = getGameNumber(dateString)
 

@@ -77,9 +77,9 @@ body {
   100% { transform: translate(-20px, 20px) scale(0.95); }
 }
 
-/* Gradient text utility */
+/* Gradient text utility — uses per-group CSS vars set by GroupPage */
 .text-gradient {
-  background: linear-gradient(135deg, #FF6B9D, #FF2D78, #A855F7, #FF6B9D);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary), var(--color-primary));
   background-size: 300% 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -93,18 +93,18 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* Neon glow button */
+/* Neon glow button — uses per-group CSS vars */
 .glow-btn {
   box-shadow:
-    0 0 15px rgba(255, 45, 120, 0.4),
-    0 0 40px rgba(255, 45, 120, 0.15);
+    0 0 15px color-mix(in srgb, var(--color-primary) 40%, transparent),
+    0 0 40px color-mix(in srgb, var(--color-primary) 15%, transparent);
   transition: all 0.3s ease;
 }
 
 .glow-btn:hover {
   box-shadow:
-    0 0 20px rgba(255, 45, 120, 0.6),
-    0 0 60px rgba(255, 45, 120, 0.25);
+    0 0 20px color-mix(in srgb, var(--color-primary) 60%, transparent),
+    0 0 60px color-mix(in srgb, var(--color-primary) 25%, transparent);
   transform: scale(1.05);
 }
 
@@ -120,15 +120,26 @@ body {
 @keyframes pulse-glow {
   0%, 100% {
     box-shadow:
-      0 0 15px rgba(255, 45, 120, 0.4),
-      0 0 40px rgba(255, 45, 120, 0.15);
+      0 0 15px color-mix(in srgb, var(--color-primary) 40%, transparent),
+      0 0 40px color-mix(in srgb, var(--color-primary) 15%, transparent);
   }
   50% {
     box-shadow:
-      0 0 25px rgba(255, 45, 120, 0.7),
-      0 0 70px rgba(255, 45, 120, 0.3);
+      0 0 25px color-mix(in srgb, var(--color-primary) 70%, transparent),
+      0 0 70px color-mix(in srgb, var(--color-primary) 30%, transparent);
   }
 }
+
+/* Progress shimmer — uses per-group CSS vars */
+.progress-gradient {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary), var(--color-primary)) !important;
+  background-size: 200% 100% !important;
+  animation: progress-shimmer 2s linear infinite !important;
+}
+
+/* Hover helper — applies group primary color on hover */
+.hover-group-primary:hover { color: var(--color-primary); }
+.hover-group-secondary:hover { color: var(--color-secondary); }
 
 /* Glass card */
 .glass-card {
@@ -160,13 +171,6 @@ body {
   box-shadow:
     0 25px 50px rgba(0, 0, 0, 0.5),
     0 0 80px rgba(168, 85, 247, 0.1);
-}
-
-/* Gradient progress bar */
-.progress-gradient {
-  background: linear-gradient(90deg, #FF2D78, #A855F7, #FF6B9D);
-  background-size: 200% 100%;
-  animation: progress-shimmer 2s linear infinite;
 }
 
 @keyframes progress-shimmer {
@@ -427,4 +431,24 @@ body {
 /* Responsive homepage page padding */
 @media (max-width: 640px) {
   .kp-page { padding: 24px 18px 60px; }
+}
+
+/* Volume slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 6px rgba(255,45,120,0.5);
+  cursor: pointer;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 6px rgba(255,45,120,0.5);
+  cursor: pointer;
 }

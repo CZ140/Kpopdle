@@ -33,3 +33,19 @@ export async function fetchGroups() {
   if (!res.ok) throw new Error('Failed to fetch groups')
   return res.json()
 }
+
+export async function fetchPracticeGame(group) {
+  const res = await fetch(`${API_BASE}/${group}/game/practice`)
+  if (!res.ok) throw new Error('Failed to fetch practice game')
+  return res.json()
+}
+
+export async function submitPracticeGuess(group, practiceSongId, guess) {
+  const res = await fetch(`${API_BASE}/${group}/game/guess`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ gameDate: 'practice', practiceSongId, guess }),
+  })
+  if (!res.ok) throw new Error('Failed to submit guess')
+  return res.json()
+}

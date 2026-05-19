@@ -1,12 +1,24 @@
 import { useState, useRef, useCallback, useEffect } from 'react'
 import { SNIPPET_DURATIONS } from '../lib/constants'
 
+const VOLUME_KEY = 'kpopdle-volume'
+
+function getSavedVolume() {
+  try {
+    const v = parseFloat(localStorage.getItem(VOLUME_KEY))
+    return isNaN(v) ? 0.8 : Math.min(1, Math.max(0, v))
+  } catch {
+    return 0.8
+  }
+}
+
 export function useAudioPlayer(previewUrl) {
   const audioRef = useRef(null)
   const animationFrameRef = useRef(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const [progress, setProgress] = useState(0)
   const [currentGuess, setCurrentGuess] = useState(0)
+  const [volume, setVolume] = useState(getSavedVolume)
 
   const currentDuration = SNIPPET_DURATIONS[Math.min(currentGuess, SNIPPET_DURATIONS.length - 1)]
 
@@ -14,6 +26,7 @@ export function useAudioPlayer(previewUrl) {
     if (previewUrl) {
       audioRef.current = new Audio(previewUrl)
       audioRef.current.preload = 'auto'
+      audioRef.current.volume = getSavedVolume()
 
       return () => {
         if (audioRef.current) {
@@ -26,6 +39,13 @@ export function useAudioPlayer(previewUrl) {
       }
     }
   }, [previewUrl])
+
+  const changeVolume = useCallback((newVolume) => {
+    const clamped = Math.min(1, Math.max(0, newVolume))
+    setVolume(clamped)
+    if (audioRef.current) audioRef.current.volume = clamped
+    try { localStorage.setItem(VOLUME_KEY, String(clamped)) } catch {}
+  }, [])
 
   const play = useCallback(() => {
     const audio = audioRef.current
@@ -69,5 +89,5 @@ export function useAudioPlayer(previewUrl) {
     setProgress(0)
   }, [])
 
-  return { play, stop, isPlaying, progress, currentDuration, setGuessNumber }
+  return { play, stop, isPlaying, progress, currentDuration, setGuessNumber, volume, changeVolume }
 }

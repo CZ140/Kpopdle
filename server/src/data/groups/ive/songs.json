@@ -109,7 +109,7 @@
     "album": "I've IVE",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2227832267
+    "deezerId": 0
   },
   {
     "id": 15,
@@ -237,7 +237,7 @@
     "album": "IVE SWITCH",
     "releaseYear": 2024,
     "spotifyId": null,
-    "deezerId": 2749285281
+    "deezerId": 0
   },
   {
     "id": 31,
@@ -405,7 +405,7 @@
     "album": "IVE SECRET",
     "releaseYear": 2025,
     "spotifyId": null,
-    "deezerId": 3520921421
+    "deezerId": 0
   },
   {
     "id": 52,

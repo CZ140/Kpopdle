@@ -89,10 +89,12 @@ export default function GuessInput({ onGuess, onSkip, disabled }) {
                   key={song}
                   onClick={() => handleSelect(song)}
                   className={`w-full text-left px-4 py-3 text-sm font-medium transition-all duration-150 ${
-                    i === selectedIndex
-                      ? 'bg-gradient-to-r from-twice-hot-pink/20 to-twice-purple/10 text-twice-pink'
-                      : 'text-white/70 hover:bg-white/[0.06] hover:text-white'
+                    i === selectedIndex ? '' : 'text-white/70 hover:bg-white/[0.06] hover:text-white'
                   }`}
+                  style={i === selectedIndex ? {
+                    background: 'linear-gradient(to right, color-mix(in srgb, var(--color-primary) 20%, transparent), color-mix(in srgb, var(--color-secondary) 10%, transparent))',
+                    color: 'var(--color-primary)',
+                  } : undefined}
                 >
                   {song}
                 </button>

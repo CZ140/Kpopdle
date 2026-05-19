@@ -16,7 +16,7 @@ export default function HowToPlayModal({ onClose }) {
         </div>
 
         <div className="space-y-3 text-sm text-white/60 leading-relaxed">
-          <p>Listen to the intro of a <strong className="text-twice-pink font-semibold">TWICE</strong> song and guess which one it is.</p>
+          <p>Listen to the intro of a <strong className="font-semibold" style={{ color: 'var(--color-primary)' }}>K-pop</strong> song and guess which one it is.</p>
           <p>You have <strong className="text-white font-semibold">6 guesses</strong> to get it right.</p>
           <p>Wrong or skipped guesses unlock a <strong className="text-white font-semibold">longer snippet</strong> of the song:</p>
 
@@ -24,7 +24,7 @@ export default function HowToPlayModal({ onClose }) {
             {[1, 2, 3, 4, 5, 6].map((n) => (
               <p key={n} className="flex justify-between">
                 <span className="text-white/40">Guess {n}</span>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-twice-pink to-twice-purple font-bold">{n} second{n > 1 ? 's' : ''}</span>
+                <span className="font-bold" style={{ background: 'linear-gradient(to right, var(--color-primary), var(--color-secondary))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>{n} second{n > 1 ? 's' : ''}</span>
               </p>
             ))}
           </div>
