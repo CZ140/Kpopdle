@@ -55,6 +55,13 @@ export default function GuessInput({ onGuess, onSkip, disabled }) {
       } else if (filtered.length === 1) {
         handleSelect(filtered[0])
       }
+    } else if (e.key === 'Tab') {
+      e.preventDefault()
+      const target = selectedIndex >= 0 ? filtered[selectedIndex] : filtered[0]
+      if (target) {
+        setQuery(target)
+        setSelectedIndex(0)
+      }
     } else if (e.key === 'Escape') {
       setShowDropdown(false)
     }

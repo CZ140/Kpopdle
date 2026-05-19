@@ -89,7 +89,7 @@ export default function Game({ onStartPractice }) {
       />
 
       {gameOver && !showResult && (
-        <div className="mt-8 text-center">
+        <div className="mt-8 flex items-center justify-center gap-4">
           <button
             onClick={() => setShowResult(true)}
             className="text-sm font-semibold hover:opacity-80 transition-opacity"
@@ -97,6 +97,21 @@ export default function Game({ onStartPractice }) {
           >
             View Results
           </button>
+
+          {!isArchive && onStartPractice && (
+            <>
+              <span className="text-white/20 text-sm">·</span>
+              <button
+                onClick={onStartPractice}
+                className="flex items-center gap-1.5 text-sm font-semibold text-white/40 hover:text-white/70 transition-colors"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5">
+                  <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
+                Practice Mode
+              </button>
+            </>
+          )}
         </div>
       )}
 

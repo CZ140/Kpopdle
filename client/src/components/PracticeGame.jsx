@@ -63,6 +63,32 @@ export default function PracticeGame({ onPlayAgain }) {
 
   return (
     <div className="w-full max-w-lg mx-auto pt-8">
+      {/* Practice mode banner */}
+      <div className="flex items-center justify-center mb-6">
+        <div
+          className="flex items-center gap-2.5 px-4 py-2 rounded-full border text-sm font-semibold"
+          style={{
+            borderColor: 'color-mix(in srgb, var(--color-primary) 30%, transparent)',
+            background: 'color-mix(in srgb, var(--color-primary) 8%, transparent)',
+            color: 'var(--color-primary)',
+          }}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5 opacity-80">
+            <polygon points="5 3 19 12 5 21 5 3" />
+          </svg>
+          Practice Mode
+          <span
+            className="text-[10px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded-full"
+            style={{
+              background: 'color-mix(in srgb, var(--color-primary) 15%, transparent)',
+              color: 'color-mix(in srgb, var(--color-primary) 80%, white)',
+            }}
+          >
+            Unlimited
+          </span>
+        </div>
+      </div>
+
       <AudioPlayer
         play={play}
         stop={stop}
@@ -83,13 +109,24 @@ export default function PracticeGame({ onPlayAgain }) {
       />
 
       {gameOver && !showResult && (
-        <div className="mt-8 text-center">
+        <div className="mt-8 flex items-center justify-center gap-4">
           <button
             onClick={() => setShowResult(true)}
             className="text-sm font-semibold hover:opacity-80 transition-opacity"
             style={{ background: 'linear-gradient(to right, var(--color-primary), var(--color-secondary))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}
           >
             View Results
+          </button>
+          <span className="text-white/20 text-sm">·</span>
+          <button
+            onClick={onPlayAgain}
+            className="flex items-center gap-1.5 text-sm font-semibold text-white/40 hover:text-white/70 transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5">
+              <polyline points="23 4 23 10 17 10" />
+              <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+            </svg>
+            New Song
           </button>
         </div>
       )}

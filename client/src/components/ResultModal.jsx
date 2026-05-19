@@ -80,14 +80,6 @@ export default function ResultModal({ gameState, revealedSong, guesses, gameNumb
             <>
               <ShareButton gameNumber={gameNumber} guesses={guesses} won={won} />
               <Countdown />
-              {onStartPractice && (
-                <button
-                  onClick={onStartPractice}
-                  className="text-sm font-semibold text-white/35 hover-group-primary transition-colors"
-                >
-                  Practice Mode →
-                </button>
-              )}
             </>
           )}
         </div>

@@ -45,11 +45,7 @@ export default function Header({ onOpenArchive, onExitPractice }) {
             <p className="text-[10px] uppercase tracking-[0.3em] font-bold -mt-0.5" style={{ color: 'var(--color-primary)' }}>
               Archive · {archiveDate}
             </p>
-          ) : practiceMode ? (
-            <p className="text-[10px] uppercase tracking-[0.3em] font-bold -mt-0.5" style={{ color: 'var(--color-secondary)' }}>
-              Practice Mode
-            </p>
-          ) : (
+          ) : practiceMode ? null : (
             <p className="text-[10px] uppercase tracking-[0.3em] text-white/30 font-medium -mt-0.5">
               {meta.tagline}
             </p>
