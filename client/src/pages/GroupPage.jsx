@@ -1,11 +1,12 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { GroupContext } from '../lib/GroupContext'
-import { migrateStorageIfNeeded } from '../lib/storage'
+import { migrateStorageIfNeeded, loadDifficulty, saveDifficulty } from '../lib/storage'
 import Game from '../components/Game'
 import PracticeGame from '../components/PracticeGame'
 import Header from '../components/Header'
 import ArchiveModal from '../components/ArchiveModal'
+import DifficultyModal from '../components/DifficultyModal'
 
 const VALID_GROUPS = ['twice', 'newjeans', 'lesserafim', 'aespa', 'redvelvet', 'kissoflife', 'ive', 'blackpink']
 
@@ -38,8 +39,15 @@ export default function GroupPage() {
 
   const [archiveDate, setArchiveDate] = useState(null)
   const [showArchive, setShowArchive] = useState(false)
+  const [showDifficulty, setShowDifficulty] = useState(false)
   const [practiceMode, setPracticeMode] = useState(false)
   const [practiceKey, setPracticeKey] = useState(0)
+  const [difficulty, setDifficultyState] = useState(loadDifficulty)
+
+  const setDifficulty = useCallback((d) => {
+    setDifficultyState(d)
+    saveDifficulty(d)
+  }, [])
 
   useEffect(() => {
     if (group === 'twice') migrateStorageIfNeeded()
@@ -76,7 +84,7 @@ export default function GroupPage() {
   const colors = GROUP_GAME_COLORS[group] ?? GROUP_GAME_COLORS.twice
 
   return (
-    <GroupContext.Provider value={{ id: group, archiveDate, practiceMode }}>
+    <GroupContext.Provider value={{ id: group, archiveDate, practiceMode, difficulty, setDifficulty }}>
       <div
         className="min-h-screen flex flex-col bg-twice-dark bg-orbs"
         style={{ '--color-primary': colors.primary, '--color-secondary': colors.secondary }}
@@ -84,6 +92,7 @@ export default function GroupPage() {
         <Header
           onOpenArchive={practiceMode ? undefined : () => setShowArchive(true)}
           onExitPractice={practiceMode ? exitPractice : undefined}
+          onOpenDifficulty={() => setShowDifficulty(true)}
         />
         <main className="relative z-10 flex-1 flex flex-col items-center px-4 pb-8">
           {practiceMode ? (
@@ -94,6 +103,10 @@ export default function GroupPage() {
           )}
         </main>
       </div>
+
+      {showDifficulty && (
+        <DifficultyModal onClose={() => setShowDifficulty(false)} />
+      )}
 
       {showArchive && (
         <ArchiveModal

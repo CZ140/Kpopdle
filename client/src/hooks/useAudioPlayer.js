@@ -12,7 +12,7 @@ function getSavedVolume() {
   }
 }
 
-export function useAudioPlayer(previewUrl) {
+export function useAudioPlayer(previewUrl, durations = SNIPPET_DURATIONS) {
   const audioRef = useRef(null)
   const animationFrameRef = useRef(null)
   const [isPlaying, setIsPlaying] = useState(false)
@@ -20,7 +20,7 @@ export function useAudioPlayer(previewUrl) {
   const [currentGuess, setCurrentGuess] = useState(0)
   const [volume, setVolume] = useState(getSavedVolume)
 
-  const currentDuration = SNIPPET_DURATIONS[Math.min(currentGuess, SNIPPET_DURATIONS.length - 1)]
+  const currentDuration = durations[Math.min(currentGuess, durations.length - 1)]
 
   useEffect(() => {
     if (previewUrl) {

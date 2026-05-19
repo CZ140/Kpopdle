@@ -1,8 +1,9 @@
 import { MAX_GUESSES } from './constants'
 
-export function generateShareText(gameNumber, guesses, won) {
+export function generateShareText(gameNumber, guesses, won, difficulty = 'normal') {
   const guessCount = won ? guesses.length : 'X'
-  const header = `Twicedle #${gameNumber} ${guessCount}/${MAX_GUESSES}`
+  const badge = difficulty !== 'normal' ? `[${difficulty.toUpperCase()}] ` : ''
+  const header = `${badge}Twicedle #${gameNumber} ${guessCount}/${MAX_GUESSES}`
 
   const grid = guesses
     .map((g) => {

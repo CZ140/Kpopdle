@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from 'react'
 import { useGame } from '../hooks/useGame'
 import { useAudioPlayer } from '../hooks/useAudioPlayer'
 import { useStats } from '../hooks/useStats'
-import { GAME_STATES } from '../lib/constants'
+import { GAME_STATES, DIFFICULTIES } from '../lib/constants'
+import { useDifficulty } from '../lib/GroupContext'
 import AudioPlayer from './AudioPlayer'
 import GuessList from './GuessList'
 import GuessInput from './GuessInput'
@@ -24,7 +25,8 @@ export default function Game({ onStartPractice }) {
     skipGuess,
   } = useGame()
 
-  const { play, stop, isPlaying, progress, currentDuration, setGuessNumber, volume, changeVolume } = useAudioPlayer(previewUrl)
+  const difficulty = useDifficulty()
+  const { play, stop, isPlaying, progress, currentDuration, setGuessNumber, volume, changeVolume } = useAudioPlayer(previewUrl, DIFFICULTIES[difficulty])
   const { recordResult } = useStats()
 
   const [showResult, setShowResult] = useState(false)

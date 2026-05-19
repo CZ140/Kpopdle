@@ -14,7 +14,7 @@ const GROUP_META = {
   blackpink:  { gameName: 'BPINKDLE',   tagline: 'Daily BLACKPINK Song Quiz' },
 }
 
-export default function Header({ onOpenArchive, onExitPractice }) {
+export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty }) {
   const group = useGroup()
   const archiveDate = useArchiveDate()
   const practiceMode = usePracticeMode()
@@ -77,6 +77,17 @@ export default function Header({ onOpenArchive, onExitPractice }) {
               </svg>
             </button>
           )}
+
+          <button
+            onClick={onOpenDifficulty}
+            className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-white/[0.08] transition-all duration-200 text-white/50 hover-group-primary"
+            aria-label="Difficulty"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+              <circle cx="12" cy="12" r="3" />
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14" />
+            </svg>
+          </button>
 
           <button
             onClick={() => setShowStats(true)}

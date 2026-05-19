@@ -76,3 +76,19 @@ export function loadArchiveGameState(group, date) {
 export function saveArchiveGameState(group, date, state) {
   localStorage.setItem(archiveKey(group, date), JSON.stringify(state))
 }
+
+const DIFFICULTY_KEY = 'kpopdle-difficulty'
+const VALID_DIFFICULTIES = ['easy', 'normal', 'hard']
+
+export function loadDifficulty() {
+  try {
+    const d = localStorage.getItem(DIFFICULTY_KEY)
+    return VALID_DIFFICULTIES.includes(d) ? d : 'normal'
+  } catch {
+    return 'normal'
+  }
+}
+
+export function saveDifficulty(difficulty) {
+  try { localStorage.setItem(DIFFICULTY_KEY, difficulty) } catch {}
+}
