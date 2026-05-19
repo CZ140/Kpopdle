@@ -193,7 +193,7 @@ export default function HomePage() {
             A new song every day at midnight KST <span className="kp-heart">♥</span>
           </div>
           <div>
-            Made by <span className="text-white/62 border-b border-white/[0.08]">@you</span>
+            Made by <a href="https://github.com/CZ140" target="_blank" rel="noopener noreferrer" className="text-white/62 border-b border-white/[0.08] hover:text-white/90 transition-colors">@CZ140</a>
             {' · '}
             <button
               onClick={() => navigate('/twice')}
