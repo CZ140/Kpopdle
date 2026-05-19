@@ -40,13 +40,28 @@ Eight K-pop groups, each with their own daily game, color theme, and branded nam
 | BLACKPINK | BPINKDLE | 36 |
 
 ### 🎮 Daily Game
-- Up to **6 guesses**, each revealing a progressively longer audio clip (1s → 2s → 3s → 4s → 5s → 6s)
-- Autocomplete search across the full group song catalog
+- Up to **6 guesses**, each revealing a progressively longer audio clip
+- Autocomplete search across the full group song catalog (Tab to complete)
 - Skip to hear more time, or guess early to flex
 - Stats tracked locally: win rate, current streak, max streak, guess distribution
-- Shareable emoji grid result
+- Shareable emoji grid result (includes difficulty badge for non-Normal games)
 
 ![Game View](docs/screenshot-game.png)
+
+### 🎚️ Difficulty Modes
+Three clip-length presets selectable at any time from the gear icon in the header. The setting persists across sessions and applies to both daily and practice games.
+
+| Guess | Easy | Normal | Hard |
+|---|---|---|---|
+| 1 | 3s | 1s | 0.5s |
+| 2 | 5s | 2s | 1s |
+| 3 | 8s | 3s | 1.5s |
+| 4 | 10s | 4s | 2s |
+| 5 | 12s | 5s | 3s |
+| 6 | 15s | 6s | 4s |
+
+### 🎯 Practice Mode
+After completing the daily game, switch into unlimited practice with random songs from the same group's catalog. Practice runs don't affect streaks or stats. Each round can be replayed immediately with a single click.
 
 ### 📦 Archive Mode
 Replay any past daily game. The same HMAC algorithm that picks today's song works for any past date — no extra storage needed. Archive results live in a separate localStorage namespace and never touch daily stats.
@@ -78,7 +93,7 @@ Resolved URLs are held in a TTL memory cache to avoid redundant API calls on rep
 All routes are parameterised: `/api/:group/game/today`, `/api/:group/songs`, etc. A `validateGroup` middleware guards every route — inactive or unknown group IDs return 404, preventing catalog probing before a group launches.
 
 ### React Context for Shared Game State
-A single `GroupContext` carries both the active `groupId` and `archiveDate` (`null` = today's game). All hooks (`useGame`, `useSongList`, `useStats`) read from this context — no prop drilling through the component tree. Switching archive dates remounts the `Game` component cleanly via a `key` prop.
+A single `GroupContext` carries the active `groupId`, `archiveDate`, `practiceMode`, and `difficulty`. All hooks (`useGame`, `useSongList`, `useStats`) read from this context — no prop drilling through the component tree. Switching archive dates remounts the `Game` component cleanly via a `key` prop.
 
 ---
 
@@ -145,10 +160,10 @@ cd client && npm run dev    # App  → http://localhost:5173
 
 - [x] Phase 1 — Multi-group architecture & K-POPDLE homepage
 - [x] Phase 2 — Song databases for all 8 groups (509 songs, Deezer-verified)
+- [x] Phase 3 — Practice mode (unlimited random rounds, no stats)
 - [x] Phase 4 — Archive mode (replay any past daily game)
-- [ ] Phase 3 — Practice mode (unlimited random rounds, no stats)
+- [x] Phase 6 — Difficulty modes (Easy / Normal / Hard clip lengths)
 - [ ] Phase 5 — Hint system (era / year / first letter)
-- [ ] Phase 6 — Difficulty modes (Easy / Normal / Hard clip lengths)
 - [ ] Phase 7 — Cross-group challenge (daily game drawn from all 8 catalogs)
 - [ ] Phase 8 — User accounts (magic-link auth, cloud streak sync)
 
