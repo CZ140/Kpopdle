@@ -83,7 +83,7 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
 
           <button
             onClick={onOpenDifficulty}
-            className="flex items-center gap-1 h-8 px-2.5 rounded-lg transition-all duration-200 font-mono text-[11px] font-bold uppercase tracking-wider"
+            className="flex items-center gap-1.5 h-9 px-3.5 rounded-xl transition-all duration-200 font-mono text-[13px] font-bold uppercase tracking-wider"
             style={{
               color: difficulty === 'normal' ? 'rgba(255,255,255,0.45)' : 'var(--color-primary)',
               background: difficulty === 'normal' ? 'rgba(255,255,255,0.05)' : 'color-mix(in srgb, var(--color-primary) 12%, transparent)',
@@ -92,7 +92,7 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
             aria-label="Difficulty"
           >
             {DIFFICULTY_LABELS[difficulty]}
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3 opacity-60">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5 opacity-60">
               <polyline points="6 9 12 15 18 9" />
             </svg>
           </button>
