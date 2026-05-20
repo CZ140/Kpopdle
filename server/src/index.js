@@ -7,6 +7,9 @@ import groupRoutes from './routes/groups.js'
 import gameRoutes from './routes/game.js'
 import songRoutes from './routes/songs.js'
 import statsRoutes from './routes/stats.js'
+import kpopdleRoutes from './routes/kpopdle.js'
+import { getKpopdleSongForDate } from './services/dailySong.js'
+import { getMergedPool } from './data/songIndex.js'
 import { getTodaysSong } from './services/dailySong.js'
 import { getPreviewUrl } from './services/audioProvider.js'
 import groups from './data/groups.json' with { type: 'json' }
@@ -30,6 +33,7 @@ app.use('/api', rateLimit)
 
 app.use('/api/groups', groupRoutes)
 app.use('/api/stats', statsRoutes)
+app.use('/api/kpopdle', kpopdleRoutes)
 app.use('/api/:group/game', gameRoutes)
 app.use('/api/:group/songs', songRoutes)
 
@@ -54,7 +58,7 @@ app.listen(PORT, () => {
 
 async function warmCache() {
   const activeGroups = groups.filter(g => g.active)
-  console.log(`Warming preview cache for ${activeGroups.length} groups...`)
+  console.log(`Warming preview cache for ${activeGroups.length} groups + kpopdle...`)
   for (const group of activeGroups) {
     try {
       const { song } = getTodaysSong(group.id)
@@ -63,6 +67,13 @@ async function warmCache() {
     } catch (err) {
       console.warn(`  ✗ ${group.id}: ${err.message}`)
     }
+  }
+  try {
+    const { song } = getKpopdleSongForDate(activeGroups, new Date().toISOString().split('T')[0])
+    await getPreviewUrl(song, song.deezerArtistName)
+    console.log(`  ✓ kpopdle`)
+  } catch (err) {
+    console.warn(`  ✗ kpopdle: ${err.message}`)
   }
   console.log('Cache warm.')
 }

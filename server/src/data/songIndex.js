@@ -39,3 +39,16 @@ export function findSongByTitleForGroup(groupId, title) {
 export function getSongCountForGroup(groupId) {
   return loadGroup(groupId).songs.length
 }
+
+// Merged pool for the K-POPDLE cross-group game.
+// Sorted by groupId then song.id for deterministic HMAC indexing.
+export function getMergedPool(activeGroups) {
+  const pool = []
+  for (const group of [...activeGroups].sort((a, b) => a.id.localeCompare(b.id))) {
+    const songs = getSongsForGroup(group.id).filter(s => s.deezerId && s.deezerId !== 0)
+    for (const song of songs) {
+      pool.push({ ...song, groupId: group.id, groupDisplayName: group.displayName, deezerArtistName: group.deezerArtistName })
+    }
+  }
+  return pool
+}

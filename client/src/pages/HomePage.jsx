@@ -174,6 +174,30 @@ export default function HomePage() {
           </div>
         </header>
 
+        {/* K-POPDLE cross-group challenge banner */}
+        <div
+          className="relative rounded-2xl overflow-hidden mb-10 cursor-pointer group"
+          onClick={() => navigate('/kpopdle')}
+          style={{ background: 'linear-gradient(135deg, #FF2D78 0%, #A855F7 35%, #6366F1 65%, #06B6D4 100%)' }}
+        >
+          <div className="absolute inset-0 bg-black/20" />
+          <div className="relative z-[1] flex items-center justify-between px-8 py-6">
+            <div>
+              <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70 mb-1">Daily Cross-Group Challenge</div>
+              <h2 className="text-4xl font-black tracking-tight text-white leading-none mb-2">K-POPDLE</h2>
+              <p className="text-sm text-white/80 font-medium">Any song. Any group. One daily shot.</p>
+            </div>
+            <div className="flex flex-col items-end gap-2">
+              <div className="font-mono text-[11px] uppercase tracking-[0.12em] text-white/60">
+                {groups.length} groups · {groups.reduce((n, g) => n + (g.members || 0), 0)}+ songs
+              </div>
+              <button className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-[#0d0d14] text-sm font-black tracking-wide group-hover:scale-105 transition-transform">
+                PLAY →
+              </button>
+            </div>
+          </div>
+        </div>
+
         {/* Section heading */}
         <div className="flex items-end justify-between mb-7 px-1">
           <h2 className="text-[22px] font-bold tracking-tight m-0">Pick your group</h2>

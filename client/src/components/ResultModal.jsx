@@ -51,6 +51,11 @@ export default function ResultModal({ gameState, revealedSong, guesses, gameNumb
         {revealedSong && (
           <div className="glass-card rounded-xl p-5 mb-6 text-center">
             <p className="text-xl font-black text-white mb-1">{revealedSong.title}</p>
+            {revealedSong.groupDisplayName && (
+              <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: 'var(--color-primary)' }}>
+                {revealedSong.groupDisplayName}
+              </p>
+            )}
             <p className="text-sm text-white/40 font-medium">{revealedSong.album} ({revealedSong.releaseYear})</p>
             {revealedSong.spotifyId && (
               <a

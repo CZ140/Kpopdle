@@ -12,3 +12,15 @@ export const GAME_STATES = {
   WON: 'won',
   LOST: 'lost',
 }
+
+export const GAME_NAMES = {
+  twice:      'TWICEDLE',
+  newjeans:   'NEWJEANDLE',
+  lesserafim: 'SERAFIDLE',
+  aespa:      'AESPADLE',
+  redvelvet:  'VELVETLE',
+  kissoflife: 'KOLFDLE',
+  ive:        'IVEDLE',
+  blackpink:  'BPINKDLE',
+  kpopdle:    'K-POPDLE',
+}

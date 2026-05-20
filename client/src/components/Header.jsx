@@ -15,6 +15,7 @@ const GROUP_META = {
   kissoflife: { gameName: 'KOLFDLE',    tagline: 'Daily KISS OF LIFE Song Quiz' },
   ive:        { gameName: 'IVEDLE',     tagline: 'Daily IVE Song Quiz' },
   blackpink:  { gameName: 'BPINKDLE',   tagline: 'Daily BLACKPINK Song Quiz' },
+  kpopdle:    { gameName: 'K-POPDLE',   tagline: 'All Groups · One Daily Song' },
 }
 
 export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty }) {
@@ -71,7 +72,7 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
             </button>
-          ) : (
+          ) : onOpenArchive ? (
             <button
               onClick={onOpenArchive}
               className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-white/[0.08] transition-all duration-200 text-white/50 hover-group-primary"
@@ -83,7 +84,7 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
                 <line x1="10" y1="12" x2="14" y2="12" />
               </svg>
             </button>
-          )}
+          ) : null}
 
           <button
             onClick={onOpenDifficulty}

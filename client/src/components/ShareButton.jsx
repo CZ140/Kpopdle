@@ -1,13 +1,16 @@
 import { useState } from 'react'
 import { generateShareText, copyToClipboard } from '../lib/share'
-import { useDifficulty } from '../lib/GroupContext'
+import { useDifficulty, useGroup } from '../lib/GroupContext'
+import { GAME_NAMES } from '../lib/constants'
 
 export default function ShareButton({ gameNumber, guesses, won, hintsUsed = 0 }) {
   const difficulty = useDifficulty()
+  const group = useGroup()
+  const gameName = GAME_NAMES[group] ?? 'K-POPDLE'
   const [copied, setCopied] = useState(false)
 
   async function handleShare() {
-    const text = generateShareText(gameNumber, guesses, won, difficulty, hintsUsed)
+    const text = generateShareText(gameNumber, guesses, won, difficulty, hintsUsed, gameName)
     const success = await copyToClipboard(text)
     if (success) {
       setCopied(true)
