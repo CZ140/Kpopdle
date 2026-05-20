@@ -20,7 +20,7 @@
 
 K-POPDLE is a full-stack daily music quiz platform. Players listen to a short audio snippet and guess the song — with each wrong answer revealing a slightly longer clip. Every group has its own independent daily game, driven by a deterministic **HMAC-SHA256** algorithm so the answer is consistent for all players worldwide.
 
-Currently supports **8 groups** and **509 songs**, all with verified 30-second Deezer preview URLs.
+Currently supports **8 groups** and **509 songs**, all with verified 30-second Deezer preview URLs. All song titles use their English names so every song is typeable on a standard keyboard.
 
 ---
 
