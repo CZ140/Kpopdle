@@ -64,9 +64,10 @@ export default function HomePage() {
   // Check solved state for each active group from localStorage
   function getSolvedState(groupId) {
     const state = loadGameState(groupId, today)
-    if (!state || state.gameState === 'playing') return { isSolved: false, guessCount: 0, revealedSong: null }
+    if (!state || state.gameState === 'playing') return { isSolved: false, isWon: false, guessCount: 0, revealedSong: null }
     return {
       isSolved: true,
+      isWon: state.gameState === 'won',
       guessCount: state.guesses?.length ?? 0,
       revealedSong: state.revealedSong ?? null,
     }
@@ -173,12 +174,13 @@ export default function HomePage() {
         ) : (
           <div className="kp-card-grid">
             {groups.map((group) => {
-              const { isSolved, guessCount, revealedSong } = getSolvedState(group.id)
+              const { isSolved, isWon, guessCount, revealedSong } = getSolvedState(group.id)
               return (
                 <GroupCard
                   key={group.id}
                   group={group}
                   isSolved={isSolved}
+                  isWon={isWon}
                   guessCount={guessCount}
                   revealedSong={revealedSong}
                 />

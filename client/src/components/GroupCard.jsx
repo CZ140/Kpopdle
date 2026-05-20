@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 
-export default function GroupCard({ group, isSolved = false, guessCount = 0, revealedSong = null }) {
+export default function GroupCard({ group, isSolved = false, isWon = false, guessCount = 0, revealedSong = null }) {
   const navigate = useNavigate()
   const isActive = group.active
 
@@ -28,20 +28,6 @@ export default function GroupCard({ group, isSolved = false, guessCount = 0, rev
       {/* Frost overlay */}
       <div className="kp-card-frost" />
 
-      {/* Solved checkmark */}
-      {isSolved && (
-        <div
-          className="absolute z-[3] flex items-center justify-center rounded-full text-sm font-black text-green-950"
-          style={{
-            top: 22, right: 22,
-            width: 28, height: 28,
-            background: '#22c55e',
-            boxShadow: '0 0 16px rgba(34,197,94,0.6)',
-          }}
-        >
-          ✓
-        </div>
-      )}
 
       {/* Guess progress strip */}
       <div className="kp-stat-strip">
@@ -56,18 +42,28 @@ export default function GroupCard({ group, isSolved = false, guessCount = 0, rev
         style={{ padding: 22 }}
       >
         {/* Top row */}
-        <div className="flex justify-between items-start">
-          {!isSolved && (
-            <span
-              className="font-mono text-[10px] tracking-[0.16em] text-white/55 px-[9px] py-[5px] rounded-full border border-white/[0.12]"
-              style={{ background: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(10px)' }}
-            >
-              #{String(group.index).padStart(3, '0')}
-            </span>
-          )}
-          <span className={`font-mono text-[10px] tracking-[0.1em] text-white/60${isSolved ? '' : ' ml-auto'}`}>
+        <div className="flex justify-between items-center">
+          <span className="font-mono text-[10px] tracking-[0.1em] text-white/60">
             {group.members} MEMBERS
           </span>
+          {/* Status indicator */}
+          {!isSolved ? (
+            <div className="w-6 h-6 rounded-full border-2 border-white/20" />
+          ) : isWon ? (
+            <div
+              className="w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-black text-green-950"
+              style={{ background: '#22c55e', boxShadow: '0 0 12px rgba(34,197,94,0.55)' }}
+            >
+              ✓
+            </div>
+          ) : (
+            <div
+              className="w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-black text-white"
+              style={{ background: 'rgba(239,68,68,0.85)', boxShadow: '0 0 12px rgba(239,68,68,0.45)' }}
+            >
+              ✕
+            </div>
+          )}
         </div>
 
         {/* Bottom content */}
