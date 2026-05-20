@@ -87,10 +87,10 @@ export default function GroupCard({ group, isSolved = false, guessCount = 0, rev
           </p>
           <div className="flex items-center justify-between gap-3">
             {/* Today's game label */}
-            <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/60">
+            <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/60 min-w-0">
               Today's game
               {isActive ? (
-                <span className="block font-sans normal-case text-[13px] font-semibold tracking-tight mt-1 text-white/95 kp-song-text">
+                <span className="block font-sans normal-case text-[13px] font-semibold tracking-tight mt-1 text-white/95 kp-song-text truncate">
                   {isSolved && revealedSong ? `"${revealedSong.title}"` : '▓▓▓▓ ▓▓▓▓▓▓'}
                 </span>
               ) : (
