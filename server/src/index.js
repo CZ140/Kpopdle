@@ -48,6 +48,8 @@ if (process.env.NODE_ENV === 'production') {
 app.listen(PORT, () => {
   console.log(`K-popdle server running on port ${PORT}`)
   warmCache()
+  // Deezer URLs expire in ~29 min — re-warm every 20 min to stay ahead
+  setInterval(warmCache, 20 * 60 * 1000)
 })
 
 async function warmCache() {

@@ -28,7 +28,7 @@ export function useAudioPlayer(previewUrl, durations = SNIPPET_DURATIONS, isGame
       audio.volume = getSavedVolume()
       audio.addEventListener('loadedmetadata', () => {
         if (audio.duration && isFinite(audio.duration)) {
-          setAudioDuration(audio.duration)
+          setAudioDuration(Math.round(audio.duration))
         }
       })
       audioRef.current = audio
