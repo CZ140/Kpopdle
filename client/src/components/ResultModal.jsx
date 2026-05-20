@@ -30,7 +30,6 @@ export default function ResultModal({ gameState, revealedSong, guesses, gameNumb
         <div className="text-center mb-6">
           {won ? (
             <>
-              <div className="text-4xl mb-2">*</div>
               <h2 className="text-2xl font-black text-gradient mb-1">You got it!</h2>
               <p className="text-sm text-white/40">
                 Guessed in {guesses.length} {guesses.length === 1 ? 'try' : 'tries'}
