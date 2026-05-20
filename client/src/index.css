@@ -312,7 +312,7 @@ body {
 .kpop-card:not(.inactive):hover::after { opacity: 0.85; }
 .kpop-card:not(.inactive):hover .kp-card-gradient { opacity: 1; }
 .kpop-card:not(.inactive):hover .kp-play-arrow { transform: translateX(4px); }
-.kpop-card:not(.inactive):hover .kp-song-text { filter: blur(3px); }
+.kpop-card:not(.inactive):not(.solved):hover .kp-song-text { filter: blur(3px); }
 
 /* Solved state — green specular */
 .kpop-card.solved::before {
