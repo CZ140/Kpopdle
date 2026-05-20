@@ -73,6 +73,9 @@ Replay any past daily game. The same HMAC algorithm that picks today's song work
 
 ![Archive Modal](docs/screenshot-archive.png)
 
+### 🌐 K-POPDLE — Cross-Group Daily Challenge
+A separate daily game at `/kpopdle` that draws from the full merged catalog of all 8 active groups. The song could be from any group — players must identify it without knowing which group it's from. The autocomplete labels each song with its group (e.g. `Black Mamba (aespa)`) for disambiguation, and the group is revealed in the result. Share output correctly labels results as `K-POPDLE #N M/6`.
+
 ### 📊 Analytics Collection
 Every completed daily game anonymously records: group, song, guess count, win/loss, every wrong guess made, hints used, and difficulty. Stored in a local SQLite database and queryable via API endpoints.
 
@@ -187,7 +190,7 @@ On first start the server warms the Deezer preview cache for all 8 groups before
 - [x] Phase 4 — Archive mode (replay any past daily game)
 - [x] Phase 5 — Hint system (era / year / first letter, tracked in share output)
 - [x] Phase 6 — Difficulty modes (Easy / Normal / Hard clip lengths)
-- [ ] Phase 7 — Cross-group challenge (daily game drawn from all 8 catalogs)
+- [x] Phase 7 — K-POPDLE cross-group challenge (daily game drawn from all 8 catalogs, group revealed on finish)
 - [ ] Phase 8 — User accounts (magic-link auth, cloud streak sync)
 
 ---
