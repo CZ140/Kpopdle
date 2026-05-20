@@ -29,16 +29,18 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
 
   return (
     <>
-      <header className="relative z-10 flex items-center justify-between px-5 py-4 border-b border-white/[0.06]">
-        <button
-          onClick={() => navigate('/')}
-          className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-white/[0.08] transition-all duration-200 text-white/50 hover-group-primary"
-          aria-label="Back to homepage"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-            <path d="M19 12H5M12 5l-7 7 7 7" />
-          </svg>
-        </button>
+      <header className="relative z-10 flex items-center px-5 py-4 border-b border-white/[0.06]">
+        <div className="flex-1 flex items-center">
+          <button
+            onClick={() => navigate('/')}
+            className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-white/[0.08] transition-all duration-200 text-white/50 hover-group-primary"
+            aria-label="Back to homepage"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+              <path d="M19 12H5M12 5l-7 7 7 7" />
+            </svg>
+          </button>
+        </div>
 
         <div className="text-center">
           <h1 className="text-3xl font-black tracking-wider text-gradient select-none">
@@ -49,13 +51,13 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
               Archive · {archiveDate}
             </p>
           ) : practiceMode ? null : (
-            <p className="text-[10px] uppercase tracking-[0.3em] text-white/30 font-medium -mt-0.5">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-white/50 font-medium -mt-0.5">
               {meta.tagline}
             </p>
           )}
         </div>
 
-        <div className="flex items-center gap-1">
+        <div className="flex-1 flex items-center justify-end gap-1">
           {practiceMode ? (
             <button
               onClick={onExitPractice}
