@@ -4,6 +4,5 @@ dist/
 *.log
 .DS_Store
 .claude
-.env.exmaple
 .playwright-mcp
 PLAN_V2.md
