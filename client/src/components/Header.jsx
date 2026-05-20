@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useGroup, useArchiveDate, usePracticeMode } from '../lib/GroupContext'
+import { useGroup, useArchiveDate, usePracticeMode, useDifficulty } from '../lib/GroupContext'
 import StatsModal from './StatsModal'
+
+const DIFFICULTY_LABELS = { easy: 'Easy', normal: 'Normal', hard: 'Hard' }
 
 const GROUP_META = {
   twice:      { gameName: 'TWICEDLE',   tagline: 'Daily TWICE Song Quiz' },
@@ -18,6 +20,7 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
   const group = useGroup()
   const archiveDate = useArchiveDate()
   const practiceMode = usePracticeMode()
+  const difficulty = useDifficulty()
   const navigate = useNavigate()
   const [showStats, setShowStats] = useState(false)
 
@@ -80,12 +83,17 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
 
           <button
             onClick={onOpenDifficulty}
-            className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-white/[0.08] transition-all duration-200 text-white/50 hover-group-primary"
+            className="flex items-center gap-1 h-8 px-2.5 rounded-lg transition-all duration-200 font-mono text-[11px] font-bold uppercase tracking-wider"
+            style={{
+              color: difficulty === 'normal' ? 'rgba(255,255,255,0.45)' : 'var(--color-primary)',
+              background: difficulty === 'normal' ? 'rgba(255,255,255,0.05)' : 'color-mix(in srgb, var(--color-primary) 12%, transparent)',
+              border: difficulty === 'normal' ? '1px solid rgba(255,255,255,0.08)' : '1px solid color-mix(in srgb, var(--color-primary) 35%, transparent)',
+            }}
             aria-label="Difficulty"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-              <circle cx="12" cy="12" r="3" />
-              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14" />
+            {DIFFICULTY_LABELS[difficulty]}
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3 opacity-60">
+              <polyline points="6 9 12 15 18 9" />
             </svg>
           </button>
 
