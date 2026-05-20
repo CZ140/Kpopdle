@@ -8,6 +8,8 @@ import AudioPlayer from './AudioPlayer'
 import GuessList from './GuessList'
 import GuessInput from './GuessInput'
 import ResultModal from './ResultModal'
+import { recordGameResult } from '../lib/api'
+import { useGroup } from '../lib/GroupContext'
 
 export default function Game({ onStartPractice }) {
   const {
@@ -18,6 +20,9 @@ export default function Game({ onStartPractice }) {
     gameState,
     currentGuessNumber,
     revealedSong,
+    hints,
+    hintsUsed,
+    revealHint,
     loading,
     error,
     isArchive,
@@ -25,8 +30,10 @@ export default function Game({ onStartPractice }) {
     skipGuess,
   } = useGame()
 
+  const group = useGroup()
   const difficulty = useDifficulty()
-  const { play, stop, isPlaying, progress, currentDuration, setGuessNumber, volume, changeVolume } = useAudioPlayer(previewUrl, DIFFICULTIES[difficulty])
+  const gameOver = gameState !== GAME_STATES.PLAYING
+  const { play, stop, isPlaying, progress, currentDuration, maxDuration, durations, setGuessNumber, volume, changeVolume } = useAudioPlayer(previewUrl, DIFFICULTIES[difficulty], gameOver)
   const { recordResult } = useStats()
 
   const [showResult, setShowResult] = useState(false)
@@ -39,10 +46,24 @@ export default function Game({ onStartPractice }) {
   useEffect(() => {
     if (gameState !== GAME_STATES.PLAYING && !resultRecorded.current) {
       resultRecorded.current = true
-      if (!isArchive) recordResult(gameState, guesses.length)
+      if (!isArchive) {
+        recordResult(gameState, guesses.length)
+        if (revealedSong) {
+          recordGameResult({
+            groupId: group,
+            songId: revealedSong.id,
+            songTitle: revealedSong.title,
+            guessCount: guesses.length,
+            won: gameState === GAME_STATES.WON,
+            wrongGuesses: guesses.filter(g => g.type === 'wrong').map(g => g.song),
+            hintsUsed,
+            difficulty,
+          })
+        }
+      }
       setTimeout(() => setShowResult(true), 800)
     }
-  }, [gameState, guesses.length, recordResult, isArchive])
+  }, [gameState, guesses, recordResult, isArchive, revealedSong, group, hintsUsed, difficulty])
 
   if (loading) {
     return (
@@ -67,8 +88,6 @@ export default function Game({ onStartPractice }) {
     )
   }
 
-  const gameOver = gameState !== GAME_STATES.PLAYING
-
   return (
     <div className="w-full max-w-lg mx-auto pt-8">
       <AudioPlayer
@@ -77,10 +96,46 @@ export default function Game({ onStartPractice }) {
         isPlaying={isPlaying}
         progress={progress}
         currentDuration={currentDuration}
-        gameOver={false}
+        maxDuration={maxDuration}
+        durations={durations}
+        isGameOver={gameOver}
         volume={volume}
         onVolumeChange={changeVolume}
       />
+
+      {!gameOver && hints && (
+        <div className="mt-3 mb-1">
+          {hintsUsed > 0 && (
+            <div className="flex flex-col gap-1 mb-3">
+              {hintsUsed >= 1 && (
+                <p className="text-xs text-center text-white/50">
+                  💡 Era — <span className="text-white/70 font-medium">{hints.era}</span>
+                </p>
+              )}
+              {hintsUsed >= 2 && (
+                <p className="text-xs text-center text-white/50">
+                  💡 Year — <span className="text-white/70 font-medium">{hints.year}</span>
+                </p>
+              )}
+              {hintsUsed >= 3 && (
+                <p className="text-xs text-center text-white/50">
+                  💡 Starts with — <span className="text-white/70 font-medium">&ldquo;{hints.firstLetter}&rdquo;</span>
+                </p>
+              )}
+            </div>
+          )}
+          {hintsUsed < 3 && (
+            <div className="text-center">
+              <button
+                onClick={revealHint}
+                className="text-xs text-white/25 hover:text-white/50 transition-colors"
+              >
+                {hintsUsed === 0 ? '💡 Need a hint?' : `💡 Another hint? (${3 - hintsUsed} left)`}
+              </button>
+            </div>
+          )}
+        </div>
+      )}
 
       <GuessList guesses={guesses} />
 
@@ -123,6 +178,7 @@ export default function Game({ onStartPractice }) {
           revealedSong={revealedSong}
           guesses={guesses}
           gameNumber={gameNumber}
+          hintsUsed={hintsUsed}
           isArchive={isArchive}
           onStartPractice={!isArchive ? onStartPractice : undefined}
           onClose={() => setShowResult(false)}

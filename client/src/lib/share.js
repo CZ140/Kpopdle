@@ -1,6 +1,6 @@
 import { MAX_GUESSES } from './constants'
 
-export function generateShareText(gameNumber, guesses, won, difficulty = 'normal') {
+export function generateShareText(gameNumber, guesses, won, difficulty = 'normal', hintsUsed = 0) {
   const guessCount = won ? guesses.length : 'X'
   const badge = difficulty !== 'normal' ? `[${difficulty.toUpperCase()}] ` : ''
   const header = `${badge}Twicedle #${gameNumber} ${guessCount}/${MAX_GUESSES}`
@@ -13,7 +13,9 @@ export function generateShareText(gameNumber, guesses, won, difficulty = 'normal
     })
     .join('')
 
-  return `${header}\n\n${grid}`
+  const hintRow = hintsUsed > 0 ? '\n' + '\u{1F4A1}'.repeat(hintsUsed) : ''
+
+  return `${header}\n\n${grid}${hintRow}`
 }
 
 export async function copyToClipboard(text) {

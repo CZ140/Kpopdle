@@ -1,14 +1,10 @@
-import { SNIPPET_DURATIONS } from '../lib/constants'
-
-export default function AudioPlayer({ play, stop, isPlaying, progress, currentDuration, gameOver, volume = 0.8, onVolumeChange }) {
-  const maxDuration = SNIPPET_DURATIONS[SNIPPET_DURATIONS.length - 1]
-
+export default function AudioPlayer({ play, stop, isPlaying, progress, currentDuration, maxDuration, durations, isGameOver = false, volume = 0.8, onVolumeChange }) {
   return (
     <div className="w-full max-w-md mx-auto mb-8">
       {/* Progress bar container */}
       <div className="relative h-2.5 bg-white/[0.06] rounded-full overflow-hidden mb-3">
-        {/* Snippet duration markers */}
-        {SNIPPET_DURATIONS.slice(0, -1).map((d) => (
+        {/* Snippet duration markers — hidden when game is over */}
+        {!isGameOver && durations.slice(0, -1).map((d) => (
           <div
             key={d}
             className="absolute top-0 h-full w-px bg-white/10"
@@ -46,7 +42,7 @@ export default function AudioPlayer({ play, stop, isPlaying, progress, currentDu
       <div className="flex justify-center mb-5">
         <button
           onClick={isPlaying ? stop : play}
-          disabled={gameOver}
+          disabled={false}
           className={`w-[72px] h-[72px] rounded-full disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center transition-all duration-200 glow-btn ${isPlaying ? 'playing' : ''}`}
           style={{ background: 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))' }}
           aria-label={isPlaying ? 'Stop' : 'Play'}

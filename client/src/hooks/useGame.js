@@ -15,6 +15,8 @@ export function useGame() {
   const [guesses, setGuesses] = useState([])
   const [gameState, setGameState] = useState(GAME_STATES.PLAYING)
   const [revealedSong, setRevealedSong] = useState(null)
+  const [hints, setHints] = useState(null)
+  const [hintsUsed, setHintsUsed] = useState(0)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
@@ -36,6 +38,7 @@ export function useGame() {
         setGameDate(data.gameDate)
         setGameNumber(data.gameNumber)
         setPreviewUrl(data.previewUrl)
+        setHints(data.hints || null)
 
         const saved = isArchive
           ? loadArchiveGameState(group, data.gameDate)
@@ -45,6 +48,9 @@ export function useGame() {
           setGuesses(saved.guesses)
           setGameState(saved.gameState)
           setRevealedSong(saved.revealedSong)
+          setHintsUsed(saved.hintsUsed || 0)
+        } else {
+          setHintsUsed(0)
         }
       } catch (err) {
         setError('Failed to load game. Please try again.')
@@ -57,14 +63,14 @@ export function useGame() {
 
   useEffect(() => {
     if (gameDate && !loading) {
-      const state = { guesses, gameState, revealedSong }
+      const state = { guesses, gameState, revealedSong, hintsUsed }
       if (isArchive) {
         saveArchiveGameState(group, gameDate, state)
       } else {
         saveGameState(group, gameDate, state)
       }
     }
-  }, [group, gameDate, guesses, gameState, revealedSong, loading, isArchive])
+  }, [group, gameDate, guesses, gameState, revealedSong, hintsUsed, loading, isArchive])
 
   const makeGuess = useCallback(async (songTitle) => {
     if (gameState !== GAME_STATES.PLAYING) return
@@ -93,6 +99,10 @@ export function useGame() {
     }
   }, [group, gameState, currentGuessNumber, guesses, gameDate])
 
+  const revealHint = useCallback(() => {
+    setHintsUsed(prev => Math.min(prev + 1, 3))
+  }, [])
+
   const skipGuess = useCallback(async () => {
     if (gameState !== GAME_STATES.PLAYING) return
     if (currentGuessNumber >= MAX_GUESSES) return
@@ -120,6 +130,9 @@ export function useGame() {
     gameState,
     currentGuessNumber,
     revealedSong,
+    hints,
+    hintsUsed,
+    revealHint,
     loading,
     error,
     isArchive,

@@ -40,6 +40,15 @@ export async function fetchPracticeGame(group) {
   return res.json()
 }
 
+export function recordGameResult(payload) {
+  // Fire-and-forget — never block the UI on this
+  fetch(`${API_BASE}/stats/record`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  }).catch(() => {})
+}
+
 export async function submitPracticeGuess(group, practiceSongId, guess) {
   const res = await fetch(`${API_BASE}/${group}/game/guess`, {
     method: 'POST',

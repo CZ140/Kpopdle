@@ -52,14 +52,29 @@ export default function HomePage() {
   const [loadingGroups, setLoadingGroups] = useState(true)
 
   useEffect(() => {
-    fetchGroups()
-      .then((data) => setGroups(data.map((g, i) => ({ ...g, index: i + 1 }))))
-      .catch(() => setGroups([]))
-      .finally(() => setLoadingGroups(false))
+    let cancelled = false
+    async function load(attempts = 0) {
+      try {
+        const data = await fetchGroups()
+        if (!cancelled) setGroups(data.map((g, i) => ({ ...g, index: i + 1 })))
+      } catch {
+        if (!cancelled && attempts < 4) {
+          setTimeout(() => load(attempts + 1), 1500)
+          return
+        }
+        if (!cancelled) setGroups([])
+      } finally {
+        if (!cancelled) setLoadingGroups(false)
+      }
+    }
+    load()
+    return () => { cancelled = true }
   }, [])
 
   const today = getKSTDateString()
-  const stats = loadStats('twice')
+
+  // Best current streak across all loaded groups
+  const bestStreak = groups.reduce((max, g) => Math.max(max, loadStats(g.id).currentStreak), 0)
 
   // Check solved state for each active group from localStorage
   function getSolvedState(groupId) {
@@ -104,7 +119,7 @@ export default function HomePage() {
               className="px-3 py-1.5 rounded-full border border-white/[0.14] text-white/62 text-[12px]"
               style={{ background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(20px)' }}
             >
-              🔥 Streak <b className="text-[#FF2D78] font-bold">{stats.currentStreak}</b>
+              🔥 Streak <b className="text-[#FF2D78] font-bold">{bestStreak}</b>
             </div>
             <div>{formatTopbarDate()}</div>
           </div>

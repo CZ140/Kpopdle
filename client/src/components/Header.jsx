@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useGroup, useArchiveDate, usePracticeMode, useDifficulty } from '../lib/GroupContext'
+import { loadStats } from '../lib/storage'
 import StatsModal from './StatsModal'
 
 const DIFFICULTY_LABELS = { easy: 'Easy', normal: 'Normal', hard: 'Hard' }
@@ -26,6 +27,7 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
 
   const meta = GROUP_META[group] ?? GROUP_META.twice
   const isArchive = archiveDate !== null
+  const currentStreak = loadStats(group).currentStreak
 
   return (
     <>
@@ -98,6 +100,15 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
               <polyline points="6 9 12 15 18 9" />
             </svg>
           </button>
+
+          {!practiceMode && !isArchive && currentStreak > 0 && (
+            <div
+              className="h-9 px-3 flex items-center font-mono text-[13px] font-bold rounded-xl"
+              style={{ color: 'var(--color-primary)', background: 'color-mix(in srgb, var(--color-primary) 10%, transparent)' }}
+            >
+              🔥{currentStreak}
+            </div>
+          )}
 
           <button
             onClick={() => setShowStats(true)}

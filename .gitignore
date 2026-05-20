@@ -6,3 +6,4 @@ dist/
 .claude
 .playwright-mcp
 PLAN_V2.md
+*.db

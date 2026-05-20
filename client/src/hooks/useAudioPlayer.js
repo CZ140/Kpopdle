@@ -12,30 +12,31 @@ function getSavedVolume() {
   }
 }
 
-export function useAudioPlayer(previewUrl, durations = SNIPPET_DURATIONS) {
+export function useAudioPlayer(previewUrl, durations = SNIPPET_DURATIONS, isGameOver = false) {
   const audioRef = useRef(null)
   const animationFrameRef = useRef(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const [progress, setProgress] = useState(0)
   const [currentGuess, setCurrentGuess] = useState(0)
   const [volume, setVolume] = useState(getSavedVolume)
-
-  const currentDuration = durations[Math.min(currentGuess, durations.length - 1)]
+  const [audioDuration, setAudioDuration] = useState(30)
 
   useEffect(() => {
     if (previewUrl) {
-      audioRef.current = new Audio(previewUrl)
-      audioRef.current.preload = 'auto'
-      audioRef.current.volume = getSavedVolume()
+      const audio = new Audio(previewUrl)
+      audio.preload = 'auto'
+      audio.volume = getSavedVolume()
+      audio.addEventListener('loadedmetadata', () => {
+        if (audio.duration && isFinite(audio.duration)) {
+          setAudioDuration(audio.duration)
+        }
+      })
+      audioRef.current = audio
 
       return () => {
-        if (audioRef.current) {
-          audioRef.current.pause()
-          audioRef.current = null
-        }
-        if (animationFrameRef.current) {
-          cancelAnimationFrame(animationFrameRef.current)
-        }
+        audio.pause()
+        audioRef.current = null
+        if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current)
       }
     }
   }, [previewUrl])
@@ -47,6 +48,10 @@ export function useAudioPlayer(previewUrl, durations = SNIPPET_DURATIONS) {
     try { localStorage.setItem(VOLUME_KEY, String(clamped)) } catch {}
   }, [])
 
+  const snippetDuration = durations[Math.min(currentGuess, durations.length - 1)]
+  const currentDuration = isGameOver ? audioDuration : snippetDuration
+  const maxDuration = isGameOver ? audioDuration : durations[durations.length - 1]
+
   const play = useCallback(() => {
     const audio = audioRef.current
     if (!audio || isPlaying) return
@@ -57,12 +62,15 @@ export function useAudioPlayer(previewUrl, durations = SNIPPET_DURATIONS) {
     audio.play()
 
     const startTime = Date.now()
+    const dur = isGameOver ? (audio.duration || audioDuration) : snippetDuration
+
+    let onEnded = null
+
     const tick = () => {
       const elapsed = (Date.now() - startTime) / 1000
-      const pct = Math.min(elapsed / currentDuration, 1)
-      setProgress(pct)
+      setProgress(Math.min(elapsed / dur, 1))
 
-      if (elapsed >= currentDuration) {
+      if (!isGameOver && elapsed >= dur) {
         audio.pause()
         setIsPlaying(false)
         setProgress(1)
@@ -70,16 +78,23 @@ export function useAudioPlayer(previewUrl, durations = SNIPPET_DURATIONS) {
         animationFrameRef.current = requestAnimationFrame(tick)
       }
     }
+
+    if (isGameOver) {
+      onEnded = () => {
+        cancelAnimationFrame(animationFrameRef.current)
+        setIsPlaying(false)
+        setProgress(1)
+        audio.removeEventListener('ended', onEnded)
+      }
+      audio.addEventListener('ended', onEnded)
+    }
+
     animationFrameRef.current = requestAnimationFrame(tick)
-  }, [currentDuration, isPlaying])
+  }, [snippetDuration, isPlaying, isGameOver, audioDuration])
 
   const stop = useCallback(() => {
-    if (audioRef.current) {
-      audioRef.current.pause()
-    }
-    if (animationFrameRef.current) {
-      cancelAnimationFrame(animationFrameRef.current)
-    }
+    if (audioRef.current) audioRef.current.pause()
+    if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current)
     setIsPlaying(false)
     setProgress(0)
   }, [])
@@ -89,5 +104,5 @@ export function useAudioPlayer(previewUrl, durations = SNIPPET_DURATIONS) {
     setProgress(0)
   }, [])
 
-  return { play, stop, isPlaying, progress, currentDuration, setGuessNumber, volume, changeVolume }
+  return { play, stop, isPlaying, progress, currentDuration, maxDuration, durations, setGuessNumber, volume, changeVolume }
 }

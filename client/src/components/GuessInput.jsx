@@ -36,8 +36,10 @@ export default function GuessInput({ onGuess, onSkip, disabled }) {
 
   function handleKeyDown(e) {
     if (!showDropdown || filtered.length === 0) {
-      if (e.key === 'Enter' && filtered.length === 1) {
-        handleSelect(filtered[0])
+      if (e.key === 'Enter') {
+        const exact = filtered.find((s) => s.toLowerCase() === query.toLowerCase())
+        if (exact) handleSelect(exact)
+        else if (filtered.length === 1) handleSelect(filtered[0])
       }
       return
     }
@@ -52,8 +54,13 @@ export default function GuessInput({ onGuess, onSkip, disabled }) {
       e.preventDefault()
       if (selectedIndex >= 0) {
         handleSelect(filtered[selectedIndex])
-      } else if (filtered.length === 1) {
-        handleSelect(filtered[0])
+      } else {
+        const exact = filtered.find((s) => s.toLowerCase() === query.toLowerCase())
+        if (exact) {
+          handleSelect(exact)
+        } else if (filtered.length === 1) {
+          handleSelect(filtered[0])
+        }
       }
     } else if (e.key === 'Tab') {
       e.preventDefault()

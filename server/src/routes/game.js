@@ -20,6 +20,11 @@ router.get('/today', async (req, res) => {
       gameNumber,
       previewUrl,
       totalSongs: getSongCountForGroup(group),
+      hints: {
+        era: song.album,
+        year: song.releaseYear,
+        firstLetter: song.title[0].toUpperCase(),
+      },
     })
   } catch (err) {
     console.error('Error fetching daily game:', err)
@@ -53,6 +58,11 @@ router.get('/archive/:date', async (req, res) => {
       gameNumber,
       previewUrl,
       totalSongs: getSongCountForGroup(group),
+      hints: {
+        era: song.album,
+        year: song.releaseYear,
+        firstLetter: song.title[0].toUpperCase(),
+      },
     })
   } catch (err) {
     console.error('Error fetching archive game:', err)
@@ -141,6 +151,7 @@ router.post('/guess', (req, res) => {
       correct: isCorrect,
       gameOver: isCorrect,
       song: {
+        id: song.id,
         title: song.title,
         album: song.album,
         releaseYear: song.releaseYear,

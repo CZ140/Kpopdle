@@ -2,12 +2,12 @@ import { useState } from 'react'
 import { generateShareText, copyToClipboard } from '../lib/share'
 import { useDifficulty } from '../lib/GroupContext'
 
-export default function ShareButton({ gameNumber, guesses, won }) {
+export default function ShareButton({ gameNumber, guesses, won, hintsUsed = 0 }) {
   const difficulty = useDifficulty()
   const [copied, setCopied] = useState(false)
 
   async function handleShare() {
-    const text = generateShareText(gameNumber, guesses, won, difficulty)
+    const text = generateShareText(gameNumber, guesses, won, difficulty, hintsUsed)
     const success = await copyToClipboard(text)
     if (success) {
       setCopied(true)

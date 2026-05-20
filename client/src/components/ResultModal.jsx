@@ -1,7 +1,7 @@
 import ShareButton from './ShareButton'
 import Countdown from './Countdown'
 
-export default function ResultModal({ gameState, revealedSong, guesses, gameNumber, isArchive = false, isPractice = false, onPlayAgain, onStartPractice, onClose }) {
+export default function ResultModal({ gameState, revealedSong, guesses, gameNumber, hintsUsed = 0, isArchive = false, isPractice = false, onPlayAgain, onStartPractice, onClose }) {
   const won = gameState === 'won'
 
   return (
@@ -41,6 +41,11 @@ export default function ResultModal({ gameState, revealedSong, guesses, gameNumb
               <p className="text-sm text-white/40">The answer was:</p>
             </>
           )}
+          {hintsUsed > 0 && (
+            <p className="text-xs text-white/30 mt-1">
+              {'💡'.repeat(hintsUsed)} {hintsUsed === 1 ? '1 hint used' : `${hintsUsed} hints used`}
+            </p>
+          )}
         </div>
 
         {revealedSong && (
@@ -77,7 +82,7 @@ export default function ResultModal({ gameState, revealedSong, guesses, gameNumb
             <p className="text-xs text-white/25 font-mono uppercase tracking-widest">Archive · Results not saved to stats</p>
           ) : (
             <>
-              <ShareButton gameNumber={gameNumber} guesses={guesses} won={won} />
+              <ShareButton gameNumber={gameNumber} guesses={guesses} won={won} hintsUsed={hintsUsed} />
               <Countdown />
             </>
           )}
