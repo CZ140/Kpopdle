@@ -90,7 +90,7 @@ app.use('/api', (req, res) => {
 if (process.env.NODE_ENV === 'production') {
   const clientBuild = join(__dirname, '../../client/dist')
   app.use(express.static(clientBuild))
-  app.get('*', (req, res) => {
+  app.get(/(.*)/, (req, res) => {
     res.sendFile(join(clientBuild, 'index.html'))
   })
 }
