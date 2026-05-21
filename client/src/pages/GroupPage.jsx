@@ -1,8 +1,10 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useMemo } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { GroupContext } from '../lib/GroupContext'
 import { migrateStorageIfNeeded, loadDifficulty, saveDifficulty } from '../lib/storage'
 import { ALL_GROUP_IDS } from '../lib/constants'
+import { getKSTDateString } from '../lib/dateUtils'
+import { useSound } from '../lib/SoundContext'
 import Game from '../components/Game'
 import PracticeGame from '../components/PracticeGame'
 import Header from '../components/Header'
@@ -35,9 +37,22 @@ const GROUP_LAUNCH_DATES = {
   blackpink:  '2026-05-18',
 }
 
+function subtractDay(dateStr) {
+  const d = new Date(dateStr)
+  d.setUTCDate(d.getUTCDate() - 1)
+  return d.toISOString().split('T')[0]
+}
+
+function addDay(dateStr) {
+  const d = new Date(dateStr)
+  d.setUTCDate(d.getUTCDate() + 1)
+  return d.toISOString().split('T')[0]
+}
+
 export default function GroupPage() {
   const { group } = useParams()
   const navigate = useNavigate()
+  const { playSound } = useSound()
 
   const [archiveDate, setArchiveDate] = useState(null)
   const [showArchive, setShowArchive] = useState(false)
@@ -76,17 +91,49 @@ export default function GroupPage() {
     setPracticeMode(false)
   }, [])
 
+  // Compute these before any conditional return so hooks below always run
+  const launchDate = GROUP_LAUNCH_DATES[group] ?? '2099-01-01'
+  const today = getKSTDateString()
+  const yesterday = subtractDay(today)
+
+  const prevDate = useMemo(() => {
+    if (archiveDate === null) {
+      return yesterday >= launchDate ? yesterday : null
+    }
+    const prev = subtractDay(archiveDate)
+    return prev >= launchDate ? prev : null
+  }, [archiveDate, launchDate, yesterday])
+
+  const nextDate = useMemo(() => {
+    if (archiveDate === null) return null
+    const next = addDay(archiveDate)
+    if (next >= today) return null // null means "go to today"
+    return next
+  }, [archiveDate, today])
+
+  const handlePrev = useCallback(() => {
+    if (prevDate) {
+      playSound('navigate')
+      setArchiveDate(prevDate)
+    }
+  }, [prevDate, playSound])
+
+  const handleNext = useCallback(() => {
+    if (archiveDate !== null) {
+      playSound('navigate')
+      setArchiveDate(nextDate)
+    }
+  }, [archiveDate, nextDate, playSound])
+
   if (!VALID_GROUPS.includes(group)) {
     navigate('/')
     return null
   }
 
-  const launchDate = GROUP_LAUNCH_DATES[group]
-
   const colors = GROUP_GAME_COLORS[group] ?? GROUP_GAME_COLORS.twice
 
   return (
-    <GroupContext.Provider value={{ id: group, archiveDate, practiceMode, difficulty, setDifficulty }}>
+    <GroupContext.Provider value={{ id: group, archiveDate, setArchiveDate, practiceMode, difficulty, setDifficulty }}>
       <div
         className="min-h-screen flex flex-col bg-twice-dark bg-orbs"
         style={{ '--color-primary': colors.primary, '--color-secondary': colors.secondary }}
@@ -104,6 +151,36 @@ export default function GroupPage() {
             <Game key={archiveDate ?? 'today'} onStartPractice={startPractice} />
           )}
         </main>
+
+        {/* Day navigation arrows */}
+        {!practiceMode && (
+          <>
+            {prevDate !== null && (
+              <button
+                onClick={handlePrev}
+                className="fixed left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.08] text-white/35 hover:text-white/70 transition-all duration-200"
+                aria-label="Previous day"
+                title="Previous game"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
+              </button>
+            )}
+            {archiveDate !== null && (
+              <button
+                onClick={handleNext}
+                className="fixed right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.08] text-white/35 hover:text-white/70 transition-all duration-200"
+                aria-label="Next day"
+                title={nextDate === null ? "Today's game" : "Next game"}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </button>
+            )}
+          </>
+        )}
       </div>
 
       {showDifficulty && (

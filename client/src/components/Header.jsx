@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useGroup, useArchiveDate, usePracticeMode, useDifficulty } from '../lib/GroupContext'
 import { loadStats } from '../lib/storage'
 import { useAuth } from '../lib/AuthContext'
+import { useSound } from '../lib/SoundContext'
 import StatsModal from './StatsModal'
 
 const DIFFICULTY_LABELS = { easy: 'Easy', normal: 'Normal', hard: 'Hard' }
@@ -27,7 +28,8 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
   const navigate = useNavigate()
   const [showStats, setShowStats] = useState(false)
 
-  const { user, login, logout } = useAuth()
+  const { user, login } = useAuth()
+  const { playSound, muted, toggleMuted } = useSound()
   const meta = GROUP_META[group] ?? GROUP_META.twice
   const isArchive = archiveDate !== null
   const currentStreak = loadStats(group).currentStreak
@@ -65,7 +67,7 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
         <div className="flex-1 flex items-center justify-end gap-1">
           {practiceMode ? (
             <button
-              onClick={onExitPractice}
+              onClick={() => { playSound('click'); onExitPractice() }}
               className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-white/[0.08] transition-all duration-200 text-white/50 hover-group-primary"
               aria-label="Exit Practice"
             >
@@ -76,20 +78,21 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
             </button>
           ) : onOpenArchive ? (
             <button
-              onClick={onOpenArchive}
-              className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-white/[0.08] transition-all duration-200 text-white/50 hover-group-primary"
-              aria-label="Archive"
+              onClick={() => { playSound('modal'); onOpenArchive() }}
+              className="flex items-center gap-1.5 h-9 px-3 rounded-xl hover:bg-white/[0.08] transition-all duration-200 text-white/50 hover-group-primary"
+              aria-label="Past Games"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 flex-shrink-0">
                 <polyline points="21 8 21 21 3 21 3 8" />
                 <rect x="1" y="3" width="22" height="5" />
                 <line x1="10" y1="12" x2="14" y2="12" />
               </svg>
+              <span className="text-[12px] font-semibold">Past Games</span>
             </button>
           ) : null}
 
           <button
-            onClick={onOpenDifficulty}
+            onClick={() => { playSound('modal'); onOpenDifficulty() }}
             className="flex items-center gap-1.5 h-9 px-3.5 rounded-xl transition-all duration-200 font-mono text-[13px] font-bold uppercase tracking-wider"
             style={{
               color: difficulty === 'normal' ? 'rgba(255,255,255,0.45)' : 'var(--color-primary)',
@@ -113,11 +116,31 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
             </div>
           )}
 
+          <button
+            onClick={() => { playSound('click'); toggleMuted() }}
+            className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-white/[0.08] transition-all duration-200 text-white/35 hover:text-white/60"
+            aria-label={muted ? 'Unmute sounds' : 'Mute sounds'}
+            title={muted ? 'Unmute sounds' : 'Mute sounds'}
+          >
+            {muted ? (
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                <line x1="23" y1="9" x2="17" y2="15" />
+                <line x1="17" y1="9" x2="23" y2="15" />
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
+              </svg>
+            )}
+          </button>
+
           {user ? (
             <button
-              onClick={logout}
+              onClick={() => { playSound('click'); navigate('/account') }}
               className="flex items-center gap-2 h-9 px-2 rounded-xl hover:bg-white/[0.08] transition-all duration-200"
-              title={`Signed in as ${user.email} — click to sign out`}
+              title={`Account — ${user.email}`}
             >
               {user.avatarUrl ? (
                 <img src={user.avatarUrl} alt={user.displayName} className="w-6 h-6 rounded-full" referrerPolicy="no-referrer" />
@@ -129,7 +152,7 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
             </button>
           ) : user === null ? (
             <button
-              onClick={login}
+              onClick={() => { playSound('click'); login() }}
               className="h-9 px-3 rounded-xl text-[12px] font-semibold text-white/50 hover:text-white/80 hover:bg-white/[0.08] transition-all duration-200"
             >
               Sign in
@@ -137,7 +160,7 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
           ) : null}
 
           <button
-            onClick={() => setShowStats(true)}
+            onClick={() => { playSound('modal'); setShowStats(true) }}
             className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-white/[0.08] transition-all duration-200 text-white/50 hover-group-secondary"
             aria-label="Statistics"
           >

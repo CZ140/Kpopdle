@@ -11,6 +11,7 @@ import ResultModal from './ResultModal'
 import { recordGameResult, fetchCommunityStats } from '../lib/api'
 import { useGroup } from '../lib/GroupContext'
 import { useAuth } from '../lib/AuthContext'
+import { useSound } from '../lib/SoundContext'
 
 export default function Game({ onStartPractice }) {
   const {
@@ -34,6 +35,7 @@ export default function Game({ onStartPractice }) {
   const group = useGroup()
   const difficulty = useDifficulty()
   const { user, login } = useAuth()
+  const { playSound } = useSound()
   const gameOver = gameState !== GAME_STATES.PLAYING
   const [showLoginPrompt, setShowLoginPrompt] = useState(false)
   const { play, stop, isPlaying, progress, currentDuration, maxDuration, durations, setGuessNumber, volume, changeVolume, hasAudio } = useAudioPlayer(previewUrl, DIFFICULTIES[difficulty], gameOver)
@@ -42,14 +44,28 @@ export default function Game({ onStartPractice }) {
   const [showResult, setShowResult] = useState(false)
   const [communityStats, setCommunityStats] = useState(null)
   const resultRecorded = useRef(false)
+  const lastGuessCount = useRef(0)
 
   useEffect(() => {
     setGuessNumber(currentGuessNumber)
   }, [currentGuessNumber, setGuessNumber])
 
+  // Play sound when a new guess is added
+  useEffect(() => {
+    if (guesses.length > lastGuessCount.current) {
+      lastGuessCount.current = guesses.length
+      const last = guesses[guesses.length - 1]
+      if (last?.type === 'correct') playSound('correct')
+      else if (last?.type === 'wrong') playSound('wrong')
+      // skip sound is played directly in GuessInput
+    }
+  }, [guesses, playSound])
+
   useEffect(() => {
     if (gameState !== GAME_STATES.PLAYING && !resultRecorded.current) {
       resultRecorded.current = true
+      if (gameState === GAME_STATES.WON) playSound('win')
+      else if (gameState === GAME_STATES.LOST) playSound('loss')
       if (!isArchive) {
         recordResult(gameState, guesses.length)
         // Show login prompt once per browser session to logged-out users

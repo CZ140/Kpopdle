@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import GroupPage from './pages/GroupPage'
 import KpopdlePage from './pages/KpopdlePage'
+import AccountPage from './pages/AccountPage'
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/kpopdle" element={<KpopdlePage />} />
+        <Route path="/account" element={<AccountPage />} />
         <Route path="/:group" element={<GroupPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

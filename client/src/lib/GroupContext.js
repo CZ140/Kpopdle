@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react'
 
-export const GroupContext = createContext({ id: 'twice', archiveDate: null, practiceMode: false, difficulty: 'normal', setDifficulty: () => {} })
+export const GroupContext = createContext({ id: 'twice', archiveDate: null, setArchiveDate: () => {}, practiceMode: false, difficulty: 'normal', setDifficulty: () => {} })
 
 export function useGroup() {
   return useContext(GroupContext).id
@@ -8,6 +8,10 @@ export function useGroup() {
 
 export function useArchiveDate() {
   return useContext(GroupContext).archiveDate ?? null
+}
+
+export function useSetArchiveDate() {
+  return useContext(GroupContext).setArchiveDate
 }
 
 export function usePracticeMode() {
