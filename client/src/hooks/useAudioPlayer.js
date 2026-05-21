@@ -21,23 +21,24 @@ export function useAudioPlayer(previewUrl, durations = SNIPPET_DURATIONS, isGame
   const [volume, setVolume] = useState(getSavedVolume)
   const [audioDuration, setAudioDuration] = useState(30)
 
-  useEffect(() => {
-    if (previewUrl) {
-      const audio = new Audio(previewUrl)
-      audio.preload = 'auto'
-      audio.volume = getSavedVolume()
-      audio.addEventListener('loadedmetadata', () => {
-        if (audio.duration && isFinite(audio.duration)) {
-          setAudioDuration(Math.round(audio.duration))
-        }
-      })
-      audioRef.current = audio
+  const hasAudio = Boolean(previewUrl)
 
-      return () => {
-        audio.pause()
-        audioRef.current = null
-        if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current)
+  useEffect(() => {
+    if (!previewUrl) return
+    const audio = new Audio(previewUrl)
+    audio.preload = 'auto'
+    audio.volume = getSavedVolume()
+    audio.addEventListener('loadedmetadata', () => {
+      if (audio.duration && isFinite(audio.duration)) {
+        setAudioDuration(Math.round(audio.duration))
       }
+    })
+    audioRef.current = audio
+
+    return () => {
+      audio.pause()
+      audioRef.current = null
+      if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current)
     }
   }, [previewUrl])
 
@@ -59,7 +60,8 @@ export function useAudioPlayer(previewUrl, durations = SNIPPET_DURATIONS, isGame
     audio.currentTime = 0
     setIsPlaying(true)
     setProgress(0)
-    audio.play()
+
+    const playPromise = audio.play()
 
     const startTime = Date.now()
     const dur = isGameOver ? (audio.duration || audioDuration) : snippetDuration
@@ -90,6 +92,15 @@ export function useAudioPlayer(previewUrl, durations = SNIPPET_DURATIONS, isGame
     }
 
     animationFrameRef.current = requestAnimationFrame(tick)
+
+    // AbortError is normal — thrown when play() is interrupted by pause() or unmount
+    playPromise?.catch((err) => {
+      if (err.name === 'AbortError') return
+      cancelAnimationFrame(animationFrameRef.current)
+      if (onEnded) audio.removeEventListener('ended', onEnded)
+      setIsPlaying(false)
+      setProgress(0)
+    })
   }, [snippetDuration, isPlaying, isGameOver, audioDuration])
 
   const stop = useCallback(() => {
@@ -104,5 +115,5 @@ export function useAudioPlayer(previewUrl, durations = SNIPPET_DURATIONS, isGame
     setProgress(0)
   }, [])
 
-  return { play, stop, isPlaying, progress, currentDuration, maxDuration, durations, setGuessNumber, volume, changeVolume }
+  return { play, stop, isPlaying, progress, currentDuration, maxDuration, durations, setGuessNumber, volume, changeVolume, hasAudio }
 }

@@ -74,7 +74,7 @@ Replay any past daily game. The same HMAC algorithm that picks today's song work
 ![Archive Modal](docs/screenshot-archive.png)
 
 ### 🌐 K-POPDLE — Cross-Group Daily Challenge
-A separate daily game at `/kpopdle` that draws from the full merged catalog of all 8 active groups. The song could be from any group — players must identify it without knowing which group it's from. The autocomplete labels each song with its group (e.g. `Black Mamba (aespa)`) for disambiguation, and the group is revealed in the result. Share output correctly labels results as `K-POPDLE #N M/6`.
+A separate daily game at `/kpopdle` that draws from the full merged catalog of all 8 active groups. The song could be from any group — players must identify it without knowing which group it's from. The autocomplete labels each song with its group (e.g. `Black Mamba (aespa)`) for disambiguation, and the group is revealed in the result. Share output correctly labels results as `K-POPDLE #N M/6`. Archive mode is fully supported — replay any past K-POPDLE game from the archive button.
 
 ### 🔐 User Accounts
 Sign in with Google to sync your streaks, guess distributions, and game history across any device. Accounts are optional — the game is fully playable without signing in, with all stats kept in localStorage. On first login, existing localStorage stats are automatically imported to the cloud. After each daily game, stats are synced to the server so they're available on any device. A sign-in prompt appears once per browser session after your first completed game. Logged-in users see their Google avatar in the header and a "synced" indicator in the stats modal. Full GDPR account and data deletion available.
@@ -112,7 +112,14 @@ Game results are written to a SQLite database (`better-sqlite3`) at the end of e
 | `GET /api/stats/songs/:group` | Song difficulty ranking — hardest songs first |
 | `GET /api/stats/confusion/:group` | Most common wrong guesses per song (confusion matrix) |
 
-The POST is fire-and-forget from the client — it never blocks or affects gameplay.
+The POST is fire-and-forget from the client — it never blocks or affects gameplay. The record endpoint has its own tighter rate limit (10/min) and full input validation to prevent analytics pollution.
+
+### Security
+- Content-Security-Policy header restricts script, style, media, font, and image sources
+- Per-route rate limiting on sensitive endpoints (tighter than the global 100/15min baseline)
+- All DB writes use parameterized queries (no SQL injection surface)
+- `httpOnly` session cookies with `sameSite: lax` and `secure` in production
+- `ON DELETE CASCADE` throughout the user tables for clean GDPR erasure
 
 ### Multi-Group Architecture
 All routes are parameterised: `/api/:group/game/today`, `/api/:group/songs`, etc. A `validateGroup` middleware guards every route — inactive or unknown group IDs return 404, preventing catalog probing before a group launches.

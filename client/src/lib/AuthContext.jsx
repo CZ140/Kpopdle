@@ -1,8 +1,7 @@
 import { createContext, useContext, useState, useEffect, useCallback } from 'react'
 import { loadStats } from './storage'
 import { fetchCloudStats, importLocalStats } from './api'
-
-const ALL_GROUPS = ['twice','newjeans','lesserafim','aespa','redvelvet','kissoflife','ive','blackpink','kpopdle']
+import { ALL_GROUP_IDS } from './constants'
 
 const AuthContext = createContext(null)
 
@@ -24,7 +23,7 @@ export function AuthProvider({ children }) {
       const hasCloudData = Object.keys(cloud).some(g => cloud[g]?.gamesPlayed > 0)
       if (!hasCloudData) {
         const localMap = {}
-        for (const g of ALL_GROUPS) {
+        for (const g of ALL_GROUP_IDS) {
           const s = loadStats(g)
           if (s.gamesPlayed > 0) localMap[g] = s
         }

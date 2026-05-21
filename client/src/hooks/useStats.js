@@ -28,6 +28,10 @@ export function useStats() {
 
   const recordResult = useCallback((gameState, guessCount) => {
     setStats((prev) => {
+      const today = new Date().toISOString().split('T')[0]
+      // Guard against double-recording when the component remounts with an already-completed game
+      if (prev.lastPlayedDate === today) return prev
+
       const updated = { ...prev }
       updated.gamesPlayed += 1
 
@@ -42,7 +46,7 @@ export function useStats() {
         updated.currentStreak = 0
       }
 
-      updated.lastPlayedDate = new Date().toISOString().split('T')[0]
+      updated.lastPlayedDate = today
       saveStats(group, updated)
       if (user) saveCloudStats(group, updated)
 

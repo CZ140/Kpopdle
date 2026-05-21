@@ -12,7 +12,8 @@ db.exec(`
     hints_used   INTEGER NOT NULL DEFAULT 0,
     difficulty   TEXT    NOT NULL DEFAULT 'normal',
     played_at    TEXT    NOT NULL DEFAULT (datetime('now'))
-  )
+  );
+  CREATE INDEX IF NOT EXISTS idx_game_results_group ON game_results(group_id, played_at);
 `)
 
 export function recordGame({ groupId, songId, songTitle, guessCount, won, wrongGuesses, hintsUsed, difficulty }) {

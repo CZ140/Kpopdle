@@ -36,7 +36,7 @@ export default function Game({ onStartPractice }) {
   const { user, login } = useAuth()
   const gameOver = gameState !== GAME_STATES.PLAYING
   const [showLoginPrompt, setShowLoginPrompt] = useState(false)
-  const { play, stop, isPlaying, progress, currentDuration, maxDuration, durations, setGuessNumber, volume, changeVolume } = useAudioPlayer(previewUrl, DIFFICULTIES[difficulty], gameOver)
+  const { play, stop, isPlaying, progress, currentDuration, maxDuration, durations, setGuessNumber, volume, changeVolume, hasAudio } = useAudioPlayer(previewUrl, DIFFICULTIES[difficulty], gameOver)
   const { recordResult } = useStats()
 
   const [showResult, setShowResult] = useState(false)
@@ -109,6 +109,7 @@ export default function Game({ onStartPractice }) {
         isGameOver={gameOver}
         volume={volume}
         onVolumeChange={changeVolume}
+        hasAudio={hasAudio}
       />
 
       {!gameOver && hints && (

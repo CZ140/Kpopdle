@@ -1,4 +1,12 @@
-export default function AudioPlayer({ play, stop, isPlaying, progress, currentDuration, maxDuration, durations, isGameOver = false, volume = 0.8, onVolumeChange }) {
+export default function AudioPlayer({ play, stop, isPlaying, progress, currentDuration, maxDuration, durations, isGameOver = false, volume = 0.8, onVolumeChange, hasAudio = true }) {
+  if (!hasAudio) {
+    return (
+      <div className="w-full max-w-md mx-auto mb-8 flex items-center justify-center h-[180px]">
+        <p className="text-sm text-white/30 font-medium">Audio preview unavailable</p>
+      </div>
+    )
+  }
+
   return (
     <div className="w-full max-w-md mx-auto mb-8">
       {/* Progress bar container */}

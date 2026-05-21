@@ -5,17 +5,17 @@ import { getMergedPool } from '../data/songIndex.js'
 import { getKSTDateString } from '../utils/dateUtils.js'
 import groups from '../data/groups.json' with { type: 'json' }
 
+const KPOPDLE_LAUNCH = '2026-05-21'
+
 const router = Router()
 
-function activeGroups() {
-  return groups.filter(g => g.active)
-}
+const ACTIVE_GROUPS = groups.filter(g => g.active)
 
 router.get('/game/today', async (req, res) => {
   try {
-    const { song, dateString, gameNumber } = getKpopdleSongForDate(activeGroups(), getKSTDateString())
+    const { song, dateString, gameNumber } = getKpopdleSongForDate(ACTIVE_GROUPS, getKSTDateString())
     const previewUrl = await getPreviewUrl(song, song.deezerArtistName)
-    const pool = getMergedPool(activeGroups())
+    const pool = getMergedPool(ACTIVE_GROUPS)
 
     res.json({
       gameDate: dateString,
@@ -34,9 +34,45 @@ router.get('/game/today', async (req, res) => {
   }
 })
 
+router.get('/game/archive/:date', async (req, res) => {
+  const { date } = req.params
+
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+    return res.status(400).json({ error: 'Invalid date format. Use YYYY-MM-DD' })
+  }
+  const today = getKSTDateString()
+  if (date >= today) {
+    return res.status(400).json({ error: 'Archive only available for past games' })
+  }
+  if (date < KPOPDLE_LAUNCH) {
+    return res.status(400).json({ error: 'Date is before K-POPDLE launch' })
+  }
+
+  try {
+    const { song, dateString, gameNumber } = getKpopdleSongForDate(ACTIVE_GROUPS, date)
+    const previewUrl = await getPreviewUrl(song, song.deezerArtistName)
+    const pool = getMergedPool(ACTIVE_GROUPS)
+
+    res.json({
+      gameDate: dateString,
+      gameNumber,
+      previewUrl,
+      totalSongs: pool.length,
+      hints: {
+        era: song.album,
+        year: song.releaseYear,
+        firstLetter: song.title[0].toUpperCase(),
+      },
+    })
+  } catch (err) {
+    console.error('Error fetching kpopdle archive game:', err)
+    res.status(500).json({ error: 'Failed to load kpopdle archive game' })
+  }
+})
+
 router.get('/songs', (req, res) => {
   try {
-    const pool = getMergedPool(activeGroups())
+    const pool = getMergedPool(ACTIVE_GROUPS)
     // Label each song with its group so players can disambiguate in the autocomplete
     const songs = pool.map(s => `${s.title} (${s.groupDisplayName})`)
     res.json({ songs })
@@ -61,7 +97,7 @@ router.post('/game/guess', (req, res) => {
       return res.status(400).json({ error: 'Cannot guess future games' })
     }
 
-    const { song } = getKpopdleSongForDate(activeGroups(), gameDate)
+    const { song } = getKpopdleSongForDate(ACTIVE_GROUPS, gameDate)
 
     const songPayload = {
       id: song.id,

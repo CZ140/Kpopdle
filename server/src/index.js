@@ -26,12 +26,29 @@ const app = express()
 const PORT = process.env.PORT || 3001
 
 // Required for Railway (sits behind a reverse proxy — ensures secure cookies work)
+if (!process.env.SESSION_SECRET) {
+  console.warn('[kpopdle] SESSION_SECRET is not set — sessions are signed with a known default key. Set this in production.')
+}
+
 app.set('trust proxy', 1)
 
 app.use((req, res, next) => {
   res.setHeader('X-Content-Type-Options', 'nosniff')
   res.setHeader('X-Frame-Options', 'DENY')
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin')
+  res.setHeader('Content-Security-Policy', [
+    "default-src 'self'",
+    "script-src 'self'",
+    // 'unsafe-inline' required: React renders inline style attributes pervasively
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+    "font-src 'self' https://fonts.gstatic.com",
+    // https: covers Google profile picture CDN (multiple subdomains)
+    "img-src 'self' https: data:",
+    // Deezer preview audio — *.dzcdn.net covers all their CDN subdomains
+    "media-src 'self' https://*.dzcdn.net",
+    "connect-src 'self'",
+    "frame-ancestors 'none'",
+  ].join('; '))
   next()
 })
 

@@ -4,17 +4,13 @@ import GroupCard from '../components/GroupCard'
 import { fetchGroups } from '../lib/api'
 import { loadGameState, loadStats } from '../lib/storage'
 import { useAuth } from '../lib/AuthContext'
+import { getKSTDateString } from '../lib/dateUtils'
+import HowToPlayModal from '../components/HowToPlayModal'
 
-const TWICE_LAUNCH = new Date('2026-02-20')
+const PLATFORM_LAUNCH = new Date('2026-02-20')
 
 function getDayNumber() {
-  return Math.floor((Date.now() - TWICE_LAUNCH.getTime()) / 86400000) + 1
-}
-
-function getKSTDateString() {
-  const now = new Date()
-  const kst = new Date(now.getTime() + 9 * 3600000 + now.getTimezoneOffset() * 60000)
-  return kst.toISOString().slice(0, 10)
+  return Math.floor((Date.now() - PLATFORM_LAUNCH.getTime()) / 86400000) + 1
 }
 
 function formatTopbarDate() {
@@ -52,6 +48,7 @@ export default function HomePage() {
 
   const [groups, setGroups] = useState([])
   const [loadingGroups, setLoadingGroups] = useState(true)
+  const [showHowToPlay, setShowHowToPlay] = useState(false)
 
   useEffect(() => {
     let cancelled = false
@@ -264,7 +261,7 @@ export default function HomePage() {
             Made by <a href="https://github.com/CZ140" target="_blank" rel="noopener noreferrer" className="text-white/62 border-b border-white/[0.08] hover:text-white/90 transition-colors">@CZ140</a>
             {' · '}
             <button
-              onClick={() => navigate('/twice')}
+              onClick={() => setShowHowToPlay(true)}
               className="text-white/62 border-b border-white/[0.08] hover:text-[#FF2D78] transition-colors bg-transparent cursor-pointer font-mono text-[11px] uppercase tracking-[0.12em]"
             >
               How to play
@@ -272,6 +269,10 @@ export default function HomePage() {
           </div>
         </footer>
       </div>
+
+      {showHowToPlay && (
+        <HowToPlayModal onClose={() => setShowHowToPlay(false)} />
+      )}
     </>
   )
 }

@@ -24,3 +24,6 @@ export const GAME_NAMES = {
   blackpink:  'BPINKDLE',
   kpopdle:    'K-POPDLE',
 }
+
+// Single source of truth for all group IDs — update here when adding a new group
+export const ALL_GROUP_IDS = Object.keys(GAME_NAMES)
