@@ -4,6 +4,7 @@ import GroupCard from '../components/GroupCard'
 import { fetchGroups } from '../lib/api'
 import { loadGameState, loadStats } from '../lib/storage'
 import { useAuth } from '../lib/AuthContext'
+import { useSound } from '../lib/SoundContext'
 import { getKSTDateString } from '../lib/dateUtils'
 import HowToPlayModal from '../components/HowToPlayModal'
 
@@ -40,7 +41,8 @@ function useKSTCountdown() {
 export default function HomePage() {
   const countdown = useKSTCountdown()
   const navigate = useNavigate()
-  const { user, login, logout } = useAuth()
+  const { user, login } = useAuth()
+  const { playSound } = useSound()
 
   const [groups, setGroups] = useState([])
   const [loadingGroups, setLoadingGroups] = useState(true)
@@ -119,10 +121,10 @@ export default function HomePage() {
             <div>{formatTopbarDate()}</div>
             {user ? (
               <button
-                onClick={logout}
+                onClick={() => { playSound('click'); navigate('/account') }}
                 className="flex items-center gap-2 px-2.5 py-1.5 rounded-full border border-white/[0.14] text-white/62 text-[12px] hover:border-white/30 transition-colors"
                 style={{ background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(20px)' }}
-                title={`Signed in as ${user.email} — click to sign out`}
+                title={`Account — ${user.email}`}
               >
                 {user.avatarUrl ? (
                   <img src={user.avatarUrl} alt={user.displayName} className="w-4 h-4 rounded-full" referrerPolicy="no-referrer" />
@@ -135,7 +137,7 @@ export default function HomePage() {
               </button>
             ) : user === null ? (
               <button
-                onClick={login}
+                onClick={() => { playSound('click'); login() }}
                 className="px-3 py-1.5 rounded-full border border-white/[0.14] text-white/62 text-[12px] hover:border-white/30 hover:text-white/80 transition-colors"
                 style={{ background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(20px)' }}
               >

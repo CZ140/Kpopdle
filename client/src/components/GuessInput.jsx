@@ -12,7 +12,7 @@ export default function GuessInput({ onGuess, onSkip, disabled }) {
   const dropdownRef = useRef(null)
 
   const filtered = query.length > 0
-    ? songs.filter((s) => s.toLowerCase().includes(query.toLowerCase())).slice(0, 8)
+    ? songs.filter((s) => s.toLowerCase().includes(query.toLowerCase()))
     : []
 
   useEffect(() => {
