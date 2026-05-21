@@ -14,7 +14,12 @@ function deezerTtl(url) {
 }
 
 export async function getPreviewUrl(song, artistName = '') {
-  const cacheKey = `preview-${song.id}`
+  // deezerId is globally unique across Deezer's catalog — safe key even when
+  // songs from different groups share the same local song.id.
+  // Fall back to a group-namespaced key for the search path (no deezerId).
+  const cacheKey = song.deezerId
+    ? `preview-deezer-${song.deezerId}`
+    : `preview-${song.groupId ?? 'unknown'}-${song.id}`
   const cached = cache.get(cacheKey)
   if (cached) return cached
 
