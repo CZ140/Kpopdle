@@ -2,9 +2,10 @@ import corsMiddleware from 'cors'
 
 const cors = corsMiddleware({
   origin: process.env.NODE_ENV === 'production'
-    ? false // Same-origin in production
+    ? false
     : 'http://localhost:3000',
-  methods: ['GET', 'POST'],
+  credentials: true,
+  methods: ['GET', 'POST', 'DELETE'],
 })
 
 export default cors

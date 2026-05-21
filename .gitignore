@@ -7,3 +7,5 @@ dist/
 .playwright-mcp
 PLAN_V2.md
 *.db
+*.db-shm
+*.db-wal

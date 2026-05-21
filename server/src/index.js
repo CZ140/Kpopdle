@@ -1,4 +1,7 @@
+import 'dotenv/config'
 import express from 'express'
+import session from 'express-session'
+import passport from 'passport'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
 import cors from './middleware/cors.js'
@@ -8,10 +11,12 @@ import gameRoutes from './routes/game.js'
 import songRoutes from './routes/songs.js'
 import statsRoutes from './routes/stats.js'
 import kpopdleRoutes from './routes/kpopdle.js'
-import { getKpopdleSongForDate } from './services/dailySong.js'
-import { getMergedPool } from './data/songIndex.js'
-import { getTodaysSong } from './services/dailySong.js'
+import authRoutes from './routes/auth.js'
+import { configurePassport } from './services/authDb.js'
+import { SqliteSessionStore } from './services/sessionStore.js'
+import { getTodaysSong, getKpopdleSongForDate } from './services/dailySong.js'
 import { getPreviewUrl } from './services/audioProvider.js'
+import { getMergedPool } from './data/songIndex.js'
 import groups from './data/groups.json' with { type: 'json' }
 
 const __filename = fileURLToPath(import.meta.url)
@@ -19,6 +24,9 @@ const __dirname = dirname(__filename)
 
 const app = express()
 const PORT = process.env.PORT || 3001
+
+// Required for Railway (sits behind a reverse proxy — ensures secure cookies work)
+app.set('trust proxy', 1)
 
 app.use((req, res, next) => {
   res.setHeader('X-Content-Type-Options', 'nosniff')
@@ -29,8 +37,28 @@ app.use((req, res, next) => {
 
 app.use(express.json())
 app.use(cors)
+
+app.use(session({
+  store: new SqliteSessionStore(),
+  secret: process.env.SESSION_SECRET || 'dev-secret-change-in-production',
+  resave: false,
+  saveUninitialized: false,
+  rolling: true,
+  cookie: {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax',
+    maxAge: 365 * 24 * 60 * 60 * 1000,
+  },
+}))
+
+app.use(passport.initialize())
+app.use(passport.session())
+configurePassport()
+
 app.use('/api', rateLimit)
 
+app.use('/api/auth', authRoutes)
 app.use('/api/groups', groupRoutes)
 app.use('/api/stats', statsRoutes)
 app.use('/api/kpopdle', kpopdleRoutes)
@@ -52,7 +80,6 @@ if (process.env.NODE_ENV === 'production') {
 app.listen(PORT, () => {
   console.log(`K-popdle server running on port ${PORT}`)
   warmCache()
-  // Deezer URLs expire in ~29 min — re-warm every 20 min to stay ahead
   setInterval(warmCache, 20 * 60 * 1000)
 })
 

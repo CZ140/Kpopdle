@@ -76,6 +76,9 @@ Replay any past daily game. The same HMAC algorithm that picks today's song work
 ### 🌐 K-POPDLE — Cross-Group Daily Challenge
 A separate daily game at `/kpopdle` that draws from the full merged catalog of all 8 active groups. The song could be from any group — players must identify it without knowing which group it's from. The autocomplete labels each song with its group (e.g. `Black Mamba (aespa)`) for disambiguation, and the group is revealed in the result. Share output correctly labels results as `K-POPDLE #N M/6`.
 
+### 🔐 User Accounts
+Sign in with Google to sync your streaks, guess distributions, and game history across any device. Accounts are optional — the game is fully playable without signing in, with all stats kept in localStorage. A sign-in prompt appears once per browser session after your first completed game. Logged-in users see their Google avatar in the header. Full GDPR account and data deletion available.
+
 ### 📊 Analytics Collection
 Every completed daily game anonymously records: group, song, guess count, win/loss, every wrong guess made, hints used, and difficulty. Stored in a local SQLite database and queryable via API endpoints.
 
@@ -125,7 +128,8 @@ A single `GroupContext` carries the active `groupId`, `archiveDate`, `practiceMo
 |---|---|
 | Frontend | React 19, React Router v6, Tailwind CSS v4, Vite 7 |
 | Backend | Node.js, Express |
-| Database | SQLite via `better-sqlite3` (analytics) |
+| Database | SQLite via `better-sqlite3` (analytics + user accounts) |
+| Auth | Google OAuth2 via Passport.js, server-side sessions |
 | Audio | Deezer Public API (free, no auth) |
 | Client storage | localStorage — namespaced per group (stats, streaks, game state) |
 | Fonts | Poppins (UI), JetBrains Mono (data labels) |
@@ -191,7 +195,7 @@ On first start the server warms the Deezer preview cache for all 8 groups before
 - [x] Phase 5 — Hint system (era / year / first letter, tracked in share output)
 - [x] Phase 6 — Difficulty modes (Easy / Normal / Hard clip lengths)
 - [x] Phase 7 — K-POPDLE cross-group challenge (daily game drawn from all 8 catalogs, group revealed on finish)
-- [ ] Phase 8 — User accounts (magic-link auth, cloud streak sync)
+- [x] Phase 8 — User accounts (Google OAuth, cloud streak + stats sync, GDPR account deletion)
 
 ---
 

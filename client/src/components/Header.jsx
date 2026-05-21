@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useGroup, useArchiveDate, usePracticeMode, useDifficulty } from '../lib/GroupContext'
 import { loadStats } from '../lib/storage'
+import { useAuth } from '../lib/AuthContext'
 import StatsModal from './StatsModal'
 
 const DIFFICULTY_LABELS = { easy: 'Easy', normal: 'Normal', hard: 'Hard' }
@@ -26,6 +27,7 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
   const navigate = useNavigate()
   const [showStats, setShowStats] = useState(false)
 
+  const { user, login, logout } = useAuth()
   const meta = GROUP_META[group] ?? GROUP_META.twice
   const isArchive = archiveDate !== null
   const currentStreak = loadStats(group).currentStreak
@@ -110,6 +112,29 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
               🔥{currentStreak}
             </div>
           )}
+
+          {user ? (
+            <button
+              onClick={logout}
+              className="flex items-center gap-2 h-9 px-2 rounded-xl hover:bg-white/[0.08] transition-all duration-200"
+              title={`Signed in as ${user.email} — click to sign out`}
+            >
+              {user.avatarUrl ? (
+                <img src={user.avatarUrl} alt={user.displayName} className="w-6 h-6 rounded-full" referrerPolicy="no-referrer" />
+              ) : (
+                <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-[11px] font-bold text-white">
+                  {user.displayName?.[0]?.toUpperCase() ?? '?'}
+                </div>
+              )}
+            </button>
+          ) : user === null ? (
+            <button
+              onClick={login}
+              className="h-9 px-3 rounded-xl text-[12px] font-semibold text-white/50 hover:text-white/80 hover:bg-white/[0.08] transition-all duration-200"
+            >
+              Sign in
+            </button>
+          ) : null}
 
           <button
             onClick={() => setShowStats(true)}
