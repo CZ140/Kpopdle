@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import GroupCard from '../components/GroupCard'
 import { fetchGroups } from '../lib/api'
 import { loadGameState, loadStats } from '../lib/storage'
+import { useAuth } from '../lib/AuthContext'
 
 const TWICE_LAUNCH = new Date('2026-02-20')
 
@@ -47,6 +48,7 @@ function useKSTCountdown() {
 export default function HomePage() {
   const countdown = useKSTCountdown()
   const navigate = useNavigate()
+  const { user, login, logout } = useAuth()
 
   const [groups, setGroups] = useState([])
   const [loadingGroups, setLoadingGroups] = useState(true)
@@ -114,7 +116,7 @@ export default function HomePage() {
             <span className="kp-live-dot" />
             LIVE · DAY {getDayNumber()}
           </div>
-          <div className="flex items-center gap-7">
+          <div className="flex items-center gap-4">
             <div
               className="px-3 py-1.5 rounded-full border border-white/[0.14] text-white/62 text-[12px]"
               style={{ background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(20px)' }}
@@ -122,6 +124,31 @@ export default function HomePage() {
               🔥 Streak <b className="text-[#FF2D78] font-bold">{bestStreak}</b>
             </div>
             <div>{formatTopbarDate()}</div>
+            {user ? (
+              <button
+                onClick={logout}
+                className="flex items-center gap-2 px-2.5 py-1.5 rounded-full border border-white/[0.14] text-white/62 text-[12px] hover:border-white/30 transition-colors"
+                style={{ background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(20px)' }}
+                title={`Signed in as ${user.email} — click to sign out`}
+              >
+                {user.avatarUrl ? (
+                  <img src={user.avatarUrl} alt={user.displayName} className="w-4 h-4 rounded-full" referrerPolicy="no-referrer" />
+                ) : (
+                  <span className="w-4 h-4 rounded-full bg-white/20 flex items-center justify-center text-[9px] font-bold">
+                    {user.displayName?.[0]?.toUpperCase() ?? '?'}
+                  </span>
+                )}
+                <span>{user.displayName}</span>
+              </button>
+            ) : user === null ? (
+              <button
+                onClick={login}
+                className="px-3 py-1.5 rounded-full border border-white/[0.14] text-white/62 text-[12px] hover:border-white/30 hover:text-white/80 transition-colors"
+                style={{ background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(20px)' }}
+              >
+                Sign in
+              </button>
+            ) : null}
           </div>
         </div>
 

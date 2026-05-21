@@ -1,4 +1,8 @@
 import { createContext, useContext, useState, useEffect, useCallback } from 'react'
+import { loadStats } from './storage'
+import { fetchCloudStats, importLocalStats } from './api'
+
+const ALL_GROUPS = ['twice','newjeans','lesserafim','aespa','redvelvet','kissoflife','ive','blackpink','kpopdle']
 
 const AuthContext = createContext(null)
 
@@ -12,6 +16,22 @@ export function AuthProvider({ children }) {
       .then(({ user }) => setUser(user ?? null))
       .catch(() => setUser(null))
   }, [])
+
+  // On first login: if cloud has no stats yet, import everything from localStorage
+  useEffect(() => {
+    if (!user) return
+    fetchCloudStats().then(cloud => {
+      const hasCloudData = Object.keys(cloud).some(g => cloud[g]?.gamesPlayed > 0)
+      if (!hasCloudData) {
+        const localMap = {}
+        for (const g of ALL_GROUPS) {
+          const s = loadStats(g)
+          if (s.gamesPlayed > 0) localMap[g] = s
+        }
+        if (Object.keys(localMap).length > 0) importLocalStats(localMap)
+      }
+    }).catch(() => {})
+  }, [user?.id])
 
   const login = useCallback(() => {
     window.location.href = '/api/auth/google'

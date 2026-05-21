@@ -49,6 +49,30 @@ export function recordGameResult(payload) {
   }).catch(() => {})
 }
 
+export async function fetchCloudStats() {
+  const r = await fetch(`${API_BASE}/auth/stats`, { credentials: 'include' })
+  if (!r.ok) return {}
+  return r.json()
+}
+
+export function saveCloudStats(group, stats) {
+  fetch(`${API_BASE}/auth/stats/${group}`, {
+    method: 'POST',
+    credentials: 'include',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ stats }),
+  }).catch(() => {})
+}
+
+export function importLocalStats(statsMap) {
+  fetch(`${API_BASE}/auth/import`, {
+    method: 'POST',
+    credentials: 'include',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ stats: statsMap }),
+  }).catch(() => {})
+}
+
 export async function submitPracticeGuess(group, practiceSongId, guess) {
   const res = await fetch(`${API_BASE}/${group}/game/guess`, {
     method: 'POST',

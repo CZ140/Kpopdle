@@ -1,10 +1,30 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { loadStats, saveStats } from '../lib/storage'
 import { useGroup } from '../lib/GroupContext'
+import { useAuth } from '../lib/AuthContext'
+import { fetchCloudStats, saveCloudStats } from '../lib/api'
 
 export function useStats() {
   const group = useGroup()
+  const { user } = useAuth()
   const [stats, setStats] = useState(() => loadStats(group))
+
+  // When logged in, load cloud stats for this group.
+  // If cloud has more games played than localStorage, use cloud as source of truth.
+  useEffect(() => {
+    if (!user) return
+    fetchCloudStats().then(cloud => {
+      const cloudGroup = cloud[group]
+      if (!cloudGroup) return
+      setStats(local => {
+        if (cloudGroup.gamesPlayed > local.gamesPlayed) {
+          saveStats(group, cloudGroup)
+          return cloudGroup
+        }
+        return local
+      })
+    }).catch(() => {})
+  }, [group, user?.id])
 
   const recordResult = useCallback((gameState, guessCount) => {
     setStats((prev) => {
@@ -24,9 +44,11 @@ export function useStats() {
 
       updated.lastPlayedDate = new Date().toISOString().split('T')[0]
       saveStats(group, updated)
+      if (user) saveCloudStats(group, updated)
+
       return updated
     })
-  }, [group])
+  }, [group, user])
 
   return { stats, recordResult }
 }
