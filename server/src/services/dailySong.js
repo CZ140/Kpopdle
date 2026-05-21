@@ -33,7 +33,7 @@ export function getKpopdleSongForDate(activeGroups, dateString) {
   const current = new Date(dateString + 'T00:00:00Z')
   const gameNumber = Math.max(1, Math.floor((current - launch) / 86400000) + 1)
 
-  return { song: pool[index], dateString, gameNumber }
+  return { song: pool[index], poolSize: pool.length, dateString, gameNumber }
 }
 
 export function getSongForDate(groupId, dateString) {

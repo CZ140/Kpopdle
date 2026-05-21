@@ -50,7 +50,7 @@ export default function AudioPlayer({ play, stop, isPlaying, progress, currentDu
       <div className="flex justify-center mb-5">
         <button
           onClick={isPlaying ? stop : play}
-          disabled={false}
+          disabled={!hasAudio}
           className={`w-[72px] h-[72px] rounded-full disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center transition-all duration-200 glow-btn ${isPlaying ? 'playing' : ''}`}
           style={{ background: 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))' }}
           aria-label={isPlaying ? 'Stop' : 'Play'}

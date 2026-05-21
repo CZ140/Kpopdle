@@ -13,15 +13,14 @@ const ACTIVE_GROUPS = groups.filter(g => g.active)
 
 router.get('/game/today', async (req, res) => {
   try {
-    const { song, dateString, gameNumber } = getKpopdleSongForDate(ACTIVE_GROUPS, getKSTDateString())
+    const { song, dateString, gameNumber, poolSize } = getKpopdleSongForDate(ACTIVE_GROUPS, getKSTDateString())
     const previewUrl = await getPreviewUrl(song, song.deezerArtistName)
-    const pool = getMergedPool(ACTIVE_GROUPS)
 
     res.json({
       gameDate: dateString,
       gameNumber,
       previewUrl,
-      totalSongs: pool.length,
+      totalSongs: poolSize,
       hints: {
         era: song.album,
         year: song.releaseYear,
@@ -49,15 +48,14 @@ router.get('/game/archive/:date', async (req, res) => {
   }
 
   try {
-    const { song, dateString, gameNumber } = getKpopdleSongForDate(ACTIVE_GROUPS, date)
+    const { song, dateString, gameNumber, poolSize } = getKpopdleSongForDate(ACTIVE_GROUPS, date)
     const previewUrl = await getPreviewUrl(song, song.deezerArtistName)
-    const pool = getMergedPool(ACTIVE_GROUPS)
 
     res.json({
       gameDate: dateString,
       gameNumber,
       previewUrl,
-      totalSongs: pool.length,
+      totalSongs: poolSize,
       hints: {
         era: song.album,
         year: song.releaseYear,

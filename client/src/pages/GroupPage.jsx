@@ -2,13 +2,15 @@ import { useState, useEffect, useCallback } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { GroupContext } from '../lib/GroupContext'
 import { migrateStorageIfNeeded, loadDifficulty, saveDifficulty } from '../lib/storage'
+import { ALL_GROUP_IDS } from '../lib/constants'
 import Game from '../components/Game'
 import PracticeGame from '../components/PracticeGame'
 import Header from '../components/Header'
 import ArchiveModal from '../components/ArchiveModal'
 import DifficultyModal from '../components/DifficultyModal'
 
-const VALID_GROUPS = ['twice', 'newjeans', 'lesserafim', 'aespa', 'redvelvet', 'kissoflife', 'ive', 'blackpink']
+// kpopdle is a cross-group game, not a group page — exclude it
+const VALID_GROUPS = ALL_GROUP_IDS.filter(id => id !== 'kpopdle')
 
 // Game UI colors — primary must be a vivid color usable on dark bg (BLACKPINK uses pink not dark)
 const GROUP_GAME_COLORS = {
