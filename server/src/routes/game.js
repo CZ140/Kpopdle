@@ -113,7 +113,8 @@ router.post('/guess', (req, res) => {
         return res.json({ correct: false, gameOver: true, song: songPayload })
       }
       const isCorrect = guess.trim().toLowerCase() === song.title.toLowerCase()
-      return res.json({ correct: isCorrect, gameOver: isCorrect, song: songPayload })
+      // Only reveal the song when the game is over — not on intermediate wrong guesses
+      return res.json({ correct: isCorrect, gameOver: isCorrect, ...(isCorrect && { song: songPayload }) })
     }
 
     if (!gameDate || typeof gameDate !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(gameDate)) {
@@ -148,16 +149,19 @@ router.post('/guess', (req, res) => {
 
     const isCorrect = guess.trim().toLowerCase() === song.title.toLowerCase()
 
+    // Only reveal the song when the game is over — not on intermediate wrong guesses
     res.json({
       correct: isCorrect,
       gameOver: isCorrect,
-      song: {
-        id: song.id,
-        title: song.title,
-        album: song.album,
-        releaseYear: song.releaseYear,
-        spotifyId: song.spotifyId,
-      },
+      ...(isCorrect && {
+        song: {
+          id: song.id,
+          title: song.title,
+          album: song.album,
+          releaseYear: song.releaseYear,
+          spotifyId: song.spotifyId,
+        },
+      }),
     })
   } catch (err) {
     console.error('Error processing guess:', err)

@@ -40,6 +40,16 @@ router.post('/record', recordLimiter, (req, res) => {
     if (typeof songTitle !== 'string' || songTitle.length > 200) {
       return res.status(400).json({ error: 'songTitle too long' })
     }
+    if (wrongGuesses !== undefined) {
+      if (!Array.isArray(wrongGuesses) || wrongGuesses.length > 6) {
+        return res.status(400).json({ error: 'wrongGuesses must be an array of ≤6 entries' })
+      }
+      for (const g of wrongGuesses) {
+        if (typeof g !== 'string' || g.length > 200) {
+          return res.status(400).json({ error: 'Each wrong guess must be a string ≤200 chars' })
+        }
+      }
+    }
 
     recordGame({ groupId, songId, songTitle, guessCount, won, wrongGuesses, hintsUsed, difficulty })
     res.json({ ok: true })

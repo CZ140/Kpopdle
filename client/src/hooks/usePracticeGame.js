@@ -51,8 +51,10 @@ export function usePracticeGame() {
         setGameState(GAME_STATES.WON)
         setRevealedSong(result.song)
       } else if (newGuesses.length >= MAX_GUESSES) {
+        // Server no longer returns the song on wrong guesses — fetch it explicitly
+        const reveal = await submitPracticeGuess(group, practiceSongId, '')
         setGameState(GAME_STATES.LOST)
-        setRevealedSong(result.song)
+        setRevealedSong(reveal.song)
       }
     } catch {
       setError('Failed to submit guess. Please try again.')

@@ -118,7 +118,8 @@ router.post('/game/guess', (req, res) => {
     const guessTitle = labelMatch ? labelMatch[1].trim() : raw
 
     const isCorrect = guessTitle.toLowerCase() === song.title.toLowerCase()
-    res.json({ correct: isCorrect, gameOver: isCorrect, song: songPayload })
+    // Only reveal the song when the game is over — not on intermediate wrong guesses
+    res.json({ correct: isCorrect, gameOver: isCorrect, ...(isCorrect && { song: songPayload }) })
   } catch (err) {
     console.error('Error processing kpopdle guess:', err)
     res.status(500).json({ error: 'Failed to process guess' })

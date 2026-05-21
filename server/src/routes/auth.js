@@ -2,6 +2,9 @@ import { Router } from 'express'
 import passport from 'passport'
 import requireAuth from '../middleware/requireAuth.js'
 import { getUserStats, saveUserStats, importLocalStorageStats, deleteUserAndAllData } from '../services/authDb.js'
+import groups from '../data/groups.json' with { type: 'json' }
+
+const VALID_GROUP_IDS = new Set([...groups.map(g => g.id), 'kpopdle'])
 
 const router = Router()
 
@@ -32,6 +35,9 @@ router.get('/stats', requireAuth, (req, res) => {
 
 // Sync stats for one group after a daily game
 router.post('/stats/:group', requireAuth, (req, res) => {
+  if (!VALID_GROUP_IDS.has(req.params.group)) {
+    return res.status(400).json({ error: 'Unknown group' })
+  }
   const { stats } = req.body
   if (!stats || typeof stats !== 'object') {
     return res.status(400).json({ error: 'Invalid stats payload' })

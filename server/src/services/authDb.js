@@ -1,6 +1,9 @@
 import passport from 'passport'
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20'
 import db from './db.js'
+import groups from '../data/groups.json' with { type: 'json' }
+
+const VALID_GROUP_IDS = new Set([...groups.map(g => g.id), 'kpopdle'])
 
 db.exec(`
   CREATE TABLE IF NOT EXISTS users (
@@ -142,6 +145,7 @@ export function importLocalStorageStats(userId, statsMap) {
 
   db.transaction((map) => {
     for (const [groupId, s] of Object.entries(map)) {
+      if (!VALID_GROUP_IDS.has(groupId)) continue
       if (!s || typeof s.gamesPlayed !== 'number') continue
       insertStats.run({
         userId,
