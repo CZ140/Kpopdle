@@ -24,7 +24,10 @@ export async function getDeezerPreview(deezerTrackId, expectedTitle = null) {
   if (!data.preview) return null
 
   if (expectedTitle && data.title) {
-    if (data.title.toLowerCase().trim() !== expectedTitle.toLowerCase().trim()) {
+    const returned = data.title.toLowerCase().trim()
+    const expected = expectedTitle.toLowerCase().trim()
+    // Accept exact match OR "Korean prefix English title" pattern (returned ends with expected)
+    if (returned !== expected && !returned.endsWith(expected)) {
       console.warn(`Deezer ID ${deezerTrackId} returned "${data.title}" but expected "${expectedTitle}" — skipping`)
       return null
     }
@@ -45,9 +48,11 @@ export async function searchDeezerPreview(artistName, songTitle) {
   const normalizedTitle = songTitle.toLowerCase().trim()
   const normalizedArtist = artistName.toLowerCase().trim()
   for (const track of data.data) {
+    const trackTitle = track.title?.toLowerCase().trim() ?? ''
+    const titleMatch = trackTitle === normalizedTitle || trackTitle.endsWith(normalizedTitle)
     if (
       track.preview &&
-      track.title?.toLowerCase().trim() === normalizedTitle &&
+      titleMatch &&
       track.artist?.name?.toLowerCase().trim() === normalizedArtist
     ) {
       return track.preview
