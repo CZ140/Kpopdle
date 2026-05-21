@@ -1,14 +1,9 @@
 import { useState, useEffect } from 'react'
 
 function getTimeUntilMidnightKST() {
-  const now = new Date()
-  const kstOffset = 9 * 60 * 60 * 1000
-  const kstNow = new Date(now.getTime() + kstOffset + now.getTimezoneOffset() * 60 * 1000)
-
-  const kstMidnight = new Date(kstNow)
-  kstMidnight.setHours(24, 0, 0, 0)
-
-  return kstMidnight.getTime() - kstNow.getTime()
+  const kstMs = Date.now() + 9 * 3600000
+  const msIntoDayKST = kstMs % 86400000
+  return 86400000 - msIntoDayKST
 }
 
 function formatTime(ms) {

@@ -1,14 +1,9 @@
 import { useMemo } from 'react'
 import { loadArchiveGameState, loadGameState } from '../lib/storage'
 import { useGroup } from '../lib/GroupContext'
+import { getKSTDateString } from '../lib/dateUtils'
 
 const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
-
-function getKSTToday() {
-  const now = new Date()
-  const kst = new Date(now.getTime() + (9 * 60 * 60 * 1000) + now.getTimezoneOffset() * 60 * 1000)
-  return kst.toISOString().split('T')[0]
-}
 
 function getGameNumber(dateString, launchDate) {
   const launch = new Date(launchDate)
@@ -23,7 +18,7 @@ function formatDate(dateString) {
 
 export default function ArchiveModal({ launchDate, onSelect, onClose }) {
   const group = useGroup()
-  const today = getKSTToday()
+  const today = getKSTDateString()
 
   const dates = useMemo(() => {
     if (!launchDate) return []

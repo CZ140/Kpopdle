@@ -1,5 +1,4 @@
 export function getKSTDateString() {
-  const now = new Date()
-  const kst = new Date(now.getTime() + 9 * 3600000 + now.getTimezoneOffset() * 60000)
-  return kst.toISOString().slice(0, 10)
+  // Simply shift UTC by +9h — no timezone offset manipulation needed since Date.now() is always UTC
+  return new Date(Date.now() + 9 * 3600000).toISOString().slice(0, 10)
 }

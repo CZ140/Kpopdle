@@ -21,12 +21,8 @@ function formatTopbarDate() {
 
 function useKSTCountdown() {
   function compute() {
-    const now = new Date()
-    const kstOffset = 9 * 60 * 60 * 1000
-    const kstNow = new Date(now.getTime() + kstOffset + now.getTimezoneOffset() * 60 * 1000)
-    const kstMidnight = new Date(kstNow)
-    kstMidnight.setHours(24, 0, 0, 0)
-    const diff = Math.max(0, kstMidnight.getTime() - kstNow.getTime())
+    const kstMs = Date.now() + 9 * 3600000
+    const diff = Math.max(0, 86400000 - (kstMs % 86400000))
     return {
       h: String(Math.floor(diff / 3600000)).padStart(2, '0'),
       m: String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0'),

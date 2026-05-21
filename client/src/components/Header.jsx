@@ -6,6 +6,12 @@ import { useAuth } from '../lib/AuthContext'
 import { useSound } from '../lib/SoundContext'
 import StatsModal from './StatsModal'
 
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+function formatArchiveDate(dateStr) {
+  const [, m, d] = dateStr.split('-')
+  return `${MONTHS[parseInt(m, 10) - 1]} ${parseInt(d, 10)}`
+}
+
 const DIFFICULTY_LABELS = { easy: 'Easy', normal: 'Normal', hard: 'Hard' }
 
 const GROUP_META = {
@@ -55,7 +61,7 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
           </h1>
           {isArchive ? (
             <p className="text-[10px] uppercase tracking-[0.3em] font-bold -mt-0.5" style={{ color: 'var(--color-primary)' }}>
-              Archive · {archiveDate}
+              Past Game · {formatArchiveDate(archiveDate)}
             </p>
           ) : practiceMode ? null : (
             <p className="text-[10px] uppercase tracking-[0.3em] text-white/50 font-medium -mt-0.5">
