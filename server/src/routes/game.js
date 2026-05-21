@@ -4,6 +4,7 @@ import { getPreviewUrl } from '../services/audioProvider.js'
 import { getSongsForGroup, getSongCountForGroup } from '../data/songIndex.js'
 import { getKSTDateString } from '../utils/dateUtils.js'
 import validateGroup from '../middleware/validateGroup.js'
+import { getCommunityStats } from '../services/statsDb.js'
 
 const router = Router({ mergeParams: true })
 
@@ -161,6 +162,19 @@ router.post('/guess', (req, res) => {
   } catch (err) {
     console.error('Error processing guess:', err)
     res.status(500).json({ error: 'Failed to process guess' })
+  }
+})
+
+router.get('/community/:date', (req, res) => {
+  const { group, date } = req.params
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+    return res.status(400).json({ error: 'Invalid date format' })
+  }
+  try {
+    res.json(getCommunityStats(group, date) ?? { totalPlays: 0 })
+  } catch (err) {
+    console.error('Community stats error:', err)
+    res.status(500).json({ error: 'Failed to fetch community stats' })
   }
 })
 

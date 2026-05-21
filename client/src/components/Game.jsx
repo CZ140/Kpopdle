@@ -8,7 +8,7 @@ import AudioPlayer from './AudioPlayer'
 import GuessList from './GuessList'
 import GuessInput from './GuessInput'
 import ResultModal from './ResultModal'
-import { recordGameResult } from '../lib/api'
+import { recordGameResult, fetchCommunityStats } from '../lib/api'
 import { useGroup } from '../lib/GroupContext'
 import { useAuth } from '../lib/AuthContext'
 
@@ -40,6 +40,7 @@ export default function Game({ onStartPractice }) {
   const { recordResult } = useStats()
 
   const [showResult, setShowResult] = useState(false)
+  const [communityStats, setCommunityStats] = useState(null)
   const resultRecorded = useRef(false)
 
   useEffect(() => {
@@ -69,7 +70,13 @@ export default function Game({ onStartPractice }) {
           })
         }
       }
-      setTimeout(() => setShowResult(true), 800)
+      setTimeout(() => {
+        setShowResult(true)
+        // Fetch after the delay so the user's own record is already written to the DB
+        if (!isArchive && gameDate) {
+          fetchCommunityStats(group, gameDate).then(setCommunityStats).catch(() => {})
+        }
+      }, 800)
     }
   }, [gameState, guesses, recordResult, isArchive, revealedSong, group, hintsUsed, difficulty])
 
@@ -220,6 +227,7 @@ export default function Game({ onStartPractice }) {
           gameNumber={gameNumber}
           hintsUsed={hintsUsed}
           isArchive={isArchive}
+          communityStats={communityStats}
           onStartPractice={!isArchive ? onStartPractice : undefined}
           onClose={() => setShowResult(false)}
         />

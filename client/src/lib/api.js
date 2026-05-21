@@ -64,6 +64,20 @@ export function saveCloudStats(group, stats) {
   }).catch(() => {})
 }
 
+export async function fetchCommunityStats(group, date) {
+  try {
+    const path = group === 'kpopdle'
+      ? `${API_BASE}/kpopdle/game/community/${date}`
+      : `${API_BASE}/${group}/game/community/${date}`
+    const res = await fetch(path)
+    if (!res.ok) return null
+    const data = await res.json()
+    return data.totalPlays >= 2 ? data : null
+  } catch {
+    return null
+  }
+}
+
 export function importLocalStats(statsMap) {
   fetch(`${API_BASE}/auth/import`, {
     method: 'POST',

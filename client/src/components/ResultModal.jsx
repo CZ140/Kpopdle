@@ -1,7 +1,7 @@
 import ShareButton from './ShareButton'
 import Countdown from './Countdown'
 
-export default function ResultModal({ gameState, revealedSong, guesses, gameNumber, hintsUsed = 0, isArchive = false, isPractice = false, onPlayAgain, onStartPractice, onClose }) {
+export default function ResultModal({ gameState, revealedSong, guesses, gameNumber, hintsUsed = 0, isArchive = false, isPractice = false, communityStats = null, onPlayAgain, onStartPractice, onClose }) {
   const won = gameState === 'won'
 
   return (
@@ -70,6 +70,33 @@ export default function ResultModal({ gameState, revealedSong, guesses, gameNumb
                 </svg>
                 Listen on Spotify
               </a>
+            )}
+          </div>
+        )}
+
+        {communityStats && !isArchive && !isPractice && (
+          <div className="rounded-xl px-4 py-3 mb-5" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}>
+            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/25 text-center mb-3">How Others Did Today</p>
+            <div className="flex justify-center gap-6">
+              <div className="text-center">
+                <p className="text-xl font-black text-white">{communityStats.totalPlays}</p>
+                <p className="text-[10px] uppercase tracking-wider text-white/30">Players</p>
+              </div>
+              <div className="text-center">
+                <p className="text-xl font-black" style={{ color: 'var(--color-primary)' }}>{communityStats.winRate}%</p>
+                <p className="text-[10px] uppercase tracking-wider text-white/30">Solved</p>
+              </div>
+              {communityStats.avgWinningGuesses && (
+                <div className="text-center">
+                  <p className="text-xl font-black text-white">{communityStats.avgWinningGuesses}</p>
+                  <p className="text-[10px] uppercase tracking-wider text-white/30">Avg Guesses</p>
+                </div>
+              )}
+            </div>
+            {communityStats.topWrong && (
+              <p className="text-[11px] text-white/25 text-center mt-2.5">
+                Most guessed wrong: <span className="text-white/45 font-medium">"{communityStats.topWrong}"</span>
+              </p>
             )}
           </div>
         )}

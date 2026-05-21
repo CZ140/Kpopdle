@@ -3,6 +3,7 @@ import { getKpopdleSongForDate } from '../services/dailySong.js'
 import { getPreviewUrl } from '../services/audioProvider.js'
 import { getMergedPool } from '../data/songIndex.js'
 import { getKSTDateString } from '../utils/dateUtils.js'
+import { getCommunityStats } from '../services/statsDb.js'
 import groups from '../data/groups.json' with { type: 'json' }
 
 const KPOPDLE_LAUNCH = '2026-05-21'
@@ -121,6 +122,19 @@ router.post('/game/guess', (req, res) => {
   } catch (err) {
     console.error('Error processing kpopdle guess:', err)
     res.status(500).json({ error: 'Failed to process guess' })
+  }
+})
+
+router.get('/game/community/:date', (req, res) => {
+  const { date } = req.params
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+    return res.status(400).json({ error: 'Invalid date format' })
+  }
+  try {
+    res.json(getCommunityStats('kpopdle', date) ?? { totalPlays: 0 })
+  } catch (err) {
+    console.error('Kpopdle community stats error:', err)
+    res.status(500).json({ error: 'Failed to fetch community stats' })
   }
 })
 

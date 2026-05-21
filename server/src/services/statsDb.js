@@ -75,6 +75,47 @@ export function getConfusion(groupId) {
     })
 }
 
+// Community stats for a specific group's daily game on a given KST date.
+// played_at is stored in UTC — convert with '+9 hours' to get the KST day.
+// Returns null when fewer than 2 players have finished (avoids showing "1 player").
+export function getCommunityStats(groupId, kstDate) {
+  const row = db.prepare(`
+    SELECT
+      COUNT(*)                                               AS total_plays,
+      ROUND(SUM(won) * 100.0 / COUNT(*), 0)                 AS win_rate,
+      ROUND(AVG(CASE WHEN won = 1 THEN guess_count END), 1) AS avg_winning_guesses
+    FROM game_results
+    WHERE group_id = ?
+      AND DATE(played_at, '+9 hours') = ?
+  `).get(groupId, kstDate)
+
+  if (!row || row.total_plays < 2) return null
+
+  // Find the single most common wrong guess for this day
+  const rows = db.prepare(`
+    SELECT wrong_guesses FROM game_results
+    WHERE group_id = ?
+      AND DATE(played_at, '+9 hours') = ?
+      AND wrong_guesses != '[]'
+  `).all(groupId, kstDate)
+
+  const counts = {}
+  for (const { wrong_guesses } of rows) {
+    for (const g of JSON.parse(wrong_guesses)) {
+      counts[g] = (counts[g] ?? 0) + 1
+    }
+  }
+  const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1])
+  const topWrong = sorted.length > 0 ? sorted[0][0] : null
+
+  return {
+    totalPlays: row.total_plays,
+    winRate: row.win_rate,
+    avgWinningGuesses: row.avg_winning_guesses,
+    topWrong,
+  }
+}
+
 // Per-group summary: total plays, win rate, avg guesses, hint usage
 export function getSummary() {
   return db.prepare(`
