@@ -5,7 +5,7 @@ import passport from 'passport'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
 import cors from './middleware/cors.js'
-import rateLimit from './middleware/rateLimit.js'
+import { apiLimiter, authLimiter } from './middleware/rateLimit.js'
 import groupRoutes from './routes/groups.js'
 import gameRoutes from './routes/game.js'
 import songRoutes from './routes/songs.js'
@@ -74,14 +74,12 @@ app.use(passport.initialize())
 app.use(passport.session())
 configurePassport()
 
-app.use('/api', rateLimit)
-
-app.use('/api/auth', authRoutes)
-app.use('/api/groups', groupRoutes)
-app.use('/api/stats', statsRoutes)
-app.use('/api/kpopdle', kpopdleRoutes)
-app.use('/api/:group/game', gameRoutes)
-app.use('/api/:group/songs', songRoutes)
+app.use('/api/auth', authLimiter, authRoutes)
+app.use('/api/groups', apiLimiter, groupRoutes)
+app.use('/api/stats', apiLimiter, statsRoutes)
+app.use('/api/kpopdle', apiLimiter, kpopdleRoutes)
+app.use('/api/:group/game', apiLimiter, gameRoutes)
+app.use('/api/:group/songs', apiLimiter, songRoutes)
 
 app.use('/api', (req, res) => {
   res.status(404).json({ error: 'Not found' })
