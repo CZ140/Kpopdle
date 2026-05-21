@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useGroup, useArchiveDate, usePracticeMode, useDifficulty } from '../lib/GroupContext'
+import { useGroup, useArchiveDate, useLaunchDate, usePracticeMode, useDifficulty } from '../lib/GroupContext'
 import { loadStats } from '../lib/storage'
 import { useAuth } from '../lib/AuthContext'
 import { useSound } from '../lib/SoundContext'
@@ -10,6 +10,10 @@ const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov
 function formatArchiveDate(dateStr) {
   const [, m, d] = dateStr.split('-')
   return `${MONTHS[parseInt(m, 10) - 1]} ${parseInt(d, 10)}`
+}
+function getGameNumber(archiveDate, launchDate) {
+  if (!archiveDate || !launchDate) return null
+  return Math.floor((new Date(archiveDate) - new Date(launchDate)) / 86400000) + 1
 }
 
 const DIFFICULTY_LABELS = { easy: 'Easy', normal: 'Normal', hard: 'Hard' }
@@ -36,9 +40,11 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
 
   const { user, login } = useAuth()
   const { playSound, muted, toggleMuted } = useSound()
+  const launchDate = useLaunchDate()
   const meta = GROUP_META[group] ?? GROUP_META.twice
   const isArchive = archiveDate !== null
   const currentStreak = loadStats(group).currentStreak
+  const gameNumber = isArchive ? getGameNumber(archiveDate, launchDate) : null
 
   return (
     <>
@@ -61,7 +67,7 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
           </h1>
           {isArchive ? (
             <p className="text-[10px] uppercase tracking-[0.3em] font-bold -mt-0.5" style={{ color: 'var(--color-primary)' }}>
-              Past Game · {formatArchiveDate(archiveDate)}
+              {gameNumber ? `Game #${gameNumber}` : `Past Game · ${formatArchiveDate(archiveDate)}`}
             </p>
           ) : practiceMode ? null : (
             <p className="text-[10px] uppercase tracking-[0.3em] text-white/50 font-medium -mt-0.5">

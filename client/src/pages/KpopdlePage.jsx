@@ -59,7 +59,7 @@ export default function KpopdlePage() {
   }, [archiveDate, nextDate, playSound])
 
   return (
-    <GroupContext.Provider value={{ id: 'kpopdle', archiveDate, setArchiveDate, practiceMode: false, difficulty, setDifficulty }}>
+    <GroupContext.Provider value={{ id: 'kpopdle', archiveDate, setArchiveDate, launchDate: KPOPDLE_LAUNCH, practiceMode: false, difficulty, setDifficulty }}>
       <div
         className="min-h-screen flex flex-col bg-twice-dark bg-orbs"
         style={{ '--color-primary': KPOPDLE_COLORS.primary, '--color-secondary': KPOPDLE_COLORS.secondary }}

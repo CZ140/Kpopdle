@@ -133,7 +133,7 @@ export default function GroupPage() {
   const colors = GROUP_GAME_COLORS[group] ?? GROUP_GAME_COLORS.twice
 
   return (
-    <GroupContext.Provider value={{ id: group, archiveDate, setArchiveDate, practiceMode, difficulty, setDifficulty }}>
+    <GroupContext.Provider value={{ id: group, archiveDate, setArchiveDate, launchDate, practiceMode, difficulty, setDifficulty }}>
       <div
         className="min-h-screen flex flex-col bg-twice-dark bg-orbs"
         style={{ '--color-primary': colors.primary, '--color-secondary': colors.secondary }}
