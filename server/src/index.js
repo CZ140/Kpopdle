@@ -15,6 +15,7 @@ import authRoutes from './routes/auth.js'
 import { configurePassport } from './services/authDb.js'
 import { SqliteSessionStore } from './services/sessionStore.js'
 import { getTodaysSong, getKpopdleSongForDate } from './services/dailySong.js'
+import { getKSTDateString as getTodayKST } from './utils/dateUtils.js'
 import { getPreviewUrl } from './services/audioProvider.js'
 import { getMergedPool } from './data/songIndex.js'
 import groups from './data/groups.json' with { type: 'json' }
@@ -113,7 +114,7 @@ async function warmCache() {
     }
   }
   try {
-    const { song } = getKpopdleSongForDate(activeGroups, new Date().toISOString().split('T')[0])
+    const { song } = getKpopdleSongForDate(activeGroups, getTodayKST())
     await getPreviewUrl(song, song.deezerArtistName)
     console.log(`  ✓ kpopdle`)
   } catch (err) {
