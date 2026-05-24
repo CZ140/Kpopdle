@@ -48,11 +48,11 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
 
   return (
     <>
-      <header className="relative z-10 flex items-center px-5 py-4 border-b border-white/[0.06]">
-        <div className="flex-1 flex items-center">
+      <header className="relative z-10 flex items-center px-3 sm:px-5 py-3 sm:py-4 border-b border-white/[0.06]">
+        <div className="flex-none sm:flex-1 flex items-center">
           <button
             onClick={() => navigate('/')}
-            className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-white/[0.08] transition-all duration-200 text-white/50 hover-group-primary"
+            className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-white/[0.08] transition-all duration-200 text-white/50 hover-group-primary flex-shrink-0"
             aria-label="Back to homepage"
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
@@ -61,22 +61,22 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
           </button>
         </div>
 
-        <div className="text-center">
-          <h1 className="text-3xl font-black tracking-wider text-gradient select-none">
+        <div className="flex-1 sm:flex-none text-center min-w-0">
+          <h1 className="text-[15px] sm:text-3xl font-black tracking-wide sm:tracking-wider text-gradient select-none truncate">
             {meta.gameName}
           </h1>
           {isArchive ? (
-            <p className="text-[10px] uppercase tracking-[0.3em] font-bold -mt-0.5" style={{ color: 'var(--color-primary)' }}>
+            <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.18em] sm:tracking-[0.3em] font-bold -mt-0.5 truncate" style={{ color: 'var(--color-primary)' }}>
               {gameNumber ? `Game #${gameNumber}` : `Past Game · ${formatArchiveDate(archiveDate)}`}
             </p>
           ) : practiceMode ? null : (
-            <p className="text-[10px] uppercase tracking-[0.3em] text-white/50 font-medium -mt-0.5">
+            <p className="hidden sm:block text-[9px] sm:text-[10px] uppercase tracking-[0.18em] sm:tracking-[0.3em] text-white/50 font-medium -mt-0.5">
               {meta.tagline}
             </p>
           )}
         </div>
 
-        <div className="flex-1 flex items-center justify-end gap-1">
+        <div className="flex-none sm:flex-1 flex items-center justify-end gap-0.5 sm:gap-1">
           {practiceMode ? (
             <button
               onClick={() => { playSound('click'); onExitPractice() }}
@@ -91,7 +91,7 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
           ) : onOpenArchive ? (
             <button
               onClick={() => { playSound('modal'); onOpenArchive() }}
-              className="flex items-center gap-1.5 h-9 px-3 rounded-xl hover:bg-white/[0.08] transition-all duration-200 text-white/50 hover-group-primary"
+              className="flex items-center gap-1.5 h-9 px-2 sm:px-3 rounded-xl hover:bg-white/[0.08] transition-all duration-200 text-white/50 hover-group-primary flex-shrink-0"
               aria-label="Past Games"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 flex-shrink-0">
@@ -99,29 +99,38 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
                 <rect x="1" y="3" width="22" height="5" />
                 <line x1="10" y1="12" x2="14" y2="12" />
               </svg>
-              <span className="text-[12px] font-semibold">Past Games</span>
+              <span className="hidden sm:inline text-[12px] font-semibold">Past Games</span>
             </button>
           ) : null}
 
           <button
             onClick={() => { playSound('modal'); onOpenDifficulty() }}
-            className="flex items-center gap-1.5 h-9 px-3.5 rounded-xl transition-all duration-200 font-mono text-[13px] font-bold uppercase tracking-wider"
+            className="flex items-center justify-center gap-1.5 h-9 w-9 sm:w-auto px-0 sm:px-3.5 rounded-xl transition-all duration-200 font-mono text-[13px] font-bold uppercase tracking-wider flex-shrink-0"
             style={{
               color: difficulty === 'normal' ? 'rgba(255,255,255,0.45)' : 'var(--color-primary)',
               background: difficulty === 'normal' ? 'rgba(255,255,255,0.05)' : 'color-mix(in srgb, var(--color-primary) 12%, transparent)',
               border: difficulty === 'normal' ? '1px solid rgba(255,255,255,0.08)' : '1px solid color-mix(in srgb, var(--color-primary) 35%, transparent)',
             }}
-            aria-label="Difficulty"
+            aria-label={`Difficulty — ${DIFFICULTY_LABELS[difficulty]}`}
+            title={`Difficulty — ${DIFFICULTY_LABELS[difficulty]}`}
           >
-            {DIFFICULTY_LABELS[difficulty]}
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5 opacity-60">
+            {/* Mobile: sliders icon only */}
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 sm:hidden">
+              <line x1="4" y1="21" x2="4" y2="14" /><line x1="4" y1="10" x2="4" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="12" /><line x1="12" y1="8" x2="12" y2="3" />
+              <line x1="20" y1="21" x2="20" y2="16" /><line x1="20" y1="12" x2="20" y2="3" />
+              <line x1="1" y1="14" x2="7" y2="14" /><line x1="9" y1="8" x2="15" y2="8" /><line x1="17" y1="16" x2="23" y2="16" />
+            </svg>
+            {/* Desktop: label + chevron */}
+            <span className="hidden sm:inline">{DIFFICULTY_LABELS[difficulty]}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="hidden sm:block w-3.5 h-3.5 opacity-60">
               <polyline points="6 9 12 15 18 9" />
             </svg>
           </button>
 
           {!practiceMode && !isArchive && currentStreak > 0 && (
             <div
-              className="h-9 px-3 flex items-center font-mono text-[13px] font-bold rounded-xl"
+              className="h-9 px-2.5 sm:px-3 flex items-center font-mono text-[12px] sm:text-[13px] font-bold rounded-xl flex-shrink-0"
               style={{ color: 'var(--color-primary)', background: 'color-mix(in srgb, var(--color-primary) 10%, transparent)' }}
             >
               🔥{currentStreak}
@@ -130,7 +139,7 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
 
           <button
             onClick={() => { playSound('click'); toggleMuted() }}
-            className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-white/[0.08] transition-all duration-200 text-white/35 hover:text-white/60"
+            className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-white/[0.08] transition-all duration-200 text-white/35 hover:text-white/60 flex-shrink-0"
             aria-label={muted ? 'Unmute sounds' : 'Mute sounds'}
             title={muted ? 'Unmute sounds' : 'Mute sounds'}
           >
@@ -151,7 +160,7 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
           {user ? (
             <button
               onClick={() => { playSound('click'); navigate('/account') }}
-              className="flex items-center gap-2 h-9 px-2 rounded-xl hover:bg-white/[0.08] transition-all duration-200"
+              className="flex items-center gap-2 h-9 px-2 rounded-xl hover:bg-white/[0.08] transition-all duration-200 flex-shrink-0"
               title={`Account — ${user.email}`}
             >
               {user.avatarUrl ? (
@@ -165,15 +174,21 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
           ) : user === null ? (
             <button
               onClick={() => { playSound('click'); login() }}
-              className="h-9 px-3 rounded-xl text-[12px] font-semibold text-white/50 hover:text-white/80 hover:bg-white/[0.08] transition-all duration-200"
+              className="flex items-center justify-center h-9 w-9 sm:w-auto px-0 sm:px-3 rounded-xl text-[12px] font-semibold text-white/50 hover:text-white/80 hover:bg-white/[0.08] transition-all duration-200 flex-shrink-0"
+              aria-label="Sign in"
+              title="Sign in"
             >
-              Sign in
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:hidden">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+              <span className="hidden sm:inline">Sign in</span>
             </button>
           ) : null}
 
           <button
             onClick={() => { playSound('modal'); setShowStats(true) }}
-            className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-white/[0.08] transition-all duration-200 text-white/50 hover-group-secondary"
+            className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-white/[0.08] transition-all duration-200 text-white/50 hover-group-secondary flex-shrink-0"
             aria-label="Statistics"
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">

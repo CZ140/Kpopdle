@@ -103,22 +103,22 @@ export default function HomePage() {
       </div>
 
       {/* Page content */}
-      <div className="relative z-[1] max-w-[1320px] mx-auto px-8 pt-10 pb-20">
+      <div className="relative z-[1] max-w-[1320px] mx-auto px-4 sm:px-8 pt-6 sm:pt-10 pb-16 sm:pb-20">
 
         {/* Top strip */}
-        <div className="flex items-center justify-between mb-20 font-mono text-[12px] text-white/38 uppercase tracking-[0.08em]">
-          <div className="flex items-center gap-2">
+        <div className="flex items-center justify-between gap-2 mb-10 sm:mb-20 font-mono text-[11px] sm:text-[12px] text-white/38 uppercase tracking-[0.08em]">
+          <div className="flex items-center gap-2 flex-shrink-0">
             <span className="kp-live-dot" />
             LIVE · DAY {getDayNumber()}
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2.5 sm:gap-4">
             <div
               className="px-3 py-1.5 rounded-full border border-white/[0.14] text-white/62 text-[12px]"
               style={{ background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(20px)' }}
             >
               🔥 Streak <b className="text-[#FF2D78] font-bold">{bestStreak}</b>
             </div>
-            <div>{formatTopbarDate()}</div>
+            <div className="hidden sm:block">{formatTopbarDate()}</div>
             {user ? (
               <button
                 onClick={() => { playSound('click'); navigate('/account') }}
@@ -148,7 +148,7 @@ export default function HomePage() {
         </div>
 
         {/* Hero */}
-        <header className="text-center mb-[72px]">
+        <header className="text-center mb-12 sm:mb-[72px]">
           <div
             className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/[0.14] font-mono text-[11px] tracking-[0.14em] uppercase text-white/62 mb-8"
             style={{ background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(20px)' }}
@@ -166,7 +166,7 @@ export default function HomePage() {
           <h1
             className="font-black leading-[0.92] tracking-[-0.04em] m-0 mb-6"
             style={{
-              fontSize: 'clamp(64px, 11vw, 156px)',
+              fontSize: 'clamp(54px, 12vw, 156px)',
               background: 'linear-gradient(135deg, #FF2D78 0%, #EC4899 30%, #A855F7 70%, #6366F1 100%)',
               WebkitBackgroundClip: 'text',
               backgroundClip: 'text',
@@ -203,17 +203,17 @@ export default function HomePage() {
           style={{ background: 'linear-gradient(135deg, #FF2D78 0%, #A855F7 35%, #6366F1 65%, #06B6D4 100%)' }}
         >
           <div className="absolute inset-0 bg-black/20" />
-          <div className="relative z-[1] flex items-center justify-between px-8 py-6">
+          <div className="relative z-[1] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 px-5 sm:px-8 py-5 sm:py-6">
             <div>
               <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70 mb-1">Daily Cross-Group Challenge</div>
-              <h2 className="text-4xl font-black tracking-tight text-white leading-none mb-2">K-POPDLE</h2>
+              <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white leading-none mb-2">K-POPDLE</h2>
               <p className="text-sm text-white/80 font-medium">Any song. Any group. One daily shot.</p>
             </div>
-            <div className="flex flex-col items-end gap-2">
-              <div className="font-mono text-[11px] uppercase tracking-[0.12em] text-white/60">
+            <div className="flex flex-row-reverse sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-3 sm:gap-2 w-full sm:w-auto">
+              <div className="font-mono text-[11px] uppercase tracking-[0.12em] text-white/60 text-right">
                 {groups.length} groups · {groups.reduce((n, g) => n + (g.members || 0), 0)}+ songs
               </div>
-              <button className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-[#0d0d14] text-sm font-black tracking-wide group-hover:scale-105 transition-transform">
+              <button className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-[#0d0d14] text-sm font-black tracking-wide group-hover:scale-105 transition-transform flex-shrink-0">
                 PLAY →
               </button>
             </div>
@@ -221,8 +221,8 @@ export default function HomePage() {
         </div>
 
         {/* Section heading */}
-        <div className="flex items-end justify-between mb-7 px-1">
-          <h2 className="text-[22px] font-bold tracking-tight m-0">Pick your group</h2>
+        <div className="flex flex-wrap items-end justify-between gap-x-3 gap-y-1 mb-6 sm:mb-7 px-1">
+          <h2 className="text-xl sm:text-[22px] font-bold tracking-tight m-0">Pick your group</h2>
           <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/38">
             <b className="text-white/62 font-medium">{groups.length}</b> games ·{' '}
             <b className="text-white/62 font-medium">{solvedCount}</b> solved today
@@ -251,7 +251,7 @@ export default function HomePage() {
         )}
 
         {/* Footer */}
-        <footer className="mt-24 pt-8 border-t border-white/[0.08] flex justify-between items-center flex-wrap gap-4 font-mono text-[11px] uppercase tracking-[0.12em] text-white/38">
+        <footer className="mt-16 sm:mt-24 pt-8 border-t border-white/[0.08] flex justify-between items-center flex-wrap gap-4 font-mono text-[11px] uppercase tracking-[0.12em] text-white/38">
           <div className="flex items-center gap-2.5">
             A new song every day at midnight KST <span className="kp-heart">♥</span>
           </div>

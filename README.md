@@ -85,6 +85,9 @@ Sign in with Google to sync your streaks, guess distributions, and game history 
 ### 📊 Analytics Collection
 Every completed daily game anonymously records: group, song, guess count, win/loss, every wrong guess made, hints used, and difficulty. Stored in a local SQLite database and queryable via API endpoints.
 
+### 📱 Responsive Design
+Fully playable on phones, tablets, and desktop. The game header condenses its controls into icons on small screens (difficulty and sign-in collapse to icon buttons) so even the longest group name fits, day-navigation arrows reposition to the bottom corners on mobile to avoid overlapping the guess grid, the homepage hero and cross-group banner reflow into stacked layouts, and the group card grid steps from four columns down to one as the viewport narrows.
+
 ---
 
 ## Technical Highlights

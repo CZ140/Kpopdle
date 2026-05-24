@@ -68,14 +68,14 @@ export default function KpopdlePage() {
           onOpenArchive={() => setShowArchive(true)}
           onOpenDifficulty={() => setShowDifficulty(true)}
         />
-        <main className="relative z-10 flex-1 flex flex-col items-center px-4 pb-8">
+        <main className="relative z-10 flex-1 flex flex-col items-center px-4 pb-24 sm:pb-8">
           <Game key={archiveDate ?? 'today'} />
         </main>
 
         {prevDate !== null && (
           <button
             onClick={handlePrev}
-            className="fixed left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.08] text-white/35 hover:text-white/70 transition-all duration-200"
+            className="fixed left-3 bottom-5 sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 z-20 w-11 h-11 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-white/[0.08] sm:bg-white/[0.06] backdrop-blur-sm hover:bg-white/[0.12] border border-white/[0.1] sm:border-white/[0.08] text-white/50 sm:text-white/35 hover:text-white/70 transition-all duration-200"
             aria-label="Previous day"
             title="Previous game"
           >
@@ -87,7 +87,7 @@ export default function KpopdlePage() {
         {archiveDate !== null && (
           <button
             onClick={handleNext}
-            className="fixed right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.08] text-white/35 hover:text-white/70 transition-all duration-200"
+            className="fixed right-3 bottom-5 sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 z-20 w-11 h-11 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-white/[0.08] sm:bg-white/[0.06] backdrop-blur-sm hover:bg-white/[0.12] border border-white/[0.1] sm:border-white/[0.08] text-white/50 sm:text-white/35 hover:text-white/70 transition-all duration-200"
             aria-label="Next day"
             title={nextDate === null ? "Today's game" : "Next game"}
           >
