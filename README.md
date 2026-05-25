@@ -4,14 +4,14 @@
 
 **A daily K-pop music guessing game platform — Heardle-style, for 8 groups.**
 
-[![Live](https://img.shields.io/badge/Live-kpopdle.up.railway.app-FF2D78?style=flat-square&logo=railway&logoColor=white)](https://kpopdle-production.up.railway.app/)
+[![Live](https://img.shields.io/badge/Live-k--popdle.com-FF2D78?style=flat-square&logo=railway&logoColor=white)](https://k-popdle.com)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev)
 [![Vite](https://img.shields.io/badge/Vite-7-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev)
 [![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org)
 [![TailwindCSS](https://img.shields.io/badge/Tailwind-v4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![SQLite](https://img.shields.io/badge/SQLite-better--sqlite3-003B57?style=flat-square&logo=sqlite&logoColor=white)](https://www.sqlite.org)
 
-### [▶ Play at kpopdle-production.up.railway.app](https://kpopdle-production.up.railway.app/)
+### [▶ Play at k-popdle.com](https://k-popdle.com)
 
 ![K-POPDLE Homepage](docs/screenshot-homepage.png)
 
