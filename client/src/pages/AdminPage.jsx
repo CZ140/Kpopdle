@@ -201,13 +201,12 @@ export default function AdminPage() {
         {/* Traffic + errors over time */}
         <Section
           title="Traffic & errors over time"
-          subtitle={d.telemetrySince ? 'Left of the marker is Cloudflare backfill; right is live telemetry' : 'Total requests, with 4xx / 5xx overlaid'}
+          subtitle="App requests from your telemetry, with 4xx / 5xx overlaid"
         >
           <AreaChart
             data={d.traffic}
             height={210}
             formatX={formatX}
-            boundaryT={d.telemetrySince}
             series={[
               { key: 'total', color: '#38BDF8', label: 'Total' },
               { key: 'c4xx', color: '#F59E0B', label: '4xx' },

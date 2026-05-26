@@ -156,41 +156,35 @@ function getKpis(sinceTs, liveSince) {
   }
 }
 
-// Total / 4xx / 5xx requests bucketed over time. Merges live telemetry (at/after
-// the boundary) with Cloudflare backfill (strictly before it) into one series.
-function getTrafficSeries(sinceTs, bucketSeconds, liveSince) {
+// App requests (live telemetry only) bucketed over time, zero-filled for a
+// continuous axis. Cloudflare backfill is intentionally NOT merged here: it
+// counts every edge request (static assets, bots) and would dwarf app traffic
+// on a shared axis. Backfill instead powers the aggregate panels below.
+function getTrafficSeries(sinceTs, bucketSeconds) {
+  // CAST forces integer division so buckets are hour-aligned and match the
+  // zero-filled keys below (better-sqlite3 binds the param as REAL otherwise).
   const live = db.prepare(`
-    SELECT (ts / @b) * @b                                       AS bucket,
+    SELECT (ts / CAST(@b AS INTEGER)) * CAST(@b AS INTEGER)      AS bucket,
       COUNT(*)                                                  AS total,
       SUM(CASE WHEN status >= 400 AND status < 500 THEN 1 END)  AS c4xx,
       SUM(CASE WHEN status >= 500 THEN 1 END)                   AS c5xx
     FROM request_log WHERE ts >= @since GROUP BY bucket
   `).all({ b: bucketSeconds, since: sinceTs })
 
-  const hist = db.prepare(`
-    SELECT (bucket_hour / @b) * @b                                          AS bucket,
-      SUM(count)                                                            AS total,
-      SUM(CASE WHEN status >= 400 AND status < 500 THEN count ELSE 0 END)   AS c4xx,
-      SUM(CASE WHEN status >= 500 THEN count ELSE 0 END)                    AS c5xx
-    FROM th_status WHERE bucket_hour >= @since AND bucket_hour < @live GROUP BY bucket
-  `).all({ b: bucketSeconds, since: sinceTs, live: liveSince })
-
   // Pre-fill every bucket across the window with zeros so the chart has a
-  // continuous time axis — no gaps, and points are spaced by real time rather
-  // than by index (which distorts when backfill leaves multi-hour holes).
+  // continuous, time-proportional axis (no gaps, no index-spacing distortion).
   const start = Math.floor(sinceTs / bucketSeconds) * bucketSeconds
   const lastBucket = Math.floor(now() / bucketSeconds) * bucketSeconds
   const map = new Map()
   for (let t = start; t <= lastBucket; t += bucketSeconds) {
     map.set(t, { t, total: 0, c4xx: 0, c5xx: 0 })
   }
-
-  for (const r of [...hist, ...live]) {
+  for (const r of live) {
     const e = map.get(r.bucket)
     if (!e) continue
-    e.total += r.total || 0
-    e.c4xx += r.c4xx || 0
-    e.c5xx += r.c5xx || 0
+    e.total = r.total || 0
+    e.c4xx = r.c4xx || 0
+    e.c5xx = r.c5xx || 0
   }
   return [...map.values()] // Map preserves ascending insertion (time) order
 }
@@ -382,7 +376,7 @@ export function getDashboard({ hours = 24 } = {}) {
     // only surfaced when there's actually imported history in this window.
     telemetrySince: historyAvailable(sinceTs, liveSince) ? liveSince : null,
     kpis: getKpis(sinceTs, liveSince),
-    traffic: getTrafficSeries(sinceTs, bucketSeconds, liveSince),
+    traffic: getTrafficSeries(sinceTs, bucketSeconds),
     statusBreakdown: getStatusBreakdown(sinceTs, liveSince),
     topErrorPaths: getTopErrorPaths(sinceTs, liveSince),
     latency: getLatency(sinceTs),
