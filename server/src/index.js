@@ -12,6 +12,9 @@ import songRoutes from './routes/songs.js'
 import statsRoutes from './routes/stats.js'
 import kpopdleRoutes from './routes/kpopdle.js'
 import authRoutes from './routes/auth.js'
+import adminRoutes from './routes/admin.js'
+import requestLog from './middleware/requestLog.js'
+import { pruneOldRequests } from './services/adminDb.js'
 import { configurePassport } from './services/authDb.js'
 import { SqliteSessionStore } from './services/sessionStore.js'
 import { getTodaysSong, getKpopdleSongForDate } from './services/dailySong.js'
@@ -76,7 +79,12 @@ app.use(passport.initialize())
 app.use(passport.session())
 configurePassport()
 
+// Request telemetry — after passport so req.user is available, before routes
+// so it wraps every endpoint. Powers the /admin analytics dashboard.
+app.use(requestLog)
+
 app.use('/api/auth', authLimiter, authRoutes)
+app.use('/api/admin', apiLimiter, adminRoutes)
 app.use('/api/groups', apiLimiter, groupRoutes)
 app.use('/api/stats', apiLimiter, statsRoutes)
 app.use('/api/kpopdle', apiLimiter, kpopdleRoutes)
@@ -99,6 +107,9 @@ app.listen(PORT, () => {
   console.log(`K-popdle server running on port ${PORT}`)
   warmCache()
   setInterval(warmCache, 20 * 60 * 1000)
+  // Trim request telemetry older than 90 days, daily.
+  pruneOldRequests()
+  setInterval(pruneOldRequests, 24 * 60 * 60 * 1000)
 })
 
 async function warmCache() {

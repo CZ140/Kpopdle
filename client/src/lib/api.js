@@ -87,6 +87,14 @@ export function importLocalStats(statsMap) {
   }).catch(() => {})
 }
 
+// Admin analytics dashboard. Returns { status, data } so the page can tell
+// "not logged in" (401) apart from "logged in but not an admin" (403).
+export async function fetchAdminDashboard(hours = 24) {
+  const res = await fetch(`${API_BASE}/admin/dashboard?hours=${hours}`, { credentials: 'include' })
+  if (!res.ok) return { status: res.status, data: null }
+  return { status: 200, data: await res.json() }
+}
+
 export async function submitPracticeGuess(group, practiceSongId, guess) {
   const res = await fetch(`${API_BASE}/${group}/game/guess`, {
     method: 'POST',
