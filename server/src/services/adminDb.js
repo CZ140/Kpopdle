@@ -175,15 +175,24 @@ function getTrafficSeries(sinceTs, bucketSeconds, liveSince) {
     FROM th_status WHERE bucket_hour >= @since AND bucket_hour < @live GROUP BY bucket
   `).all({ b: bucketSeconds, since: sinceTs, live: liveSince })
 
+  // Pre-fill every bucket across the window with zeros so the chart has a
+  // continuous time axis — no gaps, and points are spaced by real time rather
+  // than by index (which distorts when backfill leaves multi-hour holes).
+  const start = Math.floor(sinceTs / bucketSeconds) * bucketSeconds
+  const lastBucket = Math.floor(now() / bucketSeconds) * bucketSeconds
   const map = new Map()
+  for (let t = start; t <= lastBucket; t += bucketSeconds) {
+    map.set(t, { t, total: 0, c4xx: 0, c5xx: 0 })
+  }
+
   for (const r of [...hist, ...live]) {
-    const e = map.get(r.bucket) || { t: r.bucket, total: 0, c4xx: 0, c5xx: 0 }
+    const e = map.get(r.bucket)
+    if (!e) continue
     e.total += r.total || 0
     e.c4xx += r.c4xx || 0
     e.c5xx += r.c5xx || 0
-    map.set(r.bucket, e)
   }
-  return [...map.values()].sort((a, b) => a.t - b.t)
+  return [...map.values()] // Map preserves ascending insertion (time) order
 }
 
 // Status-code distribution (4xx/5xx) for the donut — live + backfill.

@@ -192,7 +192,7 @@ export default function AdminPage() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
           <StatCard label="Requests" value={fmtNum(k.totalRequests)} sub={d.telemetrySince ? 'incl. Cloudflare backfill' : `${fmtNum(humanTotal)} human`} accent="#4ADE80" />
           <StatCard label="Error rate" value={`${k.errorRate}%`} sub={`${k.serverErrors} server (5xx)`} danger={k.errorRate > 20} accent="#F59E0B" />
-          <StatCard label="Unique visitors" value={fmtNum(k.uniqueVisitors)} sub="humans, deduped by IP" accent="#38BDF8" />
+          <StatCard label="Unique visitors" value={fmtNum(k.uniqueVisitors)} sub="live only · by IP" accent="#38BDF8" />
           <StatCard label="Bot requests" value={fmtNum(k.botRequests)} sub="scanners & crawlers" accent="#8B5CF6" />
           <StatCard label="Registered users" value={fmtNum(k.totalUsers)} sub={`+${d.userGrowth.newThisWeek} this week`} accent="#FF2D78" />
           <StatCard label="Games played" value={fmtNum(k.gamesInWindow)} sub="in selected window" accent="#FF6B35" />
