@@ -128,6 +128,15 @@ The POST is fire-and-forget from the client — it never blocks or affects gamep
 ### Request Telemetry Pipeline
 A single Express middleware (`requestLog`) records every request on response finish — method, path, status, latency, country, and an authenticated user id when present. It runs after Passport (so `req.user` is populated) and before the routes (so it wraps every endpoint), skips static assets and its own dashboard polling, and writes synchronously via a prepared statement so it never adds measurable latency. Client IPs are hashed with HMAC-SHA256 (never stored raw), and country comes free from Cloudflare's `cf-ipcountry` edge header. Vulnerability scanners (`wp-config.php`, `.env`, credential probes) are classified as bots so the dashboard can separate real failures from internet background noise. Telemetry is auto-pruned after 90 days. The `/api/admin/dashboard` endpoint composes the entire view in one query round-trip.
 
+### Cloudflare Historical Backfill
+Because per-request telemetry only began the day the dashboard shipped, a backfill imports the period before that from **Cloudflare's GraphQL Analytics API**. Requests/status/country come from the `httpRequests1hGroups` dataset (non-sampled, ~30-day retention); top paths come from the sampled adaptive dataset (`count × sampleInterval`, shorter retention). All of it lands in separate history tables (`th_status`, `th_geo`, `th_path`) — never mixed into the per-request log. The dashboard then **merges** the two sources along a boundary (the first live-telemetry timestamp): backfill fills strictly before it, live data covers at/after it, so the two never double-count, and the traffic chart draws a marker at the seam. Latency, unique visitors, and the live feed stay live-only, since Cloudflare's aggregates don't carry that detail.
+
+The same import logic (`runBackfill`) is exposed two ways:
+- **In-app button** on `/admin` → `POST /api/admin/backfill` — runs inside the deployed container, so it can write to the production SQLite volume. This is the way to backfill production.
+- **CLI** for local/dev: `node server/scripts/backfillCloudflare.js --days 30`.
+
+> A local `railway run` of the CLI would write to a local path, not the mounted volume — which is why production backfill goes through the in-app endpoint instead.
+
 ### Security
 - Content-Security-Policy header restricts script, style, media, font, and image sources
 - Per-route rate limiting on sensitive endpoints (tighter than the global 100/15min baseline)
@@ -173,6 +182,7 @@ A single `GroupContext` carries the active `groupId`, `archiveDate`, `practiceMo
 │       └── pages/                 # HomePage, GroupPage, AdminPage (lazy-loaded)
 │
 └── server/                        # Express backend
+    ├── scripts/                   # backfillCloudflare.js (historical analytics import)
     └── src/
         ├── data/
         │   ├── groups.json        # Group registry (8 groups, colors, launchDate)
@@ -181,7 +191,8 @@ A single `GroupContext` carries the active `groupId`, `archiveDate`, `practiceMo
         │   └── stats.db           # SQLite analytics database (git-ignored)
         ├── middleware/            # validateGroup, cors, rateLimit, requestLog, requireAdmin
         ├── routes/                # groups, game, songs, stats, admin
-        └── services/              # dailySong, audioProvider, deezerPreview, statsDb, adminDb
+        ├── services/              # dailySong, audioProvider, statsDb, adminDb, cloudflareClient, backfill
+        └── utils/                 # dateUtils, cache, botPatterns
 ```
 
 ---
@@ -206,6 +217,8 @@ cp server/.env.example server/.env
 #   ADMIN_EMAILS      — comma-separated Google emails allowed into /admin
 #   DB_PATH           — (production) a persistent volume dir, so SQLite
 #                       (stats + telemetry) survives redeploys
+#   CLOUDFLARE_API_TOKEN / CLOUDFLARE_ZONE_ID — (optional) for the historical
+#                       analytics backfill; token needs Zone → Analytics → Read
 
 # Start both client and server
 npm run dev

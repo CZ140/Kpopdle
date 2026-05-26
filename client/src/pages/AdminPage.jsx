@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../lib/AuthContext'
-import { fetchAdminDashboard } from '../lib/api'
+import { fetchAdminDashboard, triggerBackfill } from '../lib/api'
 import { StatCard, AreaChart, Donut, BarList, Sparkline, Section } from '../components/admin/charts'
 import { fmtNum, fmtMs, COUNTRY_FLAG } from '../components/admin/format'
 
@@ -46,12 +46,24 @@ export default function AdminPage() {
   const { user, login } = useAuth()
   const [hours, setHours] = useState(24)
   const [state, setState] = useState({ loading: true, status: 200, data: null })
+  const [backfill, setBackfill] = useState({ running: false, msg: null })
 
   const load = useCallback((h) => {
     fetchAdminDashboard(h)
       .then(({ status, data }) => setState({ loading: false, status, data }))
       .catch(() => setState({ loading: false, status: 0, data: null }))
   }, [])
+
+  const doBackfill = useCallback(async () => {
+    setBackfill({ running: true, msg: null })
+    const r = await triggerBackfill(30)
+    if (r.ok) {
+      setBackfill({ running: false, msg: `Imported ~${(r.estRequests ?? 0).toLocaleString()} requests` })
+      load(hours)
+    } else {
+      setBackfill({ running: false, msg: r.error || 'Backfill failed' })
+    }
+  }, [hours, load])
 
   useEffect(() => { load(hours) }, [hours, load])
 
@@ -123,8 +135,8 @@ export default function AdminPage() {
   const geoItems = d.geo.map(g => ({
     label: g.country,
     icon: COUNTRY_FLAG(g.country),
-    value: g.visitors,
-    display: fmtNum(g.visitors),
+    value: g.requests,
+    display: fmtNum(g.requests),
     color: '#38BDF8',
   }))
 
@@ -153,21 +165,32 @@ export default function AdminPage() {
           Analytics
         </h1>
         <span className="kp-live-dot ml-1" title="Live — refreshes every 30s" />
-        <div className="ml-auto flex gap-1 bg-white/[0.04] rounded-xl p-1">
-          {RANGES.map(r => (
-            <button key={r.hours} onClick={() => setHours(r.hours)}
-              className="px-3 py-1.5 rounded-lg text-xs font-bold transition-all"
-              style={hours === r.hours ? { background: 'rgba(168,85,247,0.2)', color: '#C084FC' } : { color: 'rgba(255,255,255,0.4)' }}>
-              {r.label}
-            </button>
-          ))}
+        <div className="ml-auto flex items-center gap-2">
+          {backfill.msg && <span className="text-[11px] text-white/45 max-w-[180px] truncate" title={backfill.msg}>{backfill.msg}</span>}
+          <button
+            onClick={doBackfill}
+            disabled={backfill.running}
+            title="Import historical traffic from Cloudflare into the dashboard"
+            className="px-3 py-1.5 rounded-lg text-xs font-bold text-white/60 border border-white/10 hover:bg-white/[0.06] hover:text-white/80 disabled:opacity-50 transition-all"
+          >
+            {backfill.running ? 'Importing…' : '⟳ Backfill'}
+          </button>
+          <div className="flex gap-1 bg-white/[0.04] rounded-xl p-1">
+            {RANGES.map(r => (
+              <button key={r.hours} onClick={() => setHours(r.hours)}
+                className="px-3 py-1.5 rounded-lg text-xs font-bold transition-all"
+                style={hours === r.hours ? { background: 'rgba(168,85,247,0.2)', color: '#C084FC' } : { color: 'rgba(255,255,255,0.4)' }}>
+                {r.label}
+              </button>
+            ))}
+          </div>
         </div>
       </header>
 
       <main className="relative z-10 flex-1 w-full max-w-6xl mx-auto px-4 py-6 flex flex-col gap-5">
         {/* KPI cards */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-          <StatCard label="Requests" value={fmtNum(k.totalRequests)} sub={`${fmtNum(humanTotal)} human`} accent="#4ADE80" />
+          <StatCard label="Requests" value={fmtNum(k.totalRequests)} sub={d.telemetrySince ? 'incl. Cloudflare backfill' : `${fmtNum(humanTotal)} human`} accent="#4ADE80" />
           <StatCard label="Error rate" value={`${k.errorRate}%`} sub={`${k.serverErrors} server (5xx)`} danger={k.errorRate > 20} accent="#F59E0B" />
           <StatCard label="Unique visitors" value={fmtNum(k.uniqueVisitors)} sub="humans, deduped by IP" accent="#38BDF8" />
           <StatCard label="Bot requests" value={fmtNum(k.botRequests)} sub="scanners & crawlers" accent="#8B5CF6" />
@@ -176,19 +199,22 @@ export default function AdminPage() {
         </div>
 
         {/* Traffic + errors over time */}
-        <Section title="Traffic & errors over time" subtitle="Human vs bot requests, with 4xx / 5xx overlaid">
+        <Section
+          title="Traffic & errors over time"
+          subtitle={d.telemetrySince ? 'Left of the marker is Cloudflare backfill; right is live telemetry' : 'Total requests, with 4xx / 5xx overlaid'}
+        >
           <AreaChart
             data={d.traffic}
             height={210}
             formatX={formatX}
+            boundaryT={d.telemetrySince}
             series={[
-              { key: 'human', color: '#4ADE80', label: 'Human' },
-              { key: 'bot', color: '#8B5CF6', label: 'Bot' },
+              { key: 'total', color: '#38BDF8', label: 'Total' },
               { key: 'c4xx', color: '#F59E0B', label: '4xx' },
               { key: 'c5xx', color: '#FF6B6B', label: '5xx' },
             ]}
           />
-          <Legend items={[['Human', '#4ADE80'], ['Bot', '#8B5CF6'], ['4xx', '#F59E0B'], ['5xx', '#FF6B6B']]} />
+          <Legend items={[['Total', '#38BDF8'], ['4xx', '#F59E0B'], ['5xx', '#FF6B6B']]} />
         </Section>
 
         {/* Error distribution + top error paths */}
@@ -219,7 +245,7 @@ export default function AdminPage() {
 
         {/* Geography + growth */}
         <div className="grid lg:grid-cols-2 gap-5">
-          <Section title="Top countries" subtitle="By unique visitors (via Cloudflare edge)">
+          <Section title="Top countries" subtitle="By requests (live + Cloudflare backfill)">
             <BarList items={geoItems} />
           </Section>
           <Section title="Audience growth">

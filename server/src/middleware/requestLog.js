@@ -1,5 +1,6 @@
 import crypto from 'crypto'
 import { recordRequest } from '../services/adminDb.js'
+import { classifyBot } from '../utils/botPatterns.js'
 
 // Salt for hashing client IPs. Reuses SESSION_SECRET so we don't introduce a
 // new secret to manage; the raw IP is never stored.
@@ -10,18 +11,9 @@ const IP_SALT = process.env.SESSION_SECRET || 'dev-secret-change-in-production'
 const SKIP_PATH = /\.(js|css|map|png|jpe?g|svg|gif|ico|webp|woff2?|ttf|mp3|txt|xml)$/i
 const SKIP_PREFIX = '/api/admin'
 
-// Vulnerability scanners and crawlers. These are internet background noise —
-// flagging them lets the dashboard separate "real failures" from "bot probes".
-const SCANNER_PATH = /(wp-config|wp-admin|wp-login|xmlrpc|phpmyadmin|\.env|\.git|\.aws|\/vendor\/|\.php|credentials|\.ssh|\.docker|config\.js$|common\.js$)/i
-const BOT_UA = /(bot|crawler|spider|scan|curl|wget|python-requests|go-http|httpclient|semrush|ahrefs|mj12|dotbot|bytespider|petalbot|headless|probe|uptime|healthcheck)/i
-
 function hashIp(ip) {
   if (!ip) return null
   return crypto.createHmac('sha256', IP_SALT).update(ip).digest('hex').slice(0, 16)
-}
-
-function classifyBot(path, ua) {
-  return SCANNER_PATH.test(path) || (ua ? BOT_UA.test(ua) : true)
 }
 
 export default function requestLog(req, res, next) {

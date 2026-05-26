@@ -26,7 +26,7 @@ export function StatCard({ label, value, sub, accent = '#A855F7', danger }) {
 // ---------------------------------------------------------------------------
 // Multi-series area + line chart
 // ---------------------------------------------------------------------------
-export function AreaChart({ data, series, height = 190, formatX }) {
+export function AreaChart({ data, series, height = 190, formatX, boundaryT }) {
   const W = 640, H = height, padL = 34, padR = 10, padT = 14, padB = 22
   const innerW = W - padL - padR
   const innerH = H - padT - padB
@@ -39,6 +39,18 @@ export function AreaChart({ data, series, height = 190, formatX }) {
   const n = data.length
   const x = (i) => padL + (n === 1 ? innerW / 2 : (i / (n - 1)) * innerW)
   const y = (v) => padT + innerH - (v / maxY) * innerH
+
+  // Optional boundary marker: where live telemetry begins (left of it = backfill).
+  let boundaryX = null
+  if (boundaryT != null && n > 1) {
+    const i = data.findIndex(d => d.t >= boundaryT)
+    if (i === 0) boundaryX = padL
+    else if (i > 0) {
+      const prev = data[i - 1], cur = data[i]
+      const frac = cur.t === prev.t ? 0 : (boundaryT - prev.t) / (cur.t - prev.t)
+      boundaryX = x(i - 1 + frac)
+    }
+  }
 
   // Tidy y gridlines
   const ticks = 4
@@ -76,6 +88,14 @@ export function AreaChart({ data, series, height = 190, formatX }) {
           </g>
         )
       })}
+
+      {/* boundary: backfill (left) vs live telemetry (right) */}
+      {boundaryX != null && (
+        <g>
+          <line x1={boundaryX} x2={boundaryX} y1={padT} y2={padT + innerH} stroke="rgba(255,255,255,0.35)" strokeWidth="1" strokeDasharray="3 3" />
+          <text x={boundaryX + 3} y={padT + 8} fontSize="8" fill="rgba(255,255,255,0.45)">live →</text>
+        </g>
+      )}
 
       {/* x labels — first, middle, last */}
       {formatX && [0, Math.floor((n - 1) / 2), n - 1].filter((v, i, a) => a.indexOf(v) === i).map((i) => (

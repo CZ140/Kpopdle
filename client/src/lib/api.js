@@ -95,6 +95,13 @@ export async function fetchAdminDashboard(hours = 24) {
   return { status: 200, data: await res.json() }
 }
 
+// Trigger a Cloudflare historical backfill (admin only). Runs server-side.
+export async function triggerBackfill(days = 30) {
+  const res = await fetch(`${API_BASE}/admin/backfill?days=${days}`, { method: 'POST', credentials: 'include' })
+  const data = await res.json().catch(() => ({}))
+  return { ok: res.ok, ...data }
+}
+
 export async function submitPracticeGuess(group, practiceSongId, guess) {
   const res = await fetch(`${API_BASE}/${group}/game/guess`, {
     method: 'POST',
