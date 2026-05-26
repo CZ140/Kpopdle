@@ -27,3 +27,15 @@ export const GAME_NAMES = {
 
 // Single source of truth for all group IDs — update here when adding a new group
 export const ALL_GROUP_IDS = Object.keys(GAME_NAMES)
+
+// Display names + taglines for per-route SEO titles/descriptions (see useDocumentMeta).
+export const GROUP_META = {
+  twice:      { displayName: 'TWICE',        tagline: 'Daily TWICE Song Quiz' },
+  newjeans:   { displayName: 'NewJeans',     tagline: 'Daily NewJeans Song Quiz' },
+  lesserafim: { displayName: 'LE SSERAFIM',  tagline: 'Daily LE SSERAFIM Song Quiz' },
+  aespa:      { displayName: 'aespa',        tagline: 'Daily aespa Song Quiz' },
+  redvelvet:  { displayName: 'Red Velvet',   tagline: 'Daily Red Velvet Song Quiz' },
+  kissoflife: { displayName: 'KISS OF LIFE', tagline: 'Daily KISS OF LIFE Song Quiz' },
+  ive:        { displayName: 'IVE',          tagline: 'Daily IVE Song Quiz' },
+  blackpink:  { displayName: 'BLACKPINK',    tagline: 'Daily BLACKPINK Song Quiz' },
+}

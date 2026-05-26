@@ -1,0 +1,17 @@
+{
+  "name": "K-POPDLE — Daily K-pop Music Quiz",
+  "short_name": "K-POPDLE",
+  "description": "Daily K-pop music guessing game. Listen to a clip and guess the song. New song every day at midnight KST.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d0d14",
+  "theme_color": "#FF2D78",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any maskable"
+    }
+  ]
+}

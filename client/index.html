@@ -5,13 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#FF2D78" />
     <meta name="description" content="Daily K-pop music guessing game — 8 groups, 509 songs. Listen to a clip and guess the song. New drop every day at midnight KST." />
+    <meta name="keywords" content="kpopdle, k-popdle, kpop heardle, kpop song quiz, daily kpop game, guess the kpop song, twicedle, k-pop music quiz, heardle" />
+    <link rel="canonical" href="https://k-popdle.com/" />
+
+    <!-- Icons & PWA -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Open Graph — controls Discord / Slack / iMessage link previews -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="K-POPDLE" />
     <meta property="og:url" content="https://k-popdle.com/" />
     <meta property="og:title" content="K-POPDLE — Daily K-pop Music Quiz" />
     <meta property="og:description" content="Daily K-pop music guessing game — 8 groups, 509 songs. Listen to a clip and guess the song. New drop every day at midnight KST." />
     <meta property="og:image" content="https://raw.githubusercontent.com/CZ140/Kpopdle/main/docs/screenshot-homepage.png" />
+    <meta property="og:image:alt" content="K-POPDLE homepage — pick a K-pop group and guess the daily song." />
 
     <!-- Twitter / X card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -20,6 +29,37 @@
     <meta name="twitter:image" content="https://raw.githubusercontent.com/CZ140/Kpopdle/main/docs/screenshot-homepage.png" />
 
     <title>K-POPDLE — Daily K-pop Music Quiz</title>
+
+    <!-- Structured data: helps Google understand the site + show a rich result -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://k-popdle.com/#website",
+          "url": "https://k-popdle.com/",
+          "name": "K-POPDLE",
+          "description": "Daily K-pop music guessing game — listen to a clip and guess the song.",
+          "inLanguage": "en"
+        },
+        {
+          "@type": "VideoGame",
+          "name": "K-POPDLE",
+          "url": "https://k-popdle.com/",
+          "applicationCategory": "Game",
+          "genre": "Music guessing game",
+          "operatingSystem": "Web browser",
+          "description": "A daily K-pop Heardle-style music quiz. Listen to a short clip and guess the song. Eight groups, each with their own daily game, plus a cross-group challenge. New song every day at midnight KST.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

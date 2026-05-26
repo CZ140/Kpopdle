@@ -2,9 +2,10 @@ import { useState, useEffect, useCallback, useMemo } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { GroupContext } from '../lib/GroupContext'
 import { migrateStorageIfNeeded, loadDifficulty, saveDifficulty } from '../lib/storage'
-import { ALL_GROUP_IDS } from '../lib/constants'
+import { ALL_GROUP_IDS, GAME_NAMES, GROUP_META } from '../lib/constants'
 import { getKSTDateString } from '../lib/dateUtils'
 import { useSound } from '../lib/SoundContext'
+import { useDocumentMeta } from '../hooks/useDocumentMeta'
 import Game from '../components/Game'
 import PracticeGame from '../components/PracticeGame'
 import Header from '../components/Header'
@@ -124,6 +125,17 @@ export default function GroupPage() {
       setArchiveDate(nextDate)
     }
   }, [archiveDate, nextDate, playSound])
+
+  // Per-route SEO: each group page gets its own title/description/canonical.
+  const meta = GROUP_META[group]
+  const gameName = GAME_NAMES[group]
+  useDocumentMeta({
+    title: meta ? `${gameName} — ${meta.tagline} | K-POPDLE` : undefined,
+    description: meta
+      ? `Guess the daily ${meta.displayName} song from a short audio clip. ${gameName} is a free K-pop Heardle — 6 tries, optional hints, and a new song every day at midnight KST.`
+      : undefined,
+    path: meta ? `/${group}` : '/',
+  })
 
   if (!VALID_GROUPS.includes(group)) {
     navigate('/')

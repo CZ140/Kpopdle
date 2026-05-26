@@ -15,6 +15,8 @@
 
 ![K-POPDLE Homepage](docs/screenshot-homepage.png)
 
+**📈 Live & growing** — since launch, K-POPDLE has drawn **1.69k visits** and **1.76k page views** from players around the world, entirely organic. A fresh song every day keeps people coming back.
+
 </div>
 
 ---
@@ -85,6 +87,9 @@ Sign in with Google to sync your streaks, guess distributions, and game history 
 ### 📊 Analytics Collection
 Every completed daily game anonymously records: group, song, guess count, win/loss, every wrong guess made, hints used, and difficulty. Stored in a local SQLite database and queryable via API endpoints.
 
+### 📈 Admin Analytics Dashboard
+A private, in-app analytics dashboard at `/admin`, gated behind a Google-account allowlist. It's a self-hosted alternative to a hosted observability tool — every request is logged to SQLite by a lightweight middleware (IPs hashed, never stored), then visualised with hand-built dependency-free SVG charts. Surfaces traffic and error rates over time, status-code distribution, top error paths (with automatic bot-scan tagging), latency percentiles (p50/p95/p99), geographic breakdown, audience growth, game analytics, and a live request feed. Lazy-loaded so it adds zero weight to the game bundle.
+
 ### 📱 Responsive Design
 Fully playable on phones, tablets, and desktop. The game header condenses its controls into icons on small screens (difficulty and sign-in collapse to icon buttons) so even the longest group name fits, day-navigation arrows reposition to the bottom corners on mobile to avoid overlapping the guess grid, the homepage hero and cross-group banner reflow into stacked layouts, and the group card grid steps from four columns down to one as the viewport narrows.
 
@@ -120,12 +125,19 @@ Game results are written to a SQLite database (`better-sqlite3`) at the end of e
 
 The POST is fire-and-forget from the client — it never blocks or affects gameplay. The record endpoint has its own tighter rate limit (10/min) and full input validation to prevent analytics pollution.
 
+### Request Telemetry Pipeline
+A single Express middleware (`requestLog`) records every request on response finish — method, path, status, latency, country, and an authenticated user id when present. It runs after Passport (so `req.user` is populated) and before the routes (so it wraps every endpoint), skips static assets and its own dashboard polling, and writes synchronously via a prepared statement so it never adds measurable latency. Client IPs are hashed with HMAC-SHA256 (never stored raw), and country comes free from Cloudflare's `cf-ipcountry` edge header. Vulnerability scanners (`wp-config.php`, `.env`, credential probes) are classified as bots so the dashboard can separate real failures from internet background noise. Telemetry is auto-pruned after 90 days. The `/api/admin/dashboard` endpoint composes the entire view in one query round-trip.
+
 ### Security
 - Content-Security-Policy header restricts script, style, media, font, and image sources
 - Per-route rate limiting on sensitive endpoints (tighter than the global 100/15min baseline)
 - All DB writes use parameterized queries (no SQL injection surface)
 - `httpOnly` session cookies with `sameSite: lax` and `secure` in production
 - `ON DELETE CASCADE` throughout the user tables for clean GDPR erasure
+- Admin dashboard gated by a server-side email allowlist; request telemetry hashes IPs and stores no PII
+
+### Discoverability (SEO)
+The SPA is tuned for search and social sharing despite being client-rendered. `index.html` ships canonical, Open Graph, Twitter-card, and JSON-LD (`WebSite` + `VideoGame`) tags, an SVG favicon, and a web manifest. A `useDocumentMeta` hook rewrites the title, description, and canonical URL per route — so `/twice`, `/ive`, and every other group page is indexable and shareable on its own rather than sharing the homepage's metadata. A static `robots.txt` and `sitemap.xml` (homepage, cross-group challenge, and all 8 group routes) are served straight from the build output, ahead of the SPA catch-all.
 
 ### Multi-Group Architecture
 All routes are parameterised: `/api/:group/game/today`, `/api/:group/songs`, etc. A `validateGroup` middleware guards every route — inactive or unknown group IDs return 404, preventing catalog probing before a group launches.
@@ -155,9 +167,10 @@ A single `GroupContext` carries the active `groupId`, `archiveDate`, `practiceMo
 ├── client/                        # React frontend (Vite)
 │   └── src/
 │       ├── components/            # AudioPlayer, GuessInput, ArchiveModal, ...
+│       │   └── admin/             # SVG chart primitives (charts.jsx, format.js)
 │       ├── hooks/                 # useGame, useSongList, useStats, useAudioPlayer
 │       ├── lib/                   # api.js, storage.js, GroupContext.js, share.js
-│       └── pages/                 # HomePage, GroupPage
+│       └── pages/                 # HomePage, GroupPage, AdminPage (lazy-loaded)
 │
 └── server/                        # Express backend
     └── src/
@@ -166,9 +179,9 @@ A single `GroupContext` carries the active `groupId`, `archiveDate`, `practiceMo
         │   ├── groups/{id}/
         │   │   └── songs.json     # Per-group song catalog with Deezer IDs
         │   └── stats.db           # SQLite analytics database (git-ignored)
-        ├── middleware/            # validateGroup, cors, rateLimit
-        ├── routes/                # groups, game, songs, stats
-        └── services/              # dailySong, audioProvider, deezerPreview, statsDb
+        ├── middleware/            # validateGroup, cors, rateLimit, requestLog, requireAdmin
+        ├── routes/                # groups, game, songs, stats, admin
+        └── services/              # dailySong, audioProvider, deezerPreview, statsDb, adminDb
 ```
 
 ---
@@ -179,15 +192,20 @@ A single `GroupContext` carries the active `groupId`, `archiveDate`, `practiceMo
 
 ```bash
 # Clone
-git clone https://github.com/CZ140/Twicedle.git
-cd Twicedle
+git clone https://github.com/CZ140/Kpopdle.git
+cd Kpopdle
 
 # Install all dependencies
 npm run install:all
 
 # Configure environment
 cp server/.env.example server/.env
-# Edit server/.env — set DAILY_SONG_SECRET to any random string
+# Edit server/.env:
+#   DAILY_SONG_SECRET — any random string (daily song selection)
+#   SESSION_SECRET    — any random string (session signing + IP hashing)
+#   ADMIN_EMAILS      — comma-separated Google emails allowed into /admin
+#   DB_PATH           — (production) a persistent volume dir, so SQLite
+#                       (stats + telemetry) survives redeploys
 
 # Start both client and server
 npm run dev

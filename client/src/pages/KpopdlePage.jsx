@@ -3,6 +3,7 @@ import { GroupContext } from '../lib/GroupContext'
 import { loadDifficulty, saveDifficulty } from '../lib/storage'
 import { getKSTDateString } from '../lib/dateUtils'
 import { useSound } from '../lib/SoundContext'
+import { useDocumentMeta } from '../hooks/useDocumentMeta'
 import Game from '../components/Game'
 import Header from '../components/Header'
 import ArchiveModal from '../components/ArchiveModal'
@@ -29,6 +30,12 @@ export default function KpopdlePage() {
   const [showDifficulty, setShowDifficulty] = useState(false)
   const [difficulty, setDifficultyState] = useState(loadDifficulty)
   const { playSound } = useSound()
+
+  useDocumentMeta({
+    title: 'K-POPDLE Daily Challenge — Guess the K-pop Song',
+    description: 'One daily K-pop song drawn from all 8 groups — guess it in 6 tries without knowing the group. A new cross-group K-pop Heardle challenge every day at midnight KST.',
+    path: '/kpopdle',
+  })
 
   const setDifficulty = useCallback((d) => {
     setDifficultyState(d)

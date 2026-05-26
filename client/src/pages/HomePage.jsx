@@ -6,6 +6,7 @@ import { loadGameState, loadStats } from '../lib/storage'
 import { useAuth } from '../lib/AuthContext'
 import { useSound } from '../lib/SoundContext'
 import { getKSTDateString } from '../lib/dateUtils'
+import { useDocumentMeta } from '../hooks/useDocumentMeta'
 import HowToPlayModal from '../components/HowToPlayModal'
 
 const PLATFORM_LAUNCH = new Date('2026-02-20')
@@ -47,6 +48,12 @@ export default function HomePage() {
   const [groups, setGroups] = useState([])
   const [loadingGroups, setLoadingGroups] = useState(true)
   const [showHowToPlay, setShowHowToPlay] = useState(false)
+
+  useDocumentMeta({
+    title: 'K-POPDLE — Daily K-pop Music Quiz',
+    description: 'Daily K-pop music guessing game — 8 groups, 509 songs. Listen to a clip and guess the song. New drop every day at midnight KST. Free, no sign-up needed.',
+    path: '/',
+  })
 
   useEffect(() => {
     let cancelled = false
