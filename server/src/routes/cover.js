@@ -11,6 +11,12 @@ import { captureError } from '../services/observability.js'
 // audio daily (FR-4). Only songs with a backfilled coverUrl are selectable (FR-8).
 const router = Router({ mergeParams: true })
 
+// dailySong throws this exact message when a group has no playable covers yet.
+// That's an expected "not provisioned" state, not a server fault — we map it to
+// a clean 404 so it doesn't spam error monitoring.
+const NO_COVERS_RE = /^No songs with album covers available for group:/
+const NO_COVERS_BODY = { error: 'No album covers available for this group yet' }
+
 router.use(validateGroup)
 
 router.get('/today', (req, res) => {
@@ -33,6 +39,9 @@ router.get('/today', (req, res) => {
       },
     })
   } catch (err) {
+    if (NO_COVERS_RE.test(err.message)) {
+      return res.status(404).json(NO_COVERS_BODY)
+    }
     captureError(err, { msg: 'Error fetching daily cover game', group })
     res.status(500).json({ error: 'Failed to load daily cover game' })
   }
@@ -70,6 +79,9 @@ router.get('/archive/:date', (req, res) => {
       },
     })
   } catch (err) {
+    if (NO_COVERS_RE.test(err.message)) {
+      return res.status(404).json(NO_COVERS_BODY)
+    }
     captureError(err, { msg: 'Error fetching archive cover game', group, date })
     res.status(500).json({ error: 'Failed to load archive cover game' })
   }
@@ -82,7 +94,7 @@ router.get('/practice', (req, res) => {
     // round with no image to reveal (daily mode filters the same way).
     const songs = getCoverPoolForGroup(group)
     if (songs.length === 0) {
-      return res.status(500).json({ error: 'No songs with covers for this group' })
+      return res.status(404).json(NO_COVERS_BODY)
     }
     const song = songs[Math.floor(Math.random() * songs.length)]
     res.json({
