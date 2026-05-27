@@ -50,7 +50,7 @@ Eight K-pop groups, each with their own daily game, color theme, and branded nam
 - Autocomplete search across the full group song catalog (Tab to complete, Enter to submit exact match)
 - Skip to hear more, or guess early to flex
 - After winning or losing, the full 30-second preview unlocks for replay
-- Stats tracked locally: win rate, current streak, max streak, guess distribution
+- Stats tracked locally: win rate, current streak (Wordle-style — breaks if you miss a day), max streak, guess distribution
 - Shareable emoji grid result (includes difficulty badge and 💡 for hints used)
 
 ![Game View](docs/screenshot-game.png)
@@ -145,6 +145,12 @@ The same import logic (`runBackfill`) is exposed two ways:
 - `ON DELETE CASCADE` throughout the user tables for clean GDPR erasure
 - Admin dashboard gated by a server-side email allowlist; request telemetry hashes IPs and stores no PII
 
+### Error Tracking, Logging & Health Checks
+Runtime health is observable without a third-party log drain bolted on top:
+- **Sentry** captures exceptions on both ends — `@sentry/node` (server, initialised before app code in `instrument.js`) and `@sentry/react` (browser, wrapping the app in an error boundary). Both are wired **entirely behind env vars** (`SENTRY_DSN` / `VITE_SENTRY_DSN`), so the app runs as a clean no-op until a DSN is supplied. Production frontend builds upload source maps via `@sentry/vite-plugin` — then delete them so original source isn't served publicly — and a build-time `define` strips the Sentry tracing/debug code the app doesn't use.
+- **Structured logging** via `pino`: every server log line is JSON (queryable in Railway's log view), and a small `captureError` helper logs *and* forwards to Sentry in one call.
+- **`GET /healthz`** — a liveness probe (Railway's healthcheck target) that returns `200` while the database is reachable, `503` if not. Audio/Deezer status is reported in the body but is deliberately **non-fatal**: a Deezer outage is external and can't be fixed by a restart, so it never triggers a restart loop. It's defined ahead of the telemetry middleware so health polls don't pollute the request log.
+
 ### Discoverability (SEO)
 The SPA is tuned for search and social sharing despite being client-rendered. `index.html` ships canonical, Open Graph, Twitter-card, and JSON-LD (`WebSite` + `VideoGame`) tags, an SVG favicon, and a web manifest. A `useDocumentMeta` hook rewrites the title, description, and canonical URL per route — so `/twice`, `/ive`, and every other group page is indexable and shareable on its own rather than sharing the homepage's metadata. A static `robots.txt` and `sitemap.xml` (homepage, cross-group challenge, and all 8 group routes) are served straight from the build output, ahead of the SPA catch-all.
 
@@ -160,12 +166,14 @@ A single `GroupContext` carries the active `groupId`, `archiveDate`, `practiceMo
 
 | Layer | Tech |
 |---|---|
-| Frontend | React 19, React Router v6, Tailwind CSS v4, Vite 7 |
+| Frontend | React 19, React Router v7, Tailwind CSS v4, Vite 7 |
 | Backend | Node.js, Express |
 | Database | SQLite via `better-sqlite3` (analytics + user accounts) |
 | Auth | Google OAuth2 via Passport.js, server-side sessions |
 | Audio | Deezer Public API (free, no auth) |
 | Client storage | localStorage — namespaced per group (stats, streaks, game state) |
+| Observability | Sentry (client + server), `pino` structured logs, `/healthz` liveness |
+| Testing & CI | Vitest (client + server), GitHub Actions (tests · build · lint) |
 | Fonts | Poppins (UI), JetBrains Mono (data labels) |
 
 ---
@@ -173,17 +181,21 @@ A single `GroupContext` carries the active `groupId`, `archiveDate`, `practiceMo
 ## Project Structure
 
 ```
+├── .github/workflows/             # ci.yml — tests · build · lint on push/PR
+│
 ├── client/                        # React frontend (Vite)
 │   └── src/
 │       ├── components/            # AudioPlayer, GuessInput, ArchiveModal, ...
 │       │   └── admin/             # SVG chart primitives (charts.jsx, format.js)
 │       ├── hooks/                 # useGame, useSongList, useStats, useAudioPlayer
-│       ├── lib/                   # api.js, storage.js, GroupContext.js, share.js
+│       ├── lib/                   # api.js, storage.js, GroupContext.js, share.js,
+│       │                          #   stats.js (pure streak reducer), observability.js (Sentry)
 │       └── pages/                 # HomePage, GroupPage, AdminPage (lazy-loaded)
 │
 └── server/                        # Express backend
     ├── scripts/                   # backfillCloudflare.js (historical analytics import)
     └── src/
+        ├── instrument.js          # Sentry init — imported first, before app code
         ├── data/
         │   ├── groups.json        # Group registry (8 groups, colors, launchDate)
         │   ├── groups/{id}/
@@ -191,9 +203,12 @@ A single `GroupContext` carries the active `groupId`, `archiveDate`, `practiceMo
         │   └── stats.db           # SQLite analytics database (git-ignored)
         ├── middleware/            # validateGroup, cors, rateLimit, requestLog, requireAdmin
         ├── routes/                # groups, game, songs, stats, admin
-        ├── services/              # dailySong, audioProvider, statsDb, adminDb, cloudflareClient, backfill
+        ├── services/              # dailySong, audioProvider, statsDb, adminDb,
+        │                          #   cloudflareClient, backfill, health, observability
         └── utils/                 # dateUtils, cache, botPatterns
 ```
+
+Tests live next to the code they cover (`*.test.js`), run with Vitest in both packages.
 
 ---
 
@@ -209,16 +224,25 @@ cd Kpopdle
 # Install all dependencies
 npm run install:all
 
-# Configure environment
+# Configure environment — server/.env.example documents every variable
 cp server/.env.example server/.env
-# Edit server/.env:
-#   DAILY_SONG_SECRET — any random string (daily song selection)
-#   SESSION_SECRET    — any random string (session signing + IP hashing)
+# Edit server/.env. Required:
+#   DAILY_SONG_SECRET — random string (daily song selection)
+#   SESSION_SECRET    — random string (session signing + IP hashing)
+# Sign-in (Google OAuth):
+#   GOOGLE_CLIENT_ID / GOOGLE_CLIENT_SECRET / GOOGLE_CALLBACK_URL, CLIENT_URL
+# Admin dashboard:
 #   ADMIN_EMAILS      — comma-separated Google emails allowed into /admin
-#   DB_PATH           — (production) a persistent volume dir, so SQLite
-#                       (stats + telemetry) survives redeploys
-#   CLOUDFLARE_API_TOKEN / CLOUDFLARE_ZONE_ID — (optional) for the historical
-#                       analytics backfill; token needs Zone → Analytics → Read
+# Production:
+#   DB_PATH           — persistent volume dir so SQLite (stats + telemetry +
+#                       sessions + users) survives redeploys
+# Optional:
+#   CLOUDFLARE_API_TOKEN / CLOUDFLARE_ZONE_ID — historical analytics backfill
+#                       (token needs Zone → Analytics → Read)
+#   SENTRY_DSN / SENTRY_AUTH_TOKEN, LOG_LEVEL — error tracking + logging
+
+# (Optional) browser error tracking — set VITE_SENTRY_DSN
+cp client/.env.example client/.env.local
 
 # Start both client and server
 npm run dev
@@ -227,6 +251,16 @@ npm run dev
 ```
 
 On first start the server warms the Deezer preview cache for all 8 groups before serving requests — you'll see `Cache warm.` in the terminal when it's ready.
+
+### Testing & quality
+
+```bash
+npm test                 # run both test suites (server + client)
+npm run lint --prefix client   # ESLint
+npm run build --prefix client  # production build
+```
+
+Every push and PR runs the same tests, build, and lint via GitHub Actions (`.github/workflows/ci.yml`).
 
 ---
 
