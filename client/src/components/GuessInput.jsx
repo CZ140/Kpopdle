@@ -1,10 +1,16 @@
 import { useState, useRef, useEffect } from 'react'
 import { useSongList } from '../hooks/useSongList'
 import { useSound } from '../lib/SoundContext'
+import { useGroup } from '../lib/GroupContext'
 
 export default function GuessInput({ onGuess, onSkip, disabled }) {
   const { playSound } = useSound()
   const { songs, error, retry } = useSongList()
+  const group = useGroup()
+  // Guess the Group asks for a group name, not a song title.
+  const placeholder = group === 'guess-the-group'
+    ? 'Know it? Search for the group...'
+    : 'Know it? Search for the song...'
   const [query, setQuery] = useState('')
   const [showDropdown, setShowDropdown] = useState(false)
   const [selectedIndex, setSelectedIndex] = useState(-1)
@@ -93,7 +99,7 @@ export default function GuessInput({ onGuess, onSkip, disabled }) {
             onFocus={() => query.length > 0 && setShowDropdown(true)}
             onKeyDown={handleKeyDown}
             disabled={disabled}
-            placeholder="Know it? Search for the song..."
+            placeholder={placeholder}
             role="combobox"
             aria-expanded={showDropdown && filtered.length > 0}
             aria-controls="song-listbox"

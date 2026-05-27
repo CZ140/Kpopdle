@@ -6,7 +6,7 @@ vi.mock('../data/songIndex.js', () => ({
   getMergedPool: vi.fn(),
 }))
 
-import { getSongForDate, getKpopdleSongForDate } from './dailySong.js'
+import { getSongForDate, getKpopdleSongForDate, getGuessGroupSongForDate } from './dailySong.js'
 import { getSongsForGroup, getMergedPool } from '../data/songIndex.js'
 
 const makeSong = (id, hasPreview = true) => ({
@@ -134,5 +134,42 @@ describe('getKpopdleSongForDate', () => {
   it('K-POPDLE gameNumber starts at 1 on its launch date (2026-05-21)', () => {
     const { gameNumber } = getKpopdleSongForDate([], '2026-05-21')
     expect(gameNumber).toBe(1)
+  })
+})
+
+describe('getGuessGroupSongForDate', () => {
+  it('is deterministic for the same date', () => {
+    const a = getGuessGroupSongForDate([], '2026-05-27')
+    const b = getGuessGroupSongForDate([], '2026-05-27')
+    expect(a.song.id).toBe(b.song.id)
+  })
+
+  it('returns a poolSize equal to the mock pool length', () => {
+    const { poolSize } = getGuessGroupSongForDate([], '2026-05-27')
+    expect(poolSize).toBe(CATALOG.length)
+  })
+
+  it('throws when the pool is empty', () => {
+    getMergedPool.mockReturnValue([])
+    expect(() => getGuessGroupSongForDate([], '2026-05-27')).toThrow()
+  })
+
+  it('gameNumber starts at 1 on its launch date (2026-05-27)', () => {
+    const { gameNumber } = getGuessGroupSongForDate([], '2026-05-27')
+    expect(gameNumber).toBe(1)
+  })
+
+  it('uses a distinct salt from K-POPDLE — picks diverge across many dates', () => {
+    // Same pool, same dates: a shared salt would make every pick identical.
+    // The distinct `-guessgroup` salt must produce a different sequence.
+    let diverged = 0
+    for (let d = 1; d <= 28; d++) {
+      const date = `2026-05-${String(d).padStart(2, '0')}`
+      const kpop = getKpopdleSongForDate([], date).song.id
+      const gtg = getGuessGroupSongForDate([], date).song.id
+      if (kpop !== gtg) diverged++
+    }
+    // With a 20-song pool and independent HMACs, the vast majority of days differ.
+    expect(diverged).toBeGreaterThan(20)
   })
 })

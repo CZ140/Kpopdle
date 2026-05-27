@@ -1,9 +1,9 @@
 import { MAX_GUESSES } from './constants'
 
-export function generateShareText(gameNumber, guesses, won, difficulty = 'normal', hintsUsed = 0, gameName = 'K-POPDLE') {
+export function generateShareText(gameNumber, guesses, won, difficulty = 'normal', hintsUsed = 0, gameName = 'K-POPDLE', maxGuesses = MAX_GUESSES) {
   const guessCount = won ? guesses.length : 'X'
   const badge = difficulty !== 'normal' ? `[${difficulty.toUpperCase()}] ` : ''
-  const header = `${badge}${gameName} #${gameNumber} ${guessCount}/${MAX_GUESSES}`
+  const header = `${badge}${gameName} #${gameNumber} ${guessCount}/${maxGuesses}`
 
   const grid = guesses
     .map((g) => {

@@ -17,7 +17,12 @@ export async function submitGuess(group, gameDate, guess) {
 }
 
 export async function fetchSongList(group) {
-  const res = await fetch(`${API_BASE}/${group}/songs`)
+  // Guess the Group's autocomplete is the active group names, served from a
+  // dedicated endpoint (the generic /songs route returns song titles).
+  const path = group === 'guess-the-group'
+    ? `${API_BASE}/guess-the-group/groups-list`
+    : `${API_BASE}/${group}/songs`
+  const res = await fetch(path)
   if (!res.ok) throw new Error('Failed to fetch song list')
   return res.json()
 }

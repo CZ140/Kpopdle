@@ -12,6 +12,7 @@ import gameRoutes from './routes/game.js'
 import songRoutes from './routes/songs.js'
 import statsRoutes from './routes/stats.js'
 import kpopdleRoutes from './routes/kpopdle.js'
+import guessTheGroupRoutes from './routes/guessTheGroup.js'
 import authRoutes from './routes/auth.js'
 import adminRoutes from './routes/admin.js'
 import requestLog from './middleware/requestLog.js'
@@ -21,7 +22,7 @@ import { pruneOldRequests } from './services/adminDb.js'
 import { getHealth, recordWarmResult } from './services/health.js'
 import { configurePassport } from './services/authDb.js'
 import { SqliteSessionStore } from './services/sessionStore.js'
-import { getTodaysSong, getKpopdleSongForDate } from './services/dailySong.js'
+import { getTodaysSong, getKpopdleSongForDate, getGuessGroupSongForDate } from './services/dailySong.js'
 import { getKSTDateString as getTodayKST } from './utils/dateUtils.js'
 import { getPreviewUrl } from './services/audioProvider.js'
 import { getMergedPool } from './data/songIndex.js'
@@ -101,6 +102,7 @@ app.use('/api/admin', apiLimiter, adminRoutes)
 app.use('/api/groups', apiLimiter, groupRoutes)
 app.use('/api/stats', apiLimiter, statsRoutes)
 app.use('/api/kpopdle', apiLimiter, kpopdleRoutes)
+app.use('/api/guess-the-group', apiLimiter, guessTheGroupRoutes)
 app.use('/api/:group/game', apiLimiter, gameRoutes)
 app.use('/api/:group/songs', apiLimiter, songRoutes)
 
@@ -150,6 +152,14 @@ async function warmCache() {
   } catch (err) {
     logger.warn({ err }, 'Cache warm failed for kpopdle')
     failures.push('kpopdle')
+  }
+  try {
+    const { song } = getGuessGroupSongForDate(activeGroups, getTodayKST())
+    await getPreviewUrl(song, song.deezerArtistName)
+    logger.info(`  ✓ guess-the-group`)
+  } catch (err) {
+    logger.warn({ err }, 'Cache warm failed for guess-the-group')
+    failures.push('guess-the-group')
   }
   // Feed the result to /healthz (audio status is observed, not fatal).
   recordWarmResult({ ok: failures.length === 0, failures })

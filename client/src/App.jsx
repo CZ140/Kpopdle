@@ -9,6 +9,8 @@ import AccountPage from './pages/AccountPage'
 const AdminPage = lazy(() => import('./pages/AdminPage'))
 // Public stats page — lazy so it doesn't add to the game bundle.
 const StatsPage = lazy(() => import('./pages/StatsPage'))
+// Guess the Group — lazy so it doesn't weigh down the default game bundle.
+const GuessTheGroupPage = lazy(() => import('./pages/GuessTheGroupPage'))
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/kpopdle" element={<KpopdlePage />} />
+        <Route path="/guess-the-group" element={<Suspense fallback={null}><GuessTheGroupPage /></Suspense>} />
         <Route path="/account" element={<AccountPage />} />
         <Route path="/stats" element={<Suspense fallback={null}><StatsPage /></Suspense>} />
         <Route path="/admin" element={<Suspense fallback={null}><AdminPage /></Suspense>} />

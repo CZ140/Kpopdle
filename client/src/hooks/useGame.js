@@ -1,12 +1,13 @@
 import { useState, useEffect, useCallback } from 'react'
-import { MAX_GUESSES, GAME_STATES } from '../lib/constants'
+import { GAME_STATES } from '../lib/constants'
 import { fetchDailyGame, fetchArchiveGame, submitGuess } from '../lib/api'
 import { loadGameState, saveGameState, loadArchiveGameState, saveArchiveGameState } from '../lib/storage'
-import { useGroup, useArchiveDate } from '../lib/GroupContext'
+import { useGroup, useArchiveDate, useMaxGuesses } from '../lib/GroupContext'
 
 export function useGame() {
   const group = useGroup()
   const archiveDate = useArchiveDate()
+  const maxGuesses = useMaxGuesses()
   const isArchive = archiveDate !== null
 
   const [gameDate, setGameDate] = useState(null)
@@ -74,7 +75,7 @@ export function useGame() {
 
   const makeGuess = useCallback(async (songTitle) => {
     if (gameState !== GAME_STATES.PLAYING) return
-    if (currentGuessNumber >= MAX_GUESSES) return
+    if (currentGuessNumber >= maxGuesses) return
 
     try {
       const result = await submitGuess(group, gameDate, songTitle)
@@ -90,7 +91,7 @@ export function useGame() {
       if (result.correct) {
         setGameState(GAME_STATES.WON)
         setRevealedSong(result.song)
-      } else if (newGuesses.length >= MAX_GUESSES) {
+      } else if (newGuesses.length >= maxGuesses) {
         // Server no longer returns the song on wrong guesses — fetch it explicitly
         const reveal = await submitGuess(group, gameDate, '')
         setGameState(GAME_STATES.LOST)
@@ -99,7 +100,7 @@ export function useGame() {
     } catch {
       setError('Failed to submit guess. Please try again.')
     }
-  }, [group, gameState, currentGuessNumber, guesses, gameDate])
+  }, [group, gameState, currentGuessNumber, guesses, gameDate, maxGuesses])
 
   const revealHint = useCallback(() => {
     setHintsUsed(prev => Math.min(prev + 1, 3))
@@ -107,13 +108,13 @@ export function useGame() {
 
   const skipGuess = useCallback(async () => {
     if (gameState !== GAME_STATES.PLAYING) return
-    if (currentGuessNumber >= MAX_GUESSES) return
+    if (currentGuessNumber >= maxGuesses) return
 
     const newGuess = { song: null, type: 'skipped' }
     const newGuesses = [...guesses, newGuess]
     setGuesses(newGuesses)
 
-    if (newGuesses.length >= MAX_GUESSES) {
+    if (newGuesses.length >= maxGuesses) {
       try {
         const result = await submitGuess(group, gameDate, '')
         setGameState(GAME_STATES.LOST)
@@ -122,7 +123,7 @@ export function useGame() {
         setError('Failed to load answer. Please refresh.')
       }
     }
-  }, [group, gameState, currentGuessNumber, guesses, gameDate])
+  }, [group, gameState, currentGuessNumber, guesses, gameDate, maxGuesses])
 
   return {
     gameDate,

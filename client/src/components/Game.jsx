@@ -3,7 +3,7 @@ import { useGame } from '../hooks/useGame'
 import { useAudioPlayer } from '../hooks/useAudioPlayer'
 import { useStats } from '../hooks/useStats'
 import { GAME_STATES, DIFFICULTIES } from '../lib/constants'
-import { useDifficulty } from '../lib/GroupContext'
+import { useDifficulty, useSnippetLadder } from '../lib/GroupContext'
 import AudioPlayer from './AudioPlayer'
 import GuessList from './GuessList'
 import GuessInput from './GuessInput'
@@ -34,11 +34,15 @@ export default function Game({ onStartPractice }) {
 
   const group = useGroup()
   const difficulty = useDifficulty()
+  const snippetLadder = useSnippetLadder()
   const { user, login } = useAuth()
   const { playSound } = useSound()
   const gameOver = gameState !== GAME_STATES.PLAYING
   const [showLoginPrompt, setShowLoginPrompt] = useState(false)
-  const { play, stop, isPlaying, progress, currentDuration, maxDuration, durations, setGuessNumber, volume, changeVolume, hasAudio } = useAudioPlayer(previewUrl, DIFFICULTIES[difficulty], gameOver)
+  // A per-mode snippet ladder (e.g. Guess the Group's 3-stop ladder) overrides
+  // the difficulty-based ladder when present.
+  const ladder = snippetLadder ?? DIFFICULTIES[difficulty]
+  const { play, stop, isPlaying, progress, currentDuration, maxDuration, durations, setGuessNumber, volume, changeVolume, hasAudio } = useAudioPlayer(previewUrl, ladder, gameOver)
   const { recordResult } = useStats()
 
   const [showResult, setShowResult] = useState(false)
