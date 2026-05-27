@@ -5,6 +5,7 @@ import { getSongsForGroup, getSongCountForGroup } from '../data/songIndex.js'
 import { getKSTDateString } from '../utils/dateUtils.js'
 import validateGroup from '../middleware/validateGroup.js'
 import { getCommunityStats } from '../services/statsDb.js'
+import { captureError } from '../services/observability.js'
 
 const router = Router({ mergeParams: true })
 
@@ -16,6 +17,11 @@ router.get('/today', async (req, res) => {
     const { song, dateString, gameNumber } = getTodaysSong(group)
     const previewUrl = await getPreviewUrl(song, req.groupConfig.deezerArtistName)
 
+    // Identical for every player for the day, but previewUrl carries a short
+    // Deezer expiry — so cache only briefly at the CDN (Cloudflare) and never
+    // in the browser. Realizing the offload needs a Cloudflare cache rule for
+    // this path; the header is the prerequisite.
+    res.set('Cache-Control', 'public, max-age=0, s-maxage=60, stale-while-revalidate=30')
     res.json({
       gameDate: dateString,
       gameNumber,
@@ -28,7 +34,7 @@ router.get('/today', async (req, res) => {
       },
     })
   } catch (err) {
-    console.error('Error fetching daily game:', err)
+    captureError(err, { msg: 'Error fetching daily game', group })
     res.status(500).json({ error: 'Failed to load daily game' })
   }
 })
@@ -66,7 +72,7 @@ router.get('/archive/:date', async (req, res) => {
       },
     })
   } catch (err) {
-    console.error('Error fetching archive game:', err)
+    captureError(err, { msg: 'Error fetching archive game', group, date })
     res.status(500).json({ error: 'Failed to load archive game' })
   }
 })
@@ -74,7 +80,12 @@ router.get('/archive/:date', async (req, res) => {
 router.get('/practice', async (req, res) => {
   const { group } = req.params
   try {
-    const songs = getSongsForGroup(group)
+    // Only pick from songs with a verified Deezer ID — otherwise practice can
+    // serve a silent, unplayable round (daily mode filters the same way).
+    const songs = getSongsForGroup(group).filter(s => s.deezerId && s.deezerId !== 0)
+    if (songs.length === 0) {
+      return res.status(500).json({ error: 'No playable songs for this group' })
+    }
     const song = songs[Math.floor(Math.random() * songs.length)]
     const previewUrl = await getPreviewUrl(song, req.groupConfig.deezerArtistName)
     res.json({
@@ -83,7 +94,7 @@ router.get('/practice', async (req, res) => {
       practiceSongId: song.id,
     })
   } catch (err) {
-    console.error('Error fetching practice game:', err)
+    captureError(err, { msg: 'Error fetching practice game', group })
     res.status(500).json({ error: 'Failed to load practice game' })
   }
 })
@@ -164,7 +175,7 @@ router.post('/guess', (req, res) => {
       }),
     })
   } catch (err) {
-    console.error('Error processing guess:', err)
+    captureError(err, { msg: 'Error processing guess', group })
     res.status(500).json({ error: 'Failed to process guess' })
   }
 })
@@ -177,7 +188,7 @@ router.get('/community/:date', (req, res) => {
   try {
     res.json(getCommunityStats(group, date) ?? { totalPlays: 0 })
   } catch (err) {
-    console.error('Community stats error:', err)
+    captureError(err, { msg: 'Community stats error', group, date })
     res.status(500).json({ error: 'Failed to fetch community stats' })
   }
 })

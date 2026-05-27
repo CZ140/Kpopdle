@@ -3,6 +3,7 @@ import { rateLimit } from 'express-rate-limit'
 import requireAdmin from '../middleware/requireAdmin.js'
 import { getDashboard } from '../services/adminDb.js'
 import { runBackfill } from '../services/backfill.js'
+import { captureError } from '../services/observability.js'
 
 const router = Router()
 
@@ -17,7 +18,7 @@ router.get('/dashboard', (req, res) => {
     if (!allowed.has(hours)) hours = 24
     res.json(getDashboard({ hours }))
   } catch (err) {
-    console.error('Admin dashboard error:', err)
+    captureError(err, { msg: 'Admin dashboard error' })
     res.status(500).json({ error: 'Failed to build dashboard' })
   }
 })
@@ -34,7 +35,7 @@ router.post('/backfill', backfillLimiter, async (req, res) => {
     const summary = await runBackfill({ days })
     res.json({ ok: true, ...summary })
   } catch (err) {
-    console.error('Backfill error:', err)
+    captureError(err, { msg: 'Backfill error' })
     res.status(500).json({ error: err.message || 'Backfill failed' })
   }
 })

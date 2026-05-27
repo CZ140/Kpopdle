@@ -42,13 +42,27 @@ export function getSongCountForGroup(groupId) {
 
 // Merged pool for the K-POPDLE cross-group game.
 // Sorted by groupId then song.id for deterministic HMAC indexing.
+//
+// Memoized: the active-group set is effectively static at runtime, yet this is
+// rebuilt on every K-POPDLE request (today, archive, songs, each guess). The
+// cache key is the sorted group-id set, so a config change still rebuilds.
+const mergedPoolCache = new Map()
+
 export function getMergedPool(activeGroups) {
+  const sortedGroups = [...activeGroups].sort((a, b) => a.id.localeCompare(b.id))
+  const cacheKey = sortedGroups.map(g => g.id).join(',')
+
+  const cached = mergedPoolCache.get(cacheKey)
+  if (cached) return cached
+
   const pool = []
-  for (const group of [...activeGroups].sort((a, b) => a.id.localeCompare(b.id))) {
+  for (const group of sortedGroups) {
     const songs = getSongsForGroup(group.id).filter(s => s.deezerId && s.deezerId !== 0)
     for (const song of songs) {
       pool.push({ ...song, groupId: group.id, groupDisplayName: group.displayName, deezerArtistName: group.deezerArtistName })
     }
   }
+
+  mergedPoolCache.set(cacheKey, pool)
   return pool
 }

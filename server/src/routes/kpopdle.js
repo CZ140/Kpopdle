@@ -4,6 +4,7 @@ import { getPreviewUrl } from '../services/audioProvider.js'
 import { getMergedPool } from '../data/songIndex.js'
 import { getKSTDateString } from '../utils/dateUtils.js'
 import { getCommunityStats } from '../services/statsDb.js'
+import { captureError } from '../services/observability.js'
 import groups from '../data/groups.json' with { type: 'json' }
 
 const KPOPDLE_LAUNCH = '2026-05-21'
@@ -17,6 +18,8 @@ router.get('/game/today', async (req, res) => {
     const { song, dateString, gameNumber, poolSize } = getKpopdleSongForDate(ACTIVE_GROUPS, getKSTDateString())
     const previewUrl = await getPreviewUrl(song, song.deezerArtistName)
 
+    // See game.js /today — short CDN-only cache; previewUrl expires quickly.
+    res.set('Cache-Control', 'public, max-age=0, s-maxage=60, stale-while-revalidate=30')
     res.json({
       gameDate: dateString,
       gameNumber,
@@ -29,7 +32,7 @@ router.get('/game/today', async (req, res) => {
       },
     })
   } catch (err) {
-    console.error('Error fetching kpopdle game:', err)
+    captureError(err, { msg: 'Error fetching kpopdle game' })
     res.status(500).json({ error: 'Failed to load kpopdle game' })
   }
 })
@@ -64,7 +67,7 @@ router.get('/game/archive/:date', async (req, res) => {
       },
     })
   } catch (err) {
-    console.error('Error fetching kpopdle archive game:', err)
+    captureError(err, { msg: 'Error fetching kpopdle archive game', date })
     res.status(500).json({ error: 'Failed to load kpopdle archive game' })
   }
 })
@@ -121,7 +124,7 @@ router.post('/game/guess', (req, res) => {
     // Only reveal the song when the game is over — not on intermediate wrong guesses
     res.json({ correct: isCorrect, gameOver: isCorrect, ...(isCorrect && { song: songPayload }) })
   } catch (err) {
-    console.error('Error processing kpopdle guess:', err)
+    captureError(err, { msg: 'Error processing kpopdle guess' })
     res.status(500).json({ error: 'Failed to process guess' })
   }
 })
@@ -134,7 +137,7 @@ router.get('/game/community/:date', (req, res) => {
   try {
     res.json(getCommunityStats('kpopdle', date) ?? { totalPlays: 0 })
   } catch (err) {
-    console.error('Kpopdle community stats error:', err)
+    captureError(err, { msg: 'Kpopdle community stats error', date })
     res.status(500).json({ error: 'Failed to fetch community stats' })
   }
 })

@@ -1,8 +1,7 @@
 export function getKSTDateString() {
-  const now = new Date()
-  const kstOffset = 9 * 60 * 60 * 1000
-  const kst = new Date(now.getTime() + kstOffset + now.getTimezoneOffset() * 60 * 1000)
-  return kst.toISOString().split('T')[0]
+  // Date.now() is UTC-absolute, so shifting it by +9h yields the KST instant
+  // regardless of the server's local timezone. (Matches the client formula.)
+  return new Date(Date.now() + 9 * 3600000).toISOString().slice(0, 10)
 }
 
 // Calculate a game number (days since launch) for display

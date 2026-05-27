@@ -1,11 +1,12 @@
 import crypto from 'crypto'
 import { getSongsForGroup, getMergedPool } from '../data/songIndex.js'
 import { getKSTDateString, getGameNumber } from '../utils/dateUtils.js'
+import { logger } from './observability.js'
 
 const KPOPDLE_LAUNCH = '2026-05-21'
 
 if (!process.env.DAILY_SONG_SECRET) {
-  console.warn('[kpopdle] DAILY_SONG_SECRET is not set — using insecure default. Set this in production.')
+  logger.warn('DAILY_SONG_SECRET is not set — using insecure default. Set this in production.')
 }
 const BASE_SECRET = process.env.DAILY_SONG_SECRET || 'twicedle-default-secret'
 

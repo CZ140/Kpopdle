@@ -1,5 +1,6 @@
 import { getDeezerPreview, searchDeezerPreview } from './deezerPreview.js'
 import * as cache from '../utils/cache.js'
+import { logger } from './observability.js'
 
 // Deezer signs URLs with a short expiry (~29 min). Parse it and cache only until
 // 5 minutes before it expires so we never serve a stale URL.
@@ -32,7 +33,7 @@ export async function getPreviewUrl(song, artistName = '') {
         return url
       }
     } catch (err) {
-      console.warn(`Deezer preview failed for "${song.title}":`, err.message)
+      logger.warn({ title: song.title, err }, `Deezer preview failed for "${song.title}"`)
     }
   }
 
@@ -45,10 +46,10 @@ export async function getPreviewUrl(song, artistName = '') {
         return url
       }
     } catch (err) {
-      console.warn(`Deezer search failed for "${song.title}":`, err.message)
+      logger.warn({ title: song.title, err }, `Deezer search failed for "${song.title}"`)
     }
   }
 
-  console.error(`No preview URL available for "${song.title}"`)
+  logger.warn({ title: song.title }, `No preview URL available for "${song.title}"`)
   return null
 }

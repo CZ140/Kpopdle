@@ -1,11 +1,22 @@
 node_modules/
 dist/
 .env*
+!.env.example
+!server/.env.example
 *.log
 .DS_Store
 .claude
-.playwright-mcp
+.playwright-mcp/
 PLAN_V2.md
 *.db
 *.db-shm
 *.db-wal
+# Playwright E2E artifacts
+test-results/
+playwright-report/
+.playwright/
+blob-report/
+# Scratch screenshots dropped in the repo root — anchored so committed assets
+# in docs/ and client/public/ (e.g. og-image) are still trackable.
+/*.png
+/*.jpeg

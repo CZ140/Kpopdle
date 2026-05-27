@@ -2,6 +2,7 @@ import { Router } from 'express'
 import { rateLimit } from 'express-rate-limit'
 import groups from '../data/groups.json' with { type: 'json' }
 import { recordGame, getSongDifficulty, getConfusion, getSummary } from '../services/statsDb.js'
+import { captureError } from '../services/observability.js'
 
 const router = Router()
 
@@ -54,7 +55,7 @@ router.post('/record', recordLimiter, (req, res) => {
     recordGame({ groupId, songId, songTitle, guessCount, won, wrongGuesses, hintsUsed, difficulty })
     res.json({ ok: true })
   } catch (err) {
-    console.error('Stats record error:', err)
+    captureError(err, { msg: 'Stats record error' })
     res.status(500).json({ error: 'Failed to record stats' })
   }
 })

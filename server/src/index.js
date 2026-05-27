@@ -1,3 +1,4 @@
+import './instrument.js' // must be first — initialises Sentry before app code loads
 import 'dotenv/config'
 import express from 'express'
 import session from 'express-session'
@@ -14,7 +15,10 @@ import kpopdleRoutes from './routes/kpopdle.js'
 import authRoutes from './routes/auth.js'
 import adminRoutes from './routes/admin.js'
 import requestLog from './middleware/requestLog.js'
+import { setupSentryErrorHandler } from './instrument.js'
+import { logger, captureError } from './services/observability.js'
 import { pruneOldRequests } from './services/adminDb.js'
+import { getHealth, recordWarmResult } from './services/health.js'
 import { configurePassport } from './services/authDb.js'
 import { SqliteSessionStore } from './services/sessionStore.js'
 import { getTodaysSong, getKpopdleSongForDate } from './services/dailySong.js'
@@ -31,7 +35,7 @@ const PORT = process.env.PORT || 3001
 
 // Required for Railway (sits behind a reverse proxy — ensures secure cookies work)
 if (!process.env.SESSION_SECRET) {
-  console.warn('[kpopdle] SESSION_SECRET is not set — sessions are signed with a known default key. Set this in production.')
+  logger.warn('SESSION_SECRET is not set — sessions are signed with a known default key. Set this in production.')
 }
 
 app.set('trust proxy', 1)
@@ -60,6 +64,14 @@ app.use((req, res, next) => {
 
 app.use(express.json())
 app.use(cors)
+
+// Liveness probe — defined before requestLog so Railway's frequent polls don't
+// flood the telemetry table. Returns 503 only when the DB (the one
+// restart-fixable dependency) is unreachable; audio status is informational.
+app.get('/healthz', (req, res) => {
+  const health = getHealth()
+  res.status(health.healthy ? 200 : 503).json(health)
+})
 
 app.use(session({
   store: new SqliteSessionStore(),
@@ -103,8 +115,12 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
+// Sentry's Express error handler — registered after all routes. No-op unless
+// SENTRY_DSN is set.
+setupSentryErrorHandler(app)
+
 app.listen(PORT, () => {
-  console.log(`K-popdle server running on port ${PORT}`)
+  logger.info({ port: PORT }, `K-popdle server running on port ${PORT}`)
   warmCache()
   setInterval(warmCache, 20 * 60 * 1000)
   // Trim request telemetry older than 90 days, daily.
@@ -114,22 +130,28 @@ app.listen(PORT, () => {
 
 async function warmCache() {
   const activeGroups = groups.filter(g => g.active)
-  console.log(`Warming preview cache for ${activeGroups.length} groups + kpopdle...`)
+  logger.info(`Warming preview cache for ${activeGroups.length} groups + kpopdle...`)
+  const failures = []
   for (const group of activeGroups) {
     try {
       const { song } = getTodaysSong(group.id)
       await getPreviewUrl(song, group.deezerArtistName)
-      console.log(`  ✓ ${group.id}`)
+      logger.info(`  ✓ ${group.id}`)
     } catch (err) {
-      console.warn(`  ✗ ${group.id}: ${err.message}`)
+      logger.warn({ group: group.id, err }, `Cache warm failed for ${group.id}`)
+      failures.push(group.id)
     }
   }
   try {
     const { song } = getKpopdleSongForDate(activeGroups, getTodayKST())
     await getPreviewUrl(song, song.deezerArtistName)
-    console.log(`  ✓ kpopdle`)
+    logger.info(`  ✓ kpopdle`)
   } catch (err) {
-    console.warn(`  ✗ kpopdle: ${err.message}`)
+    logger.warn({ err }, 'Cache warm failed for kpopdle')
+    failures.push('kpopdle')
   }
-  console.log('Cache warm.')
+  // Feed the result to /healthz (audio status is observed, not fatal).
+  recordWarmResult({ ok: failures.length === 0, failures })
+  if (failures.length > 0) captureError(new Error(`Cache warm incomplete: ${failures.join(', ')}`), { msg: 'warmCache failures', failures })
+  logger.info('Cache warm.')
 }

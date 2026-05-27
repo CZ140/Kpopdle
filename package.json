@@ -2,6 +2,7 @@
   "name": "twicedle",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
     "dev:client": "cd client && npm run dev",
@@ -9,7 +10,8 @@
     "build": "cd client && npm run build",
     "start": "cd server && npm start",
     "install:all": "cd client && npm install && cd ../server && npm install",
-    "test": "cd server && npm test && cd ../client && npm test"
+    "test": "cd server && npm test && cd ../client && npm test",
+    "validate:songs": "node scripts/validate-songs.js"
   },
   "devDependencies": {
     "concurrently": "^9.1.0"

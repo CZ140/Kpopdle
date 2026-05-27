@@ -1,3 +1,5 @@
+import { logger } from './observability.js'
+
 const DEEZER_HEADERS = {
   'User-Agent': 'Mozilla/5.0 (compatible; kpopdle/1.0)',
   'Accept': 'application/json',
@@ -28,7 +30,7 @@ export async function getDeezerPreview(deezerTrackId, expectedTitle = null) {
     const expected = expectedTitle.toLowerCase().trim()
     // Accept exact match OR "Korean prefix English title" pattern (returned ends with expected)
     if (returned !== expected && !returned.endsWith(expected)) {
-      console.warn(`Deezer ID ${deezerTrackId} returned "${data.title}" but expected "${expectedTitle}" — skipping`)
+      logger.warn(`Deezer ID ${deezerTrackId} returned "${data.title}" but expected "${expectedTitle}" — skipping`)
       return null
     }
   }
