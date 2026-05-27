@@ -27,9 +27,10 @@ router.get('/game/today', async (req, res) => {
       previewUrl,
       totalGroups: GROUP_NAMES.length,
       totalSongs: poolSize,
-      // Spoiler-free hints: era + year only (never the group/title).
+      // Year is the only spoiler-free hint here: the album/era name uniquely
+      // identifies the GROUP (the answer), and the song title's first letter
+      // would narrow the group too. So this mode exposes only `year`.
       hints: {
-        era: song.album,
         year: song.releaseYear,
       },
     })
@@ -63,8 +64,8 @@ router.get('/game/archive/:date', async (req, res) => {
       previewUrl,
       totalGroups: GROUP_NAMES.length,
       totalSongs: poolSize,
+      // Year only — see /game/today for why era/firstLetter are withheld here.
       hints: {
-        era: song.album,
         year: song.releaseYear,
       },
     })

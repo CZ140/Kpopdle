@@ -60,6 +60,19 @@ function mockRes() {
 
 const guessHandler = findHandler('post', '/game/guess')
 const groupsListHandler = findHandler('get', '/groups-list')
+const todayHandler = findHandler('get', '/game/today')
+
+describe('GET /game/today — hints are spoiler-free', () => {
+  it('exposes only the year hint (no era/album or firstLetter — those reveal the group)', async () => {
+    const res = mockRes()
+    await todayHandler({}, res)
+    expect(res.body.hints).toEqual({ year: 2019 })
+    // The album name uniquely identifies the group, so it must never be sent.
+    expect(JSON.stringify(res.body)).not.toContain('Fancy You')
+    expect(res.body.hints.era).toBeUndefined()
+    expect(res.body.hints.firstLetter).toBeUndefined()
+  })
+})
 
 describe('POST /game/guess — matching', () => {
   it('returns correct=true for an exact group-name match', async () => {

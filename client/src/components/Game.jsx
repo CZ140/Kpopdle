@@ -50,6 +50,17 @@ export default function Game({ onStartPractice, challenge = null }) {
   const resultRecorded = useRef(false)
   const lastGuessCount = useRef(0)
 
+  // Build the ordered list of hints this mode actually exposes. The audio daily
+  // and Coverdle provide era/year/firstLetter; "Guess the Group" exposes only
+  // `year` (era/firstLetter would reveal the group). Driving the UI off this
+  // list keeps the hint counter accurate per mode.
+  const availableHints = [
+    hints?.era != null && { label: 'Era', value: hints.era },
+    hints?.year != null && { label: 'Year', value: hints.year },
+    hints?.firstLetter != null && { label: 'Starts with', value: `“${hints.firstLetter}”` },
+  ].filter(Boolean)
+  const totalHints = availableHints.length
+
   useEffect(() => {
     setGuessNumber(currentGuessNumber)
   }, [currentGuessNumber, setGuessNumber])
@@ -139,34 +150,24 @@ export default function Game({ onStartPractice, challenge = null }) {
         hasAudio={hasAudio}
       />
 
-      {!gameOver && hints && (
+      {!gameOver && totalHints > 0 && (
         <div className="mt-3 mb-1">
           {hintsUsed > 0 && (
             <div className="flex flex-col gap-1 mb-3">
-              {hintsUsed >= 1 && (
-                <p className="text-xs text-center text-white/50">
-                  💡 Era — <span className="text-white/70 font-medium">{hints.era}</span>
+              {availableHints.slice(0, hintsUsed).map((h) => (
+                <p key={h.label} className="text-xs text-center text-white/50">
+                  💡 {h.label} — <span className="text-white/70 font-medium">{h.value}</span>
                 </p>
-              )}
-              {hintsUsed >= 2 && (
-                <p className="text-xs text-center text-white/50">
-                  💡 Year — <span className="text-white/70 font-medium">{hints.year}</span>
-                </p>
-              )}
-              {hintsUsed >= 3 && (
-                <p className="text-xs text-center text-white/50">
-                  💡 Starts with — <span className="text-white/70 font-medium">&ldquo;{hints.firstLetter}&rdquo;</span>
-                </p>
-              )}
+              ))}
             </div>
           )}
-          {hintsUsed < 3 && (
+          {hintsUsed < totalHints && (
             <div className="text-center">
               <button
                 onClick={revealHint}
                 className="text-xs text-white/25 hover:text-white/50 transition-colors"
               >
-                {hintsUsed === 0 ? '💡 Need a hint?' : `💡 Another hint? (${3 - hintsUsed} left)`}
+                {hintsUsed === 0 ? '💡 Need a hint?' : `💡 Another hint? (${totalHints - hintsUsed} left)`}
               </button>
             </div>
           )}
