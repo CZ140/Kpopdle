@@ -5,7 +5,9 @@
     "album": "ELEVEN",
     "releaseYear": 2021,
     "spotifyId": null,
-    "deezerId": 1572136282
+    "deezerId": 1572136282,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/4b89cd385817f7519af259b2c32170f0/500x500-000000-80-0-0.jpg",
+    "coverMd5": "4b89cd385817f7519af259b2c32170f0"
   },
   {
     "id": 2,
@@ -13,7 +15,9 @@
     "album": "ELEVEN",
     "releaseYear": 2021,
     "spotifyId": null,
-    "deezerId": 1572136292
+    "deezerId": 1572136292,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/4b89cd385817f7519af259b2c32170f0/500x500-000000-80-0-0.jpg",
+    "coverMd5": "4b89cd385817f7519af259b2c32170f0"
   },
   {
     "id": 3,
@@ -21,7 +25,9 @@
     "album": "LOVE DIVE",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 1708995887
+    "deezerId": 1708995887,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f1db0eeac1f61dd8a9c7696bdb50aea8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f1db0eeac1f61dd8a9c7696bdb50aea8"
   },
   {
     "id": 4,
@@ -29,7 +35,9 @@
     "album": "LOVE DIVE",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 1708995897
+    "deezerId": 1708995897,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f1db0eeac1f61dd8a9c7696bdb50aea8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f1db0eeac1f61dd8a9c7696bdb50aea8"
   },
   {
     "id": 5,
@@ -37,7 +45,9 @@
     "album": "After LIKE",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 1863618717
+    "deezerId": 1863618717,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6ab236c40945b8e84d5e2ff76afeabf9/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6ab236c40945b8e84d5e2ff76afeabf9"
   },
   {
     "id": 6,
@@ -45,7 +55,9 @@
     "album": "After LIKE",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 1863618727
+    "deezerId": 1863618727,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6ab236c40945b8e84d5e2ff76afeabf9/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6ab236c40945b8e84d5e2ff76afeabf9"
   },
   {
     "id": 7,
@@ -53,7 +65,9 @@
     "album": "ELEVEN -Japanese version-",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 1960728677
+    "deezerId": 1960728677,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/537d40753c53ef770c6810d3c3639537/500x500-000000-80-0-0.jpg",
+    "coverMd5": "537d40753c53ef770c6810d3c3639537"
   },
   {
     "id": 8,
@@ -61,7 +75,9 @@
     "album": "Kitsch",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2192220267
+    "deezerId": 2192220267,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ce9699011503cdb4da5533ed79357abe/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ce9699011503cdb4da5533ed79357abe"
   },
   {
     "id": 9,
@@ -69,7 +85,9 @@
     "album": "I've IVE",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2227832207
+    "deezerId": 2227832207,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f553f9d2c8af9be28334cbdb90cd25fd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f553f9d2c8af9be28334cbdb90cd25fd"
   },
   {
     "id": 10,
@@ -77,7 +95,9 @@
     "album": "I've IVE",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2227832217
+    "deezerId": 2227832217,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f553f9d2c8af9be28334cbdb90cd25fd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f553f9d2c8af9be28334cbdb90cd25fd"
   },
   {
     "id": 11,
@@ -85,7 +105,9 @@
     "album": "I've IVE",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2227832237
+    "deezerId": 2227832237,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f553f9d2c8af9be28334cbdb90cd25fd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f553f9d2c8af9be28334cbdb90cd25fd"
   },
   {
     "id": 12,
@@ -93,7 +115,9 @@
     "album": "I've IVE",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2227832247
+    "deezerId": 2227832247,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f553f9d2c8af9be28334cbdb90cd25fd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f553f9d2c8af9be28334cbdb90cd25fd"
   },
   {
     "id": 13,
@@ -101,7 +125,9 @@
     "album": "I've IVE",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2227832257
+    "deezerId": 2227832257,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f553f9d2c8af9be28334cbdb90cd25fd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f553f9d2c8af9be28334cbdb90cd25fd"
   },
   {
     "id": 14,
@@ -117,7 +143,9 @@
     "album": "I've IVE",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2227832277
+    "deezerId": 2227832277,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f553f9d2c8af9be28334cbdb90cd25fd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f553f9d2c8af9be28334cbdb90cd25fd"
   },
   {
     "id": 16,
@@ -125,7 +153,9 @@
     "album": "I've IVE",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2227832287
+    "deezerId": 2227832287,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f553f9d2c8af9be28334cbdb90cd25fd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f553f9d2c8af9be28334cbdb90cd25fd"
   },
   {
     "id": 17,
@@ -133,7 +163,9 @@
     "album": "I've IVE",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2227832297
+    "deezerId": 2227832297,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f553f9d2c8af9be28334cbdb90cd25fd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f553f9d2c8af9be28334cbdb90cd25fd"
   },
   {
     "id": 18,
@@ -141,7 +173,9 @@
     "album": "I've IVE",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2227832307
+    "deezerId": 2227832307,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f553f9d2c8af9be28334cbdb90cd25fd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f553f9d2c8af9be28334cbdb90cd25fd"
   },
   {
     "id": 19,
@@ -149,7 +183,9 @@
     "album": "WAVE",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2263303857
+    "deezerId": 2263303857,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d1059ca9f5ac0c917a6c0a636de61bb2/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d1059ca9f5ac0c917a6c0a636de61bb2"
   },
   {
     "id": 20,
@@ -157,7 +193,9 @@
     "album": "WAVE",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2263304657
+    "deezerId": 2263304657,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d1059ca9f5ac0c917a6c0a636de61bb2/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d1059ca9f5ac0c917a6c0a636de61bb2"
   },
   {
     "id": 21,
@@ -165,7 +203,9 @@
     "album": "I WANT",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2366475035
+    "deezerId": 2366475035,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2c354ac54acd58fea5f42d425c822961/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2c354ac54acd58fea5f42d425c822961"
   },
   {
     "id": 22,
@@ -173,7 +213,9 @@
     "album": "Either Way",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2465433445
+    "deezerId": 2465433445,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/0627a725c04a824b76573df6422178df/500x500-000000-80-0-0.jpg",
+    "coverMd5": "0627a725c04a824b76573df6422178df"
   },
   {
     "id": 23,
@@ -181,7 +223,9 @@
     "album": "Off The Record",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2482716561
+    "deezerId": 2482716561,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ec1644b734281674d03374109ff452e8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ec1644b734281674d03374109ff452e8"
   },
   {
     "id": 24,
@@ -189,7 +233,9 @@
     "album": "I'VE MINE",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2492511201
+    "deezerId": 2492511201,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/53ffeacdb50ddf50aa42c37a1f33debf/500x500-000000-80-0-0.jpg",
+    "coverMd5": "53ffeacdb50ddf50aa42c37a1f33debf"
   },
   {
     "id": 25,
@@ -197,7 +243,9 @@
     "album": "I'VE MINE",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2492511221
+    "deezerId": 2492511221,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/53ffeacdb50ddf50aa42c37a1f33debf/500x500-000000-80-0-0.jpg",
+    "coverMd5": "53ffeacdb50ddf50aa42c37a1f33debf"
   },
   {
     "id": 26,
@@ -205,7 +253,9 @@
     "album": "I'VE MINE",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2492511231
+    "deezerId": 2492511231,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/53ffeacdb50ddf50aa42c37a1f33debf/500x500-000000-80-0-0.jpg",
+    "coverMd5": "53ffeacdb50ddf50aa42c37a1f33debf"
   },
   {
     "id": 27,
@@ -213,7 +263,9 @@
     "album": "I'VE MINE",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2492511241
+    "deezerId": 2492511241,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/53ffeacdb50ddf50aa42c37a1f33debf/500x500-000000-80-0-0.jpg",
+    "coverMd5": "53ffeacdb50ddf50aa42c37a1f33debf"
   },
   {
     "id": 28,
@@ -221,7 +273,9 @@
     "album": "All Night",
     "releaseYear": 2024,
     "spotifyId": null,
-    "deezerId": 2622575282
+    "deezerId": 2622575282,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/aebe591c2f15495dcbfd6be230d38753/500x500-000000-80-0-0.jpg",
+    "coverMd5": "aebe591c2f15495dcbfd6be230d38753"
   },
   {
     "id": 29,
@@ -229,7 +283,9 @@
     "album": "Will",
     "releaseYear": 2024,
     "spotifyId": null,
-    "deezerId": 2726943221
+    "deezerId": 2726943221,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/767da6f532fc11ea16c6dc2dd8728be0/500x500-000000-80-0-0.jpg",
+    "coverMd5": "767da6f532fc11ea16c6dc2dd8728be0"
   },
   {
     "id": 30,
@@ -245,7 +301,9 @@
     "album": "IVE SWITCH",
     "releaseYear": 2024,
     "spotifyId": null,
-    "deezerId": 2749285291
+    "deezerId": 2749285291,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c830dc6ea5be692c75abd6b685765dc8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c830dc6ea5be692c75abd6b685765dc8"
   },
   {
     "id": 32,
@@ -253,7 +311,9 @@
     "album": "IVE SWITCH",
     "releaseYear": 2024,
     "spotifyId": null,
-    "deezerId": 2749285301
+    "deezerId": 2749285301,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c830dc6ea5be692c75abd6b685765dc8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c830dc6ea5be692c75abd6b685765dc8"
   },
   {
     "id": 33,
@@ -261,7 +321,9 @@
     "album": "IVE SWITCH",
     "releaseYear": 2024,
     "spotifyId": null,
-    "deezerId": 2749285311
+    "deezerId": 2749285311,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c830dc6ea5be692c75abd6b685765dc8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c830dc6ea5be692c75abd6b685765dc8"
   },
   {
     "id": 34,
@@ -269,7 +331,9 @@
     "album": "IVE SWITCH",
     "releaseYear": 2024,
     "spotifyId": null,
-    "deezerId": 2749285321
+    "deezerId": 2749285321,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c830dc6ea5be692c75abd6b685765dc8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c830dc6ea5be692c75abd6b685765dc8"
   },
   {
     "id": 35,
@@ -277,7 +341,9 @@
     "album": "IVE SWITCH",
     "releaseYear": 2024,
     "spotifyId": null,
-    "deezerId": 2749285331
+    "deezerId": 2749285331,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c830dc6ea5be692c75abd6b685765dc8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c830dc6ea5be692c75abd6b685765dc8"
   },
   {
     "id": 36,
@@ -285,7 +351,9 @@
     "album": "SUMMER FESTA",
     "releaseYear": 2024,
     "spotifyId": null,
-    "deezerId": 2867934382
+    "deezerId": 2867934382,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/760e220a80e89452ef34899b3e45cee3/500x500-000000-80-0-0.jpg",
+    "coverMd5": "760e220a80e89452ef34899b3e45cee3"
   },
   {
     "id": 37,
@@ -293,7 +361,9 @@
     "album": "CRUSH",
     "releaseYear": 2024,
     "spotifyId": null,
-    "deezerId": 2911122301
+    "deezerId": 2911122301,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3f37df9b16b9539cf7bbe03ca575f3a0/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3f37df9b16b9539cf7bbe03ca575f3a0"
   },
   {
     "id": 38,
@@ -301,7 +371,9 @@
     "album": "Will -Korean version-",
     "releaseYear": 2024,
     "spotifyId": null,
-    "deezerId": 3023299861
+    "deezerId": 3023299861,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/eede5079c316e385126f41fdcc9a6d05/500x500-000000-80-0-0.jpg",
+    "coverMd5": "eede5079c316e385126f41fdcc9a6d05"
   },
   {
     "id": 39,
@@ -309,7 +381,9 @@
     "album": "REBEL HEART",
     "releaseYear": 2025,
     "spotifyId": null,
-    "deezerId": 3153143521
+    "deezerId": 3153143521,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/dbd0646499694b1b974acaa2f2a28d87/500x500-000000-80-0-0.jpg",
+    "coverMd5": "dbd0646499694b1b974acaa2f2a28d87"
   },
   {
     "id": 40,
@@ -317,7 +391,9 @@
     "album": "IVE EMPATHY",
     "releaseYear": 2025,
     "spotifyId": null,
-    "deezerId": 3178649881
+    "deezerId": 3178649881,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f7458688225f11986080e72e2a5825a1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f7458688225f11986080e72e2a5825a1"
   },
   {
     "id": 41,
@@ -325,7 +401,9 @@
     "album": "IVE EMPATHY",
     "releaseYear": 2025,
     "spotifyId": null,
-    "deezerId": 3178649891
+    "deezerId": 3178649891,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f7458688225f11986080e72e2a5825a1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f7458688225f11986080e72e2a5825a1"
   },
   {
     "id": 42,
@@ -333,7 +411,9 @@
     "album": "IVE EMPATHY",
     "releaseYear": 2025,
     "spotifyId": null,
-    "deezerId": 3178649901
+    "deezerId": 3178649901,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f7458688225f11986080e72e2a5825a1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f7458688225f11986080e72e2a5825a1"
   },
   {
     "id": 43,
@@ -341,7 +421,9 @@
     "album": "IVE EMPATHY",
     "releaseYear": 2025,
     "spotifyId": null,
-    "deezerId": 3178649911
+    "deezerId": 3178649911,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f7458688225f11986080e72e2a5825a1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f7458688225f11986080e72e2a5825a1"
   },
   {
     "id": 44,
@@ -349,7 +431,9 @@
     "album": "IVE EMPATHY",
     "releaseYear": 2025,
     "spotifyId": null,
-    "deezerId": 3178649921
+    "deezerId": 3178649921,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f7458688225f11986080e72e2a5825a1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f7458688225f11986080e72e2a5825a1"
   },
   {
     "id": 45,
@@ -357,7 +441,9 @@
     "album": "DARE ME",
     "releaseYear": 2025,
     "spotifyId": null,
-    "deezerId": 3314853711
+    "deezerId": 3314853711,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c38f45855e68e908be6e40e5ebd24677/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c38f45855e68e908be6e40e5ebd24677"
   },
   {
     "id": 46,
@@ -365,7 +451,9 @@
     "album": "Be Alright",
     "releaseYear": 2025,
     "spotifyId": null,
-    "deezerId": 3442856531
+    "deezerId": 3442856531,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/92a208a722ebc1a8388368efcfe02bc7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "92a208a722ebc1a8388368efcfe02bc7"
   },
   {
     "id": 47,
@@ -373,7 +461,9 @@
     "album": "IVE SECRET",
     "releaseYear": 2025,
     "spotifyId": null,
-    "deezerId": 3520921381
+    "deezerId": 3520921381,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/abe84c2775e53f45a78884c1fa415b37/500x500-000000-80-0-0.jpg",
+    "coverMd5": "abe84c2775e53f45a78884c1fa415b37"
   },
   {
     "id": 48,
@@ -381,7 +471,9 @@
     "album": "IVE SECRET",
     "releaseYear": 2025,
     "spotifyId": null,
-    "deezerId": 3520921391
+    "deezerId": 3520921391,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/abe84c2775e53f45a78884c1fa415b37/500x500-000000-80-0-0.jpg",
+    "coverMd5": "abe84c2775e53f45a78884c1fa415b37"
   },
   {
     "id": 49,
@@ -389,7 +481,9 @@
     "album": "IVE SECRET",
     "releaseYear": 2025,
     "spotifyId": null,
-    "deezerId": 3520921401
+    "deezerId": 3520921401,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/abe84c2775e53f45a78884c1fa415b37/500x500-000000-80-0-0.jpg",
+    "coverMd5": "abe84c2775e53f45a78884c1fa415b37"
   },
   {
     "id": 50,
@@ -397,7 +491,9 @@
     "album": "IVE SECRET",
     "releaseYear": 2025,
     "spotifyId": null,
-    "deezerId": 3520921411
+    "deezerId": 3520921411,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/abe84c2775e53f45a78884c1fa415b37/500x500-000000-80-0-0.jpg",
+    "coverMd5": "abe84c2775e53f45a78884c1fa415b37"
   },
   {
     "id": 51,
@@ -413,7 +509,9 @@
     "album": "IVE SECRET",
     "releaseYear": 2025,
     "spotifyId": null,
-    "deezerId": 3520921431
+    "deezerId": 3520921431,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/abe84c2775e53f45a78884c1fa415b37/500x500-000000-80-0-0.jpg",
+    "coverMd5": "abe84c2775e53f45a78884c1fa415b37"
   },
   {
     "id": 53,
@@ -421,7 +519,9 @@
     "album": "BANG BANG",
     "releaseYear": 2026,
     "spotifyId": null,
-    "deezerId": 3823100291
+    "deezerId": 3823100291,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2698f3ef04f6e290967c082e26b2e833/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2698f3ef04f6e290967c082e26b2e833"
   },
   {
     "id": 54,
@@ -429,7 +529,9 @@
     "album": "REVIVE+",
     "releaseYear": 2026,
     "spotifyId": null,
-    "deezerId": 3853730971
+    "deezerId": 3853730971,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/531d5883b0ead12e235cd4ce40e6258d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "531d5883b0ead12e235cd4ce40e6258d"
   },
   {
     "id": 55,
@@ -437,7 +539,9 @@
     "album": "REVIVE+",
     "releaseYear": 2026,
     "spotifyId": null,
-    "deezerId": 3853730991
+    "deezerId": 3853730991,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/531d5883b0ead12e235cd4ce40e6258d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "531d5883b0ead12e235cd4ce40e6258d"
   },
   {
     "id": 56,
@@ -445,7 +549,9 @@
     "album": "REVIVE+",
     "releaseYear": 2026,
     "spotifyId": null,
-    "deezerId": 3853731001
+    "deezerId": 3853731001,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/531d5883b0ead12e235cd4ce40e6258d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "531d5883b0ead12e235cd4ce40e6258d"
   },
   {
     "id": 57,
@@ -453,7 +559,9 @@
     "album": "REVIVE+",
     "releaseYear": 2026,
     "spotifyId": null,
-    "deezerId": 3853731011
+    "deezerId": 3853731011,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/531d5883b0ead12e235cd4ce40e6258d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "531d5883b0ead12e235cd4ce40e6258d"
   },
   {
     "id": 58,
@@ -461,6 +569,8 @@
     "album": "REVIVE+",
     "releaseYear": 2026,
     "spotifyId": null,
-    "deezerId": 3853731021
+    "deezerId": 3853731021,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/531d5883b0ead12e235cd4ce40e6258d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "531d5883b0ead12e235cd4ce40e6258d"
   }
 ]

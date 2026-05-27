@@ -13,7 +13,9 @@
     "album": "Be Natural",
     "releaseYear": 2014,
     "spotifyId": null,
-    "deezerId": 728532692
+    "deezerId": 728532692,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/1d83898acd45961925f265c3974af790/500x500-000000-80-0-0.jpg",
+    "coverMd5": "1d83898acd45961925f265c3974af790"
   },
   {
     "id": 3,
@@ -21,7 +23,9 @@
     "album": "The 1st Mini Album 'Ice Cream Cake'",
     "releaseYear": 2015,
     "spotifyId": null,
-    "deezerId": 728733972
+    "deezerId": 728733972,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d9b5c901b146624a89bdc87cb989c39d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d9b5c901b146624a89bdc87cb989c39d"
   },
   {
     "id": 4,
@@ -29,7 +33,9 @@
     "album": "The 1st Mini Album 'Ice Cream Cake'",
     "releaseYear": 2015,
     "spotifyId": null,
-    "deezerId": 728733982
+    "deezerId": 728733982,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d9b5c901b146624a89bdc87cb989c39d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d9b5c901b146624a89bdc87cb989c39d"
   },
   {
     "id": 5,
@@ -37,7 +43,9 @@
     "album": "The 1st Mini Album 'Ice Cream Cake'",
     "releaseYear": 2015,
     "spotifyId": null,
-    "deezerId": 728733992
+    "deezerId": 728733992,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d9b5c901b146624a89bdc87cb989c39d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d9b5c901b146624a89bdc87cb989c39d"
   },
   {
     "id": 6,
@@ -45,7 +53,9 @@
     "album": "The 1st Mini Album 'Ice Cream Cake'",
     "releaseYear": 2015,
     "spotifyId": null,
-    "deezerId": 728734002
+    "deezerId": 728734002,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d9b5c901b146624a89bdc87cb989c39d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d9b5c901b146624a89bdc87cb989c39d"
   },
   {
     "id": 7,
@@ -53,7 +63,9 @@
     "album": "The 1st Mini Album 'Ice Cream Cake'",
     "releaseYear": 2015,
     "spotifyId": null,
-    "deezerId": 728734012
+    "deezerId": 728734012,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d9b5c901b146624a89bdc87cb989c39d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d9b5c901b146624a89bdc87cb989c39d"
   },
   {
     "id": 8,
@@ -61,7 +73,9 @@
     "album": "The 1st Mini Album 'Ice Cream Cake'",
     "releaseYear": 2015,
     "spotifyId": null,
-    "deezerId": 728734022
+    "deezerId": 728734022,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d9b5c901b146624a89bdc87cb989c39d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d9b5c901b146624a89bdc87cb989c39d"
   },
   {
     "id": 9,
@@ -69,7 +83,9 @@
     "album": "The Red - The 1st Album",
     "releaseYear": 2015,
     "spotifyId": null,
-    "deezerId": 728552672
+    "deezerId": 728552672,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/57fbde5dead4ee0aebf20ce3b2c2d268/500x500-000000-80-0-0.jpg",
+    "coverMd5": "57fbde5dead4ee0aebf20ce3b2c2d268"
   },
   {
     "id": 10,
@@ -77,7 +93,9 @@
     "album": "The Red - The 1st Album",
     "releaseYear": 2015,
     "spotifyId": null,
-    "deezerId": 728552682
+    "deezerId": 728552682,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/57fbde5dead4ee0aebf20ce3b2c2d268/500x500-000000-80-0-0.jpg",
+    "coverMd5": "57fbde5dead4ee0aebf20ce3b2c2d268"
   },
   {
     "id": 11,
@@ -85,7 +103,9 @@
     "album": "The Red - The 1st Album",
     "releaseYear": 2015,
     "spotifyId": null,
-    "deezerId": 728552692
+    "deezerId": 728552692,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/57fbde5dead4ee0aebf20ce3b2c2d268/500x500-000000-80-0-0.jpg",
+    "coverMd5": "57fbde5dead4ee0aebf20ce3b2c2d268"
   },
   {
     "id": 12,
@@ -93,7 +113,9 @@
     "album": "The Red - The 1st Album",
     "releaseYear": 2015,
     "spotifyId": null,
-    "deezerId": 728552702
+    "deezerId": 728552702,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/57fbde5dead4ee0aebf20ce3b2c2d268/500x500-000000-80-0-0.jpg",
+    "coverMd5": "57fbde5dead4ee0aebf20ce3b2c2d268"
   },
   {
     "id": 13,
@@ -101,7 +123,9 @@
     "album": "The Red - The 1st Album",
     "releaseYear": 2015,
     "spotifyId": null,
-    "deezerId": 728552712
+    "deezerId": 728552712,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/57fbde5dead4ee0aebf20ce3b2c2d268/500x500-000000-80-0-0.jpg",
+    "coverMd5": "57fbde5dead4ee0aebf20ce3b2c2d268"
   },
   {
     "id": 14,
@@ -109,7 +133,9 @@
     "album": "The Red - The 1st Album",
     "releaseYear": 2015,
     "spotifyId": null,
-    "deezerId": 728552722
+    "deezerId": 728552722,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/57fbde5dead4ee0aebf20ce3b2c2d268/500x500-000000-80-0-0.jpg",
+    "coverMd5": "57fbde5dead4ee0aebf20ce3b2c2d268"
   },
   {
     "id": 15,
@@ -117,7 +143,9 @@
     "album": "The Red - The 1st Album",
     "releaseYear": 2015,
     "spotifyId": null,
-    "deezerId": 728552732
+    "deezerId": 728552732,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/57fbde5dead4ee0aebf20ce3b2c2d268/500x500-000000-80-0-0.jpg",
+    "coverMd5": "57fbde5dead4ee0aebf20ce3b2c2d268"
   },
   {
     "id": 16,
@@ -125,7 +153,9 @@
     "album": "The Red - The 1st Album",
     "releaseYear": 2015,
     "spotifyId": null,
-    "deezerId": 728552742
+    "deezerId": 728552742,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/57fbde5dead4ee0aebf20ce3b2c2d268/500x500-000000-80-0-0.jpg",
+    "coverMd5": "57fbde5dead4ee0aebf20ce3b2c2d268"
   },
   {
     "id": 17,
@@ -133,7 +163,9 @@
     "album": "The Red - The 1st Album",
     "releaseYear": 2015,
     "spotifyId": null,
-    "deezerId": 728552752
+    "deezerId": 728552752,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/57fbde5dead4ee0aebf20ce3b2c2d268/500x500-000000-80-0-0.jpg",
+    "coverMd5": "57fbde5dead4ee0aebf20ce3b2c2d268"
   },
   {
     "id": 18,
@@ -141,7 +173,9 @@
     "album": "The Red - The 1st Album",
     "releaseYear": 2015,
     "spotifyId": null,
-    "deezerId": 728552762
+    "deezerId": 728552762,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/57fbde5dead4ee0aebf20ce3b2c2d268/500x500-000000-80-0-0.jpg",
+    "coverMd5": "57fbde5dead4ee0aebf20ce3b2c2d268"
   },
   {
     "id": 19,
@@ -149,7 +183,9 @@
     "album": "세가지 소원 Wish Tree - WINTER GARDEN",
     "releaseYear": 2015,
     "spotifyId": null,
-    "deezerId": 728533852
+    "deezerId": 728533852,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/03fd92dce5b157a6a963091fdb84ddb5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "03fd92dce5b157a6a963091fdb84ddb5"
   },
   {
     "id": 20,
@@ -157,7 +193,9 @@
     "album": "The Velvet - The 2nd Mini Album",
     "releaseYear": 2016,
     "spotifyId": null,
-    "deezerId": 728725592
+    "deezerId": 728725592,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7ef07afc5df451d1cec42c3f88b5984a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7ef07afc5df451d1cec42c3f88b5984a"
   },
   {
     "id": 21,
@@ -165,7 +203,9 @@
     "album": "The Velvet - The 2nd Mini Album",
     "releaseYear": 2016,
     "spotifyId": null,
-    "deezerId": 728725602
+    "deezerId": 728725602,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7ef07afc5df451d1cec42c3f88b5984a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7ef07afc5df451d1cec42c3f88b5984a"
   },
   {
     "id": 22,
@@ -173,7 +213,9 @@
     "album": "The Velvet - The 2nd Mini Album",
     "releaseYear": 2016,
     "spotifyId": null,
-    "deezerId": 728725612
+    "deezerId": 728725612,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7ef07afc5df451d1cec42c3f88b5984a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7ef07afc5df451d1cec42c3f88b5984a"
   },
   {
     "id": 23,
@@ -181,7 +223,9 @@
     "album": "The Velvet - The 2nd Mini Album",
     "releaseYear": 2016,
     "spotifyId": null,
-    "deezerId": 728725622
+    "deezerId": 728725622,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7ef07afc5df451d1cec42c3f88b5984a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7ef07afc5df451d1cec42c3f88b5984a"
   },
   {
     "id": 24,
@@ -205,7 +249,9 @@
     "album": "Russian Roulette - The 3rd Mini Album",
     "releaseYear": 2016,
     "spotifyId": null,
-    "deezerId": 728092472
+    "deezerId": 728092472,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/1e26d9443309f860a6775d50946c4766/500x500-000000-80-0-0.jpg",
+    "coverMd5": "1e26d9443309f860a6775d50946c4766"
   },
   {
     "id": 27,
@@ -213,7 +259,9 @@
     "album": "Russian Roulette - The 3rd Mini Album",
     "releaseYear": 2016,
     "spotifyId": null,
-    "deezerId": 728092482
+    "deezerId": 728092482,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/1e26d9443309f860a6775d50946c4766/500x500-000000-80-0-0.jpg",
+    "coverMd5": "1e26d9443309f860a6775d50946c4766"
   },
   {
     "id": 28,
@@ -221,7 +269,9 @@
     "album": "Russian Roulette - The 3rd Mini Album",
     "releaseYear": 2016,
     "spotifyId": null,
-    "deezerId": 728092492
+    "deezerId": 728092492,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/1e26d9443309f860a6775d50946c4766/500x500-000000-80-0-0.jpg",
+    "coverMd5": "1e26d9443309f860a6775d50946c4766"
   },
   {
     "id": 29,
@@ -229,7 +279,9 @@
     "album": "Russian Roulette - The 3rd Mini Album",
     "releaseYear": 2016,
     "spotifyId": null,
-    "deezerId": 728092502
+    "deezerId": 728092502,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/1e26d9443309f860a6775d50946c4766/500x500-000000-80-0-0.jpg",
+    "coverMd5": "1e26d9443309f860a6775d50946c4766"
   },
   {
     "id": 30,
@@ -237,7 +289,9 @@
     "album": "Russian Roulette - The 3rd Mini Album",
     "releaseYear": 2016,
     "spotifyId": null,
-    "deezerId": 728092512
+    "deezerId": 728092512,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/1e26d9443309f860a6775d50946c4766/500x500-000000-80-0-0.jpg",
+    "coverMd5": "1e26d9443309f860a6775d50946c4766"
   },
   {
     "id": 31,
@@ -245,7 +299,9 @@
     "album": "Russian Roulette - The 3rd Mini Album",
     "releaseYear": 2016,
     "spotifyId": null,
-    "deezerId": 728092522
+    "deezerId": 728092522,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/1e26d9443309f860a6775d50946c4766/500x500-000000-80-0-0.jpg",
+    "coverMd5": "1e26d9443309f860a6775d50946c4766"
   },
   {
     "id": 32,
@@ -253,7 +309,9 @@
     "album": "Rookie - The 4th Mini Album",
     "releaseYear": 2017,
     "spotifyId": null,
-    "deezerId": 728065992
+    "deezerId": 728065992,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/18806b26cf30a0a42677bf7978a102b0/500x500-000000-80-0-0.jpg",
+    "coverMd5": "18806b26cf30a0a42677bf7978a102b0"
   },
   {
     "id": 33,
@@ -261,7 +319,9 @@
     "album": "Rookie - The 4th Mini Album",
     "releaseYear": 2017,
     "spotifyId": null,
-    "deezerId": 728066002
+    "deezerId": 728066002,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/18806b26cf30a0a42677bf7978a102b0/500x500-000000-80-0-0.jpg",
+    "coverMd5": "18806b26cf30a0a42677bf7978a102b0"
   },
   {
     "id": 34,
@@ -269,7 +329,9 @@
     "album": "Rookie - The 4th Mini Album",
     "releaseYear": 2017,
     "spotifyId": null,
-    "deezerId": 728066012
+    "deezerId": 728066012,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/18806b26cf30a0a42677bf7978a102b0/500x500-000000-80-0-0.jpg",
+    "coverMd5": "18806b26cf30a0a42677bf7978a102b0"
   },
   {
     "id": 35,
@@ -277,7 +339,9 @@
     "album": "Rookie - The 4th Mini Album",
     "releaseYear": 2017,
     "spotifyId": null,
-    "deezerId": 728066022
+    "deezerId": 728066022,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/18806b26cf30a0a42677bf7978a102b0/500x500-000000-80-0-0.jpg",
+    "coverMd5": "18806b26cf30a0a42677bf7978a102b0"
   },
   {
     "id": 36,
@@ -285,7 +349,9 @@
     "album": "Rookie - The 4th Mini Album",
     "releaseYear": 2017,
     "spotifyId": null,
-    "deezerId": 728066032
+    "deezerId": 728066032,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/18806b26cf30a0a42677bf7978a102b0/500x500-000000-80-0-0.jpg",
+    "coverMd5": "18806b26cf30a0a42677bf7978a102b0"
   },
   {
     "id": 37,
@@ -293,7 +359,9 @@
     "album": "Rookie - The 4th Mini Album",
     "releaseYear": 2017,
     "spotifyId": null,
-    "deezerId": 728066042
+    "deezerId": 728066042,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/18806b26cf30a0a42677bf7978a102b0/500x500-000000-80-0-0.jpg",
+    "coverMd5": "18806b26cf30a0a42677bf7978a102b0"
   },
   {
     "id": 38,
@@ -301,7 +369,9 @@
     "album": "Would U",
     "releaseYear": 2017,
     "spotifyId": null,
-    "deezerId": 728072812
+    "deezerId": 728072812,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/86df566429ce88f18d8696e23be02da0/500x500-000000-80-0-0.jpg",
+    "coverMd5": "86df566429ce88f18d8696e23be02da0"
   },
   {
     "id": 39,
@@ -309,7 +379,9 @@
     "album": "The Red Summer - Summer Mini Album",
     "releaseYear": 2017,
     "spotifyId": null,
-    "deezerId": 728157542
+    "deezerId": 728157542,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e88e8dc3c161fa5945d869eddaf94716/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e88e8dc3c161fa5945d869eddaf94716"
   },
   {
     "id": 40,
@@ -317,7 +389,9 @@
     "album": "The Red Summer - Summer Mini Album",
     "releaseYear": 2017,
     "spotifyId": null,
-    "deezerId": 728157552
+    "deezerId": 728157552,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e88e8dc3c161fa5945d869eddaf94716/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e88e8dc3c161fa5945d869eddaf94716"
   },
   {
     "id": 41,
@@ -325,7 +399,9 @@
     "album": "The Red Summer - Summer Mini Album",
     "releaseYear": 2017,
     "spotifyId": null,
-    "deezerId": 728157562
+    "deezerId": 728157562,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e88e8dc3c161fa5945d869eddaf94716/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e88e8dc3c161fa5945d869eddaf94716"
   },
   {
     "id": 42,
@@ -333,7 +409,9 @@
     "album": "The Red Summer - Summer Mini Album",
     "releaseYear": 2017,
     "spotifyId": null,
-    "deezerId": 728157572
+    "deezerId": 728157572,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e88e8dc3c161fa5945d869eddaf94716/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e88e8dc3c161fa5945d869eddaf94716"
   },
   {
     "id": 43,
@@ -341,7 +419,9 @@
     "album": "The Red Summer - Summer Mini Album",
     "releaseYear": 2017,
     "spotifyId": null,
-    "deezerId": 728157582
+    "deezerId": 728157582,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e88e8dc3c161fa5945d869eddaf94716/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e88e8dc3c161fa5945d869eddaf94716"
   },
   {
     "id": 44,
@@ -349,7 +429,9 @@
     "album": "Rebirth",
     "releaseYear": 2017,
     "spotifyId": null,
-    "deezerId": 728069022
+    "deezerId": 728069022,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/346652974d429602cc7448aa14391452/500x500-000000-80-0-0.jpg",
+    "coverMd5": "346652974d429602cc7448aa14391452"
   },
   {
     "id": 45,
@@ -357,7 +439,9 @@
     "album": "Perfect Velvet - The 2nd Album",
     "releaseYear": 2017,
     "spotifyId": null,
-    "deezerId": 728020082
+    "deezerId": 728020082,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c2fd11ce97cf4e210d5fbb17606331be/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c2fd11ce97cf4e210d5fbb17606331be"
   },
   {
     "id": 46,
@@ -365,7 +449,9 @@
     "album": "Perfect Velvet - The 2nd Album",
     "releaseYear": 2017,
     "spotifyId": null,
-    "deezerId": 728020092
+    "deezerId": 728020092,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c2fd11ce97cf4e210d5fbb17606331be/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c2fd11ce97cf4e210d5fbb17606331be"
   },
   {
     "id": 47,
@@ -373,7 +459,9 @@
     "album": "Perfect Velvet - The 2nd Album",
     "releaseYear": 2017,
     "spotifyId": null,
-    "deezerId": 728020102
+    "deezerId": 728020102,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c2fd11ce97cf4e210d5fbb17606331be/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c2fd11ce97cf4e210d5fbb17606331be"
   },
   {
     "id": 48,
@@ -381,7 +469,9 @@
     "album": "Perfect Velvet - The 2nd Album",
     "releaseYear": 2017,
     "spotifyId": null,
-    "deezerId": 728020112
+    "deezerId": 728020112,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c2fd11ce97cf4e210d5fbb17606331be/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c2fd11ce97cf4e210d5fbb17606331be"
   },
   {
     "id": 49,
@@ -389,7 +479,9 @@
     "album": "Perfect Velvet - The 2nd Album",
     "releaseYear": 2017,
     "spotifyId": null,
-    "deezerId": 728020122
+    "deezerId": 728020122,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c2fd11ce97cf4e210d5fbb17606331be/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c2fd11ce97cf4e210d5fbb17606331be"
   },
   {
     "id": 50,
@@ -397,7 +489,9 @@
     "album": "Perfect Velvet - The 2nd Album",
     "releaseYear": 2017,
     "spotifyId": null,
-    "deezerId": 728020132
+    "deezerId": 728020132,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c2fd11ce97cf4e210d5fbb17606331be/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c2fd11ce97cf4e210d5fbb17606331be"
   },
   {
     "id": 51,
@@ -405,7 +499,9 @@
     "album": "Perfect Velvet - The 2nd Album",
     "releaseYear": 2017,
     "spotifyId": null,
-    "deezerId": 728020142
+    "deezerId": 728020142,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c2fd11ce97cf4e210d5fbb17606331be/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c2fd11ce97cf4e210d5fbb17606331be"
   },
   {
     "id": 52,
@@ -413,7 +509,9 @@
     "album": "Perfect Velvet - The 2nd Album",
     "releaseYear": 2017,
     "spotifyId": null,
-    "deezerId": 728020152
+    "deezerId": 728020152,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c2fd11ce97cf4e210d5fbb17606331be/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c2fd11ce97cf4e210d5fbb17606331be"
   },
   {
     "id": 53,
@@ -421,7 +519,9 @@
     "album": "Perfect Velvet - The 2nd Album",
     "releaseYear": 2017,
     "spotifyId": null,
-    "deezerId": 728020162
+    "deezerId": 728020162,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c2fd11ce97cf4e210d5fbb17606331be/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c2fd11ce97cf4e210d5fbb17606331be"
   },
   {
     "id": 54,
@@ -429,7 +529,9 @@
     "album": "The Perfect Red Velvet - The 2nd Album Repackage",
     "releaseYear": 2018,
     "spotifyId": null,
-    "deezerId": 728143922
+    "deezerId": 728143922,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ccbd6b1ce7a44d4f15af601be6009295/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ccbd6b1ce7a44d4f15af601be6009295"
   },
   {
     "id": 55,
@@ -437,7 +539,9 @@
     "album": "The Perfect Red Velvet - The 2nd Album Repackage",
     "releaseYear": 2018,
     "spotifyId": null,
-    "deezerId": 728143932
+    "deezerId": 728143932,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ccbd6b1ce7a44d4f15af601be6009295/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ccbd6b1ce7a44d4f15af601be6009295"
   },
   {
     "id": 56,
@@ -445,7 +549,9 @@
     "album": "The Perfect Red Velvet - The 2nd Album Repackage",
     "releaseYear": 2018,
     "spotifyId": null,
-    "deezerId": 728143982
+    "deezerId": 728143982,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ccbd6b1ce7a44d4f15af601be6009295/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ccbd6b1ce7a44d4f15af601be6009295"
   },
   {
     "id": 57,
@@ -453,7 +559,9 @@
     "album": "Summer Magic - Summer Mini Album",
     "releaseYear": 2018,
     "spotifyId": null,
-    "deezerId": 727825742
+    "deezerId": 727825742,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/5c4437d0115d0b794fea119574fe8dc7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "5c4437d0115d0b794fea119574fe8dc7"
   },
   {
     "id": 58,
@@ -461,7 +569,9 @@
     "album": "Summer Magic - Summer Mini Album",
     "releaseYear": 2018,
     "spotifyId": null,
-    "deezerId": 727825752
+    "deezerId": 727825752,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/5c4437d0115d0b794fea119574fe8dc7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "5c4437d0115d0b794fea119574fe8dc7"
   },
   {
     "id": 59,
@@ -469,7 +579,9 @@
     "album": "Summer Magic - Summer Mini Album",
     "releaseYear": 2018,
     "spotifyId": null,
-    "deezerId": 727825762
+    "deezerId": 727825762,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/5c4437d0115d0b794fea119574fe8dc7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "5c4437d0115d0b794fea119574fe8dc7"
   },
   {
     "id": 60,
@@ -477,7 +589,9 @@
     "album": "Summer Magic - Summer Mini Album",
     "releaseYear": 2018,
     "spotifyId": null,
-    "deezerId": 727825772
+    "deezerId": 727825772,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/5c4437d0115d0b794fea119574fe8dc7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "5c4437d0115d0b794fea119574fe8dc7"
   },
   {
     "id": 61,
@@ -485,7 +599,9 @@
     "album": "Summer Magic - Summer Mini Album",
     "releaseYear": 2018,
     "spotifyId": null,
-    "deezerId": 727825782
+    "deezerId": 727825782,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/5c4437d0115d0b794fea119574fe8dc7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "5c4437d0115d0b794fea119574fe8dc7"
   },
   {
     "id": 62,
@@ -493,7 +609,9 @@
     "album": "Summer Magic - Summer Mini Album",
     "releaseYear": 2018,
     "spotifyId": null,
-    "deezerId": 727825792
+    "deezerId": 727825792,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/5c4437d0115d0b794fea119574fe8dc7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "5c4437d0115d0b794fea119574fe8dc7"
   },
   {
     "id": 63,
@@ -501,7 +619,9 @@
     "album": "RBB - The 5th Mini Album",
     "releaseYear": 2018,
     "spotifyId": null,
-    "deezerId": 728229342
+    "deezerId": 728229342,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b9c83589957e44e6b437b0f88f594c21/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b9c83589957e44e6b437b0f88f594c21"
   },
   {
     "id": 64,
@@ -509,7 +629,9 @@
     "album": "RBB - The 5th Mini Album",
     "releaseYear": 2018,
     "spotifyId": null,
-    "deezerId": 728229352
+    "deezerId": 728229352,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b9c83589957e44e6b437b0f88f594c21/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b9c83589957e44e6b437b0f88f594c21"
   },
   {
     "id": 65,
@@ -517,7 +639,9 @@
     "album": "RBB - The 5th Mini Album",
     "releaseYear": 2018,
     "spotifyId": null,
-    "deezerId": 728229362
+    "deezerId": 728229362,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b9c83589957e44e6b437b0f88f594c21/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b9c83589957e44e6b437b0f88f594c21"
   },
   {
     "id": 66,
@@ -533,7 +657,9 @@
     "album": "RBB - The 5th Mini Album",
     "releaseYear": 2018,
     "spotifyId": null,
-    "deezerId": 728229382
+    "deezerId": 728229382,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b9c83589957e44e6b437b0f88f594c21/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b9c83589957e44e6b437b0f88f594c21"
   },
   {
     "id": 68,
@@ -541,7 +667,9 @@
     "album": "SAPPY",
     "releaseYear": 2019,
     "spotifyId": null,
-    "deezerId": 2356671405
+    "deezerId": 2356671405,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d35434a8e5c3eb5f4f30b3fd6a456558/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d35434a8e5c3eb5f4f30b3fd6a456558"
   },
   {
     "id": 69,
@@ -549,7 +677,9 @@
     "album": "SAPPY",
     "releaseYear": 2019,
     "spotifyId": null,
-    "deezerId": 2356671415
+    "deezerId": 2356671415,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d35434a8e5c3eb5f4f30b3fd6a456558/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d35434a8e5c3eb5f4f30b3fd6a456558"
   },
   {
     "id": 70,
@@ -557,7 +687,9 @@
     "album": "SAPPY",
     "releaseYear": 2019,
     "spotifyId": null,
-    "deezerId": 2356671425
+    "deezerId": 2356671425,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d35434a8e5c3eb5f4f30b3fd6a456558/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d35434a8e5c3eb5f4f30b3fd6a456558"
   },
   {
     "id": 71,
@@ -573,7 +705,9 @@
     "album": "'The ReVe Festival' Day 1",
     "releaseYear": 2019,
     "spotifyId": null,
-    "deezerId": 728230582
+    "deezerId": 728230582,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/44a44c18c1da9e474b8b64b71913e613/500x500-000000-80-0-0.jpg",
+    "coverMd5": "44a44c18c1da9e474b8b64b71913e613"
   },
   {
     "id": 73,
@@ -581,7 +715,9 @@
     "album": "'The ReVe Festival' Day 1",
     "releaseYear": 2019,
     "spotifyId": null,
-    "deezerId": 728230592
+    "deezerId": 728230592,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/44a44c18c1da9e474b8b64b71913e613/500x500-000000-80-0-0.jpg",
+    "coverMd5": "44a44c18c1da9e474b8b64b71913e613"
   },
   {
     "id": 74,
@@ -605,7 +741,9 @@
     "album": "'The ReVe Festival' Day 1",
     "releaseYear": 2019,
     "spotifyId": null,
-    "deezerId": 728230622
+    "deezerId": 728230622,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/44a44c18c1da9e474b8b64b71913e613/500x500-000000-80-0-0.jpg",
+    "coverMd5": "44a44c18c1da9e474b8b64b71913e613"
   },
   {
     "id": 77,
@@ -613,7 +751,9 @@
     "album": "'The ReVe Festival' Day 2",
     "releaseYear": 2019,
     "spotifyId": null,
-    "deezerId": 731216762
+    "deezerId": 731216762,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ca8a98bde0073ceabce27d6ce5cee1ee/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ca8a98bde0073ceabce27d6ce5cee1ee"
   },
   {
     "id": 78,
@@ -621,7 +761,9 @@
     "album": "'The ReVe Festival' Day 2",
     "releaseYear": 2019,
     "spotifyId": null,
-    "deezerId": 731216772
+    "deezerId": 731216772,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ca8a98bde0073ceabce27d6ce5cee1ee/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ca8a98bde0073ceabce27d6ce5cee1ee"
   },
   {
     "id": 79,
@@ -629,7 +771,9 @@
     "album": "'The ReVe Festival' Day 2",
     "releaseYear": 2019,
     "spotifyId": null,
-    "deezerId": 731216782
+    "deezerId": 731216782,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ca8a98bde0073ceabce27d6ce5cee1ee/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ca8a98bde0073ceabce27d6ce5cee1ee"
   },
   {
     "id": 80,
@@ -645,7 +789,9 @@
     "album": "'The ReVe Festival' Day 2",
     "releaseYear": 2019,
     "spotifyId": null,
-    "deezerId": 731216802
+    "deezerId": 731216802,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ca8a98bde0073ceabce27d6ce5cee1ee/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ca8a98bde0073ceabce27d6ce5cee1ee"
   },
   {
     "id": 82,
@@ -653,7 +799,9 @@
     "album": "'The ReVe Festival' Day 2",
     "releaseYear": 2019,
     "spotifyId": null,
-    "deezerId": 731216812
+    "deezerId": 731216812,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ca8a98bde0073ceabce27d6ce5cee1ee/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ca8a98bde0073ceabce27d6ce5cee1ee"
   },
   {
     "id": 83,
@@ -661,7 +809,9 @@
     "album": "'The ReVe Festival' Finale",
     "releaseYear": 2019,
     "spotifyId": null,
-    "deezerId": 835295992
+    "deezerId": 835295992,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/029b5afe1180dfbe53c284154634c50a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "029b5afe1180dfbe53c284154634c50a"
   },
   {
     "id": 84,
@@ -669,7 +819,9 @@
     "album": "'The ReVe Festival' Finale",
     "releaseYear": 2019,
     "spotifyId": null,
-    "deezerId": 835296002
+    "deezerId": 835296002,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/029b5afe1180dfbe53c284154634c50a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "029b5afe1180dfbe53c284154634c50a"
   },
   {
     "id": 85,
@@ -677,7 +829,9 @@
     "album": "'The ReVe Festival' Finale",
     "releaseYear": 2019,
     "spotifyId": null,
-    "deezerId": 835296012
+    "deezerId": 835296012,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/029b5afe1180dfbe53c284154634c50a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "029b5afe1180dfbe53c284154634c50a"
   },
   {
     "id": 86,
@@ -685,7 +839,9 @@
     "album": "'The ReVe Festival' Finale",
     "releaseYear": 2019,
     "spotifyId": null,
-    "deezerId": 835296142
+    "deezerId": 835296142,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/029b5afe1180dfbe53c284154634c50a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "029b5afe1180dfbe53c284154634c50a"
   },
   {
     "id": 87,
@@ -693,7 +849,9 @@
     "album": "Our Beloved BoA #4 - SM STATION",
     "releaseYear": 2020,
     "spotifyId": null,
-    "deezerId": 1055987002
+    "deezerId": 1055987002,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/0fa29845713129fbd535563a92e66be8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "0fa29845713129fbd535563a92e66be8"
   },
   {
     "id": 88,
@@ -701,7 +859,9 @@
     "album": "Queendom - The 6th Mini Album",
     "releaseYear": 2021,
     "spotifyId": null,
-    "deezerId": 1461248422
+    "deezerId": 1461248422,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/80239a9edbd46a8eed44a384f6b66494/500x500-000000-80-0-0.jpg",
+    "coverMd5": "80239a9edbd46a8eed44a384f6b66494"
   },
   {
     "id": 89,
@@ -709,7 +869,9 @@
     "album": "Queendom - The 6th Mini Album",
     "releaseYear": 2021,
     "spotifyId": null,
-    "deezerId": 1461248432
+    "deezerId": 1461248432,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/80239a9edbd46a8eed44a384f6b66494/500x500-000000-80-0-0.jpg",
+    "coverMd5": "80239a9edbd46a8eed44a384f6b66494"
   },
   {
     "id": 90,
@@ -717,7 +879,9 @@
     "album": "Queendom - The 6th Mini Album",
     "releaseYear": 2021,
     "spotifyId": null,
-    "deezerId": 1461248442
+    "deezerId": 1461248442,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/80239a9edbd46a8eed44a384f6b66494/500x500-000000-80-0-0.jpg",
+    "coverMd5": "80239a9edbd46a8eed44a384f6b66494"
   },
   {
     "id": 91,
@@ -725,7 +889,9 @@
     "album": "Queendom - The 6th Mini Album",
     "releaseYear": 2021,
     "spotifyId": null,
-    "deezerId": 1461248452
+    "deezerId": 1461248452,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/80239a9edbd46a8eed44a384f6b66494/500x500-000000-80-0-0.jpg",
+    "coverMd5": "80239a9edbd46a8eed44a384f6b66494"
   },
   {
     "id": 92,
@@ -733,7 +899,9 @@
     "album": "Queendom - The 6th Mini Album",
     "releaseYear": 2021,
     "spotifyId": null,
-    "deezerId": 1461248462
+    "deezerId": 1461248462,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/80239a9edbd46a8eed44a384f6b66494/500x500-000000-80-0-0.jpg",
+    "coverMd5": "80239a9edbd46a8eed44a384f6b66494"
   },
   {
     "id": 93,
@@ -741,7 +909,9 @@
     "album": "Queendom - The 6th Mini Album",
     "releaseYear": 2021,
     "spotifyId": null,
-    "deezerId": 1461248472
+    "deezerId": 1461248472,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/80239a9edbd46a8eed44a384f6b66494/500x500-000000-80-0-0.jpg",
+    "coverMd5": "80239a9edbd46a8eed44a384f6b66494"
   },
   {
     "id": 94,
@@ -749,7 +919,9 @@
     "album": "'The ReVe Festival 2022 - Feel My Rhythm'",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 1684801257
+    "deezerId": 1684801257,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/05555a792b23e273b65aaf5d8c3abf3a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "05555a792b23e273b65aaf5d8c3abf3a"
   },
   {
     "id": 95,
@@ -757,7 +929,9 @@
     "album": "'The ReVe Festival 2022 - Feel My Rhythm'",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 1684801267
+    "deezerId": 1684801267,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/05555a792b23e273b65aaf5d8c3abf3a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "05555a792b23e273b65aaf5d8c3abf3a"
   },
   {
     "id": 96,
@@ -765,7 +939,9 @@
     "album": "'The ReVe Festival 2022 - Feel My Rhythm'",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 1684801277
+    "deezerId": 1684801277,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/05555a792b23e273b65aaf5d8c3abf3a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "05555a792b23e273b65aaf5d8c3abf3a"
   },
   {
     "id": 97,
@@ -773,7 +949,9 @@
     "album": "'The ReVe Festival 2022 - Feel My Rhythm'",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 1684801287
+    "deezerId": 1684801287,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/05555a792b23e273b65aaf5d8c3abf3a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "05555a792b23e273b65aaf5d8c3abf3a"
   },
   {
     "id": 98,
@@ -781,7 +959,9 @@
     "album": "'The ReVe Festival 2022 - Feel My Rhythm'",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 1684801297
+    "deezerId": 1684801297,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/05555a792b23e273b65aaf5d8c3abf3a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "05555a792b23e273b65aaf5d8c3abf3a"
   },
   {
     "id": 99,
@@ -789,7 +969,9 @@
     "album": "'The ReVe Festival 2022 - Feel My Rhythm'",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 1684801307
+    "deezerId": 1684801307,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/05555a792b23e273b65aaf5d8c3abf3a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "05555a792b23e273b65aaf5d8c3abf3a"
   },
   {
     "id": 100,
@@ -797,7 +979,9 @@
     "album": "Bloom",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 2355617615
+    "deezerId": 2355617615,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7b92c905366ba8891a13cdb64d2f3049/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7b92c905366ba8891a13cdb64d2f3049"
   },
   {
     "id": 101,
@@ -805,7 +989,9 @@
     "album": "Bloom",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 2355617625
+    "deezerId": 2355617625,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7b92c905366ba8891a13cdb64d2f3049/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7b92c905366ba8891a13cdb64d2f3049"
   },
   {
     "id": 102,
@@ -813,7 +999,9 @@
     "album": "Bloom",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 2355617645
+    "deezerId": 2355617645,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7b92c905366ba8891a13cdb64d2f3049/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7b92c905366ba8891a13cdb64d2f3049"
   },
   {
     "id": 103,
@@ -821,7 +1009,9 @@
     "album": "Bloom",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 2355617655
+    "deezerId": 2355617655,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7b92c905366ba8891a13cdb64d2f3049/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7b92c905366ba8891a13cdb64d2f3049"
   },
   {
     "id": 104,
@@ -829,7 +1019,9 @@
     "album": "Bloom",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 2355617665
+    "deezerId": 2355617665,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7b92c905366ba8891a13cdb64d2f3049/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7b92c905366ba8891a13cdb64d2f3049"
   },
   {
     "id": 105,
@@ -837,7 +1029,9 @@
     "album": "Bloom",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 2355617685
+    "deezerId": 2355617685,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7b92c905366ba8891a13cdb64d2f3049/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7b92c905366ba8891a13cdb64d2f3049"
   },
   {
     "id": 106,
@@ -845,7 +1039,9 @@
     "album": "Bloom",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 2355617705
+    "deezerId": 2355617705,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7b92c905366ba8891a13cdb64d2f3049/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7b92c905366ba8891a13cdb64d2f3049"
   },
   {
     "id": 107,
@@ -853,7 +1049,9 @@
     "album": "Bloom",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 2355617715
+    "deezerId": 2355617715,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7b92c905366ba8891a13cdb64d2f3049/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7b92c905366ba8891a13cdb64d2f3049"
   },
   {
     "id": 108,
@@ -861,7 +1059,9 @@
     "album": "'The ReVe Festival 2022 - Birthday'",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 2027345957
+    "deezerId": 2027345957,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d79ff610d0ebde288479141b10cdf35a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d79ff610d0ebde288479141b10cdf35a"
   },
   {
     "id": 109,
@@ -869,7 +1069,9 @@
     "album": "'The ReVe Festival 2022 - Birthday'",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 2027345967
+    "deezerId": 2027345967,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d79ff610d0ebde288479141b10cdf35a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d79ff610d0ebde288479141b10cdf35a"
   },
   {
     "id": 110,
@@ -877,7 +1079,9 @@
     "album": "'The ReVe Festival 2022 - Birthday'",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 2027345977
+    "deezerId": 2027345977,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d79ff610d0ebde288479141b10cdf35a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d79ff610d0ebde288479141b10cdf35a"
   },
   {
     "id": 111,
@@ -885,7 +1089,9 @@
     "album": "'The ReVe Festival 2022 - Birthday'",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 2027345987
+    "deezerId": 2027345987,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d79ff610d0ebde288479141b10cdf35a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d79ff610d0ebde288479141b10cdf35a"
   },
   {
     "id": 112,
@@ -893,7 +1099,9 @@
     "album": "'The ReVe Festival 2022 - Birthday'",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 2027345997
+    "deezerId": 2027345997,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d79ff610d0ebde288479141b10cdf35a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d79ff610d0ebde288479141b10cdf35a"
   },
   {
     "id": 113,
@@ -901,7 +1109,9 @@
     "album": "Beautiful Christmas",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 2064363767
+    "deezerId": 2064363767,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c6cc50afaed3712dbe44dd063e12254b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c6cc50afaed3712dbe44dd063e12254b"
   },
   {
     "id": 114,
@@ -909,7 +1119,9 @@
     "album": "Chill Kill - The 3rd Album",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 3033562351
+    "deezerId": 3033562351,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/41da53c6509f8c5beb696f2d9369e56b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "41da53c6509f8c5beb696f2d9369e56b"
   },
   {
     "id": 115,
@@ -917,7 +1129,9 @@
     "album": "Chill Kill - The 3rd Album",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 3033562361
+    "deezerId": 3033562361,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/41da53c6509f8c5beb696f2d9369e56b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "41da53c6509f8c5beb696f2d9369e56b"
   },
   {
     "id": 116,
@@ -925,7 +1139,9 @@
     "album": "Chill Kill - The 3rd Album",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 3033562371
+    "deezerId": 3033562371,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/41da53c6509f8c5beb696f2d9369e56b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "41da53c6509f8c5beb696f2d9369e56b"
   },
   {
     "id": 117,
@@ -933,7 +1149,9 @@
     "album": "Chill Kill - The 3rd Album",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 3033562381
+    "deezerId": 3033562381,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/41da53c6509f8c5beb696f2d9369e56b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "41da53c6509f8c5beb696f2d9369e56b"
   },
   {
     "id": 118,
@@ -941,7 +1159,9 @@
     "album": "Chill Kill - The 3rd Album",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 3033562391
+    "deezerId": 3033562391,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/41da53c6509f8c5beb696f2d9369e56b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "41da53c6509f8c5beb696f2d9369e56b"
   },
   {
     "id": 119,
@@ -949,7 +1169,9 @@
     "album": "Chill Kill - The 3rd Album",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 3033562401
+    "deezerId": 3033562401,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/41da53c6509f8c5beb696f2d9369e56b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "41da53c6509f8c5beb696f2d9369e56b"
   },
   {
     "id": 120,
@@ -957,7 +1179,9 @@
     "album": "Chill Kill - The 3rd Album",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 3033562411
+    "deezerId": 3033562411,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/41da53c6509f8c5beb696f2d9369e56b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "41da53c6509f8c5beb696f2d9369e56b"
   },
   {
     "id": 121,
@@ -965,7 +1189,9 @@
     "album": "Chill Kill - The 3rd Album",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 3033562421
+    "deezerId": 3033562421,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/41da53c6509f8c5beb696f2d9369e56b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "41da53c6509f8c5beb696f2d9369e56b"
   },
   {
     "id": 122,
@@ -973,7 +1199,9 @@
     "album": "Chill Kill - The 3rd Album",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 3033562431
+    "deezerId": 3033562431,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/41da53c6509f8c5beb696f2d9369e56b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "41da53c6509f8c5beb696f2d9369e56b"
   },
   {
     "id": 123,
@@ -981,7 +1209,9 @@
     "album": "Chill Kill - The 3rd Album",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 3033562441
+    "deezerId": 3033562441,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/41da53c6509f8c5beb696f2d9369e56b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "41da53c6509f8c5beb696f2d9369e56b"
   },
   {
     "id": 124,
@@ -989,7 +1219,9 @@
     "album": "Cosmic",
     "releaseYear": 2024,
     "spotifyId": null,
-    "deezerId": 3033578841
+    "deezerId": 3033578841,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ce4541f0bb0d216a00368c3130766043/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ce4541f0bb0d216a00368c3130766043"
   },
   {
     "id": 125,
@@ -997,7 +1229,9 @@
     "album": "Cosmic",
     "releaseYear": 2024,
     "spotifyId": null,
-    "deezerId": 3033578851
+    "deezerId": 3033578851,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ce4541f0bb0d216a00368c3130766043/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ce4541f0bb0d216a00368c3130766043"
   },
   {
     "id": 126,
@@ -1005,7 +1239,9 @@
     "album": "Cosmic",
     "releaseYear": 2024,
     "spotifyId": null,
-    "deezerId": 3033578861
+    "deezerId": 3033578861,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ce4541f0bb0d216a00368c3130766043/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ce4541f0bb0d216a00368c3130766043"
   },
   {
     "id": 127,
@@ -1013,7 +1249,9 @@
     "album": "Cosmic",
     "releaseYear": 2024,
     "spotifyId": null,
-    "deezerId": 3033578871
+    "deezerId": 3033578871,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ce4541f0bb0d216a00368c3130766043/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ce4541f0bb0d216a00368c3130766043"
   },
   {
     "id": 128,
@@ -1021,7 +1259,9 @@
     "album": "Cosmic",
     "releaseYear": 2024,
     "spotifyId": null,
-    "deezerId": 3033578881
+    "deezerId": 3033578881,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ce4541f0bb0d216a00368c3130766043/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ce4541f0bb0d216a00368c3130766043"
   },
   {
     "id": 129,
@@ -1029,7 +1269,9 @@
     "album": "Cosmic",
     "releaseYear": 2024,
     "spotifyId": null,
-    "deezerId": 3033578891
+    "deezerId": 3033578891,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ce4541f0bb0d216a00368c3130766043/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ce4541f0bb0d216a00368c3130766043"
   },
   {
     "id": 130,
@@ -1037,6 +1279,8 @@
     "album": "Cosmic",
     "releaseYear": 2024,
     "spotifyId": null,
-    "deezerId": 2923555791
+    "deezerId": 2923555791,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ec9e8adcb4f0d3e15a36be397f04b558/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ec9e8adcb4f0d3e15a36be397f04b558"
   }
 ]
