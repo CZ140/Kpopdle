@@ -8,6 +8,7 @@ dist/
 .claude
 .playwright-mcp/
 PLAN_V2.md
+AUDIT_ACTION_PLAN.md
 *.db
 *.db-shm
 *.db-wal
