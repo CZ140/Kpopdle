@@ -4,7 +4,7 @@ import { useSound } from '../lib/SoundContext'
 
 export default function GuessInput({ onGuess, onSkip, disabled }) {
   const { playSound } = useSound()
-  const { songs } = useSongList()
+  const { songs, error, retry } = useSongList()
   const [query, setQuery] = useState('')
   const [showDropdown, setShowDropdown] = useState(false)
   const [selectedIndex, setSelectedIndex] = useState(-1)
@@ -16,6 +16,8 @@ export default function GuessInput({ onGuess, onSkip, disabled }) {
     : []
 
   useEffect(() => {
+    // Intentional: reset the highlighted option whenever the query changes.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSelectedIndex(-1)
   }, [query])
 
@@ -92,24 +94,39 @@ export default function GuessInput({ onGuess, onSkip, disabled }) {
             onKeyDown={handleKeyDown}
             disabled={disabled}
             placeholder="Know it? Search for the song..."
+            role="combobox"
+            aria-expanded={showDropdown && filtered.length > 0}
+            aria-controls="song-listbox"
+            aria-autocomplete="list"
+            aria-activedescendant={selectedIndex >= 0 ? `song-option-${selectedIndex}` : undefined}
             className="w-full h-12 px-4 rounded-xl bg-white/[0.06] border border-white/[0.1] text-white placeholder-white/25 input-glow disabled:opacity-30 disabled:cursor-not-allowed text-sm font-medium transition-all duration-200"
           />
 
           {showDropdown && filtered.length > 0 && (
             <div
               ref={dropdownRef}
+              id="song-listbox"
+              role="listbox"
               className="absolute z-50 w-full mt-2 rounded-xl overflow-hidden dropdown-glass max-h-72 overflow-y-auto"
             >
               {filtered.map((song, i) => (
                 <button
                   key={song}
+                  id={`song-option-${i}`}
+                  role="option"
+                  aria-selected={i === selectedIndex}
                   onClick={() => handleSelect(song)}
-                  className={`w-full text-left px-4 py-3 text-sm font-medium transition-all duration-150 ${
-                    i === selectedIndex ? '' : 'text-white/70 hover:bg-white/[0.06] hover:text-white'
+                  className={`w-full text-left px-4 py-3 text-sm transition-all duration-150 ${
+                    // Non-color cues (weight + left bar) so the active option is
+                    // distinguishable without relying on hue alone (WCAG 1.4.1).
+                    i === selectedIndex
+                      ? 'font-bold border-l-2'
+                      : 'font-medium border-l-2 border-transparent text-white/70 hover:bg-white/[0.06] hover:text-white'
                   }`}
                   style={i === selectedIndex ? {
                     background: 'linear-gradient(to right, color-mix(in srgb, var(--color-primary) 20%, transparent), color-mix(in srgb, var(--color-secondary) 10%, transparent))',
                     color: 'var(--color-primary)',
+                    borderLeftColor: 'var(--color-primary)',
                   } : undefined}
                 >
                   {song}
@@ -127,6 +144,19 @@ export default function GuessInput({ onGuess, onSkip, disabled }) {
           Skip
         </button>
       </div>
+
+      {error && (
+        <p className="mt-2 text-center text-xs text-white/50" role="alert">
+          Couldn&apos;t load the song list.{' '}
+          <button
+            onClick={retry}
+            className="underline hover:no-underline font-medium"
+            style={{ color: 'var(--color-primary)' }}
+          >
+            Retry
+          </button>
+        </p>
+      )}
     </div>
   )
 }

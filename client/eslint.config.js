@@ -24,6 +24,15 @@ export default defineConfig([
     },
     rules: {
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      // Empty catch is a deliberate pattern here — best-effort Web Audio /
+      // localStorage calls that must never throw (e.g. private browsing).
+      'no-empty': ['error', { allowEmptyCatch: true }],
     },
+  },
+  // Build/config files run in Node, not the browser — give them Node globals
+  // (e.g. `process`) so they don't trip no-undef.
+  {
+    files: ['*.config.js'],
+    languageOptions: { globals: globals.node },
   },
 ])

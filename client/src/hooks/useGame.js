@@ -52,7 +52,7 @@ export function useGame() {
         } else {
           setHintsUsed(0)
         }
-      } catch (err) {
+      } catch {
         setError('Failed to load game. Please try again.')
       } finally {
         setLoading(false)

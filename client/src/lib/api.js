@@ -34,6 +34,19 @@ export async function fetchGroups() {
   return res.json()
 }
 
+// Public community stats (powers the /stats page).
+export async function fetchStatsSummary() {
+  const res = await fetch(`${API_BASE}/stats/summary`)
+  if (!res.ok) throw new Error('Failed to fetch stats summary')
+  return res.json()
+}
+
+export async function fetchSongDifficulty(group) {
+  const res = await fetch(`${API_BASE}/stats/songs/${group}`)
+  if (!res.ok) throw new Error('Failed to fetch song difficulty')
+  return res.json()
+}
+
 export async function fetchPracticeGame(group) {
   const res = await fetch(`${API_BASE}/${group}/game/practice`)
   if (!res.ok) throw new Error('Failed to fetch practice game')

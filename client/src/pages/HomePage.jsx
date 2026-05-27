@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import GroupCard from '../components/GroupCard'
 import { fetchGroups } from '../lib/api'
 import { loadGameState, loadStats } from '../lib/storage'
@@ -264,6 +264,10 @@ export default function HomePage() {
           </div>
           <div>
             Made by <a href="https://github.com/CZ140" target="_blank" rel="noopener noreferrer" className="text-white/62 border-b border-white/[0.08] hover:text-white/90 transition-colors">@CZ140</a>
+            {' · '}
+            <Link to="/stats" className="text-white/62 border-b border-white/[0.08] hover:text-[#FF2D78] transition-colors">
+              Stats
+            </Link>
             {' · '}
             <button
               onClick={() => setShowHowToPlay(true)}

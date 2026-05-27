@@ -1,7 +1,7 @@
 import ShareButton from './ShareButton'
 import Countdown from './Countdown'
 
-export default function ResultModal({ gameState, revealedSong, guesses, gameNumber, hintsUsed = 0, isArchive = false, isPractice = false, communityStats = null, onPlayAgain, onStartPractice, onClose }) {
+export default function ResultModal({ gameState, revealedSong, guesses, gameNumber, hintsUsed = 0, isArchive = false, isPractice = false, communityStats = null, onPlayAgain, onClose }) {
   const won = gameState === 'won'
 
   return (

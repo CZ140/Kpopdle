@@ -1,5 +1,7 @@
 import { useState, useCallback, useEffect } from 'react'
 import { loadStats, saveStats } from '../lib/storage'
+import { computeNextStats } from '../lib/stats'
+import { getKSTDateString, getKSTDateStringOffset } from '../lib/dateUtils'
 import { useGroup } from '../lib/GroupContext'
 import { useAuth } from '../lib/AuthContext'
 import { fetchCloudStats, saveCloudStats } from '../lib/api'
@@ -28,28 +30,15 @@ export function useStats() {
 
   const recordResult = useCallback((gameState, guessCount) => {
     setStats((prev) => {
-      const today = new Date().toISOString().split('T')[0]
-      // Guard against double-recording when the component remounts with an already-completed game
-      if (prev.lastPlayedDate === today) return prev
+      // KST dates so the streak aligns with the game day (which rolls at KST
+      // midnight), not the browser's UTC day.
+      const today = getKSTDateString()
+      const yesterday = getKSTDateStringOffset(-1)
+      const updated = computeNextStats(prev, gameState, guessCount, today, yesterday)
 
-      const updated = { ...prev }
-      updated.gamesPlayed += 1
-
-      if (gameState === 'won') {
-        updated.gamesWon += 1
-        updated.currentStreak += 1
-        updated.maxStreak = Math.max(updated.maxStreak, updated.currentStreak)
-        updated.guessDistribution = { ...updated.guessDistribution }
-        updated.guessDistribution[String(guessCount)] =
-          (updated.guessDistribution[String(guessCount)] || 0) + 1
-      } else {
-        updated.currentStreak = 0
-      }
-
-      updated.lastPlayedDate = today
+      if (updated === prev) return prev // already recorded today — no-op
       saveStats(group, updated)
       if (user) saveCloudStats(group, updated)
-
       return updated
     })
   }, [group, user])

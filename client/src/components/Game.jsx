@@ -244,7 +244,6 @@ export default function Game({ onStartPractice }) {
           hintsUsed={hintsUsed}
           isArchive={isArchive}
           communityStats={communityStats}
-          onStartPractice={!isArchive ? onStartPractice : undefined}
           onClose={() => setShowResult(false)}
         />
       )}

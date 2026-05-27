@@ -73,10 +73,13 @@ export default function GroupPage() {
 
   // Reset all modes when switching groups
   useEffect(() => {
+    /* eslint-disable react-hooks/set-state-in-effect -- intentional: clear all
+       group-scoped UI state when the :group route param changes */
     setArchiveDate(null)
     setShowArchive(false)
     setPracticeMode(false)
     setPracticeKey(0)
+    /* eslint-enable react-hooks/set-state-in-effect */
   }, [group])
 
   const startPractice = useCallback(() => {

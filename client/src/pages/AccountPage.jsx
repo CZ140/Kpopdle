@@ -80,6 +80,8 @@ export default function AccountPage() {
     // Load local stats as initial values
     const local = {}
     for (const g of ALL_GROUP_IDS) local[g] = loadStats(g)
+    // Intentional: seed the view with local stats on mount before cloud fetch.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setStatsMap(local)
 
     if (!user) return
