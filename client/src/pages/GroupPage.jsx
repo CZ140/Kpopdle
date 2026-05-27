@@ -1,9 +1,10 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom'
 import { GroupContext } from '../lib/GroupContext'
 import { migrateStorageIfNeeded, loadDifficulty, saveDifficulty } from '../lib/storage'
 import { ALL_GROUP_IDS, GAME_NAMES, GROUP_META, LAUNCH_DATES } from '../lib/constants'
 import { getKSTDateString } from '../lib/dateUtils'
+import { parseChallenge, CHALLENGE_DATE_RE } from '../lib/share'
 import { useSound } from '../lib/SoundContext'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
 import Game from '../components/Game'
@@ -43,6 +44,7 @@ export default function GroupPage() {
   const { group } = useParams()
   const navigate = useNavigate()
   const { playSound } = useSound()
+  const [searchParams] = useSearchParams()
 
   const [archiveDate, setArchiveDate] = useState(null)
   const [showArchive, setShowArchive] = useState(false)
@@ -50,6 +52,10 @@ export default function GroupPage() {
   const [practiceMode, setPracticeMode] = useState(false)
   const [practiceKey, setPracticeKey] = useState(0)
   const [difficulty, setDifficultyState] = useState(loadDifficulty)
+  // Async "challenge a friend" — decoded challenger result + a "challenged you" banner.
+  const [challenge, setChallenge] = useState(null)
+  const [challengeFallback, setChallengeFallback] = useState(false)
+  const [bannerDismissed, setBannerDismissed] = useState(false)
 
   const setDifficulty = useCallback((d) => {
     setDifficultyState(d)
@@ -70,6 +76,36 @@ export default function GroupPage() {
     setPracticeKey(0)
     /* eslint-enable react-hooks/set-state-in-effect */
   }, [group])
+
+  // Async challenge: decode `?c=` (challenger result) and `?d=` (game date).
+  // A garbage/absent `c` yields null → plays as a normal game (FR-7). When `d`
+  // is a valid past date, drive the archive view; today's date stays on /today.
+  // An invalid/pre-launch/future `d` falls back to today with a dismissible notice.
+  useEffect(() => {
+    /* eslint-disable react-hooks/set-state-in-effect -- intentional: derive
+       challenge/archive UI state from the URL on mount and on group/param change */
+    const decoded = parseChallenge(searchParams)
+    setChallenge(decoded)
+    setBannerDismissed(false)
+
+    const today = getKSTDateString()
+    const launch = LAUNCH_DATES[group] ?? '2099-01-01'
+    const d = searchParams.get('d')
+
+    if (d && CHALLENGE_DATE_RE.test(d) && d < today && d >= launch) {
+      setArchiveDate(d)
+      setChallengeFallback(false)
+    } else if (d && d !== today) {
+      // d present but unplayable (future, pre-launch, or malformed) → land on today.
+      setArchiveDate(null)
+      setChallengeFallback(decoded !== null)
+    } else {
+      // No date, or d === today → today's daily.
+      setArchiveDate(null)
+      setChallengeFallback(false)
+    }
+    /* eslint-enable react-hooks/set-state-in-effect */
+  }, [group, searchParams])
 
   const startPractice = useCallback(() => {
     setPracticeMode(true)
@@ -148,11 +184,34 @@ export default function GroupPage() {
           onOpenDifficulty={() => setShowDifficulty(true)}
         />
         <main className="relative z-10 flex-1 flex flex-col items-center px-4 pb-24 sm:pb-8">
+          {!practiceMode && challenge && !bannerDismissed && (
+            <div className="w-full max-w-lg mx-auto mt-4 flex items-center gap-3 rounded-xl px-4 py-3" style={{ background: 'color-mix(in srgb, var(--color-primary) 10%, transparent)', border: '1px solid color-mix(in srgb, var(--color-primary) 25%, transparent)' }}>
+              <span className="text-lg" aria-hidden="true">🎯</span>
+              <div className="flex-1 text-sm">
+                <p className="font-bold text-white">
+                  {challenge.name ? `${challenge.name} challenged you!` : 'You were challenged!'}
+                </p>
+                <p className="text-white/50 text-xs">
+                  {gameName} · play this round, then see how you compare.
+                  {challengeFallback && ' (That date wasn’t available — here’s today’s.)'}
+                </p>
+              </div>
+              <button
+                onClick={() => setBannerDismissed(true)}
+                className="text-white/30 hover:text-white/60 transition-colors shrink-0"
+                aria-label="Dismiss challenge banner"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                  <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </button>
+            </div>
+          )}
           {practiceMode ? (
             <PracticeGame key={`practice-${practiceKey}`} onPlayAgain={playAnotherPractice} />
           ) : (
             // key causes Game to fully remount when switching between archive dates
-            <Game key={archiveDate ?? 'today'} onStartPractice={startPractice} />
+            <Game key={archiveDate ?? 'today'} onStartPractice={startPractice} challenge={challenge} />
           )}
         </main>
 

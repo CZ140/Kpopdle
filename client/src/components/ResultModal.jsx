@@ -1,8 +1,22 @@
 import ShareButton from './ShareButton'
+import ChallengeButton from './ChallengeButton'
 import Countdown from './Countdown'
+import { challengeVerdict } from '../lib/share'
+import { MAX_GUESSES } from '../lib/constants'
 
-export default function ResultModal({ gameState, revealedSong, guesses, gameNumber, hintsUsed = 0, isArchive = false, isPractice = false, communityStats = null, onPlayAgain, onClose }) {
+function scoreLabel(won, attempts) {
+  return won ? `${attempts}/${MAX_GUESSES}` : `X/${MAX_GUESSES}`
+}
+
+export default function ResultModal({ gameState, revealedSong, guesses, gameNumber, gameDate, hintsUsed = 0, isArchive = false, isPractice = false, communityStats = null, challenge = null, onPlayAgain, onClose }) {
   const won = gameState === 'won'
+
+  // Head-to-head: this modal only renders once the game is over, so showing
+  // the comparison here is inherently gated on game-over (FR-4). Skip for practice.
+  const you = { won, attempts: guesses.length }
+  const showCompare = challenge && !isPractice
+  const verdict = showCompare ? challengeVerdict(you, challenge) : null
+  const verdictText = verdict === 'you' ? 'You win!' : verdict === 'them' ? 'They win' : verdict === 'tie' ? 'It’s a tie' : null
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center modal-backdrop p-4" onClick={onClose}>
@@ -101,6 +115,24 @@ export default function ResultModal({ gameState, revealedSong, guesses, gameNumb
           </div>
         )}
 
+        {showCompare && (
+          <div className="rounded-xl px-4 py-4 mb-5" style={{ background: 'color-mix(in srgb, var(--color-primary) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--color-primary) 20%, transparent)' }}>
+            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/30 text-center mb-3">Head to Head</p>
+            <div className="flex items-center justify-center gap-8">
+              <div className="text-center">
+                <p className="text-2xl font-black" style={{ color: verdict === 'you' ? 'var(--color-primary)' : 'rgba(255,255,255,0.85)' }}>{scoreLabel(you.won, you.attempts)}</p>
+                <p className="text-[10px] uppercase tracking-wider text-white/30 mt-0.5">You</p>
+              </div>
+              <span className="text-white/20 text-sm font-bold">vs</span>
+              <div className="text-center">
+                <p className="text-2xl font-black" style={{ color: verdict === 'them' ? 'var(--color-primary)' : 'rgba(255,255,255,0.85)' }}>{scoreLabel(challenge.won, challenge.attempts)}</p>
+                <p className="text-[10px] uppercase tracking-wider text-white/30 mt-0.5 truncate max-w-[7rem]">{challenge.name || 'Challenger'}</p>
+              </div>
+            </div>
+            <p className="text-center mt-3 text-sm font-bold text-gradient">{verdictText}</p>
+          </div>
+        )}
+
         <div className="flex flex-col items-center gap-5">
           {isPractice ? (
             <button
@@ -111,10 +143,30 @@ export default function ResultModal({ gameState, revealedSong, guesses, gameNumb
               Play Another
             </button>
           ) : isArchive ? (
-            <p className="text-xs text-white/25 font-mono uppercase tracking-widest">Archive · Results not saved to stats</p>
+            <>
+              {gameDate && (
+                <ChallengeButton
+                  gameDate={gameDate}
+                  guesses={guesses}
+                  won={won}
+                  hintsUsed={hintsUsed}
+                  label={showCompare ? 'Challenge back' : 'Challenge a friend'}
+                />
+              )}
+              <p className="text-xs text-white/25 font-mono uppercase tracking-widest">Archive · Results not saved to stats</p>
+            </>
           ) : (
             <>
               <ShareButton gameNumber={gameNumber} guesses={guesses} won={won} hintsUsed={hintsUsed} />
+              {gameDate && (
+                <ChallengeButton
+                  gameDate={gameDate}
+                  guesses={guesses}
+                  won={won}
+                  hintsUsed={hintsUsed}
+                  label={showCompare ? 'Challenge back' : 'Challenge a friend'}
+                />
+              )}
               <Countdown />
             </>
           )}
