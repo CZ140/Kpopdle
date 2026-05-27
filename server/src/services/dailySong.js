@@ -17,6 +17,17 @@ function getDailySongIndex(songCount, dateString, groupId) {
   return parseInt(hash.substring(0, 8), 16) % songCount
 }
 
+// Cover mode uses a distinct secret suffix so the cover-of-the-day is chosen
+// independently of the audio daily — same date/group yields a stable pick that
+// generally differs from the audio song (FR-3).
+function getDailyCoverIndex(songCount, dateString, groupId) {
+  const secret = `${BASE_SECRET}-${groupId}-cover`
+  const hash = crypto.createHmac('sha256', secret)
+    .update(dateString)
+    .digest('hex')
+  return parseInt(hash.substring(0, 8), 16) % songCount
+}
+
 export function getTodaysSong(groupId) {
   return getSongForDate(groupId, getKSTDateString())
 }
@@ -62,6 +73,29 @@ export function getSongForDate(groupId, dateString) {
     throw new Error(`No songs with Deezer previews available for group: ${groupId}`)
   }
   const index = getDailySongIndex(songs.length, dateString, groupId)
+  const gameNumber = getGameNumber(dateString)
+
+  return {
+    song: songs[index],
+    dateString,
+    gameNumber,
+  }
+}
+
+export function getTodaysCoverSong(groupId) {
+  return getCoverSongForDate(groupId, getKSTDateString())
+}
+
+// Cover-mode daily: only songs that have a backfilled coverUrl are selectable
+// (FR-8). Uses the -cover HMAC suffix so the pick is independent of the audio
+// daily (FR-3).
+export function getCoverSongForDate(groupId, dateString) {
+  const allSongs = getSongsForGroup(groupId)
+  const songs = allSongs.filter(s => s.deezerId && s.deezerId !== 0 && s.coverUrl)
+  if (songs.length === 0) {
+    throw new Error(`No songs with album covers available for group: ${groupId}`)
+  }
+  const index = getDailyCoverIndex(songs.length, dateString, groupId)
   const gameNumber = getGameNumber(dateString)
 
   return {

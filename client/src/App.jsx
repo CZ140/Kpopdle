@@ -11,6 +11,8 @@ const AdminPage = lazy(() => import('./pages/AdminPage'))
 const StatsPage = lazy(() => import('./pages/StatsPage'))
 // Guess the Group — lazy so it doesn't weigh down the default game bundle.
 const GuessTheGroupPage = lazy(() => import('./pages/GuessTheGroupPage'))
+// Coverdle (album-cover) mode — lazy, separate from the core game bundle.
+const CoverPage = lazy(() => import('./pages/CoverPage'))
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
         <Route path="/account" element={<AccountPage />} />
         <Route path="/stats" element={<Suspense fallback={null}><StatsPage /></Suspense>} />
         <Route path="/admin" element={<Suspense fallback={null}><AdminPage /></Suspense>} />
+        <Route path="/:group/cover" element={<Suspense fallback={null}><CoverPage /></Suspense>} />
         <Route path="/:group" element={<GroupPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

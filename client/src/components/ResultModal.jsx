@@ -8,7 +8,7 @@ function scoreLabel(won, attempts) {
   return won ? `${attempts}/${MAX_GUESSES}` : `X/${MAX_GUESSES}`
 }
 
-export default function ResultModal({ gameState, revealedSong, guesses, gameNumber, gameDate, hintsUsed = 0, isArchive = false, isPractice = false, communityStats = null, challenge = null, onPlayAgain, onClose }) {
+export default function ResultModal({ gameState, revealedSong, guesses, gameNumber, gameDate, hintsUsed = 0, isArchive = false, isPractice = false, communityStats = null, challenge = null, gameName, onPlayAgain, onClose }) {
   const won = gameState === 'won'
 
   // Head-to-head: this modal only renders once the game is over, so showing
@@ -157,7 +157,7 @@ export default function ResultModal({ gameState, revealedSong, guesses, gameNumb
             </>
           ) : (
             <>
-              <ShareButton gameNumber={gameNumber} guesses={guesses} won={won} hintsUsed={hintsUsed} />
+              <ShareButton gameNumber={gameNumber} guesses={guesses} won={won} hintsUsed={hintsUsed} gameName={gameName} />
               {gameDate && (
                 <ChallengeButton
                   gameDate={gameDate}

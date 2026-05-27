@@ -3,12 +3,14 @@ import { generateShareText, copyToClipboard } from '../lib/share'
 import { useDifficulty, useGroup, useMaxGuesses, useGameName } from '../lib/GroupContext'
 import { GAME_NAMES } from '../lib/constants'
 
-export default function ShareButton({ gameNumber, guesses, won, hintsUsed = 0 }) {
+export default function ShareButton({ gameNumber, guesses, won, hintsUsed = 0, gameName: gameNameOverride }) {
   const difficulty = useDifficulty()
   const group = useGroup()
   const maxGuesses = useMaxGuesses()
-  // A per-mode name (e.g. "Guess the Group") overrides the GAME_NAMES lookup.
-  const gameName = useGameName() ?? GAME_NAMES[group] ?? 'K-POPDLE'
+  // A per-mode name overrides the GAME_NAMES lookup: an explicit prop (e.g.
+  // "COVERDLE") wins, else the GroupContext name (e.g. "Guess the Group").
+  const contextGameName = useGameName()
+  const gameName = gameNameOverride ?? contextGameName ?? GAME_NAMES[group] ?? 'K-POPDLE'
   const [copied, setCopied] = useState(false)
 
   async function handleShare() {
