@@ -173,7 +173,10 @@ function getTrafficSeries(sinceTs, bucketSeconds) {
 
   // Pre-fill every bucket across the window with zeros so the chart has a
   // continuous, time-proportional axis (no gaps, no index-spacing distortion).
-  const start = Math.floor(sinceTs / bucketSeconds) * bucketSeconds
+  // Start no earlier than the first telemetry row, so the period before we were
+  // recording shows as absent rather than as misleading "zero traffic".
+  const effSince = Math.max(sinceTs, getLiveSince())
+  const start = Math.floor(effSince / bucketSeconds) * bucketSeconds
   const lastBucket = Math.floor(now() / bucketSeconds) * bucketSeconds
   const map = new Map()
   for (let t = start; t <= lastBucket; t += bucketSeconds) {

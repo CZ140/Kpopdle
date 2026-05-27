@@ -1,7 +1,26 @@
 // Dependency-free SVG chart primitives for the admin dashboard.
 // Hand-rolled instead of pulling in Recharts so the game bundle stays lean
 // (this whole page is lazy-loaded anyway) and the data viz is fully ours.
+import { useRef, useState, useLayoutEffect } from 'react'
 import { fmtNum } from './format'
+
+// Measure a container's pixel width so SVGs can use a viewBox that matches it
+// 1:1 — this avoids non-uniform scaling (which would stretch text and strokes).
+function useMeasuredWidth(fallback = 640) {
+  const ref = useRef(null)
+  const [w, setW] = useState(fallback)
+  useLayoutEffect(() => {
+    const el = ref.current
+    if (!el || typeof ResizeObserver === 'undefined') return
+    const ro = new ResizeObserver((entries) => {
+      const cw = entries[0]?.contentRect?.width
+      if (cw) setW(Math.max(280, Math.round(cw)))
+    })
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [])
+  return [ref, w]
+}
 
 // ---------------------------------------------------------------------------
 // Stat card
@@ -26,13 +45,14 @@ export function StatCard({ label, value, sub, accent = '#A855F7', danger }) {
 // ---------------------------------------------------------------------------
 // Multi-series area + line chart
 // ---------------------------------------------------------------------------
-export function AreaChart({ data, series, height = 190, formatX, boundaryT }) {
-  const W = 640, H = height, padL = 34, padR = 10, padT = 14, padB = 22
+export function AreaChart({ data, series, height = 190, formatX }) {
+  const [ref, W] = useMeasuredWidth()
+  const H = height, padL = 38, padR = 14, padT = 14, padB = 22
   const innerW = W - padL - padR
   const innerH = H - padT - padB
 
   if (!data || data.length === 0) {
-    return <Empty height={height} />
+    return <div ref={ref}><Empty height={height} /></div>
   }
 
   const maxY = Math.max(1, ...data.flatMap(d => series.map(s => d[s.key] ?? 0)))
@@ -40,70 +60,66 @@ export function AreaChart({ data, series, height = 190, formatX, boundaryT }) {
   const x = (i) => padL + (n === 1 ? innerW / 2 : (i / (n - 1)) * innerW)
   const y = (v) => padT + innerH - (v / maxY) * innerH
 
-  // Optional boundary marker: where live telemetry begins (left of it = backfill).
-  let boundaryX = null
-  if (boundaryT != null && n > 1) {
-    const i = data.findIndex(d => d.t >= boundaryT)
-    if (i === 0) boundaryX = padL
-    else if (i > 0) {
-      const prev = data[i - 1], cur = data[i]
-      const frac = cur.t === prev.t ? 0 : (boundaryT - prev.t) / (cur.t - prev.t)
-      boundaryX = x(i - 1 + frac)
-    }
-  }
-
   // Tidy y gridlines
   const ticks = 4
   const gridVals = Array.from({ length: ticks + 1 }, (_, i) => Math.round((maxY / ticks) * i))
 
+  // Evenly spaced x labels (fewer on narrow screens), mapped to data indices.
+  const labelCount = Math.min(W < 480 ? 4 : 6, n)
+  const labelIdx = n <= 1
+    ? [0]
+    : [...new Set(Array.from({ length: labelCount }, (_, i) => Math.round((i * (n - 1)) / (labelCount - 1))))]
+
   return (
-    <svg viewBox={`0 0 ${W} ${H}`} width="100%" height={height} preserveAspectRatio="none" role="img">
-      {/* gridlines */}
-      {gridVals.map((gv, i) => {
-        const yy = y(gv)
-        return (
-          <g key={i}>
-            <line x1={padL} x2={W - padR} y1={yy} y2={yy} stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
-            <text x={padL - 6} y={yy + 3} textAnchor="end" fontSize="9" fill="rgba(255,255,255,0.3)">{fmtNum(gv)}</text>
-          </g>
-        )
-      })}
+    <div ref={ref} style={{ width: '100%' }}>
+      {/* viewBox matches measured pixel size → 1:1, so text/strokes never stretch */}
+      <svg viewBox={`0 0 ${W} ${H}`} width="100%" height={height} role="img">
+        {/* gridlines */}
+        {gridVals.map((gv, i) => {
+          const yy = y(gv)
+          return (
+            <g key={i}>
+              <line x1={padL} x2={W - padR} y1={yy} y2={yy} stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+              <text x={padL - 6} y={yy + 3} textAnchor="end" fontSize="10" fill="rgba(255,255,255,0.3)">{fmtNum(gv)}</text>
+            </g>
+          )
+        })}
 
-      {series.map((s) => {
-        const linePts = data.map((d, i) => `${x(i)},${y(d[s.key] ?? 0)}`)
-        const areaPath = `M ${padL},${padT + innerH} L ${linePts.join(' L ')} L ${x(n - 1)},${padT + innerH} Z`
-        return (
-          <g key={s.key}>
-            {s.fill !== false && (
-              <path d={areaPath} fill={s.color} opacity="0.12" />
-            )}
-            <polyline
-              points={linePts.join(' ')}
-              fill="none"
-              stroke={s.color}
-              strokeWidth="2"
-              strokeLinejoin="round"
-              strokeLinecap="round"
-            />
-          </g>
-        )
-      })}
+        {series.map((s) => {
+          const linePts = data.map((d, i) => `${x(i)},${y(d[s.key] ?? 0)}`)
+          const areaPath = `M ${padL},${padT + innerH} L ${linePts.join(' L ')} L ${x(n - 1)},${padT + innerH} Z`
+          return (
+            <g key={s.key}>
+              {s.fill !== false && (
+                <path d={areaPath} fill={s.color} opacity="0.12" />
+              )}
+              <polyline
+                points={linePts.join(' ')}
+                fill="none"
+                stroke={s.color}
+                strokeWidth="2"
+                strokeLinejoin="round"
+                strokeLinecap="round"
+              />
+            </g>
+          )
+        })}
 
-      {/* boundary: backfill (left) vs live telemetry (right) */}
-      {boundaryX != null && (
-        <g>
-          <line x1={boundaryX} x2={boundaryX} y1={padT} y2={padT + innerH} stroke="rgba(255,255,255,0.35)" strokeWidth="1" strokeDasharray="3 3" />
-          <text x={boundaryX + 3} y={padT + 8} fontSize="8" fill="rgba(255,255,255,0.45)">live →</text>
-        </g>
-      )}
-
-      {/* x labels — first, middle, last */}
-      {formatX && [0, Math.floor((n - 1) / 2), n - 1].filter((v, i, a) => a.indexOf(v) === i).map((i) => (
-        <text key={i} x={x(i)} y={H - 6} textAnchor={i === 0 ? 'start' : i === n - 1 ? 'end' : 'middle'} fontSize="9" fill="rgba(255,255,255,0.35)">
-          {formatX(data[i].t)}
-        </text>
-      ))}
-    </svg>
+        {/* x labels — evenly spaced across the window */}
+        {formatX && labelIdx.map((i) => (
+          <text
+            key={i}
+            x={x(i)}
+            y={H - 6}
+            textAnchor={i === 0 ? 'start' : i === n - 1 ? 'end' : 'middle'}
+            fontSize="10"
+            fill="rgba(255,255,255,0.4)"
+          >
+            {formatX(data[i].t)}
+          </text>
+        ))}
+      </svg>
+    </div>
   )
 }
 
