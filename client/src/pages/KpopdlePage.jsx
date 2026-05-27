@@ -1,6 +1,7 @@
 import { useState, useCallback, useMemo } from 'react'
 import { GroupContext } from '../lib/GroupContext'
 import { loadDifficulty, saveDifficulty } from '../lib/storage'
+import { LAUNCH_DATES } from '../lib/constants'
 import { getKSTDateString } from '../lib/dateUtils'
 import { useSound } from '../lib/SoundContext'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
@@ -10,7 +11,7 @@ import ArchiveModal from '../components/ArchiveModal'
 import DifficultyModal from '../components/DifficultyModal'
 
 const KPOPDLE_COLORS = { primary: '#EC4899', secondary: '#6366F1' }
-const KPOPDLE_LAUNCH = '2026-05-21'
+const KPOPDLE_LAUNCH = LAUNCH_DATES.kpopdle
 
 function subtractDay(dateStr) {
   const d = new Date(dateStr)

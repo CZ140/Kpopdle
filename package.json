@@ -11,7 +11,8 @@
     "start": "cd server && npm start",
     "install:all": "cd client && npm install && cd ../server && npm install",
     "test": "cd server && npm test && cd ../client && npm test",
-    "validate:songs": "node scripts/validate-songs.js"
+    "validate:songs": "node scripts/validate-songs.js",
+    "validate:constants": "node scripts/validate-constants.js"
   },
   "devDependencies": {
     "concurrently": "^9.1.0"

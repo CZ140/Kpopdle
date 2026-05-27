@@ -107,6 +107,8 @@ This means:
 - Historical games are fully reproducible — the archive works without storing any past state
 - Each group's rotation is independent (secret namespaced per group)
 
+> See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for the full ADR — including the subtle constraint that reordering a song catalog re-rolls every past day's answer.
+
 ### Audio Pipeline
 Songs play as 30-second MP3 previews via the **Deezer public API** — no auth required. The server resolves preview URLs with a two-step fallback:
 1. Direct lookup by stored Deezer track ID
@@ -181,7 +183,9 @@ A single `GroupContext` carries the active `groupId`, `archiveDate`, `practiceMo
 ## Project Structure
 
 ```
-├── .github/workflows/             # ci.yml — tests · build · lint on push/PR
+├── .github/workflows/             # ci.yml — validators · tests · build · lint on push/PR
+├── docs/ARCHITECTURE.md           # ADRs: HMAC-as-archive + expiry-aware Deezer cache
+├── scripts/                       # validate-songs.js, validate-constants.js (pure-Node CI guards)
 │
 ├── client/                        # React frontend (Vite)
 │   └── src/
@@ -198,6 +202,7 @@ A single `GroupContext` carries the active `groupId`, `archiveDate`, `practiceMo
         ├── instrument.js          # Sentry init — imported first, before app code
         ├── data/
         │   ├── groups.json        # Group registry (8 groups, colors, launchDate)
+        │   ├── launch.js          # K-POPDLE launch date (single source; mirrored client-side)
         │   ├── groups/{id}/
         │   │   └── songs.json     # Per-group song catalog with Deezer IDs
         │   └── stats.db           # SQLite analytics database (git-ignored)
@@ -258,9 +263,11 @@ On first start the server warms the Deezer preview cache for all 8 groups before
 npm test                 # run both test suites (server + client)
 npm run lint --prefix client   # ESLint
 npm run build --prefix client  # production build
+npm run validate:songs         # structural check of every song catalog (--online probes Deezer)
+npm run validate:constants     # fails if the client's group-metadata mirror drifts from the server
 ```
 
-Every push and PR runs the same tests, build, and lint via GitHub Actions (`.github/workflows/ci.yml`).
+Every push and PR runs the same tests, build, lint, and both data validators via GitHub Actions (`.github/workflows/ci.yml`). The two pure-Node validators run first (no install needed) so a malformed catalog or a client/server metadata mismatch fails fast.
 
 ---
 

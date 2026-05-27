@@ -23,6 +23,11 @@ jobs:
       - name: Validate song catalogs
         run: node scripts/validate-songs.js
 
+      # Pure Node, no deps — fails if the client's group-metadata mirror drifts
+      # from the server (launch dates, game names, display names, taglines).
+      - name: Validate client/server constants
+        run: node scripts/validate-constants.js
+
       - name: Install dependencies
         run: npm run install:all
 
