@@ -42,7 +42,9 @@ export function attachBattleSocket(server, sessionMiddleware) {
       socket.join(match.id)
       socket.data.matchId = match.id
       socket.data.playerId = playerId
-      match.addPlayer({ id: playerId, displayName: sanitizeName(displayName) })
+      match.addPlayer({ id: playerId, displayName: sanitizeName(displayName), socketId: socket.id })
+      // Replay the current phase so a reconnecting / late socket resumes (FR-13).
+      for (const [event, payload] of match.getResumeEvents()) socket.emit(event, payload)
       return { playerId, state: match.getState() }
     }
 
@@ -117,7 +119,7 @@ export function attachBattleSocket(server, sessionMiddleware) {
     socket.on('battle:leave', () => {
       const match = currentMatch()
       if (match && socket.data.playerId) {
-        match.removePlayer(socket.data.playerId)
+        match.leave(socket.data.playerId) // forfeits a live match, else just leaves the lobby
         socket.leave(match.id)
         socket.data.matchId = null
       }
@@ -125,9 +127,9 @@ export function attachBattleSocket(server, sessionMiddleware) {
 
     socket.on('disconnect', () => {
       const match = currentMatch()
-      // Mark disconnected (not removed) — keeps the slot for a quick reconnect;
-      // the GC reclaims rooms everyone has left. Full reconnect/forfeit is M4.
-      if (match && socket.data.playerId) match.setConnected(socket.data.playerId, false)
+      // handleDisconnect ignores the drop if a newer socket already replaced this
+      // one (reconnect race); otherwise it starts the forfeit grace.
+      if (match && socket.data.playerId) match.handleDisconnect(socket.data.playerId, socket.id)
     })
   })
 

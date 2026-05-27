@@ -10,7 +10,13 @@ export default function ResultScreen({ state, matchOver, myId, onRematch }) {
   const opp = matchOver.scores.find((s) => s.playerId !== myId)
   const iWon = matchOver.winnerId === myId
   const winner = matchOver.scores.find((s) => s.playerId === matchOver.winnerId)
-  const headline = matchOver.draw ? "It's a draw" : iWon ? 'You win! 🏆' : `${winner?.displayName ?? 'Opponent'} wins`
+  const headline = matchOver.forfeit
+    ? 'Opponent left — you win 🏆'
+    : matchOver.draw
+      ? "It's a draw"
+      : iWon
+        ? 'You win! 🏆'
+        : `${winner?.displayName ?? 'Opponent'} wins`
 
   const iRequested = state?.players.find((p) => p.id === myId)?.wantsRematch
   const oppRequested = state?.players.find((p) => p.id !== myId)?.wantsRematch

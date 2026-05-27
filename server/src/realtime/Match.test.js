@@ -331,3 +331,84 @@ describe('Match resolution (multi-round)', () => {
     expect(ctx.match.rounds[0].clipToken).toBe('tnew')
   })
 })
+
+describe('Match connection robustness', () => {
+  const makeRounds = (n) =>
+    Array.from({ length: n }, (_, i) => ({ song: { title: `S${i}`, groupDisplayName: 'TWICE' }, clipToken: `t${i}` }))
+
+  const make = () => {
+    const emit = vi.fn()
+    const clock = fakeClock()
+    const scheduler = manualScheduler()
+    const match = new Match({
+      id: 'm', rounds: makeRounds(7), clock, emit, scheduler,
+      timings: { countdownMs: 1000, windowMs: 5000, revealDwellMs: 1000, matchRounds: 5, forfeitGraceMs: 15000 },
+    })
+    match.addPlayer({ id: 'a', displayName: 'A' })
+    match.addPlayer({ id: 'b', displayName: 'B' })
+    return { match, emit, clock, scheduler }
+  }
+  const lastPayload = (emit, event) => emit.mock.calls.filter((c) => c[0] === event).at(-1)?.[1]
+
+  it('forfeits to the opponent when a dropped player misses the reconnect grace (FR-14)', () => {
+    const { match, emit, scheduler } = make()
+    match.setReady('a'); match.setReady('b') // ROUND_ACTIVE
+    match.setConnected('a', false)
+    expect(match.phase).toBe(PHASES.ROUND_ACTIVE) // grace running
+    scheduler.runAll() // grace + round timers fire
+    expect(match.phase).toBe(PHASES.FINISHED)
+    expect(lastPayload(emit, 'battle:match_over')).toMatchObject({ forfeit: true, winnerId: 'b' })
+  })
+
+  it('cancels the forfeit when the player reconnects in time (FR-13)', () => {
+    const { match, scheduler } = make()
+    match.setReady('a'); match.setReady('b')
+    match.setConnected('a', false)
+    match.setConnected('a', true) // back in time
+    scheduler.runAll()
+    expect(match.phase).not.toBe(PHASES.FINISHED)
+  })
+
+  it('forfeits immediately on an explicit leave mid-match', () => {
+    const { match, emit } = make()
+    match.setReady('a'); match.setReady('b')
+    match.leave('a')
+    expect(match.phase).toBe(PHASES.FINISHED)
+    expect(lastPayload(emit, 'battle:match_over')).toMatchObject({ forfeit: true, winnerId: 'b' })
+  })
+
+  it('does NOT forfeit for a disconnect in the lobby', () => {
+    const { match, scheduler } = make()
+    match.setConnected('a', false) // still WAITING
+    scheduler.runAll()
+    expect(match.phase).toBe(PHASES.WAITING)
+  })
+
+  it('replays the active round to a (re)joining socket (FR-13)', () => {
+    const { match } = make()
+    match.setReady('a'); match.setReady('b') // ROUND_ACTIVE
+    const events = match.getResumeEvents()
+    expect(events).toHaveLength(1)
+    expect(events[0][0]).toBe('battle:round_start')
+    expect(events[0][1].clipToken).toBe('t0')
+  })
+
+  it('reconnecting via addPlayer cancels a pending forfeit', () => {
+    const { match, scheduler } = make()
+    match.setReady('a'); match.setReady('b') // ROUND_ACTIVE
+    match.setConnected('a', false) // schedules forfeit
+    match.addPlayer({ id: 'a', displayName: 'A', socketId: 's-new' }) // rejoin
+    scheduler.runAll()
+    expect(match.phase).not.toBe(PHASES.FINISHED) // no stale forfeit fired
+  })
+
+  it('ignores a stale disconnect from a socket that was already replaced (reconnect race)', () => {
+    const { match, scheduler } = make()
+    match.addPlayer({ id: 'a', displayName: 'A', socketId: 's2' }) // a is now on socket s2
+    match.setReady('a'); match.setReady('b') // ROUND_ACTIVE
+    match.handleDisconnect('a', 's1') // the OLD socket drops, after the new one joined
+    scheduler.runAll()
+    expect(match.phase).not.toBe(PHASES.FINISHED) // present player not forfeited
+    expect(match.players.find((p) => p.id === 'a').connected).toBe(true)
+  })
+})

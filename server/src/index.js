@@ -114,7 +114,22 @@ setupSentryErrorHandler(app)
 // Wrapped in an explicit HTTP server so Socket.IO (Battle mode) can share the
 // same port. The shared session middleware is applied to socket handshakes too.
 const server = createServer(app)
-attachBattleSocket(server, sessionMiddleware)
+const io = attachBattleSocket(server, sessionMiddleware)
+
+// In-memory battle rooms don't survive a restart. On deploy (Railway sends
+// SIGTERM) tell connected players cleanly rather than leaving them to discover
+// it via a failed reconnect. (Reconnect→not_found is still the safety net.)
+let shuttingDown = false
+for (const signal of ['SIGTERM', 'SIGINT']) {
+  process.on(signal, () => {
+    if (shuttingDown) return
+    shuttingDown = true
+    logger.info({ signal }, 'Shutting down — notifying battle clients')
+    io.emit('battle:error', { code: 'server_restart', message: 'The server is updating — please start a new match.' })
+    io.close(() => process.exit(0)) // disconnects sockets + closes the http server
+    setTimeout(() => process.exit(0), 2000).unref()
+  })
+}
 
 server.listen(PORT, () => {
   logger.info({ port: PORT }, `K-popdle server running on port ${PORT}`)

@@ -20,6 +20,7 @@ export const MATCH_ROUNDS = 5 // scored rounds in a normal match
 export const COUNTDOWN_MS = 3000 // 3-2-1 before the clip starts
 export const ROUND_WINDOW_MS = 30000 // guessing window once the clip starts
 export const REVEAL_DWELL_MS = 4000 // how long the reveal shows before advancing
+export const FORFEIT_GRACE_MS = 15000 // a dropped player has this long to reconnect
 
 export class MatchError extends Error {
   constructor(code, message) {
@@ -46,6 +47,7 @@ export class Match {
     this.countdownMs = timings.countdownMs ?? COUNTDOWN_MS
     this.windowMs = timings.windowMs ?? ROUND_WINDOW_MS
     this.revealDwellMs = timings.revealDwellMs ?? REVEAL_DWELL_MS
+    this.forfeitGraceMs = timings.forfeitGraceMs ?? FORFEIT_GRACE_MS
     // Scored rounds; rounds beyond this are sudden-death spares for ties.
     this.matchRounds = timings.matchRounds ?? Math.min(MATCH_ROUNDS, rounds.length)
 
@@ -59,9 +61,23 @@ export class Match {
     this.roundStartAt = null
     this._roundTimer = null
     this._revealTimer = null
+    this._forfeitTimers = new Map() // playerId -> timer, while disconnected mid-match
+
+    // Last emitted events, replayed to a (re)joining socket so it can resume.
+    this._lastRoundStart = null
+    this._lastReveal = null
+    this._lastMatchOver = null
 
     this.createdAt = this.clock()
     this.lastActivityAt = this.createdAt
+  }
+
+  /** Current-phase events to replay to a socket that just (re)joined (FR-13). */
+  getResumeEvents() {
+    if (this.phase === PHASES.ROUND_ACTIVE && this._lastRoundStart) return [['battle:round_start', this._lastRoundStart]]
+    if (this.phase === PHASES.ROUND_REVEAL && this._lastReveal) return [['battle:round_reveal', this._lastReveal]]
+    if (this.phase === PHASES.FINISHED && this._lastMatchOver) return [['battle:match_over', this._lastMatchOver]]
+    return []
   }
 
   roundForClipToken(token) {
@@ -72,26 +88,94 @@ export class Match {
     return this.players.length >= MAX_PLAYERS
   }
 
-  addPlayer({ id, displayName }) {
+  addPlayer({ id, displayName, socketId }) {
     let player = this.players.find((p) => p.id === id)
     if (!player) {
       if (this.isFull()) throw new MatchError('match_full', 'This match already has two players.')
-      player = { id, displayName, connected: true, ready: false, score: 0, wantsRematch: false }
+      player = { id, displayName, socketId, connected: true, ready: false, score: 0, wantsRematch: false }
       this.players.push(player)
     } else {
+      // Reconnect: adopt the new socket and cancel any pending forfeit.
+      player.socketId = socketId
       player.connected = true
       if (displayName) player.displayName = displayName
+      this._clearForfeit(id)
     }
     this._broadcast()
     return player
+  }
+
+  /**
+   * A socket dropped. Only treat it as the player leaving if it's still their
+   * active socket — a newer socket may have already taken over (reconnect race),
+   * in which case this stale drop must be ignored or it would forfeit a present
+   * player.
+   */
+  handleDisconnect(id, socketId) {
+    const player = this.players.find((p) => p.id === id)
+    if (!player) return
+    if (player.socketId && socketId && player.socketId !== socketId) return
+    this.setConnected(id, false)
   }
 
   setConnected(id, connected) {
     const player = this.players.find((p) => p.id === id)
     if (!player) return
     player.connected = connected
-    if (!connected) player.ready = false
+    if (connected) {
+      this._clearForfeit(id) // reconnected in time
+    } else {
+      player.ready = false
+      // Dropped mid-match → start the reconnect grace; expiry forfeits (FR-14).
+      if (this.phase === PHASES.ROUND_ACTIVE || this.phase === PHASES.ROUND_REVEAL) {
+        this._forfeitTimers.set(id, this.scheduler.setTimeout(() => this._endByForfeit(id), this.forfeitGraceMs))
+      }
+    }
     this._recomputeLobby()
+    this._broadcast()
+  }
+
+  /** Explicit quit. Forfeits a live match; just leaves the lobby otherwise. */
+  leave(id) {
+    if (this.phase === PHASES.ROUND_ACTIVE || this.phase === PHASES.ROUND_REVEAL) {
+      this._endByForfeit(id)
+    } else {
+      this.removePlayer(id)
+    }
+  }
+
+  _clearForfeit(id) {
+    const timer = this._forfeitTimers.get(id)
+    if (timer) {
+      this.scheduler.clearTimeout(timer)
+      this._forfeitTimers.delete(id)
+    }
+  }
+
+  _clearAllForfeits() {
+    for (const timer of this._forfeitTimers.values()) this.scheduler.clearTimeout(timer)
+    this._forfeitTimers.clear()
+  }
+
+  _endByForfeit(leaverId) {
+    if (this.phase === PHASES.FINISHED) return
+    this.scheduler.clearTimeout(this._roundTimer)
+    this.scheduler.clearTimeout(this._revealTimer)
+    this._roundTimer = null
+    this._revealTimer = null
+    this._clearAllForfeits()
+    this.phase = PHASES.FINISHED
+    const remaining = this.players.find((p) => p.id !== leaverId)
+    const payload = {
+      winnerId: remaining ? remaining.id : null,
+      draw: false,
+      forfeit: true,
+      forfeitedBy: leaverId,
+      scores: this._scores(),
+      rounds: this.history,
+    }
+    this._lastMatchOver = payload
+    this.emit('battle:match_over', payload)
     this._broadcast()
   }
 
@@ -131,14 +215,16 @@ export class Match {
       p.roundPoints = 0
       p.roundElapsedMs = null
     }
-    this.emit('battle:round_start', {
+    this._lastRoundStart = {
       roundIndex: index,
       totalRounds: this.matchRounds,
       suddenDeath: index >= this.matchRounds,
       clipToken: round.clipToken,
       startAt: this.roundStartAt,
       windowMs: this.windowMs,
-    })
+    }
+    this._lastReveal = null
+    this.emit('battle:round_start', this._lastRoundStart)
     this._roundTimer = this.scheduler.setTimeout(() => this._endRound(), this.countdownMs + this.windowMs)
     this._broadcast()
   }
@@ -188,7 +274,7 @@ export class Match {
       answer: { title: round.song.title, groupDisplayName: round.song.groupDisplayName },
       results,
     })
-    this.emit('battle:round_reveal', {
+    this._lastReveal = {
       roundIndex: this.roundIndex,
       answer: {
         title: round.song.title,
@@ -199,7 +285,8 @@ export class Match {
       },
       results,
       scores: this._scores(),
-    })
+    }
+    this.emit('battle:round_reveal', this._lastReveal)
     this._broadcast()
     this._revealTimer = this.scheduler.setTimeout(() => this._advance(), this.revealDwellMs)
   }
@@ -226,6 +313,7 @@ export class Match {
   }
 
   _finishMatch() {
+    this._clearAllForfeits()
     this.phase = PHASES.FINISHED
     const [p1, p2] = this.players
     let winnerId = null
@@ -235,12 +323,13 @@ export class Match {
     } else if (this.players.length === 1) {
       winnerId = this.players[0].id
     }
-    this.emit('battle:match_over', {
+    this._lastMatchOver = {
       winnerId,
       draw: winnerId === null && this.players.length === MAX_PLAYERS,
       scores: this._scores(),
       rounds: this.history,
-    })
+    }
+    this.emit('battle:match_over', this._lastMatchOver)
     this._broadcast()
   }
 
@@ -258,11 +347,14 @@ export class Match {
 
   /** Reset with fresh songs and immediately start round 0 (both already opted in). */
   startRematch(newRounds) {
+    this._clearAllForfeits()
     this.rounds = newRounds
     this.matchRounds = Math.min(MATCH_ROUNDS, newRounds.length)
     this.history = []
     this.roundIndex = -1
     this.roundStartAt = null
+    this._lastReveal = null
+    this._lastMatchOver = null
     for (const p of this.players) {
       p.score = 0
       p.ready = true

@@ -92,11 +92,13 @@ Separate the **match state machine from the transport**. `Match` takes an inject
 
 ---
 
-## Milestone 4 — Connection robustness
-**Server:** 15 s reconnect grace (resume in-progress match via `battle:state` snapshot); forfeit-on-leave awards the opponent; per-state timeouts (ready-check, round window, reveal dwell); graceful match-end broadcast on shutdown.
-**Client:** rejoin flow restores live state; clear terminal screens for forfeit / "match ended — server updated" (no hangs).
+## Milestone 4 — Connection robustness ✅ BUILT (2026-05-27, pending browser test)
+**Built (server):** 15s reconnect grace — `setConnected(false)` during a live round schedules a forfeit timer (injected scheduler); reconnect cancels it; expiry or explicit `battle:leave` → `_endByForfeit` awards the opponent (`match_over { forfeit:true, forfeitedBy }`). Lobby disconnects don't forfeit. `getResumeEvents()` replays the current phase (round_start / reveal / match_over) to a (re)joining socket — `enterRoom` emits them, so a mid-round reconnect or refresh resumes. Graceful SIGTERM/SIGINT in index.js broadcasts a `server_restart` message then closes.
+**Built (client):** generalized terminal error screen (covers not_found, server_restart, full, no_songs) with a "start a new battle" CTA; ResultScreen shows "Opponent left — you win" on `forfeit`; reconnect resume flows through existing round/reveal/match_over handlers.
+**Verified (automated):** +5 Match tests (forfeit on grace expiry, cancel on reconnect, immediate forfeit on leave, no forfeit in lobby, resume events) → 71 server tests; client 35; lint clean; build green.
+**PENDING:** browser test — close/kill one tab mid-match → opponent sees forfeit win; refresh a tab mid-round → resumes; (restart safety also covered by reconnect→not_found).
 
-**Done when:** a mid-round network blip recovers; an opponent leaving ends the match cleanly with a forfeit result; a server restart shows a clean terminal state. **FRs:** FR-13, FR-14, FR-15.
+**FRs:** FR-13, FR-14, FR-15.
 
 ---
 

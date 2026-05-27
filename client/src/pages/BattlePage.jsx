@@ -145,11 +145,18 @@ export default function BattlePage() {
     </div>
   )
 
-  if (error?.code === 'not_found') {
+  // Terminal errors (match expired, server restarted, full, no songs). Any
+  // battle:state broadcast clears `error`, so this only shows for dead-ends.
+  if (error) {
+    const isNotFound = error.code === 'not_found'
     return shell(
       <div className="text-center">
-        <h1 className="text-2xl font-black tracking-tight mb-2">Match not found</h1>
-        <p className="text-sm text-white/40 mb-6">This battle has expired or never existed.</p>
+        <h1 className="text-2xl font-black tracking-tight mb-2">
+          {isNotFound ? 'Match not found' : 'Battle ended'}
+        </h1>
+        <p className="text-sm text-white/40 mb-6">
+          {error.message || 'This battle has expired or never existed.'}
+        </p>
         <Link to="/battle" className="inline-block px-5 py-3 rounded-xl font-bold bg-[#EC4899] text-white hover:opacity-90 transition-opacity">
           Start a new battle
         </Link>
