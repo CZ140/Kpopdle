@@ -38,6 +38,24 @@ export async function getDeezerPreview(deezerTrackId, expectedTitle = null) {
   return data.preview
 }
 
+// Album cover for a Deezer track. Same GET /track/{id} call as the preview
+// client; the nested `album` object carries cover_small/medium/big/xl plus
+// md5_image. We take cover_big (500²) — a good balance of quality and weight —
+// and the md5 hash (handy if we ever want to build other sizes). Returns null
+// when the track has no album cover so callers can skip the song (FR-8).
+export async function getDeezerAlbumCover(deezerTrackId) {
+  const response = await deezerFetch(`https://api.deezer.com/track/${deezerTrackId}`)
+  if (!response.ok) return null
+  const data = await response.json()
+  const album = data.album
+  if (!album) return null
+
+  const coverUrl = album.cover_big || album.cover_xl || album.cover_medium || album.cover
+  if (!coverUrl) return null
+
+  return { coverUrl, coverMd5: album.md5_image ?? null }
+}
+
 export async function searchDeezerPreview(artistName, songTitle) {
   // Note: artist:"name" quoted filter returns broken results on Deezer's API.
   // Unquoted "ArtistName SongTitle" search + validating both fields is reliable.

@@ -9,6 +9,7 @@ import cors from './middleware/cors.js'
 import { apiLimiter, authLimiter } from './middleware/rateLimit.js'
 import groupRoutes from './routes/groups.js'
 import gameRoutes from './routes/game.js'
+import coverRoutes from './routes/cover.js'
 import songRoutes from './routes/songs.js'
 import statsRoutes from './routes/stats.js'
 import kpopdleRoutes from './routes/kpopdle.js'
@@ -102,6 +103,7 @@ app.use('/api/groups', apiLimiter, groupRoutes)
 app.use('/api/stats', apiLimiter, statsRoutes)
 app.use('/api/kpopdle', apiLimiter, kpopdleRoutes)
 app.use('/api/:group/game', apiLimiter, gameRoutes)
+app.use('/api/:group/cover', apiLimiter, coverRoutes)
 app.use('/api/:group/songs', apiLimiter, songRoutes)
 
 app.use('/api', (req, res) => {

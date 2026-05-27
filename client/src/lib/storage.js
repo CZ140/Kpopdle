@@ -77,6 +77,37 @@ export function saveArchiveGameState(group, date, state) {
   localStorage.setItem(archiveKey(group, date), JSON.stringify(state))
 }
 
+// Coverdle mode — keyed under a `${group}-cover` namespace so cover-game state
+// and stats never collide with the audio daily (FR-7).
+const coverGameKey = (group, date) => `${group}-cover-game-${date}`
+const coverArchiveKey = (group, date) => `${group}-cover-archive-${date}`
+
+export function loadCoverGameState(group, date) {
+  try {
+    const raw = localStorage.getItem(coverGameKey(group, date))
+    return raw ? JSON.parse(raw) : null
+  } catch {
+    return null
+  }
+}
+
+export function saveCoverGameState(group, date, state) {
+  localStorage.setItem(coverGameKey(group, date), JSON.stringify(state))
+}
+
+export function loadCoverArchiveGameState(group, date) {
+  try {
+    const raw = localStorage.getItem(coverArchiveKey(group, date))
+    return raw ? JSON.parse(raw) : null
+  } catch {
+    return null
+  }
+}
+
+export function saveCoverArchiveGameState(group, date, state) {
+  localStorage.setItem(coverArchiveKey(group, date), JSON.stringify(state))
+}
+
 const DIFFICULTY_KEY = 'kpopdle-difficulty'
 const VALID_DIFFICULTIES = ['easy', 'normal', 'hard']
 

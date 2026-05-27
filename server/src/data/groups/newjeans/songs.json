@@ -5,7 +5,9 @@
     "album": "NewJeans 1st EP 'New Jeans'",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 1843514387
+    "deezerId": 1843514387,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a87d8380756567e6bc1f65d43ac2b46d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a87d8380756567e6bc1f65d43ac2b46d"
   },
   {
     "id": 2,
@@ -13,7 +15,9 @@
     "album": "NewJeans 1st EP 'New Jeans'",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 1843514397
+    "deezerId": 1843514397,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a87d8380756567e6bc1f65d43ac2b46d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a87d8380756567e6bc1f65d43ac2b46d"
   },
   {
     "id": 3,
@@ -21,7 +25,9 @@
     "album": "NewJeans 1st EP 'New Jeans'",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 1843514407
+    "deezerId": 1843514407,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a87d8380756567e6bc1f65d43ac2b46d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a87d8380756567e6bc1f65d43ac2b46d"
   },
   {
     "id": 4,
@@ -29,7 +35,9 @@
     "album": "NewJeans 1st EP 'New Jeans'",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 1843514417
+    "deezerId": 1843514417,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a87d8380756567e6bc1f65d43ac2b46d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a87d8380756567e6bc1f65d43ac2b46d"
   },
   {
     "id": 5,
@@ -37,7 +45,9 @@
     "album": "Ditto",
     "releaseYear": 2022,
     "spotifyId": null,
-    "deezerId": 2071104987
+    "deezerId": 2071104987,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/89073b58a3ce20e32384f246b92f1c76/500x500-000000-80-0-0.jpg",
+    "coverMd5": "89073b58a3ce20e32384f246b92f1c76"
   },
   {
     "id": 6,
@@ -45,7 +55,9 @@
     "album": "NewJeans 'OMG'",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2088671947
+    "deezerId": 2088671947,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/98bdcf64ff375c5066f53021e74244ce/500x500-000000-80-0-0.jpg",
+    "coverMd5": "98bdcf64ff375c5066f53021e74244ce"
   },
   {
     "id": 7,
@@ -53,7 +65,9 @@
     "album": "Zero",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2215867137
+    "deezerId": 2215867137,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c82362b1e00c669ac353688501dbbddf/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c82362b1e00c669ac353688501dbbddf"
   },
   {
     "id": 8,
@@ -61,7 +75,9 @@
     "album": "Zero (J.I.D Remix)",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2331361615
+    "deezerId": 2331361615,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/5bf58060acaaca3d3fbac2b536349d38/500x500-000000-80-0-0.jpg",
+    "coverMd5": "5bf58060acaaca3d3fbac2b536349d38"
   },
   {
     "id": 9,
@@ -69,7 +85,9 @@
     "album": "NewJeans 'Super Shy'",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2354707735
+    "deezerId": 2354707735,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/37e446fe36cee17b6215e5d506d18354/500x500-000000-80-0-0.jpg",
+    "coverMd5": "37e446fe36cee17b6215e5d506d18354"
   },
   {
     "id": 10,
@@ -77,7 +95,9 @@
     "album": "NewJeans 'Super Shy'",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2354707745
+    "deezerId": 2354707745,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/37e446fe36cee17b6215e5d506d18354/500x500-000000-80-0-0.jpg",
+    "coverMd5": "37e446fe36cee17b6215e5d506d18354"
   },
   {
     "id": 11,
@@ -85,7 +105,9 @@
     "album": "NewJeans 2nd EP 'Get Up'",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2373775145
+    "deezerId": 2373775145,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/37e446fe36cee17b6215e5d506d18354/500x500-000000-80-0-0.jpg",
+    "coverMd5": "37e446fe36cee17b6215e5d506d18354"
   },
   {
     "id": 12,
@@ -93,7 +115,9 @@
     "album": "NewJeans 2nd EP 'Get Up'",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2373775155
+    "deezerId": 2373775155,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/37e446fe36cee17b6215e5d506d18354/500x500-000000-80-0-0.jpg",
+    "coverMd5": "37e446fe36cee17b6215e5d506d18354"
   },
   {
     "id": 13,
@@ -101,7 +125,9 @@
     "album": "NewJeans 2nd EP 'Get Up'",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2373775165
+    "deezerId": 2373775165,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/37e446fe36cee17b6215e5d506d18354/500x500-000000-80-0-0.jpg",
+    "coverMd5": "37e446fe36cee17b6215e5d506d18354"
   },
   {
     "id": 14,
@@ -109,7 +135,9 @@
     "album": "NewJeans 2nd EP 'Get Up'",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2373775175
+    "deezerId": 2373775175,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/37e446fe36cee17b6215e5d506d18354/500x500-000000-80-0-0.jpg",
+    "coverMd5": "37e446fe36cee17b6215e5d506d18354"
   },
   {
     "id": 15,
@@ -117,7 +145,9 @@
     "album": "A Time Called You (Music from The Netflix Series)",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2431808575
+    "deezerId": 2431808575,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/13c04732e5afe0f30cc539947ae39774/500x500-000000-80-0-0.jpg",
+    "coverMd5": "13c04732e5afe0f30cc539947ae39774"
   },
   {
     "id": 16,
@@ -125,7 +155,9 @@
     "album": "NewJeans X MY DEMON",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 2556572132
+    "deezerId": 2556572132,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/45b17a42d1242a174528aa723448f0e3/500x500-000000-80-0-0.jpg",
+    "coverMd5": "45b17a42d1242a174528aa723448f0e3"
   },
   {
     "id": 17,
@@ -133,7 +165,9 @@
     "album": "GODS",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 3496410431
+    "deezerId": 3496410431,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2da83f667965683428b9aecaab159771/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2da83f667965683428b9aecaab159771"
   },
   {
     "id": 18,
@@ -141,7 +175,9 @@
     "album": "How Sweet",
     "releaseYear": 2024,
     "spotifyId": null,
-    "deezerId": 2813349902
+    "deezerId": 2813349902,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/586eb9f8e98f13c7be5c1835ae1e168d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "586eb9f8e98f13c7be5c1835ae1e168d"
   },
   {
     "id": 19,
@@ -149,7 +185,9 @@
     "album": "How Sweet",
     "releaseYear": 2024,
     "spotifyId": null,
-    "deezerId": 2813349912
+    "deezerId": 2813349912,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/586eb9f8e98f13c7be5c1835ae1e168d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "586eb9f8e98f13c7be5c1835ae1e168d"
   },
   {
     "id": 20,
@@ -157,7 +195,9 @@
     "album": "Supernatural",
     "releaseYear": 2024,
     "spotifyId": null,
-    "deezerId": 2853677102
+    "deezerId": 2853677102,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/826894f2ec39ae1eea620eddecdcf6b7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "826894f2ec39ae1eea620eddecdcf6b7"
   },
   {
     "id": 21,
@@ -165,6 +205,8 @@
     "album": "Supernatural",
     "releaseYear": 2024,
     "spotifyId": null,
-    "deezerId": 2853677112
+    "deezerId": 2853677112,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/826894f2ec39ae1eea620eddecdcf6b7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "826894f2ec39ae1eea620eddecdcf6b7"
   }
 ]

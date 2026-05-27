@@ -6,15 +6,16 @@ vi.mock('../data/songIndex.js', () => ({
   getMergedPool: vi.fn(),
 }))
 
-import { getSongForDate, getKpopdleSongForDate } from './dailySong.js'
+import { getSongForDate, getKpopdleSongForDate, getCoverSongForDate } from './dailySong.js'
 import { getSongsForGroup, getMergedPool } from '../data/songIndex.js'
 
-const makeSong = (id, hasPreview = true) => ({
+const makeSong = (id, hasPreview = true, hasCover = true) => ({
   id,
   title: `Song ${id}`,
   album: 'Album',
   releaseYear: 2020,
   deezerId: hasPreview ? id : 0,
+  coverUrl: hasCover ? `https://cdn.example/cover/${id}.jpg` : null,
   spotifyId: null,
 })
 
@@ -111,6 +112,80 @@ describe('getSongForDate — game number', () => {
     const numbers = dates.map(d => getSongForDate('twice', d).gameNumber)
     expect(numbers[1] - numbers[0]).toBe(1)
     expect(numbers[2] - numbers[1]).toBe(1)
+  })
+})
+
+describe('getCoverSongForDate — determinism & independence', () => {
+  it('returns the same cover song every time for the same group and date', () => {
+    const a = getCoverSongForDate('twice', '2026-05-21')
+    const b = getCoverSongForDate('twice', '2026-05-21')
+    expect(a.song.id).toBe(b.song.id)
+    expect(a.gameNumber).toBe(b.gameNumber)
+  })
+
+  it('returns the date string that was passed in', () => {
+    const { dateString } = getCoverSongForDate('twice', '2026-03-15')
+    expect(dateString).toBe('2026-03-15')
+  })
+
+  it('selects independently from the audio daily — uses the -cover HMAC suffix', () => {
+    // Over many dates the cover pick should diverge from the audio pick on at
+    // least some days (different secrets → different distributions). Identical
+    // sequences would mean the -cover suffix was not applied.
+    let divergences = 0
+    for (let d = 1; d <= 28; d++) {
+      const date = `2026-05-${String(d).padStart(2, '0')}`
+      const audio = getSongForDate('twice', date).song.id
+      const cover = getCoverSongForDate('twice', date).song.id
+      if (audio !== cover) divergences++
+    }
+    expect(divergences).toBeGreaterThan(0)
+  })
+
+  it('uses different secrets per group — same date can yield different cover songs', () => {
+    const date = '2026-05-21'
+    const groups = ['twice', 'newjeans', 'aespa', 'redvelvet', 'ive', 'blackpink']
+    const chosen = groups.map(g => getCoverSongForDate(g, date).song.id)
+    expect(new Set(chosen).size).toBeGreaterThan(1)
+  })
+
+  it('only selects songs that have a coverUrl (FR-8)', () => {
+    const mixed = [
+      makeSong(1, true, false), // no coverUrl — never selectable
+      ...Array.from({ length: 10 }, (_, i) => makeSong(i + 2, true, true)),
+    ]
+    getSongsForGroup.mockReturnValue(mixed)
+
+    for (let d = 1; d <= 30; d++) {
+      const date = `2026-05-${String(d).padStart(2, '0')}`
+      const { song } = getCoverSongForDate('twice', date)
+      expect(song.id).not.toBe(1)
+      expect(song.coverUrl).toBeTruthy()
+    }
+  })
+
+  it('never selects a song with deezerId = 0 even if it has a cover', () => {
+    const mixed = [
+      makeSong(1, false, true), // playable cover requires a deezerId too
+      ...Array.from({ length: 10 }, (_, i) => makeSong(i + 2, true, true)),
+    ]
+    getSongsForGroup.mockReturnValue(mixed)
+
+    for (let d = 1; d <= 30; d++) {
+      const date = `2026-05-${String(d).padStart(2, '0')}`
+      const { song } = getCoverSongForDate('twice', date)
+      expect(song.id).not.toBe(1)
+    }
+  })
+
+  it('throws when no songs have a cover', () => {
+    getSongsForGroup.mockReturnValue([makeSong(1, true, false), makeSong(2, true, false)])
+    expect(() => getCoverSongForDate('twice', '2026-05-21')).toThrow()
+  })
+
+  it('cover gameNumber matches the audio daily numbering (same launch math)', () => {
+    expect(getCoverSongForDate('twice', '2026-02-20').gameNumber).toBe(1)
+    expect(getCoverSongForDate('twice', '2026-02-21').gameNumber).toBe(2)
   })
 })
 

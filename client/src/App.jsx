@@ -9,6 +9,8 @@ import AccountPage from './pages/AccountPage'
 const AdminPage = lazy(() => import('./pages/AdminPage'))
 // Public stats page — lazy so it doesn't add to the game bundle.
 const StatsPage = lazy(() => import('./pages/StatsPage'))
+// Coverdle (album-cover) mode — lazy, separate from the core game bundle.
+const CoverPage = lazy(() => import('./pages/CoverPage'))
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
         <Route path="/account" element={<AccountPage />} />
         <Route path="/stats" element={<Suspense fallback={null}><StatsPage /></Suspense>} />
         <Route path="/admin" element={<Suspense fallback={null}><AdminPage /></Suspense>} />
+        <Route path="/:group/cover" element={<Suspense fallback={null}><CoverPage /></Suspense>} />
         <Route path="/:group" element={<GroupPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

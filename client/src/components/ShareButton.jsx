@@ -3,10 +3,10 @@ import { generateShareText, copyToClipboard } from '../lib/share'
 import { useDifficulty, useGroup } from '../lib/GroupContext'
 import { GAME_NAMES } from '../lib/constants'
 
-export default function ShareButton({ gameNumber, guesses, won, hintsUsed = 0 }) {
+export default function ShareButton({ gameNumber, guesses, won, hintsUsed = 0, gameName: gameNameOverride }) {
   const difficulty = useDifficulty()
   const group = useGroup()
-  const gameName = GAME_NAMES[group] ?? 'K-POPDLE'
+  const gameName = gameNameOverride ?? GAME_NAMES[group] ?? 'K-POPDLE'
   const [copied, setCopied] = useState(false)
 
   async function handleShare() {
