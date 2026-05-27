@@ -6,6 +6,7 @@ import { useDocumentMeta } from '../hooks/useDocumentMeta'
 import { ALL_GROUP_IDS, GROUP_META } from '../lib/constants'
 import Lobby from '../components/battle/Lobby'
 import RoundView from '../components/battle/RoundView'
+import ResultScreen from '../components/battle/ResultScreen'
 
 const SCOPES = [
   { id: 'all', label: 'All groups' },
@@ -39,6 +40,7 @@ export default function BattlePage() {
   const [round, setRound] = useState(null) // latest battle:round_start payload
   const [reveal, setReveal] = useState(null) // latest battle:round_reveal payload
   const [liveResults, setLiveResults] = useState({}) // playerId -> { correct, points } for the active round
+  const [matchOver, setMatchOver] = useState(null) // battle:match_over payload
 
   // Attach socket listeners for this page's lifetime (the socket itself is a
   // singleton that outlives route remounts — see battleSocket.js).
@@ -50,16 +52,19 @@ export default function BattlePage() {
       setRound(payload)
       setReveal(null)
       setLiveResults({}) // fresh round
+      setMatchOver(null) // (covers rematch)
     }
     const onGuessResult = (r) => {
       setLiveResults((prev) => ({ ...prev, [r.playerId]: { correct: r.correct, points: r.points } }))
     }
     const onReveal = (payload) => setReveal(payload)
+    const onMatchOver = (payload) => setMatchOver(payload)
     socket.on('battle:state', onState)
     socket.on('battle:error', onError)
     socket.on('battle:round_start', onRoundStart)
     socket.on('battle:guess_result', onGuessResult)
     socket.on('battle:round_reveal', onReveal)
+    socket.on('battle:match_over', onMatchOver)
     // Sync the server clock once so the round countdown lines up (FR-5).
     syncServerTime()
     return () => {
@@ -68,6 +73,7 @@ export default function BattlePage() {
       socket.off('battle:round_start', onRoundStart)
       socket.off('battle:guess_result', onGuessResult)
       socket.off('battle:round_reveal', onReveal)
+      socket.off('battle:match_over', onMatchOver)
     }
   }, [])
 
@@ -122,6 +128,8 @@ export default function BattlePage() {
     if (!round) return
     getBattleSocket().emit('battle:guess', { roundIndex: round.roundIndex, guess })
   }, [round])
+
+  const handleRematch = useCallback(() => getBattleSocket().emit('battle:rematch'), [])
 
   // --- Render ---------------------------------------------------------------
   // --color-* feed GuessInput's themed active-option styling on the battle page.
@@ -195,6 +203,11 @@ export default function BattlePage() {
         </button>
       </div>,
     )
+  }
+
+  // Match over → results + rematch.
+  if (state && state.phase === 'FINISHED' && matchOver) {
+    return shell(<ResultScreen state={state} matchOver={matchOver} myId={myId} onRematch={handleRematch} />)
   }
 
   // In a round (active clip or reveal).

@@ -4,6 +4,7 @@ import { selectRounds } from './songSelection.js'
 import { logger, captureError } from '../services/observability.js'
 
 const MAX_NAME = 24
+const MATCH_PICKS = 7 // 5 scored rounds + up to 2 sudden-death spares for ties
 
 // Anonymous play is allowed (BATTLE_SPEC GD-9): a logged-in user is keyed by
 // their account id; everyone else by a client-persisted token (localStorage),
@@ -51,7 +52,7 @@ export function attachBattleSocket(server, sessionMiddleware) {
       const resolvedScope = scope || 'all'
       let rounds
       try {
-        rounds = selectRounds(resolvedScope)
+        rounds = selectRounds(resolvedScope, MATCH_PICKS)
       } catch (err) {
         captureError(err, { msg: 'battle round selection failed', scope: resolvedScope })
         const error = { code: 'no_songs', message: 'No songs available for that selection.' }
@@ -98,6 +99,19 @@ export function attachBattleSocket(server, sessionMiddleware) {
       if (typeof guess !== 'string' || guess.length > 300) return
       if (!Number.isInteger(roundIndex)) return
       match.submitGuess(socket.data.playerId, roundIndex, guess)
+    })
+
+    socket.on('battle:rematch', () => {
+      const match = currentMatch()
+      if (!match || !socket.data.playerId) return
+      const bothIn = match.requestRematch(socket.data.playerId)
+      if (!bothIn) return
+      try {
+        match.startRematch(selectRounds(match.scope, MATCH_PICKS))
+      } catch (err) {
+        captureError(err, { msg: 'battle rematch round selection failed', scope: match.scope })
+        socket.emit('battle:error', { code: 'no_songs', message: 'Could not start a rematch.' })
+      }
     })
 
     socket.on('battle:leave', () => {

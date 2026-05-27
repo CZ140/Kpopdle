@@ -212,7 +212,6 @@ describe('Match rounds', () => {
     match.submitGuess('b', 0, 'cheer up (twice)')
 
     expect(match.phase).toBe(PHASES.ROUND_REVEAL)
-    expect(scheduler.pending()).toBe(0) // timeout cleared
     const reveal = lastPayload(emit, 'battle:round_reveal')
     expect(reveal.answer.title).toBe('Cheer Up')
     expect(reveal.scores).toEqual([
@@ -241,5 +240,94 @@ describe('Match rounds', () => {
     match.submitGuess('a', 0, 'Fancy')
     const beforeReveal = JSON.stringify(emit.mock.calls.filter((c) => c[0] !== 'battle:round_reveal'))
     expect(beforeReveal).not.toMatch(/Cheer Up/)
+  })
+})
+
+describe('Match resolution (multi-round)', () => {
+  // Distinct titles so guessing rounds[i].song.title always matches.
+  const makeRounds = (n) =>
+    Array.from({ length: n }, (_, i) => ({
+      song: { title: `S${i}`, groupDisplayName: 'TWICE', album: 'A', releaseYear: 2020, spotifyId: `sp${i}` },
+      clipToken: `t${i}`,
+    }))
+
+  const make = (matchRounds, totalRounds) => {
+    const emit = vi.fn()
+    const clock = fakeClock()
+    const scheduler = manualScheduler()
+    const match = new Match({
+      id: 'm', rounds: makeRounds(totalRounds), clock, emit, scheduler,
+      timings: { countdownMs: 1000, windowMs: 5000, revealDwellMs: 1000, matchRounds },
+    })
+    match.addPlayer({ id: 'a', displayName: 'A' })
+    match.addPlayer({ id: 'b', displayName: 'B' })
+    match.setReady('a'); match.setReady('b') // starts round 0
+    return { match, emit, clock, scheduler }
+  }
+
+  // Both answer the active round; a at aMs, b at bMs (ms after clip start), then
+  // run the reveal timer to advance to the next round / resolution.
+  const playRound = ({ match, clock, scheduler }, aMs, bMs) => {
+    const idx = match.roundIndex
+    clock.advance(match.countdownMs + aMs)
+    match.submitGuess('a', idx, `S${idx}`)
+    if (bMs > aMs) clock.advance(bMs - aMs)
+    match.submitGuess('b', idx, `S${idx}`)
+    scheduler.runAll() // fire reveal-dwell timer → advance
+  }
+
+  const lastPayload = (emit, event) => emit.mock.calls.filter((c) => c[0] === event).at(-1)?.[1]
+
+  it('plays through all scored rounds then finishes with the higher total winning', () => {
+    const ctx = make(2, 3)
+    playRound(ctx, 1000, 6000) // a:5 b:4
+    expect(ctx.match.phase).toBe(PHASES.ROUND_ACTIVE) // round 1 started
+    expect(ctx.match.roundIndex).toBe(1)
+    playRound(ctx, 1000, 6000) // a:5 b:4 → a 10, b 8
+
+    expect(ctx.match.phase).toBe(PHASES.FINISHED)
+    const over = lastPayload(ctx.emit, 'battle:match_over')
+    expect(over.winnerId).toBe('a')
+    expect(over.draw).toBe(false)
+    expect(over.rounds).toHaveLength(2) // per-round breakdown
+  })
+
+  it('breaks a tie with a decisive sudden-death round', () => {
+    const ctx = make(2, 3) // 2 scored + 1 spare
+    playRound(ctx, 1000, 1000) // 5-5
+    playRound(ctx, 1000, 1000) // 10-10 → tied → sudden death
+    expect(ctx.match.phase).toBe(PHASES.ROUND_ACTIVE)
+    expect(ctx.match.roundIndex).toBe(2) // overtime round
+
+    playRound(ctx, 1000, 6000) // a:5 b:4 → decisive
+    expect(ctx.match.phase).toBe(PHASES.FINISHED)
+    expect(lastPayload(ctx.emit, 'battle:match_over').winnerId).toBe('a')
+  })
+
+  it('declares a draw when tied and out of spare rounds', () => {
+    const ctx = make(1, 1) // 1 scored round, no spares
+    playRound(ctx, 1000, 1000) // 5-5, tied, no spare
+
+    expect(ctx.match.phase).toBe(PHASES.FINISHED)
+    const over = lastPayload(ctx.emit, 'battle:match_over')
+    expect(over.winnerId).toBeNull()
+    expect(over.draw).toBe(true)
+  })
+
+  it('rematch resets scores + swaps in fresh songs and restarts', () => {
+    const ctx = make(1, 1)
+    playRound(ctx, 1000, 6000) // a wins → FINISHED
+    expect(ctx.match.phase).toBe(PHASES.FINISHED)
+
+    expect(ctx.match.requestRematch('a')).toBe(false) // only one in
+    expect(ctx.match.requestRematch('b')).toBe(true) // both in
+    ctx.match.startRematch([
+      { song: { title: 'NEW', groupDisplayName: 'IVE' }, clipToken: 'tnew' },
+    ])
+
+    expect(ctx.match.phase).toBe(PHASES.ROUND_ACTIVE)
+    expect(ctx.match.roundIndex).toBe(0)
+    expect(ctx.match.players.every((p) => p.score === 0 && !p.wantsRematch)).toBe(true)
+    expect(ctx.match.rounds[0].clipToken).toBe('tnew')
   })
 })

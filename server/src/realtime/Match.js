@@ -9,15 +9,17 @@ import { isCorrectGuess } from '../utils/guessMatch.js'
 
 export const PHASES = {
   WAITING: 'WAITING', // fewer than 2 players present
-  READY_CHECK: 'READY_CHECK', // both joined + ready, but no rounds to play (lobby-only)
-  ROUND_ACTIVE: 'ROUND_ACTIVE', // a clip is (about to be) playing; guesses accepted after startAt
+  READY_CHECK: 'READY_CHECK', // both ready but no rounds to play (lobby-only)
+  ROUND_ACTIVE: 'ROUND_ACTIVE', // a clip is (about to be) playing
   ROUND_REVEAL: 'ROUND_REVEAL', // round over; answer + scores shown
-  FINISHED: 'FINISHED', // match complete (M3 owns the transition into this)
+  FINISHED: 'FINISHED', // match complete
 }
 
 export const MAX_PLAYERS = 2
+export const MATCH_ROUNDS = 5 // scored rounds in a normal match
 export const COUNTDOWN_MS = 3000 // 3-2-1 before the clip starts
 export const ROUND_WINDOW_MS = 30000 // guessing window once the clip starts
+export const REVEAL_DWELL_MS = 4000 // how long the reveal shows before advancing
 
 export class MatchError extends Error {
   constructor(code, message) {
@@ -39,20 +41,24 @@ export class Match {
     this.id = id
     this.scope = scope
     this.clock = clock
-    this.emit = emit // (event, payload) => broadcast to everyone in the room
+    this.emit = emit
     this.scheduler = scheduler
     this.countdownMs = timings.countdownMs ?? COUNTDOWN_MS
     this.windowMs = timings.windowMs ?? ROUND_WINDOW_MS
+    this.revealDwellMs = timings.revealDwellMs ?? REVEAL_DWELL_MS
+    // Scored rounds; rounds beyond this are sudden-death spares for ties.
+    this.matchRounds = timings.matchRounds ?? Math.min(MATCH_ROUNDS, rounds.length)
 
-    this.players = [] // { id, displayName, connected, ready, score, round* }
-    // Songs + opaque clip tokens. SERVER-ONLY — never in getState(), so neither
-    // answers nor Deezer ids reach a client (FR-16/17).
-    this.rounds = rounds // [{ song, clipToken, clipBuffer? }]
+    this.players = []
+    // Songs + opaque clip tokens. SERVER-ONLY — never in getState() (FR-16/17).
+    this.rounds = rounds
+    this.history = [] // per-round results, for the end-of-match breakdown
     this.phase = PHASES.WAITING
 
     this.roundIndex = -1
-    this.roundStartAt = null // server timestamp when the clip begins
+    this.roundStartAt = null
     this._roundTimer = null
+    this._revealTimer = null
 
     this.createdAt = this.clock()
     this.lastActivityAt = this.createdAt
@@ -70,7 +76,7 @@ export class Match {
     let player = this.players.find((p) => p.id === id)
     if (!player) {
       if (this.isFull()) throw new MatchError('match_full', 'This match already has two players.')
-      player = { id, displayName, connected: true, ready: false, score: 0 }
+      player = { id, displayName, connected: true, ready: false, score: 0, wantsRematch: false }
       this.players.push(player)
     } else {
       player.connected = true
@@ -94,8 +100,6 @@ export class Match {
     if (!player) return
     player.ready = true
     this.lastActivityAt = this.clock()
-    // Both readied in the lobby → begin play (or sit at READY_CHECK if this match
-    // has no rounds, e.g. a lobby-only unit test).
     if (this.phase === PHASES.WAITING && this.bothReady()) {
       if (this.rounds.length > 0) this._startRound(0)
       else { this.phase = PHASES.READY_CHECK; this._broadcast() }
@@ -127,18 +131,15 @@ export class Match {
       p.roundPoints = 0
       p.roundElapsedMs = null
     }
-    // Opaque clip handle + synchronized start time. No answer.
     this.emit('battle:round_start', {
       roundIndex: index,
-      totalRounds: this.rounds.length,
+      totalRounds: this.matchRounds,
+      suddenDeath: index >= this.matchRounds,
       clipToken: round.clipToken,
       startAt: this.roundStartAt,
       windowMs: this.windowMs,
     })
-    this._roundTimer = this.scheduler.setTimeout(
-      () => this._endRound(),
-      this.countdownMs + this.windowMs,
-    )
+    this._roundTimer = this.scheduler.setTimeout(() => this._endRound(), this.countdownMs + this.windowMs)
     this._broadcast()
   }
 
@@ -158,8 +159,6 @@ export class Match {
       player.roundPoints = scoreGuess(elapsedMs)
       player.score += player.roundPoints
     }
-    // Broadcast result (no answer). Opponent sees status; a live scoreboard is
-    // part of the head-to-head UX, so revealing points early is intentional.
     this.emit('battle:guess_result', {
       playerId,
       correct,
@@ -178,6 +177,17 @@ export class Match {
     this._roundTimer = null
     this.phase = PHASES.ROUND_REVEAL
     const round = this.rounds[this.roundIndex]
+    const results = this.players.map((p) => ({
+      playerId: p.id,
+      displayName: p.displayName,
+      points: p.roundPoints || 0,
+      elapsedMs: p.roundElapsedMs,
+    }))
+    this.history.push({
+      roundIndex: this.roundIndex,
+      answer: { title: round.song.title, groupDisplayName: round.song.groupDisplayName },
+      results,
+    })
     this.emit('battle:round_reveal', {
       roundIndex: this.roundIndex,
       answer: {
@@ -187,23 +197,94 @@ export class Match {
         groupDisplayName: round.song.groupDisplayName,
         spotifyId: round.song.spotifyId,
       },
-      results: this.players.map((p) => ({
-        playerId: p.id,
-        displayName: p.displayName,
-        points: p.roundPoints || 0,
-        elapsedMs: p.roundElapsedMs,
-      })),
-      scores: this.players.map((p) => ({ playerId: p.id, displayName: p.displayName, score: p.score })),
+      results,
+      scores: this._scores(),
+    })
+    this._broadcast()
+    this._revealTimer = this.scheduler.setTimeout(() => this._advance(), this.revealDwellMs)
+  }
+
+  // Decide what happens after a reveal: next round, sudden-death, or finish.
+  _advance() {
+    this._revealTimer = null
+    if (this.roundIndex + 1 < this.matchRounds) {
+      this._startRound(this.roundIndex + 1)
+      return
+    }
+    const [p1, p2] = this.players
+    const inOvertime = this.roundIndex >= this.matchRounds
+    if (inOvertime) {
+      // A sudden-death round is decisive unless both scored the same.
+      const decisive = this.players.length < MAX_PLAYERS || p1.roundPoints !== p2.roundPoints
+      if (decisive) return this._finishMatch()
+    } else if (!(this.players.length === MAX_PLAYERS && p1.score === p2.score)) {
+      return this._finishMatch() // main rounds done and not tied
+    }
+    // Tied → play a spare round if one remains, else it's a draw.
+    if (this.roundIndex + 1 < this.rounds.length) this._startRound(this.roundIndex + 1)
+    else this._finishMatch()
+  }
+
+  _finishMatch() {
+    this.phase = PHASES.FINISHED
+    const [p1, p2] = this.players
+    let winnerId = null
+    if (this.players.length === MAX_PLAYERS) {
+      if (p1.score > p2.score) winnerId = p1.id
+      else if (p2.score > p1.score) winnerId = p2.id
+    } else if (this.players.length === 1) {
+      winnerId = this.players[0].id
+    }
+    this.emit('battle:match_over', {
+      winnerId,
+      draw: winnerId === null && this.players.length === MAX_PLAYERS,
+      scores: this._scores(),
+      rounds: this.history,
     })
     this._broadcast()
   }
 
-  // --- Lobby phase bookkeeping ---------------------------------------------
+  // --- Rematch --------------------------------------------------------------
+
+  /** Returns true once both finished players have opted into a rematch. */
+  requestRematch(id) {
+    if (this.phase !== PHASES.FINISHED) return false
+    const player = this.players.find((p) => p.id === id)
+    if (!player) return false
+    player.wantsRematch = true
+    this._broadcast()
+    return this.players.length === MAX_PLAYERS && this.players.every((p) => p.wantsRematch)
+  }
+
+  /** Reset with fresh songs and immediately start round 0 (both already opted in). */
+  startRematch(newRounds) {
+    this.rounds = newRounds
+    this.matchRounds = Math.min(MATCH_ROUNDS, newRounds.length)
+    this.history = []
+    this.roundIndex = -1
+    this.roundStartAt = null
+    for (const p of this.players) {
+      p.score = 0
+      p.ready = true
+      p.wantsRematch = false
+      p.roundAnswered = false
+      p.roundPoints = 0
+      p.roundElapsedMs = null
+    }
+    this.phase = PHASES.WAITING
+    this._startRound(0)
+  }
+
+  // --- Lobby bookkeeping ----------------------------------------------------
 
   _recomputeLobby() {
     if (this.phase === PHASES.WAITING || this.phase === PHASES.READY_CHECK) {
       this.phase = this.bothReady() && this.rounds.length === 0 ? PHASES.READY_CHECK : PHASES.WAITING
     }
+  }
+
+  _scores() {
+    return this.players.map((p) => ({ playerId: p.id, displayName: p.displayName, score: p.score }))
   }
 
   getState() {
@@ -212,13 +293,14 @@ export class Match {
       scope: this.scope,
       phase: this.phase,
       roundIndex: this.roundIndex,
-      totalRounds: this.rounds.length,
+      totalRounds: this.matchRounds,
       players: this.players.map((p) => ({
         id: p.id,
         displayName: p.displayName,
         connected: p.connected,
         ready: p.ready,
         score: p.score,
+        wantsRematch: !!p.wantsRematch,
       })),
     }
   }

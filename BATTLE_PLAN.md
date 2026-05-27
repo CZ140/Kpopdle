@@ -82,11 +82,13 @@ Separate the **match state machine from the transport**. `Match` takes an inject
 
 ---
 
-## Milestone 3 — Full 5-round match + resolution
-**Server:** `Match.js` loops 5 rounds with running score; sudden-death round on tie; `match_over { winner, scores, shareText }`; `rematch` (both must opt in; fresh songs).
-**Client:** `Scoreboard.jsx` between rounds; `ResultScreen.jsx` with winner, spoiler-free share string (reuse share utils), rematch button.
+## Milestone 3 — Full 5-round match + resolution ✅ BUILT (2026-05-27, pending browser test)
+**Built (server):** `Match` auto-advances through 5 scored rounds after a reveal dwell; winner = higher total; tie → sudden-death using pre-selected spare rounds (socket picks 7 = 5 + 2 spares), first decisive overtime round wins, spares exhausted → draw; `battle:match_over {winnerId, draw, scores, rounds[]}` with per-round history; `requestRematch`/`startRematch` (both opt in → fresh songs → restart).
+**Built (client):** BattlePage captures match_over + routes to ResultScreen on FINISHED; `ResultScreen.jsx` (winner/draw headline, final score, per-round breakdown, Rematch with waiting state, spoiler-free Share via copyToClipboard, New match); RoundView reveal shows "next round / tallying", sudden-death header label.
+**Verified (automated):** +4 Match resolution tests (full match→winner, tie→sudden-death decisive, draw when no spares, rematch reset+fresh songs) → 66 server tests; client 35; lint clean; build green.
+**PENDING:** browser test of a full 5-round match end-to-end — pacing/reveal dwell, winner screen, rematch, share, and a forced tie → sudden-death.
 
-**Done when:** a full match plays end-to-end to a correct winner, with working rematch and share. **FRs:** FR-10, FR-11, FR-12.
+**FRs:** FR-10, FR-11, FR-12.
 
 ---
 

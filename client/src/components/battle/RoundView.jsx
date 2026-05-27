@@ -33,6 +33,15 @@ export default function RoundView({ state, round, reveal, myId, liveResults, onG
     return () => clearInterval(t)
   }, [])
 
+  // Each new round mounts a fresh <audio> element (the reveal in between has
+  // none), so reset the auto-play guard or only round 1 would ever play.
+  useEffect(() => {
+    playedRef.current = false
+    // Intentional reset when the round's clip changes.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setNeedsTap(false)
+  }, [round?.clipToken])
+
   // Start playback the moment the synchronized clip start is reached.
   useEffect(() => {
     if (!round || reveal || playedRef.current) return
@@ -82,7 +91,9 @@ export default function RoundView({ state, round, reveal, myId, liveResults, onG
         </div>
 
         <Scoreboard scores={reveal.scores} myId={myId} />
-        <p className="text-xs text-white/30 mt-6">The full 5-round match + winner arrive in the next milestone.</p>
+        <p className="text-xs text-white/30 mt-6">
+          {reveal.roundIndex + 1 >= state.totalRounds ? 'Tallying the result…' : 'Next round starting…'}
+        </p>
       </div>
     )
   }
@@ -94,8 +105,8 @@ export default function RoundView({ state, round, reveal, myId, liveResults, onG
   return (
     <div>
       <div className="flex items-center justify-between mb-4">
-        <span className="text-xs font-bold uppercase tracking-wider text-white/30">
-          Round {round.roundIndex + 1} of {round.totalRounds}
+        <span className="text-xs font-bold uppercase tracking-wider text-[#EC4899]/70">
+          {round.suddenDeath ? 'Sudden death' : `Round ${round.roundIndex + 1} of ${round.totalRounds}`}
         </span>
         <OpponentStatus opponent={opponent} result={oppResult} />
       </div>
