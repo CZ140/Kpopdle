@@ -1,14 +1,23 @@
 import { useStats } from '../hooks/useStats'
 import { useAuth } from '../lib/AuthContext'
+import { useMaxGuesses } from '../lib/GroupContext'
 
 export default function StatsModal({ onClose }) {
   const { stats } = useStats()
   const { user } = useAuth()
+  const maxGuesses = useMaxGuesses()
   const winPct = stats.gamesPlayed > 0
     ? Math.round((stats.gamesWon / stats.gamesPlayed) * 100)
     : 0
 
-  const maxDistValue = Math.max(...Object.values(stats.guessDistribution), 1)
+  // Only show buckets up to this mode's attempt cap. The default stats object
+  // carries keys 1–6 for the daily games, but tighter modes (e.g. Guess the
+  // Group = 3) never fill buckets above their cap — so we'd otherwise render
+  // dead "4/5/6: 0" rows. Sort numerically so bucket order is stable.
+  const distEntries = Object.entries(stats.guessDistribution)
+    .filter(([guess]) => Number(guess) <= maxGuesses)
+    .sort(([a], [b]) => Number(a) - Number(b))
+  const maxDistValue = Math.max(...distEntries.map(([, count]) => count), 1)
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center modal-backdrop p-4" onClick={onClose}>
@@ -51,7 +60,7 @@ export default function StatsModal({ onClose }) {
         {/* Guess distribution */}
         <h3 className="text-[11px] font-bold text-white/40 mb-3 uppercase tracking-[0.15em]">Guess Distribution</h3>
         <div className="space-y-2">
-          {Object.entries(stats.guessDistribution).map(([guess, count]) => (
+          {distEntries.map(([guess, count]) => (
             <div key={guess} className="flex items-center gap-2.5">
               <span className="text-xs font-bold text-white/40 w-3 text-right">{guess}</span>
               <div className="flex-1 h-6 relative">
