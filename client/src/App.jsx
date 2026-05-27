@@ -9,6 +9,9 @@ import AccountPage from './pages/AccountPage'
 const AdminPage = lazy(() => import('./pages/AdminPage'))
 // Public stats page — lazy so it doesn't add to the game bundle.
 const StatsPage = lazy(() => import('./pages/StatsPage'))
+// Battle (real-time multiplayer) — lazy so socket.io-client stays out of the
+// daily-game bundle for the majority of players who never open it.
+const BattlePage = lazy(() => import('./pages/BattlePage'))
 
 function App() {
   return (
@@ -19,6 +22,9 @@ function App() {
         <Route path="/account" element={<AccountPage />} />
         <Route path="/stats" element={<Suspense fallback={null}><StatsPage /></Suspense>} />
         <Route path="/admin" element={<Suspense fallback={null}><AdminPage /></Suspense>} />
+        {/* Single splat route so create→room is a re-render, not a remount
+            (keeps the live socket listener attached across the transition). */}
+        <Route path="/battle/*" element={<Suspense fallback={null}><BattlePage /></Suspense>} />
         <Route path="/:group" element={<GroupPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

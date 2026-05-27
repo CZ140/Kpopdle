@@ -5,6 +5,7 @@ import { getMergedPool } from '../data/songIndex.js'
 import { getKSTDateString } from '../utils/dateUtils.js'
 import { getCommunityStats } from '../services/statsDb.js'
 import { captureError } from '../services/observability.js'
+import { isCorrectGuess } from '../utils/guessMatch.js'
 import { KPOPDLE_LAUNCH } from '../data/launch.js'
 import groups from '../data/groups.json' with { type: 'json' }
 
@@ -114,12 +115,7 @@ router.post('/game/guess', (req, res) => {
       return res.json({ correct: false, gameOver: true, song: songPayload })
     }
 
-    // Strip " (Group Name)" label suffix that the autocomplete appends
-    const raw = guess.trim()
-    const labelMatch = raw.match(/^(.+?)\s+\([^)]+\)$/)
-    const guessTitle = labelMatch ? labelMatch[1].trim() : raw
-
-    const isCorrect = guessTitle.toLowerCase() === song.title.toLowerCase()
+    const isCorrect = isCorrectGuess(guess, song.title)
     // Only reveal the song when the game is over — not on intermediate wrong guesses
     res.json({ correct: isCorrect, gameOver: isCorrect, ...(isCorrect && { song: songPayload }) })
   } catch (err) {

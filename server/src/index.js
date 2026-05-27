@@ -1,11 +1,13 @@
 import './instrument.js' // must be first — initialises Sentry before app code loads
 import 'dotenv/config'
 import express from 'express'
-import session from 'express-session'
+import { createServer } from 'http'
 import passport from 'passport'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
 import cors from './middleware/cors.js'
+import { sessionMiddleware } from './middleware/session.js'
+import { attachBattleSocket } from './realtime/socket.js'
 import { apiLimiter, authLimiter } from './middleware/rateLimit.js'
 import groupRoutes from './routes/groups.js'
 import gameRoutes from './routes/game.js'
@@ -14,13 +16,13 @@ import statsRoutes from './routes/stats.js'
 import kpopdleRoutes from './routes/kpopdle.js'
 import authRoutes from './routes/auth.js'
 import adminRoutes from './routes/admin.js'
+import battleRoutes from './routes/battle.js'
 import requestLog from './middleware/requestLog.js'
 import { setupSentryErrorHandler } from './instrument.js'
 import { logger, captureError } from './services/observability.js'
 import { pruneOldRequests } from './services/adminDb.js'
 import { getHealth, recordWarmResult } from './services/health.js'
 import { configurePassport } from './services/authDb.js'
-import { SqliteSessionStore } from './services/sessionStore.js'
 import { getTodaysSong, getKpopdleSongForDate } from './services/dailySong.js'
 import { getKSTDateString as getTodayKST } from './utils/dateUtils.js'
 import { getPreviewUrl } from './services/audioProvider.js'
@@ -74,19 +76,7 @@ app.get('/healthz', (req, res) => {
   res.status(health.healthy ? 200 : 503).json(health)
 })
 
-app.use(session({
-  store: new SqliteSessionStore(),
-  secret: process.env.SESSION_SECRET || 'dev-secret-change-in-production',
-  resave: false,
-  saveUninitialized: false,
-  rolling: true,
-  cookie: {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'lax',
-    maxAge: 365 * 24 * 60 * 60 * 1000,
-  },
-}))
+app.use(sessionMiddleware)
 
 app.use(passport.initialize())
 app.use(passport.session())
@@ -101,6 +91,7 @@ app.use('/api/admin', apiLimiter, adminRoutes)
 app.use('/api/groups', apiLimiter, groupRoutes)
 app.use('/api/stats', apiLimiter, statsRoutes)
 app.use('/api/kpopdle', apiLimiter, kpopdleRoutes)
+app.use('/api/battle', apiLimiter, battleRoutes)
 app.use('/api/:group/game', apiLimiter, gameRoutes)
 app.use('/api/:group/songs', apiLimiter, songRoutes)
 
@@ -120,7 +111,12 @@ if (process.env.NODE_ENV === 'production') {
 // SENTRY_DSN is set.
 setupSentryErrorHandler(app)
 
-app.listen(PORT, () => {
+// Wrapped in an explicit HTTP server so Socket.IO (Battle mode) can share the
+// same port. The shared session middleware is applied to socket handshakes too.
+const server = createServer(app)
+attachBattleSocket(server, sessionMiddleware)
+
+server.listen(PORT, () => {
   logger.info({ port: PORT }, `K-popdle server running on port ${PORT}`)
   warmCache()
   setInterval(warmCache, 20 * 60 * 1000)
