@@ -1,9 +1,8 @@
 import crypto from 'crypto'
 import { getSongsForGroup, getMergedPool } from '../data/songIndex.js'
 import { getKSTDateString, getGameNumber } from '../utils/dateUtils.js'
+import { KPOPDLE_LAUNCH } from '../data/launch.js'
 import { logger } from './observability.js'
-
-const KPOPDLE_LAUNCH = '2026-05-21'
 
 if (!process.env.DAILY_SONG_SECRET) {
   logger.warn('DAILY_SONG_SECRET is not set — using insecure default. Set this in production.')

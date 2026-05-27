@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useMemo } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { GroupContext } from '../lib/GroupContext'
 import { migrateStorageIfNeeded, loadDifficulty, saveDifficulty } from '../lib/storage'
-import { ALL_GROUP_IDS, GAME_NAMES, GROUP_META } from '../lib/constants'
+import { ALL_GROUP_IDS, GAME_NAMES, GROUP_META, LAUNCH_DATES } from '../lib/constants'
 import { getKSTDateString } from '../lib/dateUtils'
 import { useSound } from '../lib/SoundContext'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
@@ -25,17 +25,6 @@ const GROUP_GAME_COLORS = {
   kissoflife: { primary: '#F97316', secondary: '#EAB308' },
   ive:        { primary: '#7C3AED', secondary: '#F59E0B' },
   blackpink:  { primary: '#EC4899', secondary: '#DB2777' },
-}
-
-const GROUP_LAUNCH_DATES = {
-  twice:      '2026-02-20',
-  newjeans:   '2026-05-18',
-  lesserafim: '2026-05-18',
-  aespa:      '2026-05-18',
-  redvelvet:  '2026-05-18',
-  kissoflife: '2026-05-18',
-  ive:        '2026-05-18',
-  blackpink:  '2026-05-18',
 }
 
 function subtractDay(dateStr) {
@@ -96,7 +85,7 @@ export default function GroupPage() {
   }, [])
 
   // Compute these before any conditional return so hooks below always run
-  const launchDate = GROUP_LAUNCH_DATES[group] ?? '2099-01-01'
+  const launchDate = LAUNCH_DATES[group] ?? '2099-01-01'
   const today = getKSTDateString()
   const yesterday = subtractDay(today)
 

@@ -5,9 +5,8 @@ import { getMergedPool } from '../data/songIndex.js'
 import { getKSTDateString } from '../utils/dateUtils.js'
 import { getCommunityStats } from '../services/statsDb.js'
 import { captureError } from '../services/observability.js'
+import { KPOPDLE_LAUNCH } from '../data/launch.js'
 import groups from '../data/groups.json' with { type: 'json' }
-
-const KPOPDLE_LAUNCH = '2026-05-21'
 
 const router = Router()
 

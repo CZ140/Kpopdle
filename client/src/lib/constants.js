@@ -28,6 +28,22 @@ export const GAME_NAMES = {
 // Single source of truth for all group IDs — update here when adding a new group
 export const ALL_GROUP_IDS = Object.keys(GAME_NAMES)
 
+// Launch dates per game — single client-side source of truth (was duplicated
+// across GroupPage + KpopdlePage). Mirrors the server: per-group dates come from
+// groups.json `launchDate`, and `kpopdle` from server/src/data/launch.js.
+// scripts/validate-constants.js fails CI if these drift from the server.
+export const LAUNCH_DATES = {
+  twice:      '2026-02-20',
+  newjeans:   '2026-05-18',
+  lesserafim: '2026-05-18',
+  aespa:      '2026-05-18',
+  redvelvet:  '2026-05-18',
+  kissoflife: '2026-05-18',
+  ive:        '2026-05-18',
+  blackpink:  '2026-05-18',
+  kpopdle:    '2026-05-21',
+}
+
 // Display names + taglines for per-route SEO titles/descriptions (see useDocumentMeta).
 export const GROUP_META = {
   twice:      { displayName: 'TWICE',        tagline: 'Daily TWICE Song Quiz' },
