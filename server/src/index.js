@@ -56,7 +56,8 @@ app.use((req, res, next) => {
     "img-src 'self' https: data:",
     // Deezer preview audio — *.dzcdn.net covers all their CDN subdomains
     "media-src 'self' https://*.dzcdn.net",
-    "connect-src 'self'",
+    // Sentry sends error events to its ingest host (a different origin)
+    "connect-src 'self' https://*.ingest.us.sentry.io",
     "frame-ancestors 'none'",
   ].join('; '))
   next()
