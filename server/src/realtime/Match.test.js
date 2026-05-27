@@ -70,6 +70,12 @@ describe('MatchManager', () => {
     mgr.sweep()
     expect(mgr.get(match.id)).toBeUndefined()
   })
+
+  it('NFR-2: caps the number of concurrent matches', () => {
+    const mgr = new MatchManager()
+    for (let i = 0; i < 1000; i++) mgr.createMatch() // MAX_ACTIVE_MATCHES
+    expect(() => mgr.createMatch()).toThrow(/capacity|Too many/i)
+  })
 })
 
 describe('Match lobby', () => {

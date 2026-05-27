@@ -2,6 +2,7 @@ import { describe, it, expect, beforeAll, afterAll } from 'vitest'
 import { createServer } from 'http'
 import { io as ioc } from 'socket.io-client'
 import { attachBattleSocket } from './socket.js'
+import { matchManager } from './manager.js'
 
 // Drives the real Socket.IO adapter end-to-end with two clients — the M0 "done"
 // criterion: two players reach one room, see each other, and both readying up
@@ -85,6 +86,36 @@ describe('battle socket (integration)', () => {
       c.close()
     }
   })
+
+  it('a correct guess after the clip starts scores and (both correct) reveals the answer', async () => {
+    const a = connect()
+    const b = connect()
+    try {
+      const created = await emitAck(a, 'battle:create', { displayName: 'A', playerToken: 'tguess-a' })
+      await emitAck(b, 'battle:join', { matchId: created.matchId, displayName: 'B', playerToken: 'tguess-b' })
+
+      const roundStart = new Promise((resolve) => a.on('battle:round_start', resolve))
+      a.emit('battle:ready')
+      b.emit('battle:ready')
+      const rs = await roundStart
+
+      // The client never receives the answer — read it server-side to drive the test.
+      const answer = matchManager.get(created.matchId).rounds[rs.roundIndex].song.title
+
+      // Wait until the synchronized clip start, then both guess correctly.
+      await new Promise((r) => setTimeout(r, Math.max(0, rs.startAt - Date.now()) + 60))
+      const reveal = new Promise((resolve) => a.on('battle:round_reveal', resolve))
+      a.emit('battle:guess', { roundIndex: rs.roundIndex, guess: answer })
+      b.emit('battle:guess', { roundIndex: rs.roundIndex, guess: answer })
+      const rv = await reveal
+
+      expect(rv.answer.title).toBe(answer)
+      expect(rv.scores.every((s) => s.score > 0)).toBe(true)
+    } finally {
+      a.close()
+      b.close()
+    }
+  }, 10000)
 
   it('returns not_found for an unknown match id', async () => {
     const a = connect()

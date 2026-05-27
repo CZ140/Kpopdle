@@ -20,8 +20,36 @@ function resolvePlayerId(socket, playerToken) {
 
 function sanitizeName(name) {
   if (typeof name !== 'string') return 'Player'
-  const clean = name.replace(/\s+/g, ' ').trim().slice(0, MAX_NAME)
+  const clean = [...name]
+    .filter((ch) => { const c = ch.charCodeAt(0); return c >= 32 && c !== 127 }) // drop control chars (incl. DEL)
+    .join('')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, MAX_NAME)
   return clean || 'Player'
+}
+
+// Per-socket sliding-window rate limits — generous enough that normal play never
+// trips them; they only blunt abuse/spam (NFR-5). Returns true when over budget.
+const RATE_LIMITS = {
+  'battle:create': { limit: 5, windowMs: 60_000 },
+  'battle:join': { limit: 20, windowMs: 60_000 },
+  'battle:guess': { limit: 30, windowMs: 10_000 },
+  'battle:ready': { limit: 10, windowMs: 10_000 },
+  'battle:rematch': { limit: 10, windowMs: 60_000 },
+  'battle:time': { limit: 10, windowMs: 60_000 },
+}
+
+function rateLimited(socket, key) {
+  const cfg = RATE_LIMITS[key]
+  if (!cfg) return false
+  const now = Date.now()
+  const buckets = (socket.data.rl ??= {})
+  const hits = (buckets[key] ??= [])
+  while (hits.length && hits[0] <= now - cfg.windowMs) hits.shift()
+  if (hits.length >= cfg.limit) return true
+  hits.push(now)
+  return false
 }
 
 export function attachBattleSocket(server, sessionMiddleware) {
@@ -33,7 +61,15 @@ export function attachBattleSocket(server, sessionMiddleware) {
   // same logged-in session as the HTTP API.
   io.engine.use(sessionMiddleware)
 
-  matchManager.setEmitFactory((id) => (event, payload) => io.to(id).emit(event, payload))
+  matchManager.setEmitFactory((id) => (event, payload) => {
+    if (event === 'battle:match_over') {
+      logger.info(
+        { matchId: id, winnerId: payload.winnerId, forfeit: !!payload.forfeit, draw: !!payload.draw },
+        'battle match over',
+      )
+    }
+    io.to(id).emit(event, payload)
+  })
   matchManager.startGc()
 
   io.on('connection', (socket) => {
@@ -51,6 +87,11 @@ export function attachBattleSocket(server, sessionMiddleware) {
     const currentMatch = () => matchManager.get(socket.data.matchId)
 
     socket.on('battle:create', ({ scope, displayName, playerToken } = {}, ack) => {
+      if (rateLimited(socket, 'battle:create')) {
+        const error = { code: 'rate_limited', message: 'Slow down a moment.' }
+        socket.emit('battle:error', error)
+        return typeof ack === 'function' && ack({ error })
+      }
       const resolvedScope = scope || 'all'
       let rounds
       try {
@@ -61,13 +102,23 @@ export function attachBattleSocket(server, sessionMiddleware) {
         socket.emit('battle:error', error)
         return typeof ack === 'function' && ack({ error })
       }
-      const match = matchManager.createMatch({ scope: resolvedScope, rounds })
+      let match
+      try {
+        match = matchManager.createMatch({ scope: resolvedScope, rounds })
+      } catch (err) {
+        // Capacity guard (NFR-2) is expected under load; other errors aren't.
+        if (err.code !== 'capacity') captureError(err, { msg: 'battle create failed' })
+        const error = { code: err.code === 'capacity' ? 'busy' : 'create_failed', message: err.message }
+        socket.emit('battle:error', error)
+        return typeof ack === 'function' && ack({ error })
+      }
       const { playerId, state } = enterRoom(match, displayName, playerToken)
       logger.info({ matchId: match.id, scope: match.scope, rounds: rounds.length }, 'battle match created')
       if (typeof ack === 'function') ack({ matchId: match.id, playerId, state })
     })
 
     socket.on('battle:join', ({ matchId, displayName, playerToken } = {}, ack) => {
+      if (rateLimited(socket, 'battle:join')) return
       const match = matchManager.get(matchId)
       if (!match) {
         const error = { code: 'not_found', message: 'Match not found or expired.' }
@@ -85,6 +136,7 @@ export function attachBattleSocket(server, sessionMiddleware) {
     })
 
     socket.on('battle:ready', () => {
+      if (rateLimited(socket, 'battle:ready')) return
       const match = currentMatch()
       if (match && socket.data.playerId) match.setReady(socket.data.playerId)
     })
@@ -92,10 +144,12 @@ export function attachBattleSocket(server, sessionMiddleware) {
     // Clock sync: lets the client map the server's round startAt to local time
     // for the synchronized countdown (FR-5).
     socket.on('battle:time', (_payload, ack) => {
+      if (rateLimited(socket, 'battle:time')) return
       if (typeof ack === 'function') ack(Date.now())
     })
 
     socket.on('battle:guess', ({ roundIndex, guess } = {}) => {
+      if (rateLimited(socket, 'battle:guess')) return
       const match = currentMatch()
       if (!match || !socket.data.playerId) return
       if (typeof guess !== 'string' || guess.length > 300) return
@@ -104,6 +158,7 @@ export function attachBattleSocket(server, sessionMiddleware) {
     })
 
     socket.on('battle:rematch', () => {
+      if (rateLimited(socket, 'battle:rematch')) return
       const match = currentMatch()
       if (!match || !socket.data.playerId) return
       const bothIn = match.requestRematch(socket.data.playerId)

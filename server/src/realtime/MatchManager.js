@@ -1,5 +1,5 @@
 import crypto from 'crypto'
-import { Match } from './Match.js'
+import { Match, MatchError } from './Match.js'
 
 // In-memory registry of active matches. Single Railway instance today, so a Map
 // is enough; the surface (create/get/remove/sweep) is small enough to swap for a
@@ -8,6 +8,7 @@ import { Match } from './Match.js'
 const ROOM_TTL_MS = 10 * 60 * 1000 // idle rooms are reclaimed after 10 min
 const EMPTY_GRACE_MS = 30 * 1000 // rooms with everyone disconnected go sooner
 const GC_INTERVAL_MS = 60 * 1000
+const MAX_ACTIVE_MATCHES = 1000 // memory guard (NFR-2)
 
 export class MatchManager {
   constructor({ clock = Date.now, emitFactory = () => () => {} } = {}) {
@@ -26,6 +27,9 @@ export class MatchManager {
   }
 
   createMatch({ scope = 'all', rounds = [] } = {}) {
+    if (this.matches.size >= MAX_ACTIVE_MATCHES) {
+      throw new MatchError('capacity', 'Too many battles in progress right now.')
+    }
     // 16 random bytes = 128 bits, URL-safe and non-enumerable (FR-1).
     const id = crypto.randomBytes(16).toString('base64url')
     const match = new Match({ id, scope, rounds, clock: this.clock, emit: this.emitFactory(id) })

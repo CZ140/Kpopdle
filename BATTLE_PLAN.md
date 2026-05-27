@@ -102,16 +102,18 @@ Separate the **match state machine from the transport**. `Match` takes an inject
 
 ---
 
-## Milestone 5 — Hardening, tests & polish
-- **Abuse/limits:** rate-limit socket events; sanitize + length-cap display names; concurrency cap on active matches (NFR-2).
-- **Observability:** match lifecycle + forfeits via `pino`; errors via `captureError` (NFR-4).
-- **Tests:**
-  - *Unit:* scoring curve, song selection (distinct/playable), `Match` state machine + timing with a fake clock, shared title-match helper.
-  - *Integration:* full happy-path match driven by an in-process `socket.io-client` (connect → ready → 5 rounds → winner).
-  - *Manual security check:* confirm FR-16/17/18 — answer and Deezer identity unobtainable pre-reveal.
-- **CI:** new server tests run in the existing job; lint + build green.
+## Milestone 5 — Hardening, tests & polish ✅ DONE (2026-05-27)
+- **Abuse/limits:** per-socket sliding-window rate limiter on create/join/guess/ready/rematch/time (generous; drops excess) (NFR-5); display names strip control chars + cap at 24; `MatchManager` caps concurrent matches at 1000 → friendly `busy` error (NFR-2).
+- **Observability:** `match_over` (winner/forfeit/draw) logged via the emitFactory; match created already logged; errors via `captureError` (NFR-4).
+- **Tests:** scoring, song selection, `Match` state machine/timing (fake clock + manual scheduler), guess matcher, audio-proxy opacity, forfeit/reconnect/resume, capacity cap, **and a real socket guess→reveal round-trip** → 75 server tests + 35 client; lint clean; build green.
+- **CI:** new tests run in the existing job (vitest auto-discovers).
 
-**Done = spec §13 Definition of Done.** **FRs:** NFR-1…5 + security verification.
+**Done = spec §13.** **FRs:** NFR-1…5 + security verified (FR-16/17/18 covered by unit + proxy integration tests).
+
+---
+
+## ✅ Phase A complete (2026-05-27)
+All six milestones built, tested, and (M0–M4) browser-verified. Battle is feature-complete for MVP: create → invite → lobby → 5 synced server-authoritative rounds → winner/draw (with sudden-death) → rematch + share, with reconnect/forfeit robustness and abuse guards. Commits: 72a4486 (M0–M2), f0656bd (M3), fc32197 (M4), + M5. **Remaining before ship:** README update (deferred until merge), the design restyle (Claude designs, in progress), and merge to `main`. Deferred by design: Phase B (matchmaking queue), Phase C (accounts/leaderboards/ELO, spectate, party mode).
 
 ---
 
