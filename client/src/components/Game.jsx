@@ -13,7 +13,7 @@ import { useGroup } from '../lib/GroupContext'
 import { useAuth } from '../lib/AuthContext'
 import { useSound } from '../lib/SoundContext'
 
-export default function Game({ onStartPractice }) {
+export default function Game({ onStartPractice, challenge = null }) {
   const {
     gameDate,
     gameNumber,
@@ -241,9 +241,11 @@ export default function Game({ onStartPractice }) {
           revealedSong={revealedSong}
           guesses={guesses}
           gameNumber={gameNumber}
+          gameDate={gameDate}
           hintsUsed={hintsUsed}
           isArchive={isArchive}
           communityStats={communityStats}
+          challenge={challenge}
           onClose={() => setShowResult(false)}
         />
       )}
