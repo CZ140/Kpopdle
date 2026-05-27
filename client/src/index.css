@@ -452,3 +452,181 @@ input[type="range"]::-moz-range-thumb {
   box-shadow: 0 0 6px rgba(255,45,120,0.5);
   cursor: pointer;
 }
+
+/* ============================================================
+   ACCOUNT PAGE
+   Ported from the Claude Design account.html mockup. Shares the
+   homepage's ambient backdrop (.kp-*) and gradient family; these
+   classes carry the glassmorphic dashboard treatment so the JSX
+   stays data-driven.
+   ============================================================ */
+
+/* Shared specular hairline border (mask-composite ring) */
+.acct-specular::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.02) 60%, rgba(255,255,255,0.1) 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ----- Profile hero ----- */
+.acct-profile {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 32px;
+  padding: 40px;
+  border-radius: 28px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.14);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  position: relative;
+  overflow: hidden;
+}
+.acct-avatar-xl {
+  width: 96px; height: 96px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FF2D78 0%, #EC4899 30%, #A855F7 70%, #6366F1 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 36px; font-weight: 900; color: #fff;
+  box-shadow: 0 16px 48px rgba(168,85,247,0.35), 0 0 0 1px rgba(255,255,255,0.1) inset;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+/* ----- Combined stat tiles ----- */
+.acct-stats-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+.acct-stat {
+  padding: 22px 24px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+}
+.acct-stat .value { font-size: 38px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; margin: 0; }
+.acct-stat .value .unit { font-size: 16px; color: rgba(255,255,255,0.62); font-weight: 500; margin-left: 4px; }
+.acct-stat.hl .value {
+  background: linear-gradient(135deg, #FF2D78, #A855F7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ----- Panels (heatmap + distribution) ----- */
+.acct-panel {
+  padding: 28px;
+  border-radius: 24px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+}
+.acct-activity-row { display: grid; grid-template-columns: 1.4fr 1fr; gap: 16px; }
+
+/* Heatmap calendar */
+.acct-heatmap { display: grid; grid-template-columns: repeat(26, 1fr); gap: 3px; }
+.acct-heatmap span { aspect-ratio: 1; border-radius: 3px; background: rgba(255,255,255,0.05); }
+.acct-heatmap span[data-l="1"] { background: rgba(255,45,120,0.25); }
+.acct-heatmap span[data-l="2"] { background: rgba(255,45,120,0.5); }
+.acct-heatmap span[data-l="3"] { background: rgba(168,85,247,0.7); box-shadow: 0 0 6px rgba(168,85,247,0.4); }
+.acct-heatmap span[data-l="4"] { background: linear-gradient(135deg, #FF2D78, #A855F7); box-shadow: 0 0 8px rgba(255,45,120,0.5); }
+.acct-scale span { width: 10px; height: 10px; border-radius: 2px; background: rgba(255,255,255,0.05); display: inline-block; }
+.acct-scale span[data-l="1"] { background: rgba(255,45,120,0.25); }
+.acct-scale span[data-l="2"] { background: rgba(255,45,120,0.5); }
+.acct-scale span[data-l="3"] { background: rgba(168,85,247,0.7); }
+.acct-scale span[data-l="4"] { background: linear-gradient(135deg, #FF2D78, #A855F7); }
+
+/* Combined guess distribution */
+.acct-dist-row { display: grid; grid-template-columns: 18px 1fr 50px; align-items: center; gap: 12px; }
+.acct-dist-row .bar { height: 24px; background: rgba(255,255,255,0.04); border-radius: 6px; overflow: hidden; position: relative; }
+.acct-dist-row .fill {
+  height: 100%;
+  background: linear-gradient(90deg, #FF2D78, #A855F7);
+  border-radius: 6px;
+  box-shadow: 0 0 12px rgba(255,45,120,0.4);
+  display: flex; align-items: center; justify-content: flex-end;
+  padding-right: 10px;
+  font-size: 11px; font-weight: 600; color: #fff;
+  transition: width 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.acct-dist-row.miss .fill { background: rgba(255,255,255,0.12); box-shadow: none; }
+
+/* ----- Per-game cards ----- */
+.acct-games { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.acct-game-card {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 24px;
+  transition: transform 0.3s ease;
+  isolation: isolate;
+}
+.acct-game-card:hover { transform: translateY(-2px); }
+.acct-game-card .stripe { position: absolute; inset: 0; z-index: -1; opacity: 0.18; background: var(--game-gradient); }
+.acct-game-card .stripe::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 0%, rgba(13,13,20,0.7) 80%); }
+.acct-game-orb {
+  width: 44px; height: 44px;
+  border-radius: 14px;
+  background: var(--game-gradient);
+  box-shadow: 0 8px 20px var(--game-glow);
+  flex-shrink: 0; position: relative; overflow: hidden;
+}
+.acct-game-orb::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at top right, rgba(255,255,255,0.4), transparent 50%); }
+.acct-rank {
+  font-size: 10px; letter-spacing: 0.14em; color: rgba(255,255,255,0.38);
+  padding: 5px 10px; border: 1px solid rgba(255,255,255,0.14); border-radius: 999px;
+  background: rgba(0,0,0,0.2); text-transform: uppercase; white-space: nowrap;
+}
+.acct-rank.gold { color: #F59E0B; border-color: rgba(245,158,11,0.4); }
+.acct-rank.silver { color: #cbd5e1; border-color: rgba(203,213,225,0.3); }
+.acct-game-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.acct-gs { padding: 12px; border-radius: 12px; background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.06); }
+.acct-gs .gs-value { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
+.acct-gs .gs-value .pct { font-size: 12px; color: rgba(255,255,255,0.62); font-weight: 500; }
+
+/* Mini guess distribution */
+.acct-mini-dist { display: flex; align-items: stretch; gap: 5px; height: 72px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 12px; margin-top: 12px; }
+.acct-mini-dist .col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; height: 100%; }
+.acct-mini-dist .bar-wrap { flex: 1; width: 100%; display: flex; align-items: flex-end; justify-content: center; }
+.acct-mini-dist .bar { width: 100%; background: var(--game-gradient); border-radius: 3px 3px 0 0; min-height: 2px; box-shadow: 0 0 8px var(--game-glow); opacity: 0.85; }
+.acct-mini-dist .col.miss .bar { background: rgba(255,255,255,0.1); box-shadow: none; opacity: 1; }
+
+/* ----- Responsive ----- */
+@media (max-width: 1100px) {
+  .acct-stats-row { grid-template-columns: repeat(3, 1fr); }
+  .acct-activity-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 880px) {
+  .acct-games { grid-template-columns: 1fr; }
+  .acct-heatmap { grid-template-columns: repeat(20, 1fr); }
+}
+@media (max-width: 640px) {
+  .acct-profile { grid-template-columns: auto 1fr; padding: 24px; gap: 18px; }
+  .acct-profile-side { grid-column: 1 / -1; flex-direction: row !important; align-items: stretch !important; }
+  .acct-profile-side > * { flex: 1; text-align: center; }
+  .acct-stats-row { grid-template-columns: repeat(2, 1fr); }
+  .acct-stat .value { font-size: 28px; }
+  .acct-game-stats { grid-template-columns: repeat(2, 1fr); }
+  .acct-avatar-xl { width: 72px; height: 72px; font-size: 26px; }
+}
