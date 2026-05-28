@@ -9,6 +9,8 @@ dist/
 .playwright-mcp/
 PLAN_V2.md
 AUDIT_ACTION_PLAN.md
+BATTLE_PLAN.md
+BATTLE_SPEC.md
 *.db
 *.db-shm
 *.db-wal
