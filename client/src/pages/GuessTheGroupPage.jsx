@@ -1,17 +1,18 @@
 import { useState, useCallback, useMemo } from 'react'
 import { GroupContext } from '../lib/GroupContext'
-import { LAUNCH_DATES, GUESS_GROUP_MAX_GUESSES, GUESS_GROUP_GAME_NAME, DIFFICULTIES } from '../lib/constants'
+import { LAUNCH_DATES, GUESS_GROUP_MAX_GUESSES, GUESS_GROUP_GAME_NAME } from '../lib/constants'
 import { getKSTDateString } from '../lib/dateUtils'
 import { useSound } from '../lib/SoundContext'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
-import Game from '../components/Game'
+import GuessTheGroupGame from '../components/GuessTheGroupGame'
 import Header from '../components/Header'
 import ArchiveModal from '../components/ArchiveModal'
 
 const GTG_COLORS = { primary: '#22D3EE', secondary: '#A855F7' }
 const GTG_LAUNCH = LAUNCH_DATES['guess-the-group']
-// Progressive 3-stop ladder — the first three stops of the normal difficulty.
-const GTG_LADDER = DIFFICULTIES.normal.slice(0, GUESS_GROUP_MAX_GUESSES)
+// 3-stop ladder matching design brief 2: 1s → 3s → 6s. Each stop roughly
+// doubles, giving the player meaningfully more signal on each retry.
+const GTG_LADDER = [1, 3, 6]
 
 function subtractDay(dateStr) {
   const d = new Date(dateStr)
@@ -78,7 +79,7 @@ export default function GuessTheGroupPage() {
       >
         <Header onOpenArchive={() => setShowArchive(true)} />
         <main className="relative z-10 flex-1 flex flex-col items-center px-4 pb-24 sm:pb-8">
-          <Game key={archiveDate ?? 'today'} />
+          <GuessTheGroupGame key={archiveDate ?? 'today'} />
         </main>
 
         {prevDate !== null && (
