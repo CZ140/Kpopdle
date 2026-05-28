@@ -11,6 +11,7 @@ import Game from '../components/Game'
 import PracticeGame from '../components/PracticeGame'
 import Header from '../components/Header'
 import ModeToggle from '../components/ModeToggle'
+import ChallengeBanner from '../components/ChallengeBanner'
 import ArchiveModal from '../components/ArchiveModal'
 import DifficultyModal from '../components/DifficultyModal'
 
@@ -186,26 +187,14 @@ export default function GroupPage() {
         />
         <main className="relative z-10 flex-1 flex flex-col items-center px-4 pb-24 sm:pb-8">
           {!practiceMode && challenge && !bannerDismissed && (
-            <div className="w-full max-w-lg mx-auto mt-4 flex items-center gap-3 rounded-xl px-4 py-3" style={{ background: 'color-mix(in srgb, var(--color-primary) 10%, transparent)', border: '1px solid color-mix(in srgb, var(--color-primary) 25%, transparent)' }}>
-              <span className="text-lg" aria-hidden="true">🎯</span>
-              <div className="flex-1 text-sm">
-                <p className="font-bold text-white">
-                  {challenge.name ? `${challenge.name} challenged you!` : 'You were challenged!'}
-                </p>
-                <p className="text-white/50 text-xs">
-                  {gameName} · play this round, then see how you compare.
-                  {challengeFallback && ' (That date wasn’t available — here’s today’s.)'}
-                </p>
-              </div>
-              <button
-                onClick={() => setBannerDismissed(true)}
-                className="text-white/30 hover:text-white/60 transition-colors shrink-0"
-                aria-label="Dismiss challenge banner"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
-                  <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-              </button>
+            <div className="w-full mt-4 flex justify-center px-2">
+              <ChallengeBanner
+                challenge={challenge}
+                gameName={gameName ?? 'K-POPDLE'}
+                gameNumber={null}
+                fallbackNotice={challengeFallback}
+                onDismiss={() => setBannerDismissed(true)}
+              />
             </div>
           )}
           {!practiceMode && (

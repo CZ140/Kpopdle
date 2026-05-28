@@ -1,27 +1,31 @@
 import ShareButton from './ShareButton'
 import ChallengeButton from './ChallengeButton'
 import Countdown from './Countdown'
-import { challengeVerdict } from '../lib/share'
-import { MAX_GUESSES } from '../lib/constants'
-
-function scoreLabel(won, attempts) {
-  return won ? `${attempts}/${MAX_GUESSES}` : `X/${MAX_GUESSES}`
-}
+import VSCard from './VSCard'
 
 export default function ResultModal({ gameState, revealedSong, guesses, gameNumber, gameDate, hintsUsed = 0, isArchive = false, isPractice = false, communityStats = null, challenge = null, gameName, onPlayAgain, onClose }) {
   const won = gameState === 'won'
 
   // Head-to-head: this modal only renders once the game is over, so showing
   // the comparison here is inherently gated on game-over (FR-4). Skip for practice.
-  const you = { won, attempts: guesses.length }
+  const you = { won, attempts: guesses.length, guesses }
   const showCompare = challenge && !isPractice
-  const verdict = showCompare ? challengeVerdict(you, challenge) : null
-  const verdictText = verdict === 'you' ? 'You win!' : verdict === 'them' ? 'They win' : verdict === 'tie' ? 'It’s a tie' : null
+
+  // Game label used inside VSCard's header pill, e.g. "TWICEDLE · DAY #98".
+  const gameLabel = gameName
+    ? (gameNumber != null ? `${gameName} · DAY #${gameNumber}` : gameName)
+    : (gameNumber != null ? `DAY #${gameNumber}` : '')
+
+  // When a VS card is showing, widen the modal so the two sides + spine fit
+  // comfortably on desktop without squashing the song reveal above it.
+  const panelClass = showCompare
+    ? 'modal-panel rounded-2xl p-6 max-w-[720px] w-full'
+    : 'modal-panel rounded-2xl p-6 max-w-sm w-full'
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center modal-backdrop p-4" onClick={onClose}>
       <div
-        className="modal-panel rounded-2xl p-6 max-w-sm w-full"
+        className={panelClass}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex justify-end mb-2">
@@ -116,61 +120,65 @@ export default function ResultModal({ gameState, revealedSong, guesses, gameNumb
         )}
 
         {showCompare && (
-          <div className="rounded-xl px-4 py-4 mb-5" style={{ background: 'color-mix(in srgb, var(--color-primary) 8%, transparent)', border: '1px solid color-mix(in srgb, var(--color-primary) 20%, transparent)' }}>
-            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/30 text-center mb-3">Head to Head</p>
-            <div className="flex items-center justify-center gap-8">
-              <div className="text-center">
-                <p className="text-2xl font-black" style={{ color: verdict === 'you' ? 'var(--color-primary)' : 'rgba(255,255,255,0.85)' }}>{scoreLabel(you.won, you.attempts)}</p>
-                <p className="text-[10px] uppercase tracking-wider text-white/30 mt-0.5">You</p>
-              </div>
-              <span className="text-white/20 text-sm font-bold">vs</span>
-              <div className="text-center">
-                <p className="text-2xl font-black" style={{ color: verdict === 'them' ? 'var(--color-primary)' : 'rgba(255,255,255,0.85)' }}>{scoreLabel(challenge.won, challenge.attempts)}</p>
-                <p className="text-[10px] uppercase tracking-wider text-white/30 mt-0.5 truncate max-w-[7rem]">{challenge.name || 'Challenger'}</p>
-              </div>
-            </div>
-            <p className="text-center mt-3 text-sm font-bold text-gradient">{verdictText}</p>
+          <div className="mb-5">
+            <VSCard
+              you={you}
+              challenge={challenge}
+              gameLabel={gameLabel}
+              gameDate={gameDate}
+              hintsUsed={hintsUsed}
+            />
+            {isArchive && (
+              <p className="text-xs text-white/25 font-mono uppercase tracking-widest text-center mt-4">
+                Archive · Results not saved to stats
+              </p>
+            )}
+            {!isArchive && (
+              <div className="mt-4 flex justify-center"><Countdown /></div>
+            )}
           </div>
         )}
 
-        <div className="flex flex-col items-center gap-5">
-          {isPractice ? (
-            <button
-              onClick={onPlayAgain}
-              className="w-full py-3 rounded-xl text-sm font-bold text-white hover:opacity-90 transition-opacity"
-              style={{ background: 'linear-gradient(to right, var(--color-primary), var(--color-secondary))' }}
-            >
-              Play Another
-            </button>
-          ) : isArchive ? (
-            <>
-              {gameDate && (
-                <ChallengeButton
-                  gameDate={gameDate}
-                  guesses={guesses}
-                  won={won}
-                  hintsUsed={hintsUsed}
-                  label={showCompare ? 'Challenge back' : 'Challenge a friend'}
-                />
-              )}
-              <p className="text-xs text-white/25 font-mono uppercase tracking-widest">Archive · Results not saved to stats</p>
-            </>
-          ) : (
-            <>
-              <ShareButton gameNumber={gameNumber} guesses={guesses} won={won} hintsUsed={hintsUsed} gameName={gameName} />
-              {gameDate && (
-                <ChallengeButton
-                  gameDate={gameDate}
-                  guesses={guesses}
-                  won={won}
-                  hintsUsed={hintsUsed}
-                  label={showCompare ? 'Challenge back' : 'Challenge a friend'}
-                />
-              )}
-              <Countdown />
-            </>
-          )}
-        </div>
+        {!showCompare && (
+          <div className="flex flex-col items-center gap-5">
+            {isPractice ? (
+              <button
+                onClick={onPlayAgain}
+                className="w-full py-3 rounded-xl text-sm font-bold text-white hover:opacity-90 transition-opacity"
+                style={{ background: 'linear-gradient(to right, var(--color-primary), var(--color-secondary))' }}
+              >
+                Play Another
+              </button>
+            ) : isArchive ? (
+              <>
+                {gameDate && (
+                  <ChallengeButton
+                    gameDate={gameDate}
+                    guesses={guesses}
+                    won={won}
+                    hintsUsed={hintsUsed}
+                    label="Challenge a friend"
+                  />
+                )}
+                <p className="text-xs text-white/25 font-mono uppercase tracking-widest">Archive · Results not saved to stats</p>
+              </>
+            ) : (
+              <>
+                <ShareButton gameNumber={gameNumber} guesses={guesses} won={won} hintsUsed={hintsUsed} gameName={gameName} />
+                {gameDate && (
+                  <ChallengeButton
+                    gameDate={gameDate}
+                    guesses={guesses}
+                    won={won}
+                    hintsUsed={hintsUsed}
+                    label="Challenge a friend"
+                  />
+                )}
+                <Countdown />
+              </>
+            )}
+          </div>
+        )}
       </div>
     </div>
   )
