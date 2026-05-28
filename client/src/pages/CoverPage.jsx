@@ -136,8 +136,10 @@ export default function CoverPage() {
         className="min-h-screen flex flex-col bg-twice-dark bg-orbs"
         style={{ '--color-primary': colors.primary, '--color-secondary': colors.secondary }}
       >
-        {/* Difficulty has no effect in cover mode — pass a no-op so the header button is inert. */}
-        <Header onOpenArchive={() => setShowArchive(true)} onOpenDifficulty={() => {}} />
+        {/* No onOpenDifficulty — Coverdle's reveal ladder is fixed (the pixelation steps), so
+            the difficulty selector would lie about controlling anything. Header hides the button
+            when the prop is absent. */}
+        <Header onOpenArchive={() => setShowArchive(true)} />
         <main className="relative z-10 flex-1 flex flex-col items-center px-4 pb-24 sm:pb-8">
           {/* key fully remounts the round when switching archive dates */}
           <CoverGame key={archiveDate ?? 'today'} />
