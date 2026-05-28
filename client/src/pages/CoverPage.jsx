@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
-import { useParams, useNavigate, Link } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { GroupContext } from '../lib/GroupContext'
 import { migrateStorageIfNeeded, loadDifficulty } from '../lib/storage'
 import { ALL_GROUP_IDS, GROUP_META, LAUNCH_DATES } from '../lib/constants'
@@ -118,17 +118,6 @@ export default function CoverPage() {
         {/* Difficulty has no effect in cover mode — pass a no-op so the header button is inert. */}
         <Header onOpenArchive={() => setShowArchive(true)} onOpenDifficulty={() => {}} />
         <main className="relative z-10 flex-1 flex flex-col items-center px-4 pb-24 sm:pb-8">
-          <div className="w-full max-w-lg mx-auto pt-4 text-center">
-            <span className="inline-block text-[10px] font-bold uppercase tracking-[0.25em] px-3 py-1 rounded-full" style={{ color: 'var(--color-primary)', background: 'color-mix(in srgb, var(--color-primary) 10%, transparent)' }}>
-              Cover Mode
-            </span>
-            <p className="mt-2 text-xs text-white/30">
-              Guess the song from the blurred album cover.{' '}
-              <Link to={`/${group}`} className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
-                Play the audio game
-              </Link>
-            </p>
-          </div>
           {/* key fully remounts the round when switching archive dates */}
           <CoverGame key={archiveDate ?? 'today'} />
         </main>

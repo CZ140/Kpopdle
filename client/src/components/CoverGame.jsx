@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { useCoverGame } from '../hooks/useCoverGame'
 import { useStats } from '../hooks/useStats'
-import { GAME_STATES } from '../lib/constants'
+import { GAME_STATES, MAX_GUESSES, GROUP_META } from '../lib/constants'
 import { useDifficulty } from '../lib/GroupContext'
-import CoverReveal from './CoverReveal'
+import CoverReveal, { FocusIndicator } from './CoverReveal'
 import GuessList from './GuessList'
 import GuessInput from './GuessInput'
 import ResultModal from './ResultModal'
@@ -13,7 +14,8 @@ import { useAuth } from '../lib/AuthContext'
 import { useSound } from '../lib/SoundContext'
 
 // Coverdle round — reuses the daily game's 6-guess loop, GuessInput/GuessList and
-// ResultModal, but swaps the AudioPlayer for a progressively-revealed album cover.
+// ResultModal, but swaps the AudioPlayer for a progressively-pixelated album cover
+// inside a framed "cover stage" with a focus indicator (see design brief 1).
 export default function CoverGame() {
   const {
     gameDate,
@@ -38,6 +40,7 @@ export default function CoverGame() {
   const { user, login } = useAuth()
   const { playSound } = useSound()
   const gameOver = gameState !== GAME_STATES.PLAYING
+  const displayName = GROUP_META[group]?.displayName ?? group
   const [showLoginPrompt, setShowLoginPrompt] = useState(false)
   // Cover-mode streaks live under a `${group}-cover` key, separate from audio (FR-7).
   const { recordResult } = useStats(`${group}-cover`)
@@ -117,66 +120,109 @@ export default function CoverGame() {
   }
 
   return (
-    <div className="w-full max-w-lg mx-auto pt-8">
-      <CoverReveal
-        coverUrl={coverUrl}
-        currentGuessNumber={currentGuessNumber}
-        isGameOver={gameOver}
-      />
+    <div className="coverdle w-full max-w-[1000px] mx-auto pt-4">
+      {/* Mode header — COVERDLE identity + Cover/Audio toggle */}
+      <div className="cv-mode-head">
+        <div className="cv-mode-pill">Cover Mode</div>
+        <h1 className="cv-mode-title">COVERDLE</h1>
+        <div className="cv-mode-sub">
+          <span className="grp-dot" /> {displayName}
+          {gameNumber != null && (
+            <>
+              <span className="sep">·</span>
+              <span className="cv-mode-tag">#{gameNumber}</span>
+            </>
+          )}
+        </div>
+        <div className="cv-mode-toggle" role="tablist" aria-label="Game mode">
+          <button className="mtog active" role="tab" aria-selected="true" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="12" cy="12" r="3" />
+            </svg>
+            Cover
+          </button>
+          <Link to={`/${group}`} className="mtog" role="tab" aria-selected="false">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 18V5l12-2v13" /><circle cx="6" cy="18" r="3" /><circle cx="18" cy="16" r="3" />
+            </svg>
+            Audio
+          </Link>
+        </div>
+      </div>
 
-      {!gameOver && hints && (
-        <div className="mt-3 mb-1">
-          {hintsUsed > 0 && (
-            <div className="flex flex-col gap-1 mb-3">
-              {hintsUsed >= 1 && (
-                <p className="text-xs text-center text-white/50">
-                  💡 Era — <span className="text-white/70 font-medium">{hints.era}</span>
-                </p>
+      <div className="coverdle-layout">
+        {/* Left column — cover stage */}
+        <div className="cd-stage">
+          <CoverReveal
+            coverUrl={coverUrl}
+            currentGuessNumber={currentGuessNumber}
+            isGameOver={gameOver}
+            won={gameState === GAME_STATES.WON}
+          />
+          <FocusIndicator
+            currentGuessNumber={currentGuessNumber}
+            isGameOver={gameOver}
+            total={MAX_GUESSES}
+          />
+
+          {!gameOver && hints && (
+            <div className="cd-hint w-full">
+              {hintsUsed > 0 && (
+                <div className="flex flex-col gap-1 mb-3">
+                  {hintsUsed >= 1 && (
+                    <p className="text-xs text-center text-white/50">
+                      💡 Era — <span className="text-white/70 font-medium">{hints.era}</span>
+                    </p>
+                  )}
+                  {hintsUsed >= 2 && (
+                    <p className="text-xs text-center text-white/50">
+                      💡 Year — <span className="text-white/70 font-medium">{hints.year}</span>
+                    </p>
+                  )}
+                  {hintsUsed >= 3 && (
+                    <p className="text-xs text-center text-white/50">
+                      💡 Starts with — <span className="text-white/70 font-medium">&ldquo;{hints.firstLetter}&rdquo;</span>
+                    </p>
+                  )}
+                </div>
               )}
-              {hintsUsed >= 2 && (
-                <p className="text-xs text-center text-white/50">
-                  💡 Year — <span className="text-white/70 font-medium">{hints.year}</span>
-                </p>
-              )}
-              {hintsUsed >= 3 && (
-                <p className="text-xs text-center text-white/50">
-                  💡 Starts with — <span className="text-white/70 font-medium">&ldquo;{hints.firstLetter}&rdquo;</span>
-                </p>
+              {hintsUsed < 3 && (
+                <div className="text-center">
+                  <button
+                    onClick={revealHint}
+                    className="text-xs text-white/25 hover:text-white/50 transition-colors"
+                  >
+                    {hintsUsed === 0 ? '💡 Need a hint?' : `💡 Another hint? (${3 - hintsUsed} left)`}
+                  </button>
+                </div>
               )}
             </div>
           )}
-          {hintsUsed < 3 && (
-            <div className="text-center">
+        </div>
+
+        {/* Right column — gameplay */}
+        <div className="cd-play">
+          <GuessList guesses={guesses} />
+
+          <GuessInput
+            onGuess={makeGuess}
+            onSkip={skipGuess}
+            disabled={gameOver}
+          />
+
+          {gameOver && !showResult && (
+            <div className="mt-8 flex items-center justify-center gap-4">
               <button
-                onClick={revealHint}
-                className="text-xs text-white/25 hover:text-white/50 transition-colors"
+                onClick={() => setShowResult(true)}
+                className="text-sm font-semibold hover:opacity-80 transition-opacity"
+                style={{ background: 'linear-gradient(to right, var(--color-primary), var(--color-secondary))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}
               >
-                {hintsUsed === 0 ? '💡 Need a hint?' : `💡 Another hint? (${3 - hintsUsed} left)`}
+                View Results
               </button>
             </div>
           )}
         </div>
-      )}
-
-      <GuessList guesses={guesses} />
-
-      <GuessInput
-        onGuess={makeGuess}
-        onSkip={skipGuess}
-        disabled={gameOver}
-      />
-
-      {gameOver && !showResult && (
-        <div className="mt-8 flex items-center justify-center gap-4">
-          <button
-            onClick={() => setShowResult(true)}
-            className="text-sm font-semibold hover:opacity-80 transition-opacity"
-            style={{ background: 'linear-gradient(to right, var(--color-primary), var(--color-secondary))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}
-          >
-            View Results
-          </button>
-        </div>
-      )}
+      </div>
 
       {showLoginPrompt && (
         <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4 modal-backdrop" onClick={() => setShowLoginPrompt(false)}>
