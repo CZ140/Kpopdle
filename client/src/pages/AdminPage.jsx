@@ -155,9 +155,19 @@ export default function AdminPage() {
   const humanTotal = k.totalRequests - k.botRequests
 
   return (
-    <div className="min-h-screen flex flex-col bg-twice-dark bg-orbs">
-      {/* Header */}
-      <header className="relative z-10 flex items-center gap-3 px-5 py-4 border-b border-white/[0.06]">
+    <>
+      {/* Ambient backdrop — matches HomePage / Stats / Account dashboard family */}
+      <div className="kp-backdrop">
+        <div className="kp-grid-noise" />
+        <div className="kp-orb" style={{ width: 520, height: 520, background: 'radial-gradient(circle, #FF2D78 0%, transparent 65%)', top: -120, left: -120, opacity: 0.45 }} />
+        <div className="kp-orb" style={{ width: 560, height: 560, background: 'radial-gradient(circle, #A855F7 0%, transparent 65%)', top: '8%', right: -160, opacity: 0.45, animationDelay: '-7s' }} />
+        <div className="kp-orb" style={{ width: 420, height: 420, background: 'radial-gradient(circle, #06B6D4 0%, transparent 65%)', bottom: -120, left: '25%', opacity: 0.4, animationDelay: '-14s' }} />
+        <div className="kp-orb" style={{ width: 360, height: 360, background: 'radial-gradient(circle, #6366F1 0%, transparent 65%)', top: '50%', left: '45%', opacity: 0.3, animationDelay: '-18s' }} />
+      </div>
+
+      <div className="min-h-screen flex flex-col">
+        {/* Header */}
+        <header className="relative z-10 flex items-center gap-3 px-5 py-4 border-b border-white/[0.06]">
         <button onClick={() => navigate('/')} className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-white/[0.08] text-white/50" aria-label="Back">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M19 12H5M12 5l-7 7 7 7" /></svg>
         </button>
@@ -299,7 +309,8 @@ export default function AdminPage() {
           Updated {new Date(d.generatedAt * 1000).toLocaleTimeString()} · telemetry retained 90 days · IPs hashed, never stored
         </p>
       </main>
-    </div>
+      </div>
+    </>
   )
 }
 

@@ -87,18 +87,47 @@ export default function StatsPage() {
       </div>
 
       <div className="relative z-[1] max-w-[1080px] mx-auto px-4 sm:px-8 pt-6 sm:pt-10 pb-16 sm:pb-20">
-        {/* Top strip */}
-        <div className="flex items-center justify-between gap-2 mb-10 font-mono text-[11px] sm:text-[12px] text-white/40 uppercase tracking-[0.08em]">
-          <Link to="/" className="flex items-center gap-2 hover:text-white/70 transition-colors">← K-POPDLE</Link>
-          <span className="flex items-center gap-2"><span className="kp-live-dot" /> Community Stats</span>
+        {/* Top strip — matches HomePage / AccountPage pattern */}
+        <div className="flex items-center justify-between gap-2 mb-10 font-mono text-[11px] sm:text-[12px] text-white/38 uppercase tracking-[0.08em]">
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <span className="kp-live-dot" />
+            LIVE · COMMUNITY
+          </div>
+          <Link
+            to="/"
+            className="kp-pill inline-flex items-center gap-2 pl-2 pr-3 py-1.5 rounded-full text-white/62 hover:text-white hover:border-white/30 transition-colors"
+          >
+            <span className="w-[18px] h-[18px] rounded-full bg-white/[0.08] inline-flex items-center justify-center text-[11px]">←</span>
+            K-POPDLE
+          </Link>
         </div>
 
         {/* Header */}
         <header className="text-center mb-12">
-          <h1 className="font-black tracking-tight m-0 mb-3" style={{ fontSize: 'clamp(36px, 7vw, 64px)' }}>
+          <div className="kp-pill inline-flex items-center gap-2.5 px-4 py-2 rounded-full font-mono text-[11px] tracking-[0.14em] uppercase text-white/62 mb-6">
+            <span
+              className="inline-block w-1.5 h-1.5 rounded-full"
+              style={{
+                background: 'linear-gradient(135deg, #FF2D78, #A855F7)',
+                boxShadow: '0 0 10px rgba(255,45,120,0.8)',
+              }}
+            />
+            Updated live · across every group
+          </div>
+          <h1
+            className="font-black tracking-[-0.03em] leading-[0.95] m-0 mb-4"
+            style={{
+              fontSize: 'clamp(36px, 7vw, 64px)',
+              background: 'linear-gradient(135deg, #FF2D78 0%, #EC4899 30%, #A855F7 70%, #6366F1 100%)',
+              WebkitBackgroundClip: 'text',
+              backgroundClip: 'text',
+              color: 'transparent',
+              filter: 'drop-shadow(0 0 30px rgba(168,85,247,0.3))',
+            }}
+          >
             Community Stats
           </h1>
-          <p className="text-white/50 m-0" style={{ fontSize: 'clamp(14px, 1.5vw, 17px)' }}>
+          <p className="text-white/62 m-0" style={{ fontSize: 'clamp(14px, 1.5vw, 17px)' }}>
             How everyone&apos;s doing — across every group, updated live.
           </p>
         </header>

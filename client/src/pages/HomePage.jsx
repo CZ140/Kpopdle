@@ -134,18 +134,14 @@ export default function HomePage() {
             LIVE · DAY {getDayNumber()}
           </div>
           <div className="flex items-center gap-2.5 sm:gap-4">
-            <div
-              className="px-3 py-1.5 rounded-full border border-white/[0.14] text-white/62 text-[12px]"
-              style={{ background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(20px)' }}
-            >
+            <div className="kp-pill px-3 py-1.5 rounded-full text-white/62 text-[12px]">
               🔥 Streak <b className="text-[#FF2D78] font-bold">{bestStreak}</b>
             </div>
             <div className="hidden sm:block">{formatTopbarDate()}</div>
             {user ? (
               <button
                 onClick={() => { playSound('click'); navigate('/account') }}
-                className="flex items-center gap-2 px-2.5 py-1.5 rounded-full border border-white/[0.14] text-white/62 text-[12px] hover:border-white/30 transition-colors"
-                style={{ background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(20px)' }}
+                className="kp-pill flex items-center gap-2 px-2.5 py-1.5 rounded-full text-white/62 text-[12px] hover:border-white/30 transition-colors"
                 title={`Account — ${user.email}`}
               >
                 {user.avatarUrl ? (
@@ -160,8 +156,7 @@ export default function HomePage() {
             ) : user === null ? (
               <button
                 onClick={() => { playSound('click'); login() }}
-                className="px-3 py-1.5 rounded-full border border-white/[0.14] text-white/62 text-[12px] hover:border-white/30 hover:text-white/80 transition-colors"
-                style={{ background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(20px)' }}
+                className="kp-pill px-3 py-1.5 rounded-full text-white/62 text-[12px] hover:border-white/30 hover:text-white/80 transition-colors"
               >
                 Sign in
               </button>
@@ -171,10 +166,7 @@ export default function HomePage() {
 
         {/* Hero */}
         <header className="text-center mb-12 sm:mb-[72px]">
-          <div
-            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/[0.14] font-mono text-[11px] tracking-[0.14em] uppercase text-white/62 mb-8"
-            style={{ background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(20px)' }}
-          >
+          <div className="kp-pill inline-flex items-center gap-2.5 px-4 py-2 rounded-full font-mono text-[11px] tracking-[0.14em] uppercase text-white/62 mb-8">
             <span
               className="inline-block w-1.5 h-1.5 rounded-full"
               style={{
@@ -205,10 +197,7 @@ export default function HomePage() {
             Listen, guess, repeat.
           </p>
 
-          <div
-            className="mt-9 inline-flex items-center gap-4 px-[22px] py-[14px] rounded-2xl border border-white/[0.14] font-mono"
-            style={{ background: 'rgba(255,255,255,0.07)', backdropFilter: 'blur(24px) saturate(160%)' }}
-          >
+          <div className="kp-pill-strong mt-9 inline-flex items-center gap-4 px-[22px] py-[14px] rounded-2xl font-mono">
             <span className="text-[11px] uppercase tracking-[0.14em] text-white/38">Next drop in</span>
             <span className="text-[18px] font-semibold text-white tracking-[0.02em]">
               {countdown.h}<span className="text-white/38 font-normal mx-0.5">h</span>{' '}
