@@ -4,6 +4,9 @@ import { getBattleSocket, getPlayerToken, getSavedName, saveName } from '../lib/
 import { syncServerTime } from '../lib/serverTime'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
 import { ALL_GROUP_IDS, GROUP_META } from '../lib/constants'
+import { loadStats } from '../lib/storage'
+import { useAuth } from '../lib/AuthContext'
+import { useSound } from '../lib/SoundContext'
 import { nameInitials } from '../lib/initials'
 import Lobby from '../components/battle/Lobby'
 import RoundView from '../components/battle/RoundView'
@@ -149,9 +152,13 @@ export default function BattlePage() {
       </div>
       <div className="btl-line" />
 
-      <div className={`relative z-10 w-full ${wide ? 'max-w-3xl' : 'max-w-xl'} flex items-center justify-between mb-6 sm:mb-8`}>
+      <div className={`relative z-10 w-full ${wide ? 'max-w-3xl' : 'max-w-xl'} flex items-center justify-between gap-2 mb-6 sm:mb-8`}>
         <Link to="/" className="btl-back">← K-POPDLE</Link>
-        <span className="btl-chip"><span className="live-dot" />BATTLE</span>
+        <div className="flex items-center gap-1.5 sm:gap-2.5">
+          <StreakPill />
+          <AccountPill />
+          <span className="btl-chip"><span className="live-dot" />BATTLE</span>
+        </div>
       </div>
       <div className={`relative z-10 w-full ${wide ? 'max-w-3xl' : 'max-w-xl'} flex flex-col gap-5`}>{children}</div>
     </div>
@@ -344,5 +351,62 @@ function NameInput({ value, onChange, onSubmit }) {
       onKeyDown={(e) => e.key === 'Enter' && onSubmit()}
       className="w-full px-4 py-3.5 rounded-xl bg-white/[0.05] border border-white/[0.14] text-white placeholder-white/25 focus:outline-none focus:border-[#EC4899]/60 transition-colors"
     />
+  )
+}
+
+// Top-strip pills, ported from HomePage's top strip so Battle picks up the
+// same identity (streak + account) every other page shows. `bestStreak` is the
+// max of any single-group current streak — Battle isn't tied to one group, and
+// this matches what HomePage displays.
+function StreakPill() {
+  const bestStreak = ALL_GROUP_IDS.reduce(
+    (max, id) => Math.max(max, loadStats(id).currentStreak),
+    0,
+  )
+  return (
+    <div
+      className="kp-pill flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full text-white/62 text-[11px] sm:text-[12px] font-mono uppercase tracking-[0.08em]"
+      title={`Best current streak across all groups: ${bestStreak}`}
+    >
+      <span aria-hidden="true">🔥</span>
+      {/* Hide the "Streak" word on mobile to save horizontal room next to the BATTLE chip */}
+      <span className="hidden sm:inline">Streak</span>
+      <b className="font-bold text-[#FF2D78] tabular-nums">{bestStreak}</b>
+    </div>
+  )
+}
+
+function AccountPill() {
+  const navigate = useNavigate()
+  const { user, login } = useAuth()
+  const { playSound } = useSound()
+  // `user === undefined` is still-loading — render nothing so the strip doesn't
+  // flicker a Sign-in button that immediately swaps to an avatar.
+  if (user === undefined) return null
+  if (user) {
+    return (
+      <button
+        onClick={() => { playSound('click'); navigate('/account') }}
+        className="kp-pill flex items-center gap-2 px-2 sm:px-2.5 py-1.5 rounded-full text-white/62 text-[11px] sm:text-[12px] hover:border-white/30 transition-colors"
+        title={`Account — ${user.email}`}
+      >
+        {user.avatarUrl ? (
+          <img src={user.avatarUrl} alt={user.displayName} className="w-4 h-4 rounded-full" referrerPolicy="no-referrer" />
+        ) : (
+          <span className="w-4 h-4 rounded-full bg-white/20 flex items-center justify-center text-[9px] font-bold">
+            {user.displayName?.[0]?.toUpperCase() ?? '?'}
+          </span>
+        )}
+        <span className="hidden sm:inline max-w-[110px] truncate">{user.displayName}</span>
+      </button>
+    )
+  }
+  return (
+    <button
+      onClick={() => { playSound('click'); login() }}
+      className="kp-pill px-2.5 sm:px-3 py-1.5 rounded-full text-white/62 text-[11px] sm:text-[12px] hover:border-white/30 hover:text-white/80 transition-colors"
+    >
+      Sign in
+    </button>
   )
 }
