@@ -518,8 +518,8 @@ input[type="range"]::-moz-range-thumb {
 .coverdle .cv-mode-sub .sep { color: rgba(255,255,255,0.22); }
 .coverdle .cv-mode-tag { color: rgba(255,255,255,0.38); font-weight: 400; }
 
-/* Cover / Audio toggle */
-.coverdle .cv-mode-toggle {
+/* Cover / Audio toggle (shared by audio game + Coverdle — not scoped) */
+.cv-mode-toggle {
   display: inline-flex;
   padding: 4px;
   border-radius: 14px;
@@ -527,7 +527,7 @@ input[type="range"]::-moz-range-thumb {
   border: 1px solid rgba(255,255,255,0.14);
   backdrop-filter: blur(20px);
 }
-.coverdle .mtog {
+.mtog {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -545,8 +545,8 @@ input[type="range"]::-moz-range-thumb {
   text-decoration: none;
   transition: color .2s, background .2s, box-shadow .2s;
 }
-.coverdle .mtog:hover { color: #fff; }
-.coverdle .mtog.active {
+.mtog:hover { color: #fff; }
+.mtog.active {
   color: #fff;
   background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
   box-shadow:

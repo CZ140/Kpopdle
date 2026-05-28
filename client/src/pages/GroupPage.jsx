@@ -10,6 +10,7 @@ import { useDocumentMeta } from '../hooks/useDocumentMeta'
 import Game from '../components/Game'
 import PracticeGame from '../components/PracticeGame'
 import Header from '../components/Header'
+import ModeToggle from '../components/ModeToggle'
 import ArchiveModal from '../components/ArchiveModal'
 import DifficultyModal from '../components/DifficultyModal'
 
@@ -205,6 +206,11 @@ export default function GroupPage() {
                   <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
                 </svg>
               </button>
+            </div>
+          )}
+          {!practiceMode && (
+            <div className="w-full max-w-lg mx-auto mt-4 flex justify-center">
+              <ModeToggle group={group} current="audio" />
             </div>
           )}
           {practiceMode ? (
