@@ -2,8 +2,33 @@ import { Router } from 'express'
 import { matchManager } from '../realtime/manager.js'
 import { getPreviewUrl } from '../services/audioProvider.js'
 import { captureError } from '../services/observability.js'
+import { getPersonalStats } from '../services/battleStatsDb.js'
 
 const router = Router()
+
+// Mirror realtime/socket.js → resolvePlayerId() so the same player gets the
+// same key over HTTP as over the socket. Signed-in users win; anonymous play
+// is keyed by the client-persisted token (sent as `x-player-token`).
+function resolveStatsPlayerId(req) {
+  const userId = req.session?.passport?.user
+  if (userId) return `u:${userId}`
+  const token = req.get('x-player-token')
+  if (typeof token === 'string' && token.length >= 8 && token.length <= 64) return `p:${token}`
+  return null
+}
+
+// GET /api/battle/stats/me
+// Personal Battle stats for the caller. Returns 200 with zeroed stats (rather
+// than 404) for never-played players so the client renders a clean empty state.
+router.get('/stats/me', (req, res) => {
+  const playerId = resolveStatsPlayerId(req)
+  if (!playerId) {
+    // No identity at all — return an empty payload rather than 401 so the
+    // lobby strip can still render zeros without an auth flow.
+    return res.json({ playerId: null, ...getPersonalStats(null) })
+  }
+  return res.json({ playerId, ...getPersonalStats(playerId) })
+})
 
 // Resolve + buffer a round's clip once, shared across both players and across a
 // browser's range requests. The opaque clipToken is the only handle the client

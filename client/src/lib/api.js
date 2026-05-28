@@ -156,6 +156,16 @@ export async function triggerBackfill(days = 30) {
   return { ok: res.ok, ...data }
 }
 
+// Personal Battle stats — server resolves identity from session cookie OR the
+// `x-player-token` header so anonymous play is attributed to the device.
+export async function fetchBattleStats(playerToken) {
+  const headers = {}
+  if (playerToken) headers['x-player-token'] = playerToken
+  const res = await fetch(`${API_BASE}/battle/stats/me`, { credentials: 'include', headers })
+  if (!res.ok) throw new Error('Failed to fetch battle stats')
+  return res.json()
+}
+
 export async function submitPracticeGuess(group, practiceSongId, guess) {
   const res = await fetch(`${API_BASE}/${group}/game/guess`, {
     method: 'POST',
