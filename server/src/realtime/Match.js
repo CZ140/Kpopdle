@@ -355,6 +355,9 @@ export class Match {
     this.roundStartAt = null
     this._lastReveal = null
     this._lastMatchOver = null
+    // The previous segment was persisted on its own match_over; allow the next
+    // segment's match_over to record a fresh row pair (see socket.js).
+    this._recorded = false
     for (const p of this.players) {
       p.score = 0
       p.ready = true

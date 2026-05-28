@@ -4,16 +4,14 @@ import { fetchGroups, fetchStatsSummary, fetchSongDifficulty } from '../lib/api'
 import { GAME_NAMES } from '../lib/constants'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
 
-// Small glass stat card.
-function Kpi({ label, value, sub }) {
+// Glass stat card — reuses the account page's .acct-stat tile so KPIs across
+// dashboard pages share the same specular border + typography.
+function Kpi({ label, value, sub, hl = false }) {
   return (
-    <div
-      className="flex-1 min-w-[140px] rounded-2xl border border-white/[0.12] px-5 py-4"
-      style={{ background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(20px)' }}
-    >
-      <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-white/40 mb-1.5">{label}</div>
-      <div className="text-3xl font-black tracking-tight text-white leading-none">{value}</div>
-      {sub && <div className="font-mono text-[11px] text-white/40 mt-1.5">{sub}</div>}
+    <div className={`acct-stat acct-specular flex-1 min-w-[180px]${hl ? ' hl' : ''}`}>
+      <p className="font-mono text-[10px] tracking-[0.16em] uppercase text-white/38 m-0 mb-3">{label}</p>
+      <p className="value">{value}</p>
+      {sub && <p className="mt-2 text-[11px] text-white/38 font-mono">{sub}</p>}
     </div>
   )
 }
@@ -87,18 +85,47 @@ export default function StatsPage() {
       </div>
 
       <div className="relative z-[1] max-w-[1080px] mx-auto px-4 sm:px-8 pt-6 sm:pt-10 pb-16 sm:pb-20">
-        {/* Top strip */}
-        <div className="flex items-center justify-between gap-2 mb-10 font-mono text-[11px] sm:text-[12px] text-white/40 uppercase tracking-[0.08em]">
-          <Link to="/" className="flex items-center gap-2 hover:text-white/70 transition-colors">← K-POPDLE</Link>
-          <span className="flex items-center gap-2"><span className="kp-live-dot" /> Community Stats</span>
+        {/* Top strip — matches HomePage / AccountPage pattern */}
+        <div className="flex items-center justify-between gap-2 mb-10 font-mono text-[11px] sm:text-[12px] text-white/38 uppercase tracking-[0.08em]">
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <span className="kp-live-dot" />
+            LIVE · COMMUNITY
+          </div>
+          <Link
+            to="/"
+            className="kp-pill inline-flex items-center gap-2 pl-2 pr-3 py-1.5 rounded-full text-white/62 hover:text-white hover:border-white/30 transition-colors"
+          >
+            <span className="w-[18px] h-[18px] rounded-full bg-white/[0.08] inline-flex items-center justify-center text-[11px]">←</span>
+            K-POPDLE
+          </Link>
         </div>
 
         {/* Header */}
         <header className="text-center mb-12">
-          <h1 className="font-black tracking-tight m-0 mb-3" style={{ fontSize: 'clamp(36px, 7vw, 64px)' }}>
+          <div className="kp-pill inline-flex items-center gap-2.5 px-4 py-2 rounded-full font-mono text-[11px] tracking-[0.14em] uppercase text-white/62 mb-6">
+            <span
+              className="inline-block w-1.5 h-1.5 rounded-full"
+              style={{
+                background: 'linear-gradient(135deg, #FF2D78, #A855F7)',
+                boxShadow: '0 0 10px rgba(255,45,120,0.8)',
+              }}
+            />
+            Updated live · across every group
+          </div>
+          <h1
+            className="font-black tracking-[-0.03em] leading-[0.95] m-0 mb-4"
+            style={{
+              fontSize: 'clamp(36px, 7vw, 64px)',
+              background: 'linear-gradient(135deg, #FF2D78 0%, #EC4899 30%, #A855F7 70%, #6366F1 100%)',
+              WebkitBackgroundClip: 'text',
+              backgroundClip: 'text',
+              color: 'transparent',
+              filter: 'drop-shadow(0 0 30px rgba(168,85,247,0.3))',
+            }}
+          >
             Community Stats
           </h1>
-          <p className="text-white/50 m-0" style={{ fontSize: 'clamp(14px, 1.5vw, 17px)' }}>
+          <p className="text-white/62 m-0" style={{ fontSize: 'clamp(14px, 1.5vw, 17px)' }}>
             How everyone&apos;s doing — across every group, updated live.
           </p>
         </header>
@@ -117,22 +144,30 @@ export default function StatsPage() {
           </div>
         ) : (
           <>
-            {/* Overall KPIs */}
-            <div className="flex flex-wrap gap-3 mb-12">
-              <Kpi label="Games played" value={totalGames.toLocaleString()} sub="across all groups" />
+            {/* Overall KPIs — first tile highlighted to mirror the AccountPage hero stat */}
+            <div className="flex flex-wrap gap-4 mb-14">
+              <Kpi hl label="Games played" value={totalGames.toLocaleString()} sub="across all groups" />
               <Kpi label="Overall win rate" value={`${overallWinRate}%`} sub="players who guessed it" />
               <Kpi label="Active games" value={summary.length} sub="groups with plays" />
             </div>
 
             {/* Per-group leaderboard */}
             <section className="mb-14">
-              <h2 className="text-xl font-bold tracking-tight mb-5 px-1">Group leaderboard</h2>
+              <div className="hp-section-head mb-6">
+                <div>
+                  <div className="hp-section-eyebrow">01 · LEADERBOARD</div>
+                  <h2 className="hp-section-title">Group leaderboard</h2>
+                </div>
+                <div className="hp-section-meta">
+                  <span><b>{summary.length}</b> GROUPS</span>
+                  <span><b>{totalGames.toLocaleString()}</b> GAMES</span>
+                </div>
+              </div>
               <div className="space-y-2">
                 {summary.map((row, i) => (
                   <div
                     key={row.group_id}
-                    className="flex items-center gap-3 sm:gap-4 rounded-xl border border-white/[0.1] px-4 py-3.5"
-                    style={{ background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(16px)' }}
+                    className="kp-pill flex items-center gap-3 sm:gap-4 rounded-xl px-4 py-3.5"
                   >
                     <span className="font-mono text-[13px] text-white/30 w-5 text-right tabular-nums">{i + 1}</span>
                     <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: colorOf(row.group_id) }} />
@@ -164,12 +199,15 @@ export default function StatsPage() {
 
             {/* Hardest songs */}
             <section>
-              <div className="flex flex-wrap items-center justify-between gap-3 mb-5 px-1">
-                <h2 className="text-xl font-bold tracking-tight">Hardest songs</h2>
+              <div className="hp-section-head mb-6">
+                <div>
+                  <div className="hp-section-eyebrow">02 · DIFFICULTY</div>
+                  <h2 className="hp-section-title">Hardest songs</h2>
+                </div>
                 <select
                   value={selectedGroup ?? ''}
                   onChange={(e) => setSelectedGroup(e.target.value)}
-                  className="rounded-lg border border-white/[0.14] bg-white/[0.06] text-white/80 text-sm px-3 py-1.5 font-medium focus:outline-none focus:border-white/30"
+                  className="kp-pill rounded-full text-white/80 text-sm px-4 py-2 font-medium focus:outline-none focus:border-white/30 cursor-pointer"
                   aria-label="Choose a group"
                 >
                   {summary.map((row) => (
@@ -189,8 +227,7 @@ export default function StatsPage() {
                   {hardest.slice(0, 10).map((song, i) => (
                     <div
                       key={`${song.song_id}-${song.song_title}`}
-                      className="flex items-center gap-3 rounded-xl border border-white/[0.08] px-4 py-3"
-                      style={{ background: 'rgba(255,255,255,0.03)' }}
+                      className="flex items-center gap-3 rounded-xl border border-white/[0.08] bg-white/[0.025] px-4 py-3"
                     >
                       <span className="font-mono text-[13px] text-white/30 w-5 text-right tabular-nums">{i + 1}</span>
                       <span className="flex-1 min-w-0 text-white/85 text-sm font-medium truncate">{song.song_title}</span>
@@ -216,8 +253,18 @@ export default function StatsPage() {
           </>
         )}
 
-        <footer className="mt-16 pt-8 border-t border-white/[0.08] text-center font-mono text-[11px] uppercase tracking-[0.12em] text-white/38">
-          <Link to="/" className="hover:text-white/70 transition-colors">← Back to K-POPDLE</Link>
+        {/* Footer — mirrors HomePage. */}
+        <footer className="mt-16 sm:mt-20 pt-8 border-t border-white/[0.08] flex justify-between items-center flex-wrap gap-4 font-mono text-[11px] uppercase tracking-[0.12em] text-white/38">
+          <div className="flex items-center gap-2.5">
+            A new song every day at midnight KST <span className="kp-heart">♥</span>
+          </div>
+          <div>
+            Made by <a href="https://github.com/CZ140" target="_blank" rel="noopener noreferrer" className="text-white/62 border-b border-white/[0.08] hover:text-white/90 transition-colors">@CZ140</a>
+            {' · '}
+            <Link to="/" className="text-white/62 border-b border-white/[0.08] hover:text-[#FF2D78] transition-colors">
+              Home
+            </Link>
+          </div>
         </footer>
       </div>
     </>

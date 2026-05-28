@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { nameInitials } from '../../lib/initials'
+import BattleStatsStrip from './BattleStatsStrip'
 
 export default function Lobby({ state, myId, onReady }) {
   const [copied, setCopied] = useState(false)
@@ -30,6 +31,9 @@ export default function Lobby({ state, myId, onReady }) {
           {state.scope === 'all' ? 'ALL GROUPS' : (state.scope || '').toUpperCase()} · BEST OF 5
         </p>
       </div>
+
+      {/* Your record — hidden for first-time players (component returns null). */}
+      <BattleStatsStrip />
 
       {/* Invite */}
       <div>

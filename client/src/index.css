@@ -458,6 +458,24 @@ body {
   color: #FF2D78;
 }
 
+/* ─── Glass pill (used across dashboard top-strips, hero eyebrows, and small
+   inline chips on HomePage / AccountPage / StatsPage). Sets the surface only —
+   size / padding / radius / typography stay with the consuming element so
+   pills can be circular, rounded-2xl, full, etc. */
+.kp-pill {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.14);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+/* Stronger variant — used for the homepage "next drop in" countdown card. */
+.kp-pill-strong {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.14);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+}
+
 /* Responsive card grid */
 .kp-card-grid {
   display: grid;

@@ -2,6 +2,7 @@ import { Server } from 'socket.io'
 import { matchManager } from './manager.js'
 import { selectRounds } from './songSelection.js'
 import { logger, captureError } from '../services/observability.js'
+import { recordBattleMatch } from '../services/battleStatsDb.js'
 
 const MAX_NAME = 24
 const MATCH_PICKS = 7 // 5 scored rounds + up to 2 sudden-death spares for ties
@@ -67,6 +68,19 @@ export function attachBattleSocket(server, sessionMiddleware) {
         { matchId: id, winnerId: payload.winnerId, forfeit: !!payload.forfeit, draw: !!payload.draw },
         'battle match over',
       )
+      // Persist per-player stats. Guard with `_recorded` because a rematch
+      // reuses the same Match instance and we don't want to double-insert a
+      // segment if match_over were ever re-emitted before startRematch resets.
+      // (startRematch clears `_recorded` so the next segment records cleanly.)
+      const match = matchManager.get(id)
+      if (match && !match._recorded) {
+        match._recorded = true
+        try {
+          recordBattleMatch(match, payload)
+        } catch (err) {
+          captureError(err, { msg: 'battle stats record failed', matchId: id })
+        }
+      }
     }
     io.to(id).emit(event, payload)
   })

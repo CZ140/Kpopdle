@@ -6,6 +6,7 @@ import { loadStats } from '../lib/storage'
 import { fetchCloudStats } from '../lib/api'
 import { copyToClipboard } from '../lib/share'
 import { ALL_GROUP_IDS, GAME_NAMES } from '../lib/constants'
+import BattleStatsCard from '../components/account/BattleStatsCard'
 
 // Real group display names (the game names live in GAME_NAMES).
 const GROUP_LABELS = {
@@ -232,16 +233,12 @@ export default function AccountPage() {
           <div className="flex items-center gap-2.5 sm:gap-3.5">
             <button
               onClick={() => { playSound('click'); navigate('/') }}
-              className="inline-flex items-center gap-2 pl-2 pr-3 py-1.5 rounded-full border border-white/[0.14] text-white/62 hover:text-white hover:border-white/30 transition-colors"
-              style={{ background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(20px)' }}
+              className="kp-pill inline-flex items-center gap-2 pl-2 pr-3 py-1.5 rounded-full text-white/62 hover:text-white hover:border-white/30 transition-colors"
             >
               <span className="w-[18px] h-[18px] rounded-full bg-white/[0.08] inline-flex items-center justify-center text-[11px]">←</span>
               Back to games
             </button>
-            <div
-              className="px-3 py-1.5 rounded-full border border-white/[0.14] text-white/62"
-              style={{ background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(20px)' }}
-            >
+            <div className="kp-pill px-3 py-1.5 rounded-full text-white/62">
               🔥 Streak <b className="text-[#FF2D78] font-bold">{combined.curStreak}</b>
             </div>
           </div>
@@ -360,6 +357,11 @@ export default function AccountPage() {
             </button>
           </div>
         )}
+
+        {/* Battle stats — always rendered. The component handles its own
+            empty / loading / populated states, since a player may have battled
+            anonymously even with no daily games played. */}
+        <BattleStatsCard />
 
         {/* Account management — kept from the original page */}
         <div className="acct-panel acct-specular">

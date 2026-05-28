@@ -155,39 +155,92 @@ export default function AdminPage() {
   const humanTotal = k.totalRequests - k.botRequests
 
   return (
-    <div className="min-h-screen flex flex-col bg-twice-dark bg-orbs">
-      {/* Header */}
-      <header className="relative z-10 flex items-center gap-3 px-5 py-4 border-b border-white/[0.06]">
-        <button onClick={() => navigate('/')} className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-white/[0.08] text-white/50" aria-label="Back">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M19 12H5M12 5l-7 7 7 7" /></svg>
-        </button>
-        <h1 className="text-xl font-black tracking-wider" style={{ background: 'linear-gradient(135deg,#FF2D78,#A855F7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-          Analytics
-        </h1>
-        <span className="kp-live-dot ml-1" title="Live — refreshes every 30s" />
-        <div className="ml-auto flex items-center gap-2">
-          {backfill.msg && <span className="text-[11px] text-white/45 max-w-[180px] truncate" title={backfill.msg}>{backfill.msg}</span>}
+    <>
+      {/* Ambient backdrop — matches HomePage / Stats / Account dashboard family */}
+      <div className="kp-backdrop">
+        <div className="kp-grid-noise" />
+        <div className="kp-orb" style={{ width: 520, height: 520, background: 'radial-gradient(circle, #FF2D78 0%, transparent 65%)', top: -120, left: -120, opacity: 0.45 }} />
+        <div className="kp-orb" style={{ width: 560, height: 560, background: 'radial-gradient(circle, #A855F7 0%, transparent 65%)', top: '8%', right: -160, opacity: 0.45, animationDelay: '-7s' }} />
+        <div className="kp-orb" style={{ width: 420, height: 420, background: 'radial-gradient(circle, #06B6D4 0%, transparent 65%)', bottom: -120, left: '25%', opacity: 0.4, animationDelay: '-14s' }} />
+        <div className="kp-orb" style={{ width: 360, height: 360, background: 'radial-gradient(circle, #6366F1 0%, transparent 65%)', top: '50%', left: '45%', opacity: 0.3, animationDelay: '-18s' }} />
+      </div>
+
+      <div className="relative z-[1] w-full max-w-6xl mx-auto px-4 sm:px-8 pt-6 sm:pt-10 pb-16 sm:pb-20">
+        {/* Top strip — matches HomePage / Stats / Account dashboard family */}
+        <div className="flex items-center justify-between gap-2 mb-10 font-mono text-[11px] sm:text-[12px] text-white/38 uppercase tracking-[0.08em]">
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <span className="kp-live-dot" title="Live — refreshes every 30s" />
+            LIVE · ANALYTICS
+          </div>
+          <button
+            onClick={() => navigate('/')}
+            className="kp-pill inline-flex items-center gap-2 pl-2 pr-3 py-1.5 rounded-full text-white/62 hover:text-white hover:border-white/30 transition-colors"
+          >
+            <span className="w-[18px] h-[18px] rounded-full bg-white/[0.08] inline-flex items-center justify-center text-[11px]">←</span>
+            K-POPDLE
+          </button>
+        </div>
+
+        {/* Hero */}
+        <header className="text-center mb-10 sm:mb-12">
+          <div className="kp-pill inline-flex items-center gap-2.5 px-4 py-2 rounded-full font-mono text-[11px] tracking-[0.14em] uppercase text-white/62 mb-6">
+            <span
+              className="inline-block w-1.5 h-1.5 rounded-full"
+              style={{
+                background: 'linear-gradient(135deg, #FF2D78, #A855F7)',
+                boxShadow: '0 0 10px rgba(255,45,120,0.8)',
+              }}
+            />
+            Admin · refreshes every 30s
+          </div>
+          <h1
+            className="font-black tracking-[-0.03em] leading-[0.95] m-0 mb-4"
+            style={{
+              fontSize: 'clamp(36px, 7vw, 64px)',
+              background: 'linear-gradient(135deg, #FF2D78 0%, #EC4899 30%, #A855F7 70%, #6366F1 100%)',
+              WebkitBackgroundClip: 'text',
+              backgroundClip: 'text',
+              color: 'transparent',
+              filter: 'drop-shadow(0 0 30px rgba(168,85,247,0.3))',
+            }}
+          >
+            Analytics
+          </h1>
+          <p className="text-white/62 m-0" style={{ fontSize: 'clamp(14px, 1.5vw, 17px)' }}>
+            Traffic, errors, latency, and game activity — live from the edge.
+          </p>
+        </header>
+
+        {/* Controls — backfill + window range, styled as glass pills */}
+        <div className="flex flex-wrap items-center justify-end gap-3 mb-8">
+          {backfill.msg && (
+            <span className="font-mono text-[11px] text-white/45 max-w-[220px] truncate" title={backfill.msg}>{backfill.msg}</span>
+          )}
           <button
             onClick={doBackfill}
             disabled={backfill.running}
             title="Import historical traffic from Cloudflare into the dashboard"
-            className="px-3 py-1.5 rounded-lg text-xs font-bold text-white/60 border border-white/10 hover:bg-white/[0.06] hover:text-white/80 disabled:opacity-50 transition-all"
+            className="kp-pill px-4 py-2 rounded-full text-xs font-bold text-white/65 hover:text-white disabled:opacity-50 transition-colors"
           >
             {backfill.running ? 'Importing…' : '⟳ Backfill'}
           </button>
-          <div className="flex gap-1 bg-white/[0.04] rounded-xl p-1">
+          <div className="kp-pill inline-flex gap-1 rounded-full p-1">
             {RANGES.map(r => (
-              <button key={r.hours} onClick={() => setHours(r.hours)}
-                className="px-3 py-1.5 rounded-lg text-xs font-bold transition-all"
-                style={hours === r.hours ? { background: 'rgba(168,85,247,0.2)', color: '#C084FC' } : { color: 'rgba(255,255,255,0.4)' }}>
+              <button
+                key={r.hours}
+                onClick={() => setHours(r.hours)}
+                className="px-4 py-1.5 rounded-full text-xs font-bold transition-all"
+                style={hours === r.hours
+                  ? { background: 'linear-gradient(135deg,#FF2D78,#A855F7)', color: '#fff' }
+                  : { color: 'rgba(255,255,255,0.45)' }}
+              >
                 {r.label}
               </button>
             ))}
           </div>
         </div>
-      </header>
 
-      <main className="relative z-10 flex-1 w-full max-w-6xl mx-auto px-4 py-6 flex flex-col gap-5">
+        <main className="flex flex-col gap-5">
         {/* KPI cards */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
           <StatCard label="Requests" value={fmtNum(k.totalRequests)} sub={d.telemetrySince ? 'incl. Cloudflare backfill' : `${fmtNum(humanTotal)} human`} accent="#4ADE80" />
@@ -295,11 +348,19 @@ export default function AdminPage() {
           </div>
         </Section>
 
-        <p className="text-center text-[11px] text-white/25 py-4">
-          Updated {new Date(d.generatedAt * 1000).toLocaleTimeString()} · telemetry retained 90 days · IPs hashed, never stored
-        </p>
       </main>
-    </div>
+
+        {/* Footer — mirrors HomePage / Stats. */}
+        <footer className="mt-16 sm:mt-20 pt-8 border-t border-white/[0.08] flex justify-between items-center flex-wrap gap-4 font-mono text-[11px] uppercase tracking-[0.12em] text-white/38">
+          <div className="flex items-center gap-2.5">
+            Updated {new Date(d.generatedAt * 1000).toLocaleTimeString()} <span className="kp-heart">♥</span>
+          </div>
+          <div>
+            Telemetry retained 90 days · IPs hashed, never stored
+          </div>
+        </footer>
+      </div>
+    </>
   )
 }
 
