@@ -989,6 +989,13 @@ input[type="range"]::-moz-range-thumb {
   text-transform: uppercase;
   color: var(--ink-faint);
 }
+/* Volume sits below the snippet caption inside the console column.
+   Slim, color-themed, and visually paired with the timeline gradient. */
+.gtg .gtg-volume {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--hairline);
+}
 
 /* ── 3-orb attempts ── */
 .gtg .gtg-attempts {

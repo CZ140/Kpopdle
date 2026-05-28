@@ -6,6 +6,7 @@ import { GAME_STATES } from '../lib/constants'
 import { useSnippetLadder, useArchiveDate } from '../lib/GroupContext'
 import GuessInput from './GuessInput'
 import ResultModal from './ResultModal'
+import VolumeSlider from './VolumeSlider'
 import { recordGameResult, fetchCommunityStats, fetchGroups } from '../lib/api'
 import { useAuth } from '../lib/AuthContext'
 import { useSound } from '../lib/SoundContext'
@@ -15,7 +16,7 @@ import { useSound } from '../lib/SoundContext'
 const TOTAL_TRACK = 12
 
 // ─── Audio console (custom, design-aligned) ─────────────────────────────────
-function AudioConsole({ play, stop, isPlaying, currentDuration, durations, currentGuessNumber, totalAttempts }) {
+function AudioConsole({ play, stop, isPlaying, currentDuration, durations, currentGuessNumber, totalAttempts, volume, onVolumeChange }) {
   // The "unlocked" duration on the timeline shows what the *current* attempt
   // can hear (currentDuration), not the longest possible snippet.
   const unlocked = Math.min(currentDuration, TOTAL_TRACK)
@@ -62,6 +63,11 @@ function AudioConsole({ play, stop, isPlaying, currentDuration, durations, curre
         <div className="gtg-tl-cap">
           SNIPPET · TRY {Math.min(currentGuessNumber + 1, totalAttempts)} OF {totalAttempts}
         </div>
+        {onVolumeChange && (
+          <div className="gtg-volume">
+            <VolumeSlider volume={volume} onChange={onVolumeChange} />
+          </div>
+        )}
       </div>
     </div>
   )
@@ -191,7 +197,7 @@ export default function GuessTheGroupGame() {
   const gameOver = gameState !== GAME_STATES.PLAYING
   const totalAttempts = snippetLadder.length
 
-  const { play, stop, isPlaying, currentDuration, durations, setGuessNumber } = useAudioPlayer(previewUrl, snippetLadder, gameOver)
+  const { play, stop, isPlaying, currentDuration, durations, setGuessNumber, volume, changeVolume } = useAudioPlayer(previewUrl, snippetLadder, gameOver)
   const { recordResult } = useStats()
 
   const [showResult, setShowResult] = useState(false)
@@ -324,6 +330,8 @@ export default function GuessTheGroupGame() {
             durations={durations}
             currentGuessNumber={currentGuessNumber}
             totalAttempts={totalAttempts}
+            volume={volume}
+            onVolumeChange={changeVolume}
           />
           <AttemptsRow guesses={guesses} totalAttempts={totalAttempts} gameOver={gameOver} />
         </div>
