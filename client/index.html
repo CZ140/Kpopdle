@@ -6,7 +6,12 @@
     <meta name="theme-color" content="#FF2D78" />
     <meta name="description" content="Daily K-pop music guessing game — 8 groups, 509 songs. Listen to a clip and guess the song. New drop every day at midnight KST." />
     <meta name="keywords" content="kpopdle, k-popdle, kpop heardle, kpop song quiz, daily kpop game, guess the kpop song, twicedle, k-pop music quiz, heardle" />
-    <link rel="canonical" href="https://k-popdle.com/" />
+    <!-- No static canonical: a hardcoded `/` canonical made Google's URL
+         Inspection live test reject sub-routes (/kpopdle, /twice, …) as
+         duplicates of the homepage. `useDocumentMeta` injects the correct
+         per-route canonical once React mounts; Googlebot self-canonicalizes
+         to the requested URL during the pre-render pass and confirms via the
+         JS-injected tag during the rendered pass. -->
 
     <!-- Icons & PWA -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -16,7 +21,7 @@
     <!-- Open Graph — controls Discord / Slack / iMessage link previews -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="K-POPDLE" />
-    <meta property="og:url" content="https://k-popdle.com/" />
+    <!-- og:url is per-route — set by useDocumentMeta after mount. -->
     <meta property="og:title" content="K-POPDLE — Daily K-pop Music Quiz" />
     <meta property="og:description" content="Daily K-pop music guessing game — 8 groups, 509 songs. Listen to a clip and guess the song. New drop every day at midnight KST." />
     <!-- Served from the site itself (client/public/og-image.png), not hot-linked
