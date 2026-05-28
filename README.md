@@ -169,10 +169,12 @@ Runtime health is observable without a third-party log drain bolted on top:
 - **`GET /healthz`** — a liveness probe (Railway's healthcheck target) that returns `200` while the database is reachable, `503` if not. Audio/Deezer status is reported in the body but is deliberately **non-fatal**: a Deezer outage is external and can't be fixed by a restart, so it never triggers a restart loop. It's defined ahead of the telemetry middleware so health polls don't pollute the request log.
 
 ### Discoverability (SEO)
-The SPA is tuned for search and social sharing despite being client-rendered. `index.html` ships canonical, Open Graph, Twitter-card, and JSON-LD (`WebSite` + `VideoGame`) tags, an SVG favicon, and a web manifest. A `useDocumentMeta` hook rewrites the title, description, and canonical URL per route — so `/twice`, `/ive`, and every other group page is indexable and shareable on its own rather than sharing the homepage's metadata. A static `robots.txt` and `sitemap.xml` (homepage, cross-group challenge, and all 8 group routes) are served straight from the build output, ahead of the SPA catch-all.
+The SPA is tuned for search and social sharing despite being client-rendered. `index.html` ships Open Graph, Twitter-card, and JSON-LD (`WebSite` + `VideoGame`) tags, an SVG favicon, and a web manifest — but **no static canonical or `og:url`**, because hardcoding `/` as the canonical caused Google's URL Inspection live test to reject every sub-route as a duplicate of the homepage. Instead, a `useDocumentMeta` hook injects the per-route title, description, canonical URL, and `og:url` once React mounts; Googlebot self-canonicalizes to the requested URL on the pre-render pass and confirms via the JS-injected tag on the rendered pass. A static `robots.txt` and `sitemap.xml` (21 URLs — homepage, K-POPDLE, all 8 group dailies, all 8 Coverdle routes, Guess the Group, Battle, Stats) are served straight from the build output, ahead of the SPA catch-all.
+
+Because the game UI is mostly chrome + a guess grid, the rendered body text on each game route was ~100 chars — enough to trip Google's **Soft 404** classifier. A shared `<GameAboutSection>` component now ships ~1500 chars of per-route descriptive copy on every thin route, rendered inside a default-collapsed `<details>` disclosure. Users see a single slim row at the bottom of the page; Googlebot reads the full content from the initial HTML (accordion content is indexed regardless of open state — *not* the same as `display:none`-for-SEO cloaking, which the spam policies explicitly penalize).
 
 ### Multi-Group Architecture
-All routes are parameterised: `/api/:group/game/today`, `/api/:group/songs`, etc. A `validateGroup` middleware guards every route — inactive or unknown group IDs return 404, preventing catalog probing before a group launches.
+Per-group routes are parameterised: `/api/:group/game/today`, `/api/:group/songs`, `/api/:group/cover/today`, etc. A `validateGroup` middleware guards every per-group route — inactive or unknown group IDs return 404, preventing catalog probing before a group launches. Cross-group modes mount under their own route families (`/api/kpopdle/*`, `/api/guess-the-group/*`, `/api/battle/*`) which compose against a merged song pool built from all active groups.
 
 ### React Context for Shared State
 A single `GroupContext` carries the active `groupId`, `archiveDate`, `practiceMode`, and `difficulty`. All hooks (`useGame`, `useSongList`, `useStats`) read from this context — no prop drilling through the component tree.
@@ -204,25 +206,39 @@ A single `GroupContext` carries the active `groupId`, `archiveDate`, `practiceMo
 │
 ├── client/                        # React frontend (Vite)
 │   └── src/
-│       ├── components/            # AudioPlayer, GuessInput, ArchiveModal, ...
-│       │   └── admin/             # SVG chart primitives (charts.jsx, format.js)
-│       ├── hooks/                 # useGame, useSongList, useStats, useAudioPlayer
+│       ├── components/            # AudioPlayer, GuessInput, ArchiveModal,
+│       │   │                      #   GroupCard, ModeCard, ModeToggle, CoverGame,
+│       │   │                      #   GuessTheGroupGame, GameAboutSection, ...
+│       │   ├── admin/             # SVG chart primitives (charts.jsx, format.js)
+│       │   ├── account/           # Account dashboard widgets (multi-group stats)
+│       │   └── battle/            # Lobby, RoundView, ResultScreen
+│       ├── hooks/                 # useGame, useCoverGame, usePracticeGame, useSongList,
+│       │                          #   useStats, useAudioPlayer, useCountdown,
+│       │                          #   useDocumentMeta (per-route SEO meta injection)
 │       ├── lib/                   # api.js, storage.js, GroupContext.js, share.js,
-│       │                          #   stats.js (pure streak reducer), observability.js (Sentry)
-│       └── pages/                 # HomePage, GroupPage, AdminPage (lazy-loaded)
+│       │                          #   stats.js (pure streak reducer), observability.js (Sentry),
+│       │                          #   battleSocket.js (Socket.IO singleton + reconnect),
+│       │                          #   serverTime.js (round-countdown clock sync)
+│       └── pages/                 # HomePage, GroupPage, KpopdlePage, CoverPage,
+│                                  #   GuessTheGroupPage, BattlePage, AccountPage,
+│                                  #   StatsPage, AdminPage (all lazy-loaded)
 │
 └── server/                        # Express backend
-    ├── scripts/                   # backfillCloudflare.js (historical analytics import)
+    ├── scripts/                   # backfillCloudflare.js, backfillCovers.js
     └── src/
         ├── instrument.js          # Sentry init — imported first, before app code
         ├── data/
         │   ├── groups.json        # Group registry (8 groups, colors, launchDate)
         │   ├── launch.js          # K-POPDLE launch date (single source; mirrored client-side)
+        │   ├── songIndex.js       # Merged cross-group song pool (kpopdle + guess-the-group)
         │   ├── groups/{id}/
-        │   │   └── songs.json     # Per-group song catalog with Deezer IDs
+        │   │   └── songs.json     # Per-group song catalog with Deezer IDs + cover URLs
         │   └── stats.db           # SQLite analytics database (git-ignored)
         ├── middleware/            # validateGroup, cors, rateLimit, requestLog, requireAdmin
-        ├── routes/                # groups, game, songs, stats, admin
+        ├── routes/                # groups, game, songs, stats, admin, auth,
+        │                          #   kpopdle, cover, guessTheGroup, battle
+        ├── realtime/              # Battle: Match, MatchManager, scoring, songSelection,
+        │                          #   socket.js (Socket.IO server + auth)
         ├── services/              # dailySong, audioProvider, statsDb, adminDb,
         │                          #   cloudflareClient, backfill, health, observability
         └── utils/                 # dateUtils, cache, botPatterns
@@ -298,6 +314,7 @@ Every push and PR runs the same tests, build, lint, and both data validators via
 - [x] Phase 8 — User accounts (Google OAuth, cloud streak + stats sync, GDPR account deletion)
 - [x] Phase 9 — Battle (real-time 1v1, Socket.IO, server-authoritative scoring + audio proxy)
 - [x] Phase 10 — Guess the Group + Coverdle + Async Challenge + homepage Game Modes section
+- [x] Phase 11 — Design unification (dashboard vibe + Battle parity), Coverdle album-answer fix, SEO indexability (per-route canonical via `useDocumentMeta`, `<GameAboutSection>` for Soft-404 mitigation, expanded sitemap)
 
 ---
 
