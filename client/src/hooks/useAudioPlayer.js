@@ -1,16 +1,6 @@
 import { useState, useRef, useCallback, useEffect } from 'react'
 import { SNIPPET_DURATIONS } from '../lib/constants'
-
-const VOLUME_KEY = 'kpopdle-volume'
-
-function getSavedVolume() {
-  try {
-    const v = parseFloat(localStorage.getItem(VOLUME_KEY))
-    return isNaN(v) ? 0.8 : Math.min(1, Math.max(0, v))
-  } catch {
-    return 0.8
-  }
-}
+import { getSavedVolume, saveVolume } from '../lib/volume'
 
 export function useAudioPlayer(previewUrl, durations = SNIPPET_DURATIONS, isGameOver = false) {
   const audioRef = useRef(null)
@@ -43,10 +33,9 @@ export function useAudioPlayer(previewUrl, durations = SNIPPET_DURATIONS, isGame
   }, [previewUrl])
 
   const changeVolume = useCallback((newVolume) => {
-    const clamped = Math.min(1, Math.max(0, newVolume))
+    const clamped = saveVolume(newVolume)
     setVolume(clamped)
     if (audioRef.current) audioRef.current.volume = clamped
-    try { localStorage.setItem(VOLUME_KEY, String(clamped)) } catch {}
   }, [])
 
   const snippetDuration = durations[Math.min(currentGuess, durations.length - 1)]

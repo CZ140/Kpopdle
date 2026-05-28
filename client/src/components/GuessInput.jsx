@@ -142,13 +142,15 @@ export default function GuessInput({ onGuess, onSkip, disabled }) {
           )}
         </div>
 
-        <button
-          onClick={() => { playSound('skip'); onSkip() }}
-          disabled={disabled}
-          className="h-12 px-5 rounded-xl bg-white/[0.06] border border-white/[0.1] text-white/40 hover:text-white/70 hover:bg-white/[0.1] hover:border-white/[0.15] disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 text-sm font-semibold"
-        >
-          Skip
-        </button>
+        {onSkip && (
+          <button
+            onClick={() => { playSound('skip'); onSkip() }}
+            disabled={disabled}
+            className="h-12 px-5 rounded-xl bg-white/[0.06] border border-white/[0.1] text-white/40 hover:text-white/70 hover:bg-white/[0.1] hover:border-white/[0.15] disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 text-sm font-semibold"
+          >
+            Skip
+          </button>
+        )}
       </div>
 
       {error && (

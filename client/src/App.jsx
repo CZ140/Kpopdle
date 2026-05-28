@@ -13,6 +13,9 @@ const StatsPage = lazy(() => import('./pages/StatsPage'))
 const GuessTheGroupPage = lazy(() => import('./pages/GuessTheGroupPage'))
 // Coverdle (album-cover) mode — lazy, separate from the core game bundle.
 const CoverPage = lazy(() => import('./pages/CoverPage'))
+// Battle (real-time multiplayer) — lazy so socket.io-client stays out of the
+// daily-game bundle for the majority of players who never open it.
+const BattlePage = lazy(() => import('./pages/BattlePage'))
 
 function App() {
   return (
@@ -25,6 +28,9 @@ function App() {
         <Route path="/stats" element={<Suspense fallback={null}><StatsPage /></Suspense>} />
         <Route path="/admin" element={<Suspense fallback={null}><AdminPage /></Suspense>} />
         <Route path="/:group/cover" element={<Suspense fallback={null}><CoverPage /></Suspense>} />
+        {/* Single splat route so create→room is a re-render, not a remount
+            (keeps the live socket listener attached across the transition). */}
+        <Route path="/battle/*" element={<Suspense fallback={null}><BattlePage /></Suspense>} />
         <Route path="/:group" element={<GroupPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

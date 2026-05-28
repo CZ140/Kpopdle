@@ -218,7 +218,9 @@ export default function HomePage() {
           </div>
         </header>
 
-        {/* ── 01 · GAME MODES — discovery surface for all 5 play modes ── */}
+        {/* ── 01 · GAME MODES — discovery surface for all play modes.
+              Replaces main's standalone K-POPDLE + Battle banners — both
+              are now mode cards inside this single section. ── */}
         <section className="hp-modes mb-12 sm:mb-20">
           <div className="hp-section-head">
             <div>

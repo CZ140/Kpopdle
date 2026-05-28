@@ -81,6 +81,9 @@ Replay any past daily game. The same HMAC algorithm that picks today's song work
 ### 🌐 K-POPDLE — Cross-Group Daily Challenge
 A separate daily game at `/kpopdle` that draws from the full merged catalog of all 8 active groups. The song could be from any group — players must identify it without knowing which group it's from. The autocomplete labels each song with its group (e.g. `Black Mamba (aespa)`) for disambiguation, and the group is revealed in the result. Share output correctly labels results as `K-POPDLE #N M/6`. Archive mode is fully supported — replay any past K-POPDLE game from the archive button.
 
+### ⚔️ Battle — Real-Time 1v1
+A live multiplayer mode at `/battle` — two players, five synchronized rounds, race to guess the same 30-second clip. Speed-scored 5/4/3/2/1 by time bucket; higher total wins, ties resolve via sudden-death rounds. Anonymous: a display name and a persistent local `playerToken` are enough; no sign-in required. Built on **Socket.IO** sharing the existing Express session, with a server-authoritative state machine and a separate **audio proxy** (`/api/battle/:matchId/clip/:roundToken`) that streams Deezer clips behind opaque per-round tokens — so the answer's identity is unobtainable client-side before each reveal. Robust to dropped tabs: a 15-second reconnect grace covers a refresh or background tab; an explicit leave or grace expiry forfeits to the opponent. The UI uses a dual you-pink / foe-cyan identity over the same dark glassmorphic language as the rest of the site.
+
 ### 🔐 User Accounts
 Sign in with Google to sync your streaks, guess distributions, and game history across any device. Accounts are optional — the game is fully playable without signing in, with all stats kept in localStorage. On first login, existing localStorage stats are automatically imported to the cloud. After each daily game, stats are synced to the server so they're available on any device. A sign-in prompt appears once per browser session after your first completed game. Logged-in users see their Google avatar in the header and a "synced" indicator in the stats modal. Full GDPR account and data deletion available.
 
@@ -169,7 +172,7 @@ A single `GroupContext` carries the active `groupId`, `archiveDate`, `practiceMo
 | Layer | Tech |
 |---|---|
 | Frontend | React 19, React Router v7, Tailwind CSS v4, Vite 7 |
-| Backend | Node.js, Express |
+| Backend | Node.js, Express, Socket.IO (Battle realtime) |
 | Database | SQLite via `better-sqlite3` (analytics + user accounts) |
 | Auth | Google OAuth2 via Passport.js, server-side sessions |
 | Audio | Deezer Public API (free, no auth) |
