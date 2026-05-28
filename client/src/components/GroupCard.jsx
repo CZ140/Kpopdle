@@ -1,16 +1,34 @@
 import { useNavigate } from 'react-router-dom'
 
-// Per-mode completion pip — green when won, red on a loss, ghost when not yet
-// played. Renders an Audio + Cover pair on the group card so a Coverdle-only
-// solve is visible without misleading the audio "today's track" preview.
-function ModePip({ label, solved, won }) {
+// Mode icons — match the in-game <ModeToggle> so the visual language is
+// consistent (music-note = audio, framed-image = cover).
+const MODE_ICONS = {
+  audio: (
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M9 18V5l12-2v13" /><circle cx="6" cy="18" r="3" /><circle cx="18" cy="16" r="3" />
+    </svg>
+  ),
+  cover: (
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="12" cy="12" r="3" />
+    </svg>
+  ),
+}
+
+// Per-mode completion pip — green tick when won, red X when lost, the mode
+// icon when not yet played. Reads as "audio/cover today: solved / missed /
+// untouched" without needing a hover tooltip.
+function ModePip({ mode, label, solved, won }) {
   const state = !solved ? 'idle' : won ? 'won' : 'lost'
   return (
-    <span className={`gc-pip ${state}`} title={`${label} — ${state === 'idle' ? 'not played' : state === 'won' ? 'solved' : 'missed'}`}>
+    <span
+      className={`gc-pip ${state}`}
+      title={`${label} — ${state === 'idle' ? 'not played' : state === 'won' ? 'solved' : 'missed'}`}
+      aria-label={`${label} ${state === 'idle' ? 'not played today' : state === 'won' ? 'solved today' : 'missed today'}`}
+    >
       <span className="gc-pip-dot" aria-hidden="true">
-        {state === 'won' ? '✓' : state === 'lost' ? '✕' : '·'}
+        {state === 'won' ? '✓' : state === 'lost' ? '✕' : MODE_ICONS[mode]}
       </span>
-      <span className="gc-pip-label">{label}</span>
     </span>
   )
 }
@@ -71,8 +89,8 @@ export default function GroupCard({
           </span>
           {isActive && (
             <div className="gc-pips">
-              <ModePip label="A" solved={isSolved} won={isWon} />
-              <ModePip label="C" solved={coverSolved} won={coverWon} />
+              <ModePip mode="audio" label="Audio"   solved={isSolved}    won={isWon} />
+              <ModePip mode="cover" label="Coverdle" solved={coverSolved} won={coverWon} />
             </div>
           )}
         </div>

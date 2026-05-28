@@ -1,49 +1,17 @@
 // Landscape "pick what to play" card for the homepage Modes section
 // (design brief 4). Same kpop-card DNA (glass + frost + specular border +
 // hover bloom) but the action is the mode, not a group. Each mode has a
-// distinct visual centerpiece animated on hover.
+// distinct visual centerpiece.
 //
 // The mode catalogue (route actions, copy, palette) lives in `lib/modes.js`.
 
-import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 // Per-mode centerpiece. Pure CSS/SVG — no images, scales cleanly.
-function ModeVisual({ id, hovered }) {
-  if (id === 'daily') {
-    const bars = [0.4, 0.7, 0.5, 0.9, 0.3, 0.8, 0.6, 1.0, 0.45, 0.7, 0.55, 0.85, 0.4, 0.65, 0.5]
-    return (
-      <div className="mv mv-daily">
-        <div className="mv-bars">
-          {bars.map((h, i) => (
-            <span key={i} style={{
-              height: `${h * 100}%`,
-              animationDelay: `${i * 0.07}s`,
-              animationPlayState: hovered ? 'running' : 'paused',
-            }} />
-          ))}
-        </div>
-        <div className="mv-vinyl"><span /><span /><span /></div>
-      </div>
-    )
-  }
-  if (id === 'cover') {
-    return (
-      <div className="mv mv-cover">
-        <div className="mv-cover-frame">
-          <div className="mv-cover-art">
-            <div className="mvc-bg" />
-            <div className="mvc-sun" />
-            <div className="mvc-band" />
-            <div className="mvc-ground" />
-            <div className="mvc-pixelmask" />
-          </div>
-          <span className="mvc-corner tl" /><span className="mvc-corner tr" />
-          <span className="mvc-corner bl" /><span className="mvc-corner br" />
-        </div>
-      </div>
-    )
-  }
+// Only the modes actually in the catalogue need a visual here; Daily Song
+// and Coverdle were dropped from the section (they're reached via the group
+// grid below + in-game ModeToggle).
+function ModeVisual({ id }) {
   if (id === 'group') {
     const dots = [
       { p: '#FF2D78', s: '#A855F7', label: 'T' },
@@ -82,20 +50,26 @@ function ModeVisual({ id, hovered }) {
     )
   }
   if (id === 'battle') {
+    // Two anonymous silhouettes flanking a VS plate — semantically "two
+    // players square off," without committing to specific fake usernames.
     return (
       <div className="mv mv-battle">
         <div className="mb-side l">
-          <div className="mb-av" style={{ background: 'linear-gradient(135deg,#FF2D78,#A855F7)' }}>SJ</div>
+          <div className="mb-av" style={{ background: 'linear-gradient(135deg,#FF2D78,#A855F7)' }}>
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+              <circle cx="12" cy="8" r="4" />
+              <path d="M4 22a8 8 0 0 1 16 0Z" />
+            </svg>
+          </div>
         </div>
         <div className="mb-vs">VS</div>
         <div className="mb-side r">
-          <div className="mb-av" style={{ background: 'linear-gradient(135deg,#06B6D4,#6366F1)' }}>MK</div>
-        </div>
-        <div className="mb-lock" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <rect x="4" y="11" width="16" height="10" rx="2" />
-            <path d="M8 11V7a4 4 0 0 1 8 0v4" />
-          </svg>
+          <div className="mb-av" style={{ background: 'linear-gradient(135deg,#06B6D4,#6366F1)' }}>
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+              <circle cx="12" cy="8" r="4" />
+              <path d="M4 22a8 8 0 0 1 16 0Z" />
+            </svg>
+          </div>
         </div>
       </div>
     )
@@ -105,7 +79,6 @@ function ModeVisual({ id, hovered }) {
 
 export default function ModeCard({ mode }) {
   const navigate = useNavigate()
-  const [hovered, setHovered] = useState(false)
 
   function handleClick() {
     if (mode.locked || !mode.onClick) return
@@ -117,8 +90,6 @@ export default function ModeCard({ mode }) {
       type="button"
       className={`mode-card ${mode.locked ? 'locked' : ''}`}
       style={{ '--glow': mode.glow, '--mg': mode.gradient }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
       onClick={handleClick}
       aria-disabled={mode.locked || undefined}
       aria-label={`${mode.name} — ${mode.oneliner}`}
@@ -127,7 +98,7 @@ export default function ModeCard({ mode }) {
       <div className="mc-frost" />
       <div className="mc-body">
         <div className="mc-visual">
-          <ModeVisual id={mode.id} hovered={hovered} />
+          <ModeVisual id={mode.id} />
         </div>
         <div className="mc-info">
           <div className="mc-meta">{mode.meta}</div>
