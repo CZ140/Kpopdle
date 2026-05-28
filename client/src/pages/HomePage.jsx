@@ -82,18 +82,31 @@ export default function HomePage() {
   // Best current streak across all loaded groups
   const bestStreak = groups.reduce((max, g) => Math.max(max, loadStats(g.id).currentStreak), 0)
 
-  // Check solved state for each active group from localStorage
+  // Check per-mode solved state. Audio + Cover are independent dailies (Coverdle
+  // stores under `${group}-cover`), so the card surfaces both. `audio` carries
+  // the song reveal for the existing "today's track" preview; `cover` is a
+  // boolean pip — Coverdle has no song-name reveal on the card.
   function getSolvedState(groupId) {
-    const state = loadGameState(groupId, today)
-    if (!state || state.gameState === 'playing') return { isSolved: false, isWon: false, guessCount: 0, revealedSong: null }
+    const audio = loadGameState(groupId, today)
+    const cover = loadGameState(`${groupId}-cover`, today)
+    const audioDone = audio && audio.gameState !== 'playing'
+    const coverDone = cover && cover.gameState !== 'playing'
     return {
-      isSolved: true,
-      isWon: state.gameState === 'won',
-      guessCount: state.guesses?.length ?? 0,
-      revealedSong: state.revealedSong ?? null,
+      audio: {
+        isSolved: !!audioDone,
+        isWon: audioDone && audio.gameState === 'won',
+        guessCount: audio?.guesses?.length ?? 0,
+        revealedSong: audio?.revealedSong ?? null,
+      },
+      cover: {
+        isSolved: !!coverDone,
+        isWon: coverDone && cover.gameState === 'won',
+      },
     }
   }
 
+  // "N solved today" counts groups where the audio daily is solved — keeps the
+  // existing meter stable; cover completion shows on the per-card pips instead.
   const solvedCount = groups.filter((g) => {
     const s = loadGameState(g.id, today)
     return s && s.gameState !== 'playing'
@@ -240,15 +253,17 @@ export default function HomePage() {
           ) : (
             <div className="kp-card-grid">
               {groups.map((group) => {
-                const { isSolved, isWon, guessCount, revealedSong } = getSolvedState(group.id)
+                const state = getSolvedState(group.id)
                 return (
                   <GroupCard
                     key={group.id}
                     group={group}
-                    isSolved={isSolved}
-                    isWon={isWon}
-                    guessCount={guessCount}
-                    revealedSong={revealedSong}
+                    isSolved={state.audio.isSolved}
+                    isWon={state.audio.isWon}
+                    guessCount={state.audio.guessCount}
+                    revealedSong={state.audio.revealedSong}
+                    coverSolved={state.cover.isSolved}
+                    coverWon={state.cover.isWon}
                   />
                 )
               })}

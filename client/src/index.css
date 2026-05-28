@@ -325,6 +325,60 @@ body {
   );
 }
 
+/* Per-mode completion pips (Audio + Cover) on the group card top-right.
+   Replaces the old single status dot — `audio` and `cover` are independent
+   dailies, so the card surfaces both. */
+.gc-pips {
+  display: inline-flex;
+  gap: 4px;
+  z-index: 2;
+}
+.gc-pip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 7px 3px 4px;
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  background: rgba(0,0,0,0.32);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.55);
+  backdrop-filter: blur(8px);
+}
+.gc-pip-dot {
+  display: inline-grid; place-items: center;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  font-size: 9px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.5);
+}
+.gc-pip-label { letter-spacing: 0.08em; }
+.gc-pip.won {
+  background: rgba(34,197,94,0.18);
+  border-color: rgba(34,197,94,0.45);
+  color: #fff;
+}
+.gc-pip.won .gc-pip-dot {
+  background: #22c55e;
+  color: #052e16;
+  box-shadow: 0 0 8px rgba(34,197,94,0.55);
+}
+.gc-pip.lost {
+  background: rgba(239,68,68,0.18);
+  border-color: rgba(239,68,68,0.4);
+  color: #fff;
+}
+.gc-pip.lost .gc-pip-dot {
+  background: rgba(239,68,68,0.85);
+  color: #fff;
+  box-shadow: 0 0 8px rgba(239,68,68,0.45);
+}
+
 /* Card gradient layer */
 .kp-card-gradient {
   position: absolute;
@@ -552,6 +606,24 @@ input[type="range"]::-moz-range-thumb {
   box-shadow:
     0 6px 16px color-mix(in srgb, var(--color-primary) 35%, transparent),
     inset 0 1px 0 rgba(255,255,255,0.18);
+}
+/* Small "NEW" chip sitting inside an inactive .mtog button (e.g. Cover mode
+   while audio is active) — pops the new mode without screaming. */
+.mtog-badge {
+  margin-left: 2px;
+  padding: 1px 5px;
+  border-radius: 999px;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  background: linear-gradient(135deg, #fff, #f3f3ff);
+  color: #0d0d14;
+  box-shadow: 0 3px 8px rgba(255,255,255,0.18);
+}
+.mtog.active .mtog-badge {
+  background: rgba(255,255,255,0.22);
+  color: #fff;
+  box-shadow: none;
 }
 
 /* ----- responsive layout: 2 columns on desktop, single on mobile ----- */
@@ -1884,24 +1956,23 @@ input[type="range"]::-moz-range-thumb {
   letter-spacing: -0.005em;
 }
 
-/* ── modes grid: hero (daily) + 4 small in a 12-col layout ── */
+/* ── modes grid: K-POPDLE hero (spans 2 rows) + 2 stacked smalls on the right.
+   Stacks single-column on mobile. ── */
 .hp-modes-grid {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(5, auto);
+  grid-template-rows: repeat(3, auto);
   gap: 14px;
 }
 @media (min-width: 900px) {
   .hp-modes-grid {
-    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr;
     grid-template-rows: auto auto;
     gap: 18px;
   }
   .hp-modes-grid > .mode-card:nth-child(1) { grid-column: 1; grid-row: 1 / span 2; }
   .hp-modes-grid > .mode-card:nth-child(2) { grid-column: 2; grid-row: 1; }
-  .hp-modes-grid > .mode-card:nth-child(3) { grid-column: 3; grid-row: 1; }
-  .hp-modes-grid > .mode-card:nth-child(4) { grid-column: 2; grid-row: 2; }
-  .hp-modes-grid > .mode-card:nth-child(5) { grid-column: 3; grid-row: 2; }
+  .hp-modes-grid > .mode-card:nth-child(3) { grid-column: 2; grid-row: 2; }
 }
 
 /* ============================================================

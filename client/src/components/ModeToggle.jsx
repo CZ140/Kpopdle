@@ -16,12 +16,13 @@ const ICONS = {
   ),
 }
 
-function ModeItem({ group, mode, current, label }) {
+function ModeItem({ group, mode, current, label, badge }) {
   const active = current === mode
   if (active) {
     return (
       <button className="mtog active" role="tab" aria-selected="true" type="button">
         {ICONS[mode]} {label}
+        {badge && <span className="mtog-badge">{badge}</span>}
       </button>
     )
   }
@@ -29,6 +30,7 @@ function ModeItem({ group, mode, current, label }) {
   return (
     <Link to={to} className="mtog" role="tab" aria-selected="false">
       {ICONS[mode]} {label}
+      {badge && <span className="mtog-badge">{badge}</span>}
     </Link>
   )
 }
@@ -37,7 +39,7 @@ export default function ModeToggle({ group, current }) {
   return (
     <div className="cv-mode-toggle" role="tablist" aria-label="Game mode">
       <ModeItem group={group} mode="audio" current={current} label="Audio" />
-      <ModeItem group={group} mode="cover" current={current} label="Cover" />
+      <ModeItem group={group} mode="cover" current={current} label="Cover" badge="NEW" />
     </div>
   )
 }
