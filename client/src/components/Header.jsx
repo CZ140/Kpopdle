@@ -28,6 +28,7 @@ const GROUP_META = {
   ive:        { gameName: 'IVEDLE',     tagline: 'Daily IVE Song Quiz' },
   blackpink:  { gameName: 'BPINKDLE',   tagline: 'Daily BLACKPINK Song Quiz' },
   kpopdle:    { gameName: 'K-POPDLE',   tagline: 'All Groups · One Daily Song' },
+  'guess-the-group': { gameName: 'Guess the Group', tagline: 'Name the K-pop Group' },
 }
 
 export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty }) {
@@ -103,6 +104,7 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
             </button>
           ) : null}
 
+          {onOpenDifficulty && (
           <button
             onClick={() => { playSound('modal'); onOpenDifficulty() }}
             className="flex items-center justify-center gap-1.5 h-9 w-9 sm:w-auto px-0 sm:px-3.5 rounded-xl transition-all duration-200 font-mono text-[13px] font-bold uppercase tracking-wider flex-shrink-0"
@@ -127,6 +129,7 @@ export default function Header({ onOpenArchive, onExitPractice, onOpenDifficulty
               <polyline points="6 9 12 15 18 9" />
             </svg>
           </button>
+          )}
 
           {!practiceMode && !isArchive && currentStreak > 0 && (
             <div

@@ -1,6 +1,47 @@
 import { useNavigate } from 'react-router-dom'
 
-export default function GroupCard({ group, isSolved = false, isWon = false, guessCount = 0, revealedSong = null }) {
+// Mode icons — match the in-game <ModeToggle> so the visual language is
+// consistent (music-note = audio, framed-image = cover).
+const MODE_ICONS = {
+  audio: (
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M9 18V5l12-2v13" /><circle cx="6" cy="18" r="3" /><circle cx="18" cy="16" r="3" />
+    </svg>
+  ),
+  cover: (
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="12" cy="12" r="3" />
+    </svg>
+  ),
+}
+
+// Per-mode completion pip — green tick when won, red X when lost, the mode
+// icon when not yet played. Reads as "audio/cover today: solved / missed /
+// untouched" without needing a hover tooltip.
+function ModePip({ mode, label, solved, won }) {
+  const state = !solved ? 'idle' : won ? 'won' : 'lost'
+  return (
+    <span
+      className={`gc-pip ${state}`}
+      title={`${label} — ${state === 'idle' ? 'not played' : state === 'won' ? 'solved' : 'missed'}`}
+      aria-label={`${label} ${state === 'idle' ? 'not played today' : state === 'won' ? 'solved today' : 'missed today'}`}
+    >
+      <span className="gc-pip-dot" aria-hidden="true">
+        {state === 'won' ? '✓' : state === 'lost' ? '✕' : MODE_ICONS[mode]}
+      </span>
+    </span>
+  )
+}
+
+export default function GroupCard({
+  group,
+  isSolved = false,
+  isWon = false,
+  guessCount = 0,
+  revealedSong = null,
+  coverSolved = false,
+  coverWon = false,
+}) {
   const navigate = useNavigate()
   const isActive = group.active
 
@@ -41,27 +82,15 @@ export default function GroupCard({ group, isSolved = false, isWon = false, gues
         className="relative z-[1] flex flex-col justify-between h-full"
         style={{ padding: 22 }}
       >
-        {/* Top row */}
-        <div className="flex justify-between items-center">
+        {/* Top row — members on the left, per-mode pips on the right */}
+        <div className="flex justify-between items-center gap-2">
           <span className="font-mono text-[10px] tracking-[0.1em] text-white/60">
             {group.members} MEMBERS
           </span>
-          {/* Status indicator */}
-          {!isSolved ? (
-            <div className="w-6 h-6 rounded-full border-2 border-white/20" />
-          ) : isWon ? (
-            <div
-              className="w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-black text-green-950"
-              style={{ background: '#22c55e', boxShadow: '0 0 12px rgba(34,197,94,0.55)' }}
-            >
-              ✓
-            </div>
-          ) : (
-            <div
-              className="w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-black text-white"
-              style={{ background: 'rgba(239,68,68,0.85)', boxShadow: '0 0 12px rgba(239,68,68,0.45)' }}
-            >
-              ✕
+          {isActive && (
+            <div className="gc-pips">
+              <ModePip mode="audio" label="Audio"   solved={isSolved}    won={isWon} />
+              <ModePip mode="cover" label="Coverdle" solved={coverSolved} won={coverWon} />
             </div>
           )}
         </div>

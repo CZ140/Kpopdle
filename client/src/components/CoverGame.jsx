@@ -1,23 +1,26 @@
 import { useState, useEffect, useRef } from 'react'
-import { useGame } from '../hooks/useGame'
-import { useAudioPlayer } from '../hooks/useAudioPlayer'
+import { useCoverGame } from '../hooks/useCoverGame'
+import ModeToggle from './ModeToggle'
 import { useStats } from '../hooks/useStats'
-import { GAME_STATES, DIFFICULTIES } from '../lib/constants'
-import { useDifficulty, useSnippetLadder } from '../lib/GroupContext'
-import AudioPlayer from './AudioPlayer'
+import { GAME_STATES, MAX_GUESSES, GROUP_META } from '../lib/constants'
+import { useDifficulty } from '../lib/GroupContext'
+import CoverReveal, { FocusIndicator } from './CoverReveal'
 import GuessList from './GuessList'
 import GuessInput from './GuessInput'
 import ResultModal from './ResultModal'
-import { recordGameResult, fetchCommunityStats } from '../lib/api'
+import { recordGameResult, fetchCoverCommunityStats } from '../lib/api'
 import { useGroup } from '../lib/GroupContext'
 import { useAuth } from '../lib/AuthContext'
 import { useSound } from '../lib/SoundContext'
 
-export default function Game({ onStartPractice, challenge = null }) {
+// Coverdle round — reuses the daily game's 6-guess loop, GuessInput/GuessList and
+// ResultModal, but swaps the AudioPlayer for a progressively-pixelated album cover
+// inside a framed "cover stage" with a focus indicator (see design brief 1).
+export default function CoverGame() {
   const {
     gameDate,
     gameNumber,
-    previewUrl,
+    coverUrl,
     guesses,
     gameState,
     currentGuessNumber,
@@ -30,40 +33,22 @@ export default function Game({ onStartPractice, challenge = null }) {
     isArchive,
     makeGuess,
     skipGuess,
-  } = useGame()
+  } = useCoverGame()
 
   const group = useGroup()
   const difficulty = useDifficulty()
-  const snippetLadder = useSnippetLadder()
   const { user, login } = useAuth()
   const { playSound } = useSound()
   const gameOver = gameState !== GAME_STATES.PLAYING
+  const displayName = GROUP_META[group]?.displayName ?? group
   const [showLoginPrompt, setShowLoginPrompt] = useState(false)
-  // A per-mode snippet ladder (e.g. Guess the Group's 3-stop ladder) overrides
-  // the difficulty-based ladder when present.
-  const ladder = snippetLadder ?? DIFFICULTIES[difficulty]
-  const { play, stop, isPlaying, progress, currentDuration, maxDuration, durations, setGuessNumber, volume, changeVolume, hasAudio } = useAudioPlayer(previewUrl, ladder, gameOver)
-  const { recordResult } = useStats()
+  // Cover-mode streaks live under a `${group}-cover` key, separate from audio (FR-7).
+  const { recordResult } = useStats(`${group}-cover`)
 
   const [showResult, setShowResult] = useState(false)
   const [communityStats, setCommunityStats] = useState(null)
   const resultRecorded = useRef(false)
   const lastGuessCount = useRef(0)
-
-  // Build the ordered list of hints this mode actually exposes. The audio daily
-  // and Coverdle provide era/year/firstLetter; "Guess the Group" exposes only
-  // `year` (era/firstLetter would reveal the group). Driving the UI off this
-  // list keeps the hint counter accurate per mode.
-  const availableHints = [
-    hints?.era != null && { label: 'Era', value: hints.era },
-    hints?.year != null && { label: 'Year', value: hints.year },
-    hints?.firstLetter != null && { label: 'Starts with', value: `“${hints.firstLetter}”` },
-  ].filter(Boolean)
-  const totalHints = availableHints.length
-
-  useEffect(() => {
-    setGuessNumber(currentGuessNumber)
-  }, [currentGuessNumber, setGuessNumber])
 
   // Play sound when a new guess is added
   useEffect(() => {
@@ -90,7 +75,8 @@ export default function Game({ onStartPractice, challenge = null }) {
         }
         if (revealedSong) {
           recordGameResult({
-            groupId: group,
+            // `${group}-cover` keeps these out of the audio daily's analytics (FR-7)
+            groupId: `${group}-cover`,
             songId: revealedSong.id,
             songTitle: revealedSong.title,
             guessCount: guesses.length,
@@ -103,9 +89,8 @@ export default function Game({ onStartPractice, challenge = null }) {
       }
       setTimeout(() => {
         setShowResult(true)
-        // Fetch after the delay so the user's own record is already written to the DB
         if (!isArchive && gameDate) {
-          fetchCommunityStats(group, gameDate).then(setCommunityStats).catch(() => {})
+          fetchCoverCommunityStats(group, gameDate).then(setCommunityStats).catch(() => {})
         }
       }, 800)
     }
@@ -135,79 +120,96 @@ export default function Game({ onStartPractice, challenge = null }) {
   }
 
   return (
-    <div className="w-full max-w-lg mx-auto pt-8">
-      <AudioPlayer
-        play={play}
-        stop={stop}
-        isPlaying={isPlaying}
-        progress={progress}
-        currentDuration={currentDuration}
-        maxDuration={maxDuration}
-        durations={durations}
-        isGameOver={gameOver}
-        volume={volume}
-        onVolumeChange={changeVolume}
-        hasAudio={hasAudio}
-      />
-
-      {!gameOver && totalHints > 0 && (
-        <div className="mt-3 mb-1">
-          {hintsUsed > 0 && (
-            <div className="flex flex-col gap-1 mb-3">
-              {availableHints.slice(0, hintsUsed).map((h) => (
-                <p key={h.label} className="text-xs text-center text-white/50">
-                  💡 {h.label} — <span className="text-white/70 font-medium">{h.value}</span>
-                </p>
-              ))}
-            </div>
-          )}
-          {hintsUsed < totalHints && (
-            <div className="text-center">
-              <button
-                onClick={revealHint}
-                className="text-xs text-white/25 hover:text-white/50 transition-colors"
-              >
-                {hintsUsed === 0 ? '💡 Need a hint?' : `💡 Another hint? (${totalHints - hintsUsed} left)`}
-              </button>
-            </div>
-          )}
-        </div>
-      )}
-
-      <GuessList guesses={guesses} />
-
-      <GuessInput
-        onGuess={makeGuess}
-        onSkip={skipGuess}
-        disabled={gameOver}
-      />
-
-      {gameOver && !showResult && (
-        <div className="mt-8 flex items-center justify-center gap-4">
-          <button
-            onClick={() => setShowResult(true)}
-            className="text-sm font-semibold hover:opacity-80 transition-opacity"
-            style={{ background: 'linear-gradient(to right, var(--color-primary), var(--color-secondary))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}
-          >
-            View Results
-          </button>
-
-          {!isArchive && onStartPractice && (
+    <div className="coverdle w-full max-w-[1000px] mx-auto pt-4">
+      {/* Mode header — COVERDLE identity + Cover/Audio toggle */}
+      <div className="cv-mode-head">
+        <div className="cv-mode-pill">Cover Mode</div>
+        <h1 className="cv-mode-title">COVERDLE</h1>
+        <div className="cv-mode-sub">
+          <span className="grp-dot" /> {displayName}
+          {gameNumber != null && (
             <>
-              <span className="text-white/20 text-sm">·</span>
-              <button
-                onClick={onStartPractice}
-                className="flex items-center gap-1.5 text-sm font-semibold text-white/40 hover:text-white/70 transition-colors"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5">
-                  <polygon points="5 3 19 12 5 21 5 3" />
-                </svg>
-                Practice Mode
-              </button>
+              <span className="sep">·</span>
+              <span className="cv-mode-tag">#{gameNumber}</span>
             </>
           )}
         </div>
-      )}
+        <ModeToggle group={group} current="cover" />
+      </div>
+
+      <div className="coverdle-layout">
+        {/* Left column — cover stage */}
+        <div className="cd-stage">
+          <CoverReveal
+            coverUrl={coverUrl}
+            currentGuessNumber={currentGuessNumber}
+            isGameOver={gameOver}
+            won={gameState === GAME_STATES.WON}
+          />
+          <FocusIndicator
+            currentGuessNumber={currentGuessNumber}
+            isGameOver={gameOver}
+            total={MAX_GUESSES}
+          />
+
+          {!gameOver && hints && (
+            <div className="cd-hint w-full">
+              {hintsUsed > 0 && (
+                <div className="flex flex-col gap-1 mb-3">
+                  {hintsUsed >= 1 && (
+                    <p className="text-xs text-center text-white/50">
+                      💡 Era — <span className="text-white/70 font-medium">{hints.era}</span>
+                    </p>
+                  )}
+                  {hintsUsed >= 2 && (
+                    <p className="text-xs text-center text-white/50">
+                      💡 Year — <span className="text-white/70 font-medium">{hints.year}</span>
+                    </p>
+                  )}
+                  {hintsUsed >= 3 && (
+                    <p className="text-xs text-center text-white/50">
+                      💡 Starts with — <span className="text-white/70 font-medium">&ldquo;{hints.firstLetter}&rdquo;</span>
+                    </p>
+                  )}
+                </div>
+              )}
+              {hintsUsed < 3 && (
+                <div className="text-center">
+                  <button
+                    onClick={revealHint}
+                    className="text-xs text-white/25 hover:text-white/50 transition-colors"
+                  >
+                    {hintsUsed === 0 ? '💡 Need a hint?' : `💡 Another hint? (${3 - hintsUsed} left)`}
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+
+        {/* Right column — gameplay */}
+        <div className="cd-play">
+          <GuessList guesses={guesses} />
+
+          <GuessInput
+            onGuess={makeGuess}
+            onSkip={skipGuess}
+            disabled={gameOver}
+          />
+
+          {gameOver && !showResult && (
+            <div className="mt-8 flex items-center justify-center gap-4">
+              <button
+                onClick={() => setShowResult(true)}
+                className="text-sm font-semibold hover:opacity-80 transition-opacity"
+                style={{ background: 'linear-gradient(to right, var(--color-primary), var(--color-secondary))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}
+              >
+                View Results
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
 
       {showLoginPrompt && (
         <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4 modal-backdrop" onClick={() => setShowLoginPrompt(false)}>
@@ -246,11 +248,10 @@ export default function Game({ onStartPractice, challenge = null }) {
           revealedSong={revealedSong}
           guesses={guesses}
           gameNumber={gameNumber}
-          gameDate={gameDate}
           hintsUsed={hintsUsed}
           isArchive={isArchive}
           communityStats={communityStats}
-          challenge={challenge}
+          gameName="COVERDLE"
           onClose={() => setShowResult(false)}
         />
       )}

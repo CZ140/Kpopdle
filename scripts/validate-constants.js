@@ -27,7 +27,7 @@ const groups = JSON.parse(
   readFileSync(join(root, 'server', 'src', 'data', 'groups.json'), 'utf-8')
 )
 // import() needs a file:// URL on Windows (bare drive paths are rejected).
-const { KPOPDLE_LAUNCH } = await import(
+const { KPOPDLE_LAUNCH, GUESS_GROUP_LAUNCH } = await import(
   pathToFileURL(join(root, 'server', 'src', 'data', 'launch.js')).href
 )
 const { LAUNCH_DATES, GAME_NAMES, GROUP_META } = await import(
@@ -59,10 +59,15 @@ if (LAUNCH_DATES.kpopdle !== KPOPDLE_LAUNCH) {
   err(`kpopdle launch drift: client LAUNCH_DATES.kpopdle = ${LAUNCH_DATES.kpopdle} but server KPOPDLE_LAUNCH = ${KPOPDLE_LAUNCH}`)
 }
 
+// The cross-group "Guess the Group" launch also lives in two source-of-truth files.
+if (LAUNCH_DATES['guess-the-group'] !== GUESS_GROUP_LAUNCH) {
+  err(`guess-the-group launch drift: client LAUNCH_DATES['guess-the-group'] = ${LAUNCH_DATES['guess-the-group']} but server GUESS_GROUP_LAUNCH = ${GUESS_GROUP_LAUNCH}`)
+}
+
 if (errors.length) {
   console.log(`\n${errors.length} error(s):`)
   for (const e of errors) console.log(`  ✗ ${e}`)
   console.log('\n✗ Client/server metadata is out of sync.')
   process.exit(1)
 }
-console.log(`✓ Client mirror matches server metadata for ${groups.length} groups + K-POPDLE.`)
+console.log(`✓ Client mirror matches server metadata for ${groups.length} groups + K-POPDLE + Guess the Group.`)

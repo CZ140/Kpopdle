@@ -1,8 +1,9 @@
-import { MAX_GUESSES } from '../lib/constants'
 import GuessRow from './GuessRow'
+import { useMaxGuesses } from '../lib/GroupContext'
 
 export default function GuessList({ guesses }) {
-  const rows = Array.from({ length: MAX_GUESSES }, (_, i) => guesses[i] || null)
+  const maxGuesses = useMaxGuesses()
+  const rows = Array.from({ length: maxGuesses }, (_, i) => guesses[i] || null)
 
   return (
     <div className="w-full max-w-md mx-auto flex flex-col gap-2 mb-6">

@@ -16,8 +16,38 @@ export async function submitGuess(group, gameDate, guess) {
   return res.json()
 }
 
+// --- Coverdle (album-cover guessing) mode ---
+// Mirrors the audio daily endpoints but returns a coverUrl instead of previewUrl.
+
+export async function fetchDailyCoverGame(group) {
+  const res = await fetch(`${API_BASE}/${group}/cover/today`)
+  if (!res.ok) throw new Error('Failed to fetch daily cover game')
+  return res.json()
+}
+
+export async function fetchArchiveCoverGame(group, date) {
+  const res = await fetch(`${API_BASE}/${group}/cover/archive/${date}`)
+  if (!res.ok) throw new Error('Failed to fetch archive cover game')
+  return res.json()
+}
+
+export async function submitCoverGuess(group, gameDate, guess) {
+  const res = await fetch(`${API_BASE}/${group}/cover/guess`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ gameDate, guess }),
+  })
+  if (!res.ok) throw new Error('Failed to submit guess')
+  return res.json()
+}
+
 export async function fetchSongList(group) {
-  const res = await fetch(`${API_BASE}/${group}/songs`)
+  // Guess the Group's autocomplete is the active group names, served from a
+  // dedicated endpoint (the generic /songs route returns song titles).
+  const path = group === 'guess-the-group'
+    ? `${API_BASE}/guess-the-group/groups-list`
+    : `${API_BASE}/${group}/songs`
+  const res = await fetch(path)
   if (!res.ok) throw new Error('Failed to fetch song list')
   return res.json()
 }
@@ -83,6 +113,17 @@ export async function fetchCommunityStats(group, date) {
       ? `${API_BASE}/kpopdle/game/community/${date}`
       : `${API_BASE}/${group}/game/community/${date}`
     const res = await fetch(path)
+    if (!res.ok) return null
+    const data = await res.json()
+    return data.totalPlays >= 2 ? data : null
+  } catch {
+    return null
+  }
+}
+
+export async function fetchCoverCommunityStats(group, date) {
+  try {
+    const res = await fetch(`${API_BASE}/${group}/cover/community/${date}`)
     if (!res.ok) return null
     const data = await res.json()
     return data.totalPlays >= 2 ? data : null

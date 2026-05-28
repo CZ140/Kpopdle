@@ -19,6 +19,24 @@ describe('generateShareText — header', () => {
     expect(text).toContain('TWICEDLE #5')
   })
 
+  it('uses a custom max-guess denominator (3-attempt Guess the Group)', () => {
+    const text = generateShareText(7, [guess('correct')], true, 'normal', 0, 'Guess the Group', 3)
+    expect(text).toContain('Guess the Group #7 1/3')
+  })
+
+  it('shows X/3 on a loss in a 3-attempt mode', () => {
+    const text = generateShareText(1, [guess('wrong'), guess('wrong'), guess('wrong')], false, 'normal', 0, 'Guess the Group', 3)
+    expect(text).toContain('X/3')
+  })
+
+  it('share text leaks neither the group nor the song name', () => {
+    const guesses = [guess('wrong'), guess('skipped'), guess('correct')]
+    const text = generateShareText(7, guesses, true, 'normal', 0, 'Guess the Group', 3)
+    // The header carries the game NAME, not the answer; emoji grid carries no text.
+    expect(text).not.toContain('TWICE')
+    expect(text).not.toContain('Answer')
+  })
+
   it('prefixes difficulty badge for easy mode', () => {
     const text = generateShareText(1, [guess('correct')], true, 'easy')
     expect(text).toContain('[EASY]')

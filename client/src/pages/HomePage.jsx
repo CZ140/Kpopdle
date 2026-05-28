@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import GroupCard from '../components/GroupCard'
+import ModeCard from '../components/ModeCard'
+import { MODES } from '../lib/modes'
 import { fetchGroups } from '../lib/api'
 import { loadGameState, loadStats } from '../lib/storage'
 import { useAuth } from '../lib/AuthContext'
@@ -80,18 +82,31 @@ export default function HomePage() {
   // Best current streak across all loaded groups
   const bestStreak = groups.reduce((max, g) => Math.max(max, loadStats(g.id).currentStreak), 0)
 
-  // Check solved state for each active group from localStorage
+  // Check per-mode solved state. Audio + Cover are independent dailies (Coverdle
+  // stores under `${group}-cover`), so the card surfaces both. `audio` carries
+  // the song reveal for the existing "today's track" preview; `cover` is a
+  // boolean pip — Coverdle has no song-name reveal on the card.
   function getSolvedState(groupId) {
-    const state = loadGameState(groupId, today)
-    if (!state || state.gameState === 'playing') return { isSolved: false, isWon: false, guessCount: 0, revealedSong: null }
+    const audio = loadGameState(groupId, today)
+    const cover = loadGameState(`${groupId}-cover`, today)
+    const audioDone = audio && audio.gameState !== 'playing'
+    const coverDone = cover && cover.gameState !== 'playing'
     return {
-      isSolved: true,
-      isWon: state.gameState === 'won',
-      guessCount: state.guesses?.length ?? 0,
-      revealedSong: state.revealedSong ?? null,
+      audio: {
+        isSolved: !!audioDone,
+        isWon: audioDone && audio.gameState === 'won',
+        guessCount: audio?.guesses?.length ?? 0,
+        revealedSong: audio?.revealedSong ?? null,
+      },
+      cover: {
+        isSolved: !!coverDone,
+        isWon: coverDone && cover.gameState === 'won',
+      },
     }
   }
 
+  // "N solved today" counts groups where the audio daily is solved — keeps the
+  // existing meter stable; cover completion shows on the per-card pips instead.
   const solvedCount = groups.filter((g) => {
     const s = loadGameState(g.id, today)
     return s && s.gameState !== 'playing'
@@ -203,97 +218,60 @@ export default function HomePage() {
           </div>
         </header>
 
-        {/* K-POPDLE cross-group challenge banner */}
-        <div
-          className="relative rounded-2xl overflow-hidden mb-4 cursor-pointer group"
-          onClick={() => navigate('/kpopdle')}
-          style={{ background: 'linear-gradient(135deg, #FF2D78 0%, #A855F7 35%, #6366F1 65%, #06B6D4 100%)' }}
-        >
-          <div className="absolute inset-0 bg-black/20" />
-          <div className="relative z-[1] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 px-5 sm:px-8 py-5 sm:py-6">
+        {/* ── 01 · GAME MODES — discovery surface for all play modes.
+              Replaces main's standalone K-POPDLE + Battle banners — both
+              are now mode cards inside this single section. ── */}
+        <section className="hp-modes mb-12 sm:mb-20">
+          <div className="hp-section-head">
             <div>
-              <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70 mb-1">Daily Cross-Group Challenge</div>
-              <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white leading-none mb-2">K-POPDLE</h2>
-              <p className="text-sm text-white/80 font-medium">Any song. Any group. One daily shot.</p>
+              <div className="hp-section-eyebrow">01 · GAME MODES</div>
+              <h2 className="hp-section-title">Pick your way to play</h2>
             </div>
-            <div className="flex flex-row-reverse sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-3 sm:gap-2 w-full sm:w-auto">
-              <div className="font-mono text-[11px] uppercase tracking-[0.12em] text-white/60 text-right">
-                {groups.length} groups · {groups.reduce((n, g) => n + (g.members || 0), 0)}+ songs
-              </div>
-              <button className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-[#0d0d14] text-sm font-black tracking-wide group-hover:scale-105 transition-transform flex-shrink-0">
-                PLAY →
-              </button>
+            <div className="hp-section-meta">
+              <span><b>{MODES.filter(m => !m.locked).length}</b> AVAILABLE</span>
+              <span><b>{MODES.filter(m => m.locked).length}</b> COMING SOON</span>
             </div>
           </div>
-        </div>
 
-        {/* Battle 1v1 banner — sibling to K-POPDLE; sets up its own you-pink / foe-cyan VS frame */}
-        <div
-          className="btl-home-banner mb-10"
-          onClick={() => navigate('/battle')}
-          role="button"
-          tabIndex={0}
-          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); navigate('/battle') } }}
-        >
-          <div className="relative z-[1] grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-6 px-5 sm:px-8 py-5 sm:py-6">
-            <div className="min-w-0">
-              <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/75 mb-1">⚔ NEW · Real-Time 1v1</div>
-              <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white leading-none mb-2">BATTLE</h2>
-              <p className="text-sm text-white/85 font-medium">Challenge a friend. Same clip. Fastest correct guess wins the round.</p>
+          <div className="hp-modes-grid">
+            {MODES.map(mode => <ModeCard key={mode.id} mode={mode} />)}
+          </div>
+        </section>
+
+        {/* ── 02 · GROUPS — pick a group for the per-group dailies ── */}
+        <section id="hp-groups">
+          <div className="hp-section-head mb-6 sm:mb-7">
+            <div>
+              <div className="hp-section-eyebrow">02 · GROUPS</div>
+              <h2 className="hp-section-title">Pick your bias</h2>
             </div>
-
-            {/* Center VS plate, hidden on mobile */}
-            <div
-              className="hidden sm:inline-grid place-items-center px-3 py-1.5 rounded-xl border border-white/20 text-white font-black tracking-[0.08em] text-base"
-              style={{
-                background: 'linear-gradient(180deg, rgba(30,20,55,0.95), rgba(10,8,24,0.95))',
-                boxShadow: '0 0 0 4px rgba(13,11,26,0.6), 0 0 18px rgba(236,72,153,0.35), 0 0 18px rgba(99,102,241,0.35)',
-              }}
-            >VS</div>
-
-            <div className="flex flex-row-reverse sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-3 sm:gap-2 w-full sm:w-auto">
-              <div className="font-mono text-[11px] uppercase tracking-[0.12em] text-white/70 text-right">
-                Best of 5 · Live audio · No sign-up
-              </div>
-              <button
-                onClick={(e) => { e.stopPropagation(); navigate('/battle') }}
-                className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-[#0d0d14] text-sm font-black tracking-wide hover:scale-105 transition-transform flex-shrink-0"
-              >
-                START →
-              </button>
+            <div className="hp-section-meta">
+              <span><b>{groups.length}</b> GROUPS · <b>{solvedCount}</b> SOLVED TODAY</span>
             </div>
           </div>
-        </div>
 
-        {/* Section heading */}
-        <div className="flex flex-wrap items-end justify-between gap-x-3 gap-y-1 mb-6 sm:mb-7 px-1">
-          <h2 className="text-xl sm:text-[22px] font-bold tracking-tight m-0">Pick your group</h2>
-          <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/38">
-            <b className="text-white/62 font-medium">{groups.length}</b> games ·{' '}
-            <b className="text-white/62 font-medium">{solvedCount}</b> solved today
-          </div>
-        </div>
-
-        {/* Card grid */}
-        {loadingGroups ? (
-          <div className="text-center text-white/30 font-mono text-sm py-20">Loading…</div>
-        ) : (
-          <div className="kp-card-grid">
-            {groups.map((group) => {
-              const { isSolved, isWon, guessCount, revealedSong } = getSolvedState(group.id)
-              return (
-                <GroupCard
-                  key={group.id}
-                  group={group}
-                  isSolved={isSolved}
-                  isWon={isWon}
-                  guessCount={guessCount}
-                  revealedSong={revealedSong}
-                />
-              )
-            })}
-          </div>
-        )}
+          {loadingGroups ? (
+            <div className="text-center text-white/30 font-mono text-sm py-20">Loading…</div>
+          ) : (
+            <div className="kp-card-grid">
+              {groups.map((group) => {
+                const state = getSolvedState(group.id)
+                return (
+                  <GroupCard
+                    key={group.id}
+                    group={group}
+                    isSolved={state.audio.isSolved}
+                    isWon={state.audio.isWon}
+                    guessCount={state.audio.guessCount}
+                    revealedSong={state.audio.revealedSong}
+                    coverSolved={state.cover.isSolved}
+                    coverWon={state.cover.isWon}
+                  />
+                )
+              })}
+            </div>
+          )}
+        </section>
 
         {/* Footer */}
         <footer className="mt-16 sm:mt-24 pt-8 border-t border-white/[0.08] flex justify-between items-center flex-wrap gap-4 font-mono text-[11px] uppercase tracking-[0.12em] text-white/38">

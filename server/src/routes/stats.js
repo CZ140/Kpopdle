@@ -18,6 +18,22 @@ const recordLimiter = rateLimit({
 const VALID_GROUP_IDS = new Set(groups.map(g => g.id))
 const VALID_DIFFICULTIES = new Set(['easy', 'normal', 'hard'])
 
+// Cross-group modes that aren't a single group but still record community stats.
+// These live under their own key and are intentionally NOT in the per-group
+// account/cloud-stats set (client ALL_GROUP_IDS), so accepting them here powers
+// the "how others did" panel without polluting per-group account rows.
+const VALID_MODE_IDS = new Set(['kpopdle', 'guess-the-group'])
+
+// Coverdle records use a `${groupId}-cover` key so they stay segregated from the
+// audio daily's stats (FR-7). Accept those alongside the plain group ids and the
+// cross-group mode keys.
+function isValidStatsGroup(groupId) {
+  if (VALID_GROUP_IDS.has(groupId)) return true
+  if (VALID_MODE_IDS.has(groupId)) return true
+  if (groupId.endsWith('-cover')) return VALID_GROUP_IDS.has(groupId.slice(0, -'-cover'.length))
+  return false
+}
+
 // POST /api/stats/record — called by client at game end
 router.post('/record', recordLimiter, (req, res) => {
   try {
@@ -26,7 +42,7 @@ router.post('/record', recordLimiter, (req, res) => {
     if (!groupId || !songTitle || typeof guessCount !== 'number' || typeof won !== 'boolean') {
       return res.status(400).json({ error: 'Invalid payload' })
     }
-    if (!VALID_GROUP_IDS.has(groupId)) {
+    if (!isValidStatsGroup(groupId)) {
       return res.status(400).json({ error: 'Unknown groupId' })
     }
     if (!Number.isInteger(guessCount) || guessCount < 1 || guessCount > 6) {

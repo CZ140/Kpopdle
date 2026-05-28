@@ -40,6 +40,12 @@ export function getSongCountForGroup(groupId) {
   return loadGroup(groupId).songs.length
 }
 
+// Songs playable in the cover (Coverdle) mode: a verified Deezer ID *and* a
+// backfilled coverUrl. Used for both the daily pool size and practice picks.
+export function getCoverPoolForGroup(groupId) {
+  return loadGroup(groupId).songs.filter((s) => s.deezerId && s.deezerId !== 0 && s.coverUrl)
+}
+
 // Merged pool for the K-POPDLE cross-group game.
 // Sorted by groupId then song.id for deterministic HMAC indexing.
 //

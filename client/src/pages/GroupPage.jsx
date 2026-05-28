@@ -1,14 +1,17 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom'
 import { GroupContext } from '../lib/GroupContext'
 import { migrateStorageIfNeeded, loadDifficulty, saveDifficulty } from '../lib/storage'
 import { ALL_GROUP_IDS, GAME_NAMES, GROUP_META, LAUNCH_DATES } from '../lib/constants'
 import { getKSTDateString } from '../lib/dateUtils'
+import { parseChallenge, CHALLENGE_DATE_RE } from '../lib/share'
 import { useSound } from '../lib/SoundContext'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
 import Game from '../components/Game'
 import PracticeGame from '../components/PracticeGame'
 import Header from '../components/Header'
+import ModeToggle from '../components/ModeToggle'
+import ChallengeBanner from '../components/ChallengeBanner'
 import ArchiveModal from '../components/ArchiveModal'
 import DifficultyModal from '../components/DifficultyModal'
 
@@ -43,6 +46,7 @@ export default function GroupPage() {
   const { group } = useParams()
   const navigate = useNavigate()
   const { playSound } = useSound()
+  const [searchParams] = useSearchParams()
 
   const [archiveDate, setArchiveDate] = useState(null)
   const [showArchive, setShowArchive] = useState(false)
@@ -50,6 +54,10 @@ export default function GroupPage() {
   const [practiceMode, setPracticeMode] = useState(false)
   const [practiceKey, setPracticeKey] = useState(0)
   const [difficulty, setDifficultyState] = useState(loadDifficulty)
+  // Async "challenge a friend" — decoded challenger result + a "challenged you" banner.
+  const [challenge, setChallenge] = useState(null)
+  const [challengeFallback, setChallengeFallback] = useState(false)
+  const [bannerDismissed, setBannerDismissed] = useState(false)
 
   const setDifficulty = useCallback((d) => {
     setDifficultyState(d)
@@ -70,6 +78,36 @@ export default function GroupPage() {
     setPracticeKey(0)
     /* eslint-enable react-hooks/set-state-in-effect */
   }, [group])
+
+  // Async challenge: decode `?c=` (challenger result) and `?d=` (game date).
+  // A garbage/absent `c` yields null → plays as a normal game (FR-7). When `d`
+  // is a valid past date, drive the archive view; today's date stays on /today.
+  // An invalid/pre-launch/future `d` falls back to today with a dismissible notice.
+  useEffect(() => {
+    /* eslint-disable react-hooks/set-state-in-effect -- intentional: derive
+       challenge/archive UI state from the URL on mount and on group/param change */
+    const decoded = parseChallenge(searchParams)
+    setChallenge(decoded)
+    setBannerDismissed(false)
+
+    const today = getKSTDateString()
+    const launch = LAUNCH_DATES[group] ?? '2099-01-01'
+    const d = searchParams.get('d')
+
+    if (d && CHALLENGE_DATE_RE.test(d) && d < today && d >= launch) {
+      setArchiveDate(d)
+      setChallengeFallback(false)
+    } else if (d && d !== today) {
+      // d present but unplayable (future, pre-launch, or malformed) → land on today.
+      setArchiveDate(null)
+      setChallengeFallback(decoded !== null)
+    } else {
+      // No date, or d === today → today's daily.
+      setArchiveDate(null)
+      setChallengeFallback(false)
+    }
+    /* eslint-enable react-hooks/set-state-in-effect */
+  }, [group, searchParams])
 
   const startPractice = useCallback(() => {
     setPracticeMode(true)
@@ -148,11 +186,27 @@ export default function GroupPage() {
           onOpenDifficulty={() => setShowDifficulty(true)}
         />
         <main className="relative z-10 flex-1 flex flex-col items-center px-4 pb-24 sm:pb-8">
+          {!practiceMode && challenge && !bannerDismissed && (
+            <div className="w-full mt-4 flex justify-center px-2">
+              <ChallengeBanner
+                challenge={challenge}
+                gameName={gameName ?? 'K-POPDLE'}
+                gameNumber={null}
+                fallbackNotice={challengeFallback}
+                onDismiss={() => setBannerDismissed(true)}
+              />
+            </div>
+          )}
+          {!practiceMode && (
+            <div className="w-full max-w-lg mx-auto mt-4 flex justify-center">
+              <ModeToggle group={group} current="audio" />
+            </div>
+          )}
           {practiceMode ? (
             <PracticeGame key={`practice-${practiceKey}`} onPlayAgain={playAnotherPractice} />
           ) : (
             // key causes Game to fully remount when switching between archive dates
-            <Game key={archiveDate ?? 'today'} onStartPractice={startPractice} />
+            <Game key={archiveDate ?? 'today'} onStartPractice={startPractice} challenge={challenge} />
           )}
         </main>
 
