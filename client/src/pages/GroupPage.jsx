@@ -14,9 +14,25 @@ import ModeToggle from '../components/ModeToggle'
 import ChallengeBanner from '../components/ChallengeBanner'
 import ArchiveModal from '../components/ArchiveModal'
 import DifficultyModal from '../components/DifficultyModal'
+import GameAboutSection from '../components/GameAboutSection'
 
 // kpopdle is a cross-group game, not a group page — exclude it
 const VALID_GROUPS = ALL_GROUP_IDS.filter(id => id !== 'kpopdle')
+
+// Per-group SEO blurbs — distinguishing copy per route so Google doesn't
+// flag the eight group pages as near-duplicates. Each blurb leans on
+// real-world detail (era, distinctive sound, member count) so the body
+// text isn't just templated.
+const GROUP_BLURBS = {
+  twice:      { era: 'JYP\'s 9-member powerhouse', vibe: 'sugar-rush hooks and crystal-clear harmonies', span: 'their 2015 "Like OOH-AHH" debut through the latest comeback' },
+  newjeans:   { era: 'ADOR\'s 5-member breakout', vibe: 'Y2K-coded R&B, jersey-club percussion and effortless cool', span: 'their 2022 debut Bunnies-era through every follow-up release' },
+  lesserafim: { era: 'HYBE/Source Music\'s 5-member group', vibe: 'sharp choreo, defiant lyrics and a polished hip-hop edge', span: 'FEARLESS through UNFORGIVEN and beyond' },
+  aespa:      { era: 'SM\'s 4-member 4th-gen flagship', vibe: 'hyperpop synths, metaverse worldbuilding and Karina-led power vocals', span: 'Black Mamba through MY WORLD and the latest Drama era' },
+  redvelvet:  { era: 'SM\'s long-running 5-member duo-concept group', vibe: 'the contrast between bright "Red" pop and moody "Velvet" R&B', span: '"Happiness" in 2014 all the way through Cosmic' },
+  kissoflife: { era: 'S2 Entertainment\'s rising 4-member act', vibe: 'R&B-leaning vocal showcases and silky group harmonies', span: 'their 2023 debut through Born to be XX and Lose Yourself' },
+  ive:        { era: 'Starship\'s 6-member 4th-gen hit-makers', vibe: 'maximalist hooks, runway-grade visuals and Yujin/Wonyoung\'s star power', span: 'ELEVEN and LOVE DIVE through I AM and beyond' },
+  blackpink:  { era: 'YG\'s globally dominant 4-member group', vibe: 'trap-pop drops, EDM crescendos and stadium-scale choruses', span: 'WHISTLE in 2016 through BORN PINK and every solo era' },
+}
 
 // Game UI colors — primary must be a vivid color usable on dark bg (BLACKPINK uses pink not dark)
 const GROUP_GAME_COLORS = {
@@ -209,6 +225,29 @@ export default function GroupPage() {
             <Game key={archiveDate ?? 'today'} onStartPractice={startPractice} challenge={challenge} />
           )}
         </main>
+
+        {!practiceMode && (() => {
+          const meta = GROUP_META[group]
+          const blurb = GROUP_BLURBS[group]
+          const name = meta?.displayName ?? group
+          return (
+            <GameAboutSection
+              eyebrow={`Daily ${name} song quiz`}
+              title={`About the Daily ${name} Heardle on K-POPDLE`}
+              paragraphs={[
+                `The ${name} daily is a free Heardle-style song quiz built around ${blurb?.era ?? `${name}'s discography`}. Every day at midnight KST a new ${name} track is selected from a curated catalog covering ${blurb?.span ?? 'their full discography'}, and you have six tries to identify it from progressively longer audio clips.`,
+                `${name}'s catalog leans into ${blurb?.vibe ?? 'their signature sound'}, which makes the daily challenge feel different from a cross-group round — you're listening for ${name}-specific production cues, vocal lines, and ad-libs rather than guessing across the whole K-pop landscape. Title tracks and B-sides are both in rotation, so even devoted fans regularly run into deep-cut surprises.`,
+                `Use the archive arrows below to replay any previous ${name} daily back to launch, or jump into Coverdle for the same group to guess the album cover instead. Your ${name} streak, stats, and guess distribution are saved locally — no sign-up required — and the difficulty selector controls how generous the snippet ladder is across all 6 tries.`,
+              ]}
+              howToPlay={[
+                `Press play to hear today's ${name} clip — it starts at one second.`,
+                'Type your guess in the search box and pick a song from the autocomplete dropdown.',
+                'A wrong (or skipped) guess unlocks a longer snippet — up to six tries total.',
+                `Solve it to keep your ${name} streak alive. A fresh ${name} song drops at midnight KST.`,
+              ]}
+            />
+          )
+        })()}
 
         {/* Day navigation arrows */}
         {!practiceMode && (

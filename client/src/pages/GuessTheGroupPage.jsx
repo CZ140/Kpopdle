@@ -7,6 +7,7 @@ import { useDocumentMeta } from '../hooks/useDocumentMeta'
 import GuessTheGroupGame from '../components/GuessTheGroupGame'
 import Header from '../components/Header'
 import ArchiveModal from '../components/ArchiveModal'
+import GameAboutSection from '../components/GameAboutSection'
 
 const GTG_COLORS = { primary: '#22D3EE', secondary: '#A855F7' }
 const GTG_LAUNCH = LAUNCH_DATES['guess-the-group']
@@ -81,6 +82,22 @@ export default function GuessTheGroupPage() {
         <main className="relative z-10 flex-1 flex flex-col items-center px-4 pb-24 sm:pb-8">
           <GuessTheGroupGame key={archiveDate ?? 'today'} />
         </main>
+
+        <GameAboutSection
+          eyebrow="Daily K-pop artist ID challenge"
+          title="About Guess the Group — Name the K-pop Artist From a Clip"
+          paragraphs={[
+            'Guess the Group is the artist-identification mode on K-POPDLE: you hear a short clip from one of 500+ tracks across eight groups — TWICE, BLACKPINK, aespa, NewJeans, LE SSERAFIM, IVE, Red Velvet, and KISS OF LIFE — and you have three tries to name which group performs it. A new clip drops every day at midnight KST.',
+            'Three tries instead of six because the answer space is much smaller: just eight options. The snippet ladder is tighter too — one, three, and six seconds — so you have to lean on production fingerprints, member vocal timbres, and signature sounds rather than waiting for an obvious chorus hook. The deep cuts force you off easy "I know the chorus" answers and into real listening.',
+            'It pairs naturally with the per-group dailies: warm up on Guess the Group to widen your K-pop ear, then dive into a single-group Heardle to test depth. Your streak is tracked separately from every other mode, archived rounds are replayable, and the autocomplete dropdown shows the eight eligible groups so you never have to type a perfect spelling.',
+          ]}
+          howToPlay={[
+            'Press play to hear today\'s clip — it starts at one second.',
+            'Type a group name in the search box and pick from the dropdown.',
+            'A wrong guess unlocks a longer snippet — up to three tries total.',
+            'Name the group correctly to keep your streak. Fresh clip at midnight KST.',
+          ]}
+        />
 
         {prevDate !== null && (
           <button

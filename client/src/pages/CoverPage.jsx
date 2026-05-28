@@ -9,6 +9,7 @@ import { useDocumentMeta } from '../hooks/useDocumentMeta'
 import CoverGame from '../components/CoverGame'
 import Header from '../components/Header'
 import ArchiveModal from '../components/ArchiveModal'
+import GameAboutSection from '../components/GameAboutSection'
 
 // kpopdle is a cross-group game, not a group page — exclude it
 const VALID_GROUPS = ALL_GROUP_IDS.filter(id => id !== 'kpopdle')
@@ -121,6 +122,27 @@ export default function CoverPage() {
           {/* key fully remounts the round when switching archive dates */}
           <CoverGame key={archiveDate ?? 'today'} />
         </main>
+
+        {(() => {
+          const name = meta?.displayName ?? group
+          return (
+            <GameAboutSection
+              eyebrow={`Daily ${name} album-cover guess`}
+              title={`About Coverdle — Daily ${name} Album Cover Game`}
+              paragraphs={[
+                `Coverdle is the visual companion to K-POPDLE's audio Heardle: instead of guessing a song from a clip, you guess a ${name} album from its cover art. Every day at midnight KST a new ${name} release is selected, and the cover starts heavily pixelated — sharpening one step every time you guess wrong or use the skip button.`,
+                `The answer space is the album (or EP, or mini-album), not the title track. That's a deliberate choice: many K-pop releases share cover art across all tracks on the project, so guessing at the song level was unsolvable. Naming the album gives you a fair 1-of-N guess from ${name}'s discography, and the autocomplete dropdown surfaces only the eligible releases as you type.`,
+                `Three optional hints — release year, color palette, and a member silhouette — let you trade attempts for context if a cover stumps you. Past Coverdle rounds for ${name} are replayable through the archive arrows, and your Coverdle streak is tracked separately from the audio Heardle so the two modes never collide.`,
+              ]}
+              howToPlay={[
+                `A pixelated ${name} album cover appears at the top of the page.`,
+                'Type your guess in the search box and pick an album from the autocomplete dropdown.',
+                'Wrong guesses sharpen the cover one step closer to fully revealed.',
+                `Identify the album within six tries to win. A new ${name} Coverdle drops every day at midnight KST.`,
+              ]}
+            />
+          )
+        })()}
 
         {prevDate !== null && (
           <button

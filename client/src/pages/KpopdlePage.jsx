@@ -9,6 +9,7 @@ import Game from '../components/Game'
 import Header from '../components/Header'
 import ArchiveModal from '../components/ArchiveModal'
 import DifficultyModal from '../components/DifficultyModal'
+import GameAboutSection from '../components/GameAboutSection'
 
 const KPOPDLE_COLORS = { primary: '#EC4899', secondary: '#6366F1' }
 const KPOPDLE_LAUNCH = LAUNCH_DATES.kpopdle
@@ -79,6 +80,22 @@ export default function KpopdlePage() {
         <main className="relative z-10 flex-1 flex flex-col items-center px-4 pb-24 sm:pb-8">
           <Game key={archiveDate ?? 'today'} />
         </main>
+
+        <GameAboutSection
+          eyebrow="The flagship cross-group daily"
+          title="About K-POPDLE — Daily Cross-Group K-pop Heardle"
+          paragraphs={[
+            'K-POPDLE is a free, daily K-pop song-guessing game in the Heardle tradition. Each day at midnight KST, one track is drawn from a pool spanning eight of the biggest K-pop groups — TWICE, BLACKPINK, aespa, NewJeans, LE SSERAFIM, IVE, Red Velvet, and KISS OF LIFE — and your job is to identify the song in six tries from progressively longer audio clips.',
+            'Because the daily song can come from any of the eight groups, K-POPDLE is the toughest of the K-popdle modes — it rewards broad K-pop knowledge across both 3rd- and 4th-generation acts. The catalog covers 500+ songs ranging from debut tracks and title cuts to B-sides and recent comebacks, so even longtime listeners regularly meet a tune they only half-remember.',
+            'Missed yesterday or want to test yourself on past dailies? Use the archive arrows to play any previous day back to launch. Your streak persists across browser sessions via localStorage, no sign-up required, and the difficulty selector lets you tighten the snippet ladder if six guesses feel too easy.',
+          ]}
+          howToPlay={[
+            'Press play to hear today\'s clip — it starts at one second.',
+            'Type your guess in the search box and pick a song from the autocomplete dropdown.',
+            'A wrong (or skipped) guess unlocks a longer snippet — up to six tries total.',
+            'Solve it in as few guesses as possible to keep your streak alive. New song at midnight KST.',
+          ]}
+        />
 
         {prevDate !== null && (
           <button

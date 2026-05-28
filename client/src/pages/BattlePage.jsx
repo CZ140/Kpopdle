@@ -11,6 +11,7 @@ import { nameInitials } from '../lib/initials'
 import Lobby from '../components/battle/Lobby'
 import RoundView from '../components/battle/RoundView'
 import ResultScreen from '../components/battle/ResultScreen'
+import GameAboutSection from '../components/GameAboutSection'
 
 const SCOPES = [
   { id: 'all', label: 'All groups' },
@@ -227,6 +228,22 @@ export default function BattlePage() {
         </select>
 
         <button onClick={handleCreate} className="btl-cta mt-6">CREATE MATCH →</button>
+
+        <GameAboutSection
+          eyebrow="Live 1v1 K-pop song battle"
+          title="About K-POPDLE Battle — Real-time K-pop Heardle 1v1"
+          paragraphs={[
+            'K-POPDLE Battle is a live, real-time 1v1 version of the daily Heardle. Both players hear the exact same clip at the exact same moment over WebSockets, race to type the correct song, and the faster correct guess takes the round. Matches are best-of-five, with a sudden-death tiebreaker if the score lands at 2-2.',
+            'You can scope a match to "all groups" (the full 500+ song cross-group pool) or to a single group when you want a focused TWICE-vs-TWICE, BLACKPINK-vs-BLACKPINK, or any other group-specific showdown. Pick a display name, pick a scope, hit Create Match, and share the URL — whoever opens it joins your room. No accounts, no install, runs in the browser.',
+            'Round scoring rewards speed: a correct guess scores points scaled to how quickly you locked it in, so a fast 2-second answer beats a slow 8-second one even though both are correct. Streaks and per-group stats keep accumulating across regular K-POPDLE play, so practicing the daily Heardle directly sharpens your reflexes for Battle.',
+          ]}
+          howToPlay={[
+            'Type a display name and pick which groups\' songs to draw from.',
+            'Hit "Create Match" and copy the link — share it with whoever you\'re challenging.',
+            'Once both players are in the lobby, click "Ready." The first clip starts the moment both sides ready up.',
+            'Type your guess as fast as you can. Best-of-five rounds; sudden death at 2-2.',
+          ]}
+        />
       </div>,
     )
   }
