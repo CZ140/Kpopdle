@@ -575,7 +575,9 @@
     "album": "THE STORY BEGINS",
     "releaseYear": 2015,
     "spotifyId": "1A2B3C4D5E6F7G8H9I0J1K",
-    "deezerId": 0
+    "deezerId": 1255930522,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/987c0ff2685f2a5ec5ba78ed355aec30/500x500-000000-80-0-0.jpg",
+    "coverMd5": "987c0ff2685f2a5ec5ba78ed355aec30"
   },
   {
     "id": 59,
@@ -853,7 +855,9 @@
     "album": "Formula of Love: O+T=<3",
     "releaseYear": 2021,
     "spotifyId": "9C0D1E2F3G4H5I6J7K8L9M",
-    "deezerId": 0
+    "deezerId": 1533348942,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/39443bfe03b4e82da2a4f35ae423cace/500x500-000000-80-0-0.jpg",
+    "coverMd5": "39443bfe03b4e82da2a4f35ae423cace"
   },
   {
     "id": 87,
@@ -869,7 +873,9 @@
     "album": "Formula of Love: O+T=<3",
     "releaseYear": 2021,
     "spotifyId": "1E2F3G4H5I6J7K8L9M0N1O",
-    "deezerId": 0
+    "deezerId": 1533348962,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/39443bfe03b4e82da2a4f35ae423cace/500x500-000000-80-0-0.jpg",
+    "coverMd5": "39443bfe03b4e82da2a4f35ae423cace"
   },
   {
     "id": 89,

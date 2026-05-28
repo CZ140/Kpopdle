@@ -81,8 +81,20 @@ Replay any past daily game. The same HMAC algorithm that picks today's song work
 ### 🌐 K-POPDLE — Cross-Group Daily Challenge
 A separate daily game at `/kpopdle` that draws from the full merged catalog of all 8 active groups. The song could be from any group — players must identify it without knowing which group it's from. The autocomplete labels each song with its group (e.g. `Black Mamba (aespa)`) for disambiguation, and the group is revealed in the result. Share output correctly labels results as `K-POPDLE #N M/6`. Archive mode is fully supported — replay any past K-POPDLE game from the archive button.
 
+### 🎯 Guess the Group — Cross-Group, 3 Tries
+A second cross-group daily at `/guess-the-group` that flips the audio quiz: *name the K-pop group*, not the song. The clip lengthens after each miss on a tight `1s → 3s → 6s` ladder, and the answer space is just the 8 active groups, so the player picks from a 4×2 grid of palette-tinted group chips (or types via autocomplete). One server-side hint is exposed — `year` — since `era` or `firstLetter` would give the group away. Cover/Audio toggles aren't applicable; share output uses `Guess the Group #N M/3`. Reuses the same HMAC daily-selection algorithm against the merged song pool.
+
+### 🖼️ Coverdle — Album-Cover Reveal
+Per-group cover-guessing mode at `/{group}/cover` (e.g. `/twice/cover`). The album cover starts heavily pixelated and sharpens with each guess: a `[6, 12, 22, 40, 90, full]` resolution ladder rendered to a canvas via nearest-neighbour scaling (no CSS blur — the mosaic is real). Six guesses, autocomplete and skip identical to the audio daily. Cover-mode streaks live under a `${group}-cover` localStorage key, so a Coverdle solve doesn't double-count toward audio stats. A backfill script (`server/scripts/backfillCovers.js`) populates `coverUrl` on each song from the Deezer album endpoint; covers are served direct from Deezer's CDN. The site CSP `img-src https:` already allows them, and the canvas draws cross-origin without `crossOrigin` (the image renders, the canvas becomes tainted but no readback is ever needed).
+
+### 🔗 Async Challenge — Share-a-Score
+After finishing a daily, a player can copy a stateless challenge link (`/{group}?d={date}&c={base64url}`) that encodes their result inline — no server state. The recipient lands on the same daily, sees a **wax-seal banner** at the top (rotating dashed seal ring, palette-gradient initials disk, animated edge tape) showing the challenger's name + score-to-beat + reconstructed result grid. After their own game-over, a **VS card** replaces the standard result panel: two sides (YOU vs CHALLENGER), crowns on the winner, four outcome states (`you-win` / `they-win` / `tie` / `both-lost`) each with their own border, glow, and dynamic verdict copy. A Challenge Back button mints a fresh URL with the new player's result, closing the loop. The payload carries no answer-derivable data — only `{v, a, w, h, n?}` (version, attempts, won, hintsUsed, optional display name).
+
 ### ⚔️ Battle — Real-Time 1v1
 A live multiplayer mode at `/battle` — two players, five synchronized rounds, race to guess the same 30-second clip. Speed-scored 5/4/3/2/1 by time bucket; higher total wins, ties resolve via sudden-death rounds. Anonymous: a display name and a persistent local `playerToken` are enough; no sign-in required. Built on **Socket.IO** sharing the existing Express session, with a server-authoritative state machine and a separate **audio proxy** (`/api/battle/:matchId/clip/:roundToken`) that streams Deezer clips behind opaque per-round tokens — so the answer's identity is unobtainable client-side before each reveal. Robust to dropped tabs: a 15-second reconnect grace covers a refresh or background tab; an explicit leave or grace expiry forfeits to the opponent. The UI uses a dual you-pink / foe-cyan identity over the same dark glassmorphic language as the rest of the site.
+
+### 🧭 Mode Discovery
+The homepage opens with a **"Pick your way to play"** section that surfaces the cross-group modes (K-POPDLE hero, Guess the Group, Battle) as landscape cards with per-mode visual centerpieces — animated waveform + vinyl for the audio family, group cluster for GTG, fan-stacked cards for K-POPDLE, VS plate for Battle. Per-group dailies (audio + Coverdle) live in the group grid below; an in-game **`<ModeToggle>`** segmented switch on every group screen flips between Audio and Cover without leaving the page (NEW chip on the Cover side). On the group cards themselves, two small pips per card (`A` / `C`) show today's completion state for each mode independently — green-tick when won, red-X when missed, ghost when not yet played.
 
 ### 🔐 User Accounts
 Sign in with Google to sync your streaks, guess distributions, and game history across any device. Accounts are optional — the game is fully playable without signing in, with all stats kept in localStorage. On first login, existing localStorage stats are automatically imported to the cloud. After each daily game, stats are synced to the server so they're available on any device. A sign-in prompt appears once per browser session after your first completed game. Logged-in users see their Google avatar in the header and a "synced" indicator in the stats modal. Full GDPR account and data deletion available.
@@ -284,6 +296,8 @@ Every push and PR runs the same tests, build, lint, and both data validators via
 - [x] Phase 6 — Difficulty modes (Easy / Normal / Hard clip lengths)
 - [x] Phase 7 — K-POPDLE cross-group challenge (daily game drawn from all 8 catalogs, group revealed on finish)
 - [x] Phase 8 — User accounts (Google OAuth, cloud streak + stats sync, GDPR account deletion)
+- [x] Phase 9 — Battle (real-time 1v1, Socket.IO, server-authoritative scoring + audio proxy)
+- [x] Phase 10 — Guess the Group + Coverdle + Async Challenge + homepage Game Modes section
 
 ---
 

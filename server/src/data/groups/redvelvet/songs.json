@@ -233,7 +233,9 @@
     "album": "The Velvet - The 2nd Mini Album",
     "releaseYear": 2016,
     "spotifyId": null,
-    "deezerId": 0
+    "deezerId": 728725632,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7ef07afc5df451d1cec42c3f88b5984a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7ef07afc5df451d1cec42c3f88b5984a"
   },
   {
     "id": 25,
@@ -241,7 +243,9 @@
     "album": "Russian Roulette - The 3rd Mini Album",
     "releaseYear": 2016,
     "spotifyId": null,
-    "deezerId": 0
+    "deezerId": 728092462,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/1e26d9443309f860a6775d50946c4766/500x500-000000-80-0-0.jpg",
+    "coverMd5": "1e26d9443309f860a6775d50946c4766"
   },
   {
     "id": 26,
@@ -649,7 +653,9 @@
     "album": "RBB - The 5th Mini Album",
     "releaseYear": 2018,
     "spotifyId": null,
-    "deezerId": 0
+    "deezerId": 728229372,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b9c83589957e44e6b437b0f88f594c21/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b9c83589957e44e6b437b0f88f594c21"
   },
   {
     "id": 67,
@@ -697,7 +703,9 @@
     "album": "'The ReVe Festival' Day 1",
     "releaseYear": 2019,
     "spotifyId": null,
-    "deezerId": 0
+    "deezerId": 728230562,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/44a44c18c1da9e474b8b64b71913e613/500x500-000000-80-0-0.jpg",
+    "coverMd5": "44a44c18c1da9e474b8b64b71913e613"
   },
   {
     "id": 72,
@@ -725,7 +733,9 @@
     "album": "'The ReVe Festival' Day 1",
     "releaseYear": 2019,
     "spotifyId": null,
-    "deezerId": 0
+    "deezerId": 728230602,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/44a44c18c1da9e474b8b64b71913e613/500x500-000000-80-0-0.jpg",
+    "coverMd5": "44a44c18c1da9e474b8b64b71913e613"
   },
   {
     "id": 75,

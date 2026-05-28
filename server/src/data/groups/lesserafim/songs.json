@@ -153,7 +153,9 @@
     "album": "UNFORGIVEN",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 0
+    "deezerId": 2258042687,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b9786419a59c645b9f128631e391de8b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b9786419a59c645b9f128631e391de8b"
   },
   {
     "id": 17,

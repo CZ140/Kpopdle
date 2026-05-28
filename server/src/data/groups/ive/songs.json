@@ -135,7 +135,9 @@
     "album": "I've IVE",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 0
+    "deezerId": 2227832267,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f553f9d2c8af9be28334cbdb90cd25fd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f553f9d2c8af9be28334cbdb90cd25fd"
   },
   {
     "id": 15,
@@ -293,7 +295,9 @@
     "album": "IVE SWITCH",
     "releaseYear": 2024,
     "spotifyId": null,
-    "deezerId": 0
+    "deezerId": 2749285281,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c830dc6ea5be692c75abd6b685765dc8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c830dc6ea5be692c75abd6b685765dc8"
   },
   {
     "id": 31,
