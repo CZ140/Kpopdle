@@ -22,7 +22,11 @@ export default function PracticeGame({ onPlayAgain }) {
   } = usePracticeGame()
 
   const difficulty = useDifficulty()
-  const { play, stop, isPlaying, progress, currentDuration, setGuessNumber, volume, changeVolume } = useAudioPlayer(previewUrl, DIFFICULTIES[difficulty])
+  const {
+    play, stop, isPlaying, progress, currentDuration,
+    maxDuration, durations, hasAudio,
+    setGuessNumber, volume, changeVolume,
+  } = useAudioPlayer(previewUrl, DIFFICULTIES[difficulty])
 
   const [showResult, setShowResult] = useState(false)
   const resultShown = useRef(false)
@@ -97,9 +101,12 @@ export default function PracticeGame({ onPlayAgain }) {
         isPlaying={isPlaying}
         progress={progress}
         currentDuration={currentDuration}
-        gameOver={false}
+        maxDuration={maxDuration}
+        durations={durations}
+        isGameOver={gameOver}
         volume={volume}
         onVolumeChange={changeVolume}
+        hasAudio={hasAudio}
       />
 
       <GuessList guesses={guesses} />

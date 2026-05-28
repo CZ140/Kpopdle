@@ -15,7 +15,11 @@ export default function GameAboutSection({ title, eyebrow, paragraphs = [], howT
   return (
     <section
       aria-label={title}
-      className="relative z-10 w-full max-w-2xl mx-auto px-4 pt-6 pb-10 sm:pt-8"
+      // No `relative z-10` here — the active <main> sits at z-10 too, and any
+      // absolute-positioned descendant of main (most importantly the GuessInput
+      // autocomplete dropdown at z-50) needs to paint *above* this About pill.
+      // Putting both at z-10 makes DOM order win, which would cover the dropdown.
+      className="w-full max-w-2xl mx-auto px-4 pt-6 pb-10 sm:pt-8"
     >
       <details className="group kp-pill rounded-xl overflow-hidden [&_summary::-webkit-details-marker]:hidden">
         <summary
