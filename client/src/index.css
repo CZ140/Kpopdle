@@ -2910,9 +2910,13 @@ input[type="range"]::-moz-range-thumb {
 .btl-count {
   font-family: 'Poppins', sans-serif;
   font-weight: 900;
-  line-height: 0.9;
+  /* 1.1 leaves room for the lower curve of "2"/"8"/"0" so the gradient
+     (background-clip:text) doesn't crop the glyph at the baseline. */
+  line-height: 1.1;
+  padding-bottom: 0.08em;
   letter-spacing: -0.05em;
   font-size: clamp(140px, 26vw, 240px);
+  display: inline-block;
   background: linear-gradient(180deg, #fff 0%, var(--btl-you) 50%, var(--btl-foe) 100%);
   -webkit-background-clip: text;
   background-clip: text;

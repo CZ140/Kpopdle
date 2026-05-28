@@ -53,7 +53,7 @@ export default function RoundView({ state, round, reveal, myId, liveResults, onG
 
   useEffect(() => {
     if (audioRef.current) audioRef.current.volume = volume
-  }, [volume, round, reveal])
+  }, [volume, round, reveal, inCountdown, needsTap])
 
   const changeVolume = (v) => setVolume(saveVolume(v))
 
@@ -96,6 +96,11 @@ export default function RoundView({ state, round, reveal, myId, liveResults, onG
     <div className="flex flex-col gap-4">
       {round.suddenDeath && <SuddenDeathBanner />}
 
+      {/* Audio is mounted unconditionally so the clip preloads during the
+          countdown and the saved volume is applied the moment the element
+          exists — keeps round audio in sync with the synchronized start. */}
+      <audio ref={audioRef} src={audioUrl} preload="auto" className="hidden" />
+
       {inCountdown ? (
         <div className="relative flex flex-col items-center justify-center py-10 sm:py-14">
           <div className="btl-count-ring" />
@@ -114,7 +119,6 @@ export default function RoundView({ state, round, reveal, myId, liveResults, onG
             <p>Your browser blocked autoplay. Give it a tap and the round will sync up.</p>
             <button onClick={tapToPlay} className="btl-cta">PLAY CLIP</button>
           </div>
-          <audio ref={audioRef} src={audioUrl} preload="auto" />
         </div>
       ) : (
         <>
@@ -127,7 +131,6 @@ export default function RoundView({ state, round, reveal, myId, liveResults, onG
             <Waveform progress={progressFrac} />
             <VolumeRail volume={volume} onChange={changeVolume} />
           </div>
-          <audio ref={audioRef} src={audioUrl} preload="auto" />
 
           {/* Status pills — you / foe live state */}
           <div className="btl-status-row">

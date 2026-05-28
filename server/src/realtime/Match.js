@@ -266,6 +266,7 @@ export class Match {
     const results = this.players.map((p) => ({
       playerId: p.id,
       displayName: p.displayName,
+      correct: p.roundElapsedMs != null,
       points: p.roundPoints || 0,
       elapsedMs: p.roundElapsedMs,
     }))
