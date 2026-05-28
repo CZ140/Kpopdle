@@ -4,7 +4,7 @@ import GroupCard from '../components/GroupCard'
 import ModeCard from '../components/ModeCard'
 import { MODES } from '../lib/modes'
 import { fetchGroups } from '../lib/api'
-import { loadGameState, loadStats } from '../lib/storage'
+import { loadGameState, loadCoverGameState, loadStats } from '../lib/storage'
 import { useAuth } from '../lib/AuthContext'
 import { useSound } from '../lib/SoundContext'
 import { getKSTDateString } from '../lib/dateUtils'
@@ -88,7 +88,7 @@ export default function HomePage() {
   // boolean pip — Coverdle has no song-name reveal on the card.
   function getSolvedState(groupId) {
     const audio = loadGameState(groupId, today)
-    const cover = loadGameState(`${groupId}-cover`, today)
+    const cover = loadCoverGameState(groupId, today)
     const audioDone = audio && audio.gameState !== 'playing'
     const coverDone = cover && cover.gameState !== 'playing'
     return {
