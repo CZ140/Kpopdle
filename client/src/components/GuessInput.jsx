@@ -1,16 +1,19 @@
 import { useState, useRef, useEffect } from 'react'
 import { useSongList } from '../hooks/useSongList'
 import { useSound } from '../lib/SoundContext'
-import { useGroup } from '../lib/GroupContext'
+import { useGroup, useCoverMode } from '../lib/GroupContext'
 
 export default function GuessInput({ onGuess, onSkip, disabled }) {
   const { playSound } = useSound()
   const { songs, error, retry } = useSongList()
   const group = useGroup()
-  // Guess the Group asks for a group name, not a song title.
-  const placeholder = group === 'guess-the-group'
-    ? 'Know it? Search for the group...'
-    : 'Know it? Search for the song...'
+  const coverMode = useCoverMode()
+  // Guess the Group asks for a group name; Coverdle asks for an album name;
+  // everything else is asking for a song title.
+  let placeholder
+  if (group === 'guess-the-group') placeholder = 'Know it? Search for the group...'
+  else if (coverMode) placeholder = 'Know it? Search for the album...'
+  else placeholder = 'Know it? Search for the song...'
   const [query, setQuery] = useState('')
   const [showDropdown, setShowDropdown] = useState(false)
   const [selectedIndex, setSelectedIndex] = useState(-1)

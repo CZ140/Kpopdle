@@ -41,12 +41,18 @@ export async function submitCoverGuess(group, gameDate, guess) {
   return res.json()
 }
 
-export async function fetchSongList(group) {
-  // Guess the Group's autocomplete is the active group names, served from a
-  // dedicated endpoint (the generic /songs route returns song titles).
-  const path = group === 'guess-the-group'
-    ? `${API_BASE}/guess-the-group/groups-list`
-    : `${API_BASE}/${group}/songs`
+export async function fetchSongList(group, { mode } = {}) {
+  // Guess the Group's autocomplete is the active group names. Coverdle's is the
+  // deduped list of albums. Both endpoints return `{songs: [...]}` so the
+  // useSongList hook stays mode-agnostic.
+  let path
+  if (group === 'guess-the-group') {
+    path = `${API_BASE}/guess-the-group/groups-list`
+  } else if (mode === 'cover') {
+    path = `${API_BASE}/${group}/cover/albums-list`
+  } else {
+    path = `${API_BASE}/${group}/songs`
+  }
   const res = await fetch(path)
   if (!res.ok) throw new Error('Failed to fetch song list')
   return res.json()

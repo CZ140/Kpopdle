@@ -79,8 +79,14 @@ export function saveArchiveGameState(group, date, state) {
 
 // Coverdle mode — keyed under a `${group}-cover` namespace so cover-game state
 // and stats never collide with the audio daily (FR-7).
-const coverGameKey = (group, date) => `${group}-cover-game-${date}`
-const coverArchiveKey = (group, date) => `${group}-cover-archive-${date}`
+//
+// The `-v2` suffix exists because the Coverdle answer space switched from songs
+// to albums (bug: shared album covers made song-level answers unguessable). The
+// pool size shrunk, so the deterministic daily pick changed too — any state
+// saved against the old (song-mode) daily would mismatch today's (album-mode)
+// daily. Bumping the key drops the stale state cleanly without a migration.
+const coverGameKey = (group, date) => `${group}-cover-v2-game-${date}`
+const coverArchiveKey = (group, date) => `${group}-cover-v2-archive-${date}`
 
 export function loadCoverGameState(group, date) {
   try {

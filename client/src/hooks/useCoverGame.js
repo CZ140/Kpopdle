@@ -23,7 +23,9 @@ export function useCoverGame() {
   const [coverUrl, setCoverUrl] = useState(null)
   const [guesses, setGuesses] = useState([])
   const [gameState, setGameState] = useState(GAME_STATES.PLAYING)
-  const [revealedSong, setRevealedSong] = useState(null)
+  // `revealedAlbum` is { album, releaseYear, coverUrl, tracks } — the server
+  // hands it back when the game ends. Named for the answer space (albums).
+  const [revealedAlbum, setRevealedAlbum] = useState(null)
   const [hints, setHints] = useState(null)
   const [hintsUsed, setHintsUsed] = useState(0)
   const [loading, setLoading] = useState(true)
@@ -36,7 +38,7 @@ export function useCoverGame() {
     setError(null)
     setGuesses([])
     setGameState(GAME_STATES.PLAYING)
-    setRevealedSong(null)
+    setRevealedAlbum(null)
 
     async function init() {
       try {
@@ -56,7 +58,7 @@ export function useCoverGame() {
         if (saved) {
           setGuesses(saved.guesses)
           setGameState(saved.gameState)
-          setRevealedSong(saved.revealedSong)
+          setRevealedAlbum(saved.revealedAlbum ?? null)
           setHintsUsed(saved.hintsUsed || 0)
         } else {
           setHintsUsed(0)
@@ -72,24 +74,26 @@ export function useCoverGame() {
 
   useEffect(() => {
     if (gameDate && !loading) {
-      const state = { guesses, gameState, revealedSong, hintsUsed }
+      const state = { guesses, gameState, revealedAlbum, hintsUsed }
       if (isArchive) {
         saveCoverArchiveGameState(group, gameDate, state)
       } else {
         saveCoverGameState(group, gameDate, state)
       }
     }
-  }, [group, gameDate, guesses, gameState, revealedSong, hintsUsed, loading, isArchive])
+  }, [group, gameDate, guesses, gameState, revealedAlbum, hintsUsed, loading, isArchive])
 
-  const makeGuess = useCallback(async (songTitle) => {
+  const makeGuess = useCallback(async (albumName) => {
     if (gameState !== GAME_STATES.PLAYING) return
     if (currentGuessNumber >= MAX_GUESSES) return
 
     try {
-      const result = await submitCoverGuess(group, gameDate, songTitle)
+      const result = await submitCoverGuess(group, gameDate, albumName)
 
+      // `song` is reused as the guess-row label by GuessList — keep the field
+      // name (the row doesn't care that the value is now an album).
       const newGuess = {
-        song: songTitle,
+        song: albumName,
         type: result.correct ? 'correct' : 'wrong',
       }
 
@@ -98,12 +102,12 @@ export function useCoverGame() {
 
       if (result.correct) {
         setGameState(GAME_STATES.WON)
-        setRevealedSong(result.song)
+        setRevealedAlbum(result.album)
       } else if (newGuesses.length >= MAX_GUESSES) {
-        // Server withholds the song on wrong guesses — fetch it explicitly
+        // Server withholds the answer on wrong guesses — fetch it explicitly
         const reveal = await submitCoverGuess(group, gameDate, '')
         setGameState(GAME_STATES.LOST)
-        setRevealedSong(reveal.song)
+        setRevealedAlbum(reveal.album)
       }
     } catch {
       setError('Failed to submit guess. Please try again.')
@@ -126,7 +130,7 @@ export function useCoverGame() {
       try {
         const result = await submitCoverGuess(group, gameDate, '')
         setGameState(GAME_STATES.LOST)
-        setRevealedSong(result.song)
+        setRevealedAlbum(result.album)
       } catch {
         setError('Failed to load answer. Please refresh.')
       }
@@ -140,7 +144,7 @@ export function useCoverGame() {
     guesses,
     gameState,
     currentGuessNumber,
-    revealedSong,
+    revealedAlbum,
     hints,
     hintsUsed,
     revealHint,

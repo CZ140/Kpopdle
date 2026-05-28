@@ -110,7 +110,7 @@ export default function CoverPage() {
   const colors = GROUP_GAME_COLORS[group] ?? GROUP_GAME_COLORS.twice
 
   return (
-    <GroupContext.Provider value={{ id: group, archiveDate, setArchiveDate, launchDate, practiceMode: false, difficulty, setDifficulty: () => {} }}>
+    <GroupContext.Provider value={{ id: group, archiveDate, setArchiveDate, launchDate, practiceMode: false, difficulty, setDifficulty: () => {}, coverMode: true }}>
       <div
         className="min-h-screen flex flex-col bg-twice-dark bg-orbs"
         style={{ '--color-primary': colors.primary, '--color-secondary': colors.secondary }}

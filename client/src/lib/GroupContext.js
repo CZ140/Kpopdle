@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react'
 import { MAX_GUESSES } from './constants'
 
-export const GroupContext = createContext({ id: 'twice', archiveDate: null, setArchiveDate: () => {}, launchDate: null, practiceMode: false, difficulty: 'normal', setDifficulty: () => {}, maxGuesses: MAX_GUESSES, snippetLadder: null, gameName: null })
+export const GroupContext = createContext({ id: 'twice', archiveDate: null, setArchiveDate: () => {}, launchDate: null, practiceMode: false, difficulty: 'normal', setDifficulty: () => {}, maxGuesses: MAX_GUESSES, snippetLadder: null, gameName: null, coverMode: false })
 
 export function useGroup() {
   return useContext(GroupContext).id
@@ -47,4 +47,10 @@ export function useSnippetLadder() {
 // GAME_NAMES by group id.
 export function useGameName() {
   return useContext(GroupContext).gameName ?? null
+}
+
+// True on the Coverdle route — flips autocomplete, placeholder, and answer
+// rendering from songs to albums.
+export function useCoverMode() {
+  return useContext(GroupContext).coverMode === true
 }
