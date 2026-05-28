@@ -1,0 +1,254 @@
+[
+  {
+    "id": 1,
+    "title": "Oh Mymy : 7s",
+    "album": "Sparkling Blue",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2602744942,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e9b38c80d29c8d4e55629aa54de3955a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e9b38c80d29c8d4e55629aa54de3955a"
+  },
+  {
+    "id": 2,
+    "title": "plot twist",
+    "album": "Sparkling Blue",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2625258552,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/fe6a22055e802d6e2a7920cfe4cdad92/500x500-000000-80-0-0.jpg",
+    "coverMd5": "fe6a22055e802d6e2a7920cfe4cdad92"
+  },
+  {
+    "id": 3,
+    "title": "Unplugged Boy",
+    "album": "Sparkling Blue",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2625258562,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/fe6a22055e802d6e2a7920cfe4cdad92/500x500-000000-80-0-0.jpg",
+    "coverMd5": "fe6a22055e802d6e2a7920cfe4cdad92"
+  },
+  {
+    "id": 4,
+    "title": "First Hooky",
+    "album": "Sparkling Blue",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2625258572,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/fe6a22055e802d6e2a7920cfe4cdad92/500x500-000000-80-0-0.jpg",
+    "coverMd5": "fe6a22055e802d6e2a7920cfe4cdad92"
+  },
+  {
+    "id": 5,
+    "title": "BFF",
+    "album": "Sparkling Blue",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2625258582,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/fe6a22055e802d6e2a7920cfe4cdad92/500x500-000000-80-0-0.jpg",
+    "coverMd5": "fe6a22055e802d6e2a7920cfe4cdad92"
+  },
+  {
+    "id": 6,
+    "title": "You + Me = 7942",
+    "album": "Summer Beat!",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 7,
+    "title": "If I'm S, Can You Be My N?",
+    "album": "Summer Beat!",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 8,
+    "title": "hey! hey!",
+    "album": "Summer Beat!",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2830309282,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/95d42c059e8bb3c301f088ae3df2ec4f/500x500-000000-80-0-0.jpg",
+    "coverMd5": "95d42c059e8bb3c301f088ae3df2ec4f"
+  },
+  {
+    "id": 9,
+    "title": "Double Take",
+    "album": "Summer Beat!",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2856445442,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e02767e2b1a1c257b87c8471dad93cc2/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e02767e2b1a1c257b87c8471dad93cc2"
+  },
+  {
+    "id": 10,
+    "title": "If I Was the Sun",
+    "album": "Summer Beat!",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 11,
+    "title": "Fire Confetti",
+    "album": "Summer Beat!",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2856445462,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e02767e2b1a1c257b87c8471dad93cc2/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e02767e2b1a1c257b87c8471dad93cc2"
+  },
+  {
+    "id": 12,
+    "title": "Highlight",
+    "album": "Last Bell",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3103909141,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/fe98c509aad61fe571d8b5fe42683437/500x500-000000-80-0-0.jpg",
+    "coverMd5": "fe98c509aad61fe571d8b5fe42683437"
+  },
+  {
+    "id": 13,
+    "title": "last bell",
+    "album": "Last Bell",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 14,
+    "title": "Comma,",
+    "album": "Last Bell",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3103909161,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/fe98c509aad61fe571d8b5fe42683437/500x500-000000-80-0-0.jpg",
+    "coverMd5": "fe98c509aad61fe571d8b5fe42683437"
+  },
+  {
+    "id": 15,
+    "title": "Lucky to be Loved",
+    "album": "Try With Us",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3328579271,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/276fd9c410a82da2118e203e30558b95/500x500-000000-80-0-0.jpg",
+    "coverMd5": "276fd9c410a82da2118e203e30558b95"
+  },
+  {
+    "id": 16,
+    "title": "Countdown!",
+    "album": "Try With Us",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3328579281,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/276fd9c410a82da2118e203e30558b95/500x500-000000-80-0-0.jpg",
+    "coverMd5": "276fd9c410a82da2118e203e30558b95"
+  },
+  {
+    "id": 17,
+    "title": "Random Play",
+    "album": "Try With Us",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3328579291,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/276fd9c410a82da2118e203e30558b95/500x500-000000-80-0-0.jpg",
+    "coverMd5": "276fd9c410a82da2118e203e30558b95"
+  },
+  {
+    "id": 18,
+    "title": "Freestyle",
+    "album": "Try With Us",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3328579301,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/276fd9c410a82da2118e203e30558b95/500x500-000000-80-0-0.jpg",
+    "coverMd5": "276fd9c410a82da2118e203e30558b95"
+  },
+  {
+    "id": 19,
+    "title": "Now Playing",
+    "album": "Try With Us",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3328579311,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/276fd9c410a82da2118e203e30558b95/500x500-000000-80-0-0.jpg",
+    "coverMd5": "276fd9c410a82da2118e203e30558b95"
+  },
+  {
+    "id": 20,
+    "title": "Go Back",
+    "album": "Try With Us",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3328579321,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/276fd9c410a82da2118e203e30558b95/500x500-000000-80-0-0.jpg",
+    "coverMd5": "276fd9c410a82da2118e203e30558b95"
+  },
+  {
+    "id": 21,
+    "title": "Head Shoulders Knees Toes",
+    "album": "play hard",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3593847762,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e6fc40bf37df20be476111b771ab8450/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e6fc40bf37df20be476111b771ab8450"
+  },
+  {
+    "id": 22,
+    "title": "OVERDRIVE",
+    "album": "play hard",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3593847772,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e6fc40bf37df20be476111b771ab8450/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e6fc40bf37df20be476111b771ab8450"
+  },
+  {
+    "id": 23,
+    "title": "HOT BLUE SHOES",
+    "album": "play hard",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3593847782,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e6fc40bf37df20be476111b771ab8450/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e6fc40bf37df20be476111b771ab8450"
+  },
+  {
+    "id": 24,
+    "title": "Caffeine Rush",
+    "album": "play hard",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3593847792,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e6fc40bf37df20be476111b771ab8450/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e6fc40bf37df20be476111b771ab8450"
+  },
+  {
+    "id": 25,
+    "title": "overthinking",
+    "album": "play hard",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3593847802,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e6fc40bf37df20be476111b771ab8450/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e6fc40bf37df20be476111b771ab8450"
+  },
+  {
+    "id": 26,
+    "title": "Here For You",
+    "album": "play hard",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3593847812,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e6fc40bf37df20be476111b771ab8450/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e6fc40bf37df20be476111b771ab8450"
+  }
+]

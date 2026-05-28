@@ -1,0 +1,752 @@
+[
+  {
+    "id": 1,
+    "title": "Given-Taken",
+    "album": "Border: Day One",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1146925002,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b7e8387b691153c2797e71c601801bcd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b7e8387b691153c2797e71c601801bcd"
+  },
+  {
+    "id": 2,
+    "title": "Let Me In (20 Cube)",
+    "album": "Border: Day One",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1146925012,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b7e8387b691153c2797e71c601801bcd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b7e8387b691153c2797e71c601801bcd"
+  },
+  {
+    "id": 3,
+    "title": "10 Months",
+    "album": "Border: Day One",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1146925022,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b7e8387b691153c2797e71c601801bcd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b7e8387b691153c2797e71c601801bcd"
+  },
+  {
+    "id": 4,
+    "title": "Flicker",
+    "album": "Border: Day One",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1146925032,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b7e8387b691153c2797e71c601801bcd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b7e8387b691153c2797e71c601801bcd"
+  },
+  {
+    "id": 5,
+    "title": "Intro : Walk the Line",
+    "album": "Border: Day One",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1146924992,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b7e8387b691153c2797e71c601801bcd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b7e8387b691153c2797e71c601801bcd"
+  },
+  {
+    "id": 6,
+    "title": "Outro : Cross the Line",
+    "album": "Border: Day One",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1146925042,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b7e8387b691153c2797e71c601801bcd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b7e8387b691153c2797e71c601801bcd"
+  },
+  {
+    "id": 7,
+    "title": "Drunk-Dazed",
+    "album": "Border: Carnival",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1345071172,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/8699047afc5f99d73df275ca4c2698f8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "8699047afc5f99d73df275ca4c2698f8"
+  },
+  {
+    "id": 8,
+    "title": "Fever",
+    "album": "Border: Carnival",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1345071182,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/8699047afc5f99d73df275ca4c2698f8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "8699047afc5f99d73df275ca4c2698f8"
+  },
+  {
+    "id": 9,
+    "title": "Not for Sale",
+    "album": "Border: Carnival",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1345071192,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/8699047afc5f99d73df275ca4c2698f8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "8699047afc5f99d73df275ca4c2698f8"
+  },
+  {
+    "id": 10,
+    "title": "Mixed Up",
+    "album": "Border: Carnival",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1345071202,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/8699047afc5f99d73df275ca4c2698f8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "8699047afc5f99d73df275ca4c2698f8"
+  },
+  {
+    "id": 11,
+    "title": "Intro : The Invitation",
+    "album": "Border: Carnival",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1345071162,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/8699047afc5f99d73df275ca4c2698f8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "8699047afc5f99d73df275ca4c2698f8"
+  },
+  {
+    "id": 12,
+    "title": "Outro : The Wormhole",
+    "album": "Border: Carnival",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1345071212,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/8699047afc5f99d73df275ca4c2698f8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "8699047afc5f99d73df275ca4c2698f8"
+  },
+  {
+    "id": 13,
+    "title": "Forget Me Not",
+    "album": "Border: Hakanai",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1417546352,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/01fa527a2082816262813db0ae017950/500x500-000000-80-0-0.jpg",
+    "coverMd5": "01fa527a2082816262813db0ae017950"
+  },
+  {
+    "id": 14,
+    "title": "Hey Tayo",
+    "album": "Hey Tayo",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 15,
+    "title": "Tamed-Dashed",
+    "album": "Dimension: Dilemma",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1507574422,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ee0942650f4caed07f761597b9757569/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ee0942650f4caed07f761597b9757569"
+  },
+  {
+    "id": 16,
+    "title": "Upper Side Dreamin'",
+    "album": "Dimension: Dilemma",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 17,
+    "title": "Just a Little Bit",
+    "album": "Dimension: Dilemma",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1507574442,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ee0942650f4caed07f761597b9757569/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ee0942650f4caed07f761597b9757569"
+  },
+  {
+    "id": 18,
+    "title": "Go Big or Go Home",
+    "album": "Dimension: Dilemma",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1507574452,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ee0942650f4caed07f761597b9757569/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ee0942650f4caed07f761597b9757569"
+  },
+  {
+    "id": 19,
+    "title": "Blockbuster (feat. Yeonjun of TXT)",
+    "album": "Dimension: Dilemma",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 20,
+    "title": "Attention, Please!",
+    "album": "Dimension: Dilemma",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1507574472,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ee0942650f4caed07f761597b9757569/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ee0942650f4caed07f761597b9757569"
+  },
+  {
+    "id": 21,
+    "title": "Intro : Whiteout",
+    "album": "Dimension: Dilemma",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1507574412,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ee0942650f4caed07f761597b9757569/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ee0942650f4caed07f761597b9757569"
+  },
+  {
+    "id": 22,
+    "title": "Interlude : Question",
+    "album": "Dimension: Dilemma",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1507574482,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ee0942650f4caed07f761597b9757569/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ee0942650f4caed07f761597b9757569"
+  },
+  {
+    "id": 23,
+    "title": "Blessed-Cursed",
+    "album": "Dimension: Answer",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1594529541,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/1baed27ae35353f90bdf4cc956ee6569/500x500-000000-80-0-0.jpg",
+    "coverMd5": "1baed27ae35353f90bdf4cc956ee6569"
+  },
+  {
+    "id": 24,
+    "title": "Polaroid Love",
+    "album": "Dimension: Answer",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1594529551,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/1baed27ae35353f90bdf4cc956ee6569/500x500-000000-80-0-0.jpg",
+    "coverMd5": "1baed27ae35353f90bdf4cc956ee6569"
+  },
+  {
+    "id": 25,
+    "title": "Outro : Day 2",
+    "album": "Dimension: Answer",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1594529561,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/1baed27ae35353f90bdf4cc956ee6569/500x500-000000-80-0-0.jpg",
+    "coverMd5": "1baed27ae35353f90bdf4cc956ee6569"
+  },
+  {
+    "id": 26,
+    "title": "Future Perfect (Pass the MIC)",
+    "album": "Manifesto: Day 1",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1809269467,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/eae89caa80dbce080bf83fb093a55cf7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "eae89caa80dbce080bf83fb093a55cf7"
+  },
+  {
+    "id": 27,
+    "title": "ParadoXXX Invasion",
+    "album": "Manifesto: Day 1",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1809269477,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/eae89caa80dbce080bf83fb093a55cf7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "eae89caa80dbce080bf83fb093a55cf7"
+  },
+  {
+    "id": 28,
+    "title": "TFW (That Feeling When)",
+    "album": "Manifesto: Day 1",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1809269487,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/eae89caa80dbce080bf83fb093a55cf7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "eae89caa80dbce080bf83fb093a55cf7"
+  },
+  {
+    "id": 29,
+    "title": "ShoutOut",
+    "album": "Manifesto: Day 1",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 30,
+    "title": "Foreshadow",
+    "album": "Manifesto: Day 1",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1809269507,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/eae89caa80dbce080bf83fb093a55cf7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "eae89caa80dbce080bf83fb093a55cf7"
+  },
+  {
+    "id": 31,
+    "title": "Walk the Line",
+    "album": "Manifesto: Day 1",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1809269457,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/eae89caa80dbce080bf83fb093a55cf7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "eae89caa80dbce080bf83fb093a55cf7"
+  },
+  {
+    "id": 32,
+    "title": "Always",
+    "album": "Sadame",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1655219472,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/edec190bf866114e4a82f69538298919/500x500-000000-80-0-0.jpg",
+    "coverMd5": "edec190bf866114e4a82f69538298919"
+  },
+  {
+    "id": 33,
+    "title": "Make the Change",
+    "album": "Sadame",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1972216677,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/623ece11e75bcd4e6d1531ac43e0c7d1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "623ece11e75bcd4e6d1531ac43e0c7d1"
+  },
+  {
+    "id": 34,
+    "title": "One in a Billion",
+    "album": "Dark Moon: The Blood Altar OST",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1899583637,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/922b2a0a872c5a5401b3a5c9a6d3a25b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "922b2a0a872c5a5401b3a5c9a6d3a25b"
+  },
+  {
+    "id": 35,
+    "title": "Bite Me",
+    "album": "Dark Blood",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2289924375,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ad7832a7f9439bcb8d289d9d5acd8bb3/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ad7832a7f9439bcb8d289d9d5acd8bb3"
+  },
+  {
+    "id": 36,
+    "title": "Fate",
+    "album": "Dark Blood",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2289924365,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ad7832a7f9439bcb8d289d9d5acd8bb3/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ad7832a7f9439bcb8d289d9d5acd8bb3"
+  },
+  {
+    "id": 37,
+    "title": "Sacrifice (Eat Me Up)",
+    "album": "Dark Blood",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2289924385,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ad7832a7f9439bcb8d289d9d5acd8bb3/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ad7832a7f9439bcb8d289d9d5acd8bb3"
+  },
+  {
+    "id": 38,
+    "title": "Chaconne",
+    "album": "Dark Blood",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2289924395,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ad7832a7f9439bcb8d289d9d5acd8bb3/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ad7832a7f9439bcb8d289d9d5acd8bb3"
+  },
+  {
+    "id": 39,
+    "title": "Bills",
+    "album": "Dark Blood",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2289924405,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ad7832a7f9439bcb8d289d9d5acd8bb3/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ad7832a7f9439bcb8d289d9d5acd8bb3"
+  },
+  {
+    "id": 40,
+    "title": "Karma",
+    "album": "Dark Blood",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2289924415,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ad7832a7f9439bcb8d289d9d5acd8bb3/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ad7832a7f9439bcb8d289d9d5acd8bb3"
+  },
+  {
+    "id": 41,
+    "title": "Blossom",
+    "album": "You",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2385319745,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ed647e9cacd49ac8981943c895eebd97/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ed647e9cacd49ac8981943c895eebd97"
+  },
+  {
+    "id": 42,
+    "title": "One and Only",
+    "album": "Pokémon Music Collective",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2353774195,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a9eae0d460e9a8979f614e89f6b2cbf3/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a9eae0d460e9a8979f614e89f6b2cbf3"
+  },
+  {
+    "id": 43,
+    "title": "Sweet Venom",
+    "album": "Orange Blood",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2543049201,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/1f9eb5e488109ac00a89a3663e168209/500x500-000000-80-0-0.jpg",
+    "coverMd5": "1f9eb5e488109ac00a89a3663e168209"
+  },
+  {
+    "id": 44,
+    "title": "Mortal",
+    "album": "Orange Blood",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2543049191,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/1f9eb5e488109ac00a89a3663e168209/500x500-000000-80-0-0.jpg",
+    "coverMd5": "1f9eb5e488109ac00a89a3663e168209"
+  },
+  {
+    "id": 45,
+    "title": "Still Monster",
+    "album": "Orange Blood",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2543049211,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/1f9eb5e488109ac00a89a3663e168209/500x500-000000-80-0-0.jpg",
+    "coverMd5": "1f9eb5e488109ac00a89a3663e168209"
+  },
+  {
+    "id": 46,
+    "title": "Blind",
+    "album": "Orange Blood",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2543049221,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/1f9eb5e488109ac00a89a3663e168209/500x500-000000-80-0-0.jpg",
+    "coverMd5": "1f9eb5e488109ac00a89a3663e168209"
+  },
+  {
+    "id": 47,
+    "title": "Orange Flower (You Complete Me)",
+    "album": "Orange Blood",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2543049231,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/1f9eb5e488109ac00a89a3663e168209/500x500-000000-80-0-0.jpg",
+    "coverMd5": "1f9eb5e488109ac00a89a3663e168209"
+  },
+  {
+    "id": 48,
+    "title": "Fatal Trouble",
+    "album": "Memorabilia",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2791367092,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d5ca9e006dc48c247edd142ee0fd8fcd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d5ca9e006dc48c247edd142ee0fd8fcd"
+  },
+  {
+    "id": 49,
+    "title": "Criminal Love",
+    "album": "Memorabilia",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2385079995,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/dc7bbdb1e7ed11c24dc675c7e8352fd8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "dc7bbdb1e7ed11c24dc675c7e8352fd8"
+  },
+  {
+    "id": 50,
+    "title": "Teeth",
+    "album": "Memorabilia",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2791367102,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d5ca9e006dc48c247edd142ee0fd8fcd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d5ca9e006dc48c247edd142ee0fd8fcd"
+  },
+  {
+    "id": 51,
+    "title": "Lucifer",
+    "album": "Memorabilia",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2791367112,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d5ca9e006dc48c247edd142ee0fd8fcd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d5ca9e006dc48c247edd142ee0fd8fcd"
+  },
+  {
+    "id": 52,
+    "title": "Scream",
+    "album": "Memorabilia",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2791367122,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d5ca9e006dc48c247edd142ee0fd8fcd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d5ca9e006dc48c247edd142ee0fd8fcd"
+  },
+  {
+    "id": 53,
+    "title": "XO (Only If You Say Yes)",
+    "album": "Romance: Untold",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2883618912,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/0e5413b9e2063705bd8d02ab44023ba5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "0e5413b9e2063705bd8d02ab44023ba5"
+  },
+  {
+    "id": 54,
+    "title": "Moonstruck",
+    "album": "Romance: Untold",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2883618902,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/0e5413b9e2063705bd8d02ab44023ba5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "0e5413b9e2063705bd8d02ab44023ba5"
+  },
+  {
+    "id": 55,
+    "title": "Your Eyes Only",
+    "album": "Romance: Untold",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2883618922,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/0e5413b9e2063705bd8d02ab44023ba5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "0e5413b9e2063705bd8d02ab44023ba5"
+  },
+  {
+    "id": 56,
+    "title": "Hundred Broken Hearts",
+    "album": "Romance: Untold",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2883618932,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/0e5413b9e2063705bd8d02ab44023ba5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "0e5413b9e2063705bd8d02ab44023ba5"
+  },
+  {
+    "id": 57,
+    "title": "Brought the Heat Back",
+    "album": "Romance: Untold",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2883618942,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/0e5413b9e2063705bd8d02ab44023ba5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "0e5413b9e2063705bd8d02ab44023ba5"
+  },
+  {
+    "id": 58,
+    "title": "Paranormal",
+    "album": "Romance: Untold",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2883618952,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/0e5413b9e2063705bd8d02ab44023ba5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "0e5413b9e2063705bd8d02ab44023ba5"
+  },
+  {
+    "id": 59,
+    "title": "Royalty",
+    "album": "Romance: Untold",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2883618962,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/0e5413b9e2063705bd8d02ab44023ba5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "0e5413b9e2063705bd8d02ab44023ba5"
+  },
+  {
+    "id": 60,
+    "title": "Highway 1009",
+    "album": "Romance: Untold",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2883618972,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/0e5413b9e2063705bd8d02ab44023ba5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "0e5413b9e2063705bd8d02ab44023ba5"
+  },
+  {
+    "id": 61,
+    "title": "Daydream",
+    "album": "Romance: Untold -Daydream-",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3079071031,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/23544e3b1f7548894dd7b27ac6077774/500x500-000000-80-0-0.jpg",
+    "coverMd5": "23544e3b1f7548894dd7b27ac6077774"
+  },
+  {
+    "id": 62,
+    "title": "No Doubt",
+    "album": "Romance: Untold -Daydream-",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3079071041,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/23544e3b1f7548894dd7b27ac6077774/500x500-000000-80-0-0.jpg",
+    "coverMd5": "23544e3b1f7548894dd7b27ac6077774"
+  },
+  {
+    "id": 63,
+    "title": "Loose",
+    "album": "Desire: Unleash",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3305047751,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e2a54eaa084bb6107fb9fc61a4e704b3/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e2a54eaa084bb6107fb9fc61a4e704b3"
+  },
+  {
+    "id": 64,
+    "title": "Bad Desire (With or Without You)",
+    "album": "Desire: Unleash",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3396792391,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9778d79fb4c926f7ad0a5ce2f3a8a2bb/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9778d79fb4c926f7ad0a5ce2f3a8a2bb"
+  },
+  {
+    "id": 65,
+    "title": "Flashover",
+    "album": "Desire: Unleash",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3396792381,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9778d79fb4c926f7ad0a5ce2f3a8a2bb/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9778d79fb4c926f7ad0a5ce2f3a8a2bb"
+  },
+  {
+    "id": 66,
+    "title": "Outside",
+    "album": "Desire: Unleash",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3396792401,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9778d79fb4c926f7ad0a5ce2f3a8a2bb/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9778d79fb4c926f7ad0a5ce2f3a8a2bb"
+  },
+  {
+    "id": 67,
+    "title": "Helium",
+    "album": "Desire: Unleash",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3396792431,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9778d79fb4c926f7ad0a5ce2f3a8a2bb/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9778d79fb4c926f7ad0a5ce2f3a8a2bb"
+  },
+  {
+    "id": 68,
+    "title": "Too Close",
+    "album": "Desire: Unleash",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3396792441,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9778d79fb4c926f7ad0a5ce2f3a8a2bb/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9778d79fb4c926f7ad0a5ce2f3a8a2bb"
+  },
+  {
+    "id": 69,
+    "title": "Shine on Me",
+    "album": "Yoi",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3432845201,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/78865d6bb1120ffb5d8217d82ee1da9e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "78865d6bb1120ffb5d8217d82ee1da9e"
+  },
+  {
+    "id": 70,
+    "title": "Echoes",
+    "album": "Yoi",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3469323541,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/021d8fd807f925530eddfab0dd75c968/500x500-000000-80-0-0.jpg",
+    "coverMd5": "021d8fd807f925530eddfab0dd75c968"
+  },
+  {
+    "id": 71,
+    "title": "Knife",
+    "album": "The Sin: Vanish",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3773149032,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/aa65ff72d150f33010302e489f5a4f14/500x500-000000-80-0-0.jpg",
+    "coverMd5": "aa65ff72d150f33010302e489f5a4f14"
+  },
+  {
+    "id": 72,
+    "title": "No Way Back (feat. So!YoON!)",
+    "album": "The Sin: Vanish",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 73,
+    "title": "Stealer",
+    "album": "The Sin: Vanish",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3773149042,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/aa65ff72d150f33010302e489f5a4f14/500x500-000000-80-0-0.jpg",
+    "coverMd5": "aa65ff72d150f33010302e489f5a4f14"
+  },
+  {
+    "id": 74,
+    "title": "Big Girls Don't Cry",
+    "album": "The Sin: Vanish",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3773149082,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/aa65ff72d150f33010302e489f5a4f14/500x500-000000-80-0-0.jpg",
+    "coverMd5": "aa65ff72d150f33010302e489f5a4f14"
+  },
+  {
+    "id": 75,
+    "title": "Lost Island",
+    "album": "The Sin: Vanish",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3773149092,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/aa65ff72d150f33010302e489f5a4f14/500x500-000000-80-0-0.jpg",
+    "coverMd5": "aa65ff72d150f33010302e489f5a4f14"
+  },
+  {
+    "id": 76,
+    "title": "Sleep Tight",
+    "album": "The Sin: Vanish",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3773149102,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/aa65ff72d150f33010302e489f5a4f14/500x500-000000-80-0-0.jpg",
+    "coverMd5": "aa65ff72d150f33010302e489f5a4f14"
+  }
+]

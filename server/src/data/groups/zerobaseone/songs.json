@@ -1,0 +1,372 @@
+[
+  {
+    "id": 1,
+    "title": "In Bloom",
+    "album": "Youth in the Shade",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2345444785,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/38bfb87d2729bd9d562faef767211064/500x500-000000-80-0-0.jpg",
+    "coverMd5": "38bfb87d2729bd9d562faef767211064"
+  },
+  {
+    "id": 2,
+    "title": "Back to ZEROBASE",
+    "album": "Youth in the Shade",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2345444775,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/38bfb87d2729bd9d562faef767211064/500x500-000000-80-0-0.jpg",
+    "coverMd5": "38bfb87d2729bd9d562faef767211064"
+  },
+  {
+    "id": 3,
+    "title": "New Kidz on the Block",
+    "album": "Youth in the Shade",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2345444795,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/38bfb87d2729bd9d562faef767211064/500x500-000000-80-0-0.jpg",
+    "coverMd5": "38bfb87d2729bd9d562faef767211064"
+  },
+  {
+    "id": 4,
+    "title": "And I",
+    "album": "Youth in the Shade",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2345444805,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/38bfb87d2729bd9d562faef767211064/500x500-000000-80-0-0.jpg",
+    "coverMd5": "38bfb87d2729bd9d562faef767211064"
+  },
+  {
+    "id": 5,
+    "title": "Our Season",
+    "album": "Youth in the Shade",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2345444815,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/38bfb87d2729bd9d562faef767211064/500x500-000000-80-0-0.jpg",
+    "coverMd5": "38bfb87d2729bd9d562faef767211064"
+  },
+  {
+    "id": 6,
+    "title": "Always",
+    "album": "Youth in the Shade",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2345444825,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/38bfb87d2729bd9d562faef767211064/500x500-000000-80-0-0.jpg",
+    "coverMd5": "38bfb87d2729bd9d562faef767211064"
+  },
+  {
+    "id": 7,
+    "title": "Crush",
+    "album": "Melting Point",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2516729831,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/eb8901a5f51c6e8728b49170104b89ef/500x500-000000-80-0-0.jpg",
+    "coverMd5": "eb8901a5f51c6e8728b49170104b89ef"
+  },
+  {
+    "id": 8,
+    "title": "Melting Point",
+    "album": "Melting Point",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2516729801,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/eb8901a5f51c6e8728b49170104b89ef/500x500-000000-80-0-0.jpg",
+    "coverMd5": "eb8901a5f51c6e8728b49170104b89ef"
+  },
+  {
+    "id": 9,
+    "title": "Take My Hand",
+    "album": "Melting Point",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2516729811,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/eb8901a5f51c6e8728b49170104b89ef/500x500-000000-80-0-0.jpg",
+    "coverMd5": "eb8901a5f51c6e8728b49170104b89ef"
+  },
+  {
+    "id": 10,
+    "title": "Kidz Zone",
+    "album": "Melting Point",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2516729851,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/eb8901a5f51c6e8728b49170104b89ef/500x500-000000-80-0-0.jpg",
+    "coverMd5": "eb8901a5f51c6e8728b49170104b89ef"
+  },
+  {
+    "id": 11,
+    "title": "Good Night",
+    "album": "Melting Point",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2516729871,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/eb8901a5f51c6e8728b49170104b89ef/500x500-000000-80-0-0.jpg",
+    "coverMd5": "eb8901a5f51c6e8728b49170104b89ef"
+  },
+  {
+    "id": 12,
+    "title": "Feel the POP",
+    "album": "You had me at HELLO",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2778716991,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9b98bbab638aa2ecb49d62c76d3ab86d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9b98bbab638aa2ecb49d62c76d3ab86d"
+  },
+  {
+    "id": 13,
+    "title": "Sweat",
+    "album": "You had me at HELLO",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2757694001,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/fcab444952840c1208ab1fbe0dc61b92/500x500-000000-80-0-0.jpg",
+    "coverMd5": "fcab444952840c1208ab1fbe0dc61b92"
+  },
+  {
+    "id": 14,
+    "title": "Solar POWER",
+    "album": "You had me at HELLO",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2778716981,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9b98bbab638aa2ecb49d62c76d3ab86d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9b98bbab638aa2ecb49d62c76d3ab86d"
+  },
+  {
+    "id": 15,
+    "title": "Dear ECLIPSE",
+    "album": "You had me at HELLO",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2778717001,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9b98bbab638aa2ecb49d62c76d3ab86d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9b98bbab638aa2ecb49d62c76d3ab86d"
+  },
+  {
+    "id": 16,
+    "title": "Sunday RIDE",
+    "album": "You had me at HELLO",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2778717021,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9b98bbab638aa2ecb49d62c76d3ab86d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9b98bbab638aa2ecb49d62c76d3ab86d"
+  },
+  {
+    "id": 17,
+    "title": "HELLO",
+    "album": "You had me at HELLO",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2778717031,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9b98bbab638aa2ecb49d62c76d3ab86d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9b98bbab638aa2ecb49d62c76d3ab86d"
+  },
+  {
+    "id": 18,
+    "title": "Good So Bad",
+    "album": "Cinema Paradise",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2940130101,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/cfb6bc9f0765948d9151a2146bae81e5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "cfb6bc9f0765948d9151a2146bae81e5"
+  },
+  {
+    "id": 19,
+    "title": "Kill the Romeo",
+    "album": "Cinema Paradise",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2940130111,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/cfb6bc9f0765948d9151a2146bae81e5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "cfb6bc9f0765948d9151a2146bae81e5"
+  },
+  {
+    "id": 20,
+    "title": "Insomnia",
+    "album": "Cinema Paradise",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2940130131,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/cfb6bc9f0765948d9151a2146bae81e5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "cfb6bc9f0765948d9151a2146bae81e5"
+  },
+  {
+    "id": 21,
+    "title": "Road Movie",
+    "album": "Cinema Paradise",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2940130141,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/cfb6bc9f0765948d9151a2146bae81e5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "cfb6bc9f0765948d9151a2146bae81e5"
+  },
+  {
+    "id": 22,
+    "title": "Eternity",
+    "album": "Cinema Paradise",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2940130151,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/cfb6bc9f0765948d9151a2146bae81e5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "cfb6bc9f0765948d9151a2146bae81e5"
+  },
+  {
+    "id": 23,
+    "title": "BLUE",
+    "album": "Blue Paradise",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3233571181,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ee5e069a43024750d1724def07def3b6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ee5e069a43024750d1724def07def3b6"
+  },
+  {
+    "id": 24,
+    "title": "Doctor! Doctor!",
+    "album": "Blue Paradise",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3186406941,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a96877b56dba963c91907da30e9557cb/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a96877b56dba963c91907da30e9557cb"
+  },
+  {
+    "id": 25,
+    "title": "Devil Game",
+    "album": "Blue Paradise",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3233571191,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ee5e069a43024750d1724def07def3b6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ee5e069a43024750d1724def07def3b6"
+  },
+  {
+    "id": 26,
+    "title": "Out of Love",
+    "album": "Blue Paradise",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3233571211,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ee5e069a43024750d1724def07def3b6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ee5e069a43024750d1724def07def3b6"
+  },
+  {
+    "id": 27,
+    "title": "Step Back",
+    "album": "Blue Paradise",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3233571221,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ee5e069a43024750d1724def07def3b6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ee5e069a43024750d1724def07def3b6"
+  },
+  {
+    "id": 28,
+    "title": "Cruel",
+    "album": "Blue Paradise",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3233571231,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ee5e069a43024750d1724def07def3b6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ee5e069a43024750d1724def07def3b6"
+  },
+  {
+    "id": 29,
+    "title": "ICONIK",
+    "album": "Never Say Never",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3528817921,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3befa22112dc83eef9594999e5e4c1d5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3befa22112dc83eef9594999e5e4c1d5"
+  },
+  {
+    "id": 30,
+    "title": "SLAM DUNK",
+    "album": "Never Say Never",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3453329161,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/61a6e536f20913f13bddcd4906e66201/500x500-000000-80-0-0.jpg",
+    "coverMd5": "61a6e536f20913f13bddcd4906e66201"
+  },
+  {
+    "id": 31,
+    "title": "Lovesick Game",
+    "album": "Never Say Never",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3528817941,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3befa22112dc83eef9594999e5e4c1d5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3befa22112dc83eef9594999e5e4c1d5"
+  },
+  {
+    "id": 32,
+    "title": "Goosebumps",
+    "album": "Never Say Never",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3528817951,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3befa22112dc83eef9594999e5e4c1d5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3befa22112dc83eef9594999e5e4c1d5"
+  },
+  {
+    "id": 33,
+    "title": "Dumb",
+    "album": "Never Say Never",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3528817961,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3befa22112dc83eef9594999e5e4c1d5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3befa22112dc83eef9594999e5e4c1d5"
+  },
+  {
+    "id": 34,
+    "title": "EXTRA",
+    "album": "Never Say Never",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3528817981,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3befa22112dc83eef9594999e5e4c1d5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3befa22112dc83eef9594999e5e4c1d5"
+  },
+  {
+    "id": 35,
+    "title": "Long Way Back",
+    "album": "Never Say Never",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3528817991,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3befa22112dc83eef9594999e5e4c1d5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3befa22112dc83eef9594999e5e4c1d5"
+  },
+  {
+    "id": 36,
+    "title": "Star Eyes",
+    "album": "Never Say Never",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3528818001,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3befa22112dc83eef9594999e5e4c1d5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3befa22112dc83eef9594999e5e4c1d5"
+  },
+  {
+    "id": 37,
+    "title": "I Know U Know",
+    "album": "Never Say Never",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3528818011,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3befa22112dc83eef9594999e5e4c1d5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3befa22112dc83eef9594999e5e4c1d5"
+  }
+]

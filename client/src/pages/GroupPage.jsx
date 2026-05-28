@@ -20,7 +20,7 @@ import GameAboutSection from '../components/GameAboutSection'
 const VALID_GROUPS = ALL_GROUP_IDS.filter(id => id !== 'kpopdle')
 
 // Per-group SEO blurbs — distinguishing copy per route so Google doesn't
-// flag the eight group pages as near-duplicates. Each blurb leans on
+// flag the group pages as near-duplicates. Each blurb leans on
 // real-world detail (era, distinctive sound, member count) so the body
 // text isn't just templated.
 const GROUP_BLURBS = {

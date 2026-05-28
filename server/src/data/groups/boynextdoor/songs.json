@@ -1,0 +1,282 @@
+[
+  {
+    "id": 1,
+    "title": "One and Only",
+    "album": "WHO!",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2300441615,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/5c7c5db47162347b697153d77528add6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "5c7c5db47162347b697153d77528add6"
+  },
+  {
+    "id": 2,
+    "title": "But I Like You",
+    "album": "WHO!",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2300441605,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/5c7c5db47162347b697153d77528add6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "5c7c5db47162347b697153d77528add6"
+  },
+  {
+    "id": 3,
+    "title": "Serenade",
+    "album": "WHO!",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2300441625,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/5c7c5db47162347b697153d77528add6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "5c7c5db47162347b697153d77528add6"
+  },
+  {
+    "id": 4,
+    "title": "But Sometimes",
+    "album": "Why..",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2434052925,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2a2bca2cc527a131fd31d151a46565c2/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2a2bca2cc527a131fd31d151a46565c2"
+  },
+  {
+    "id": 5,
+    "title": "Crying",
+    "album": "Why..",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2434052915,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2a2bca2cc527a131fd31d151a46565c2/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2a2bca2cc527a131fd31d151a46565c2"
+  },
+  {
+    "id": 6,
+    "title": "ABCDLove",
+    "album": "Why..",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2434052935,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2a2bca2cc527a131fd31d151a46565c2/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2a2bca2cc527a131fd31d151a46565c2"
+  },
+  {
+    "id": 7,
+    "title": "Earth, Wind & Fire",
+    "album": "HOW?",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2746913911,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/311049ad716903e55f07336de140ff2f/500x500-000000-80-0-0.jpg",
+    "coverMd5": "311049ad716903e55f07336de140ff2f"
+  },
+  {
+    "id": 8,
+    "title": "OUR",
+    "album": "HOW?",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2746913881,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/311049ad716903e55f07336de140ff2f/500x500-000000-80-0-0.jpg",
+    "coverMd5": "311049ad716903e55f07336de140ff2f"
+  },
+  {
+    "id": 9,
+    "title": "Amnesia",
+    "album": "HOW?",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2746913891,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/311049ad716903e55f07336de140ff2f/500x500-000000-80-0-0.jpg",
+    "coverMd5": "311049ad716903e55f07336de140ff2f"
+  },
+  {
+    "id": 10,
+    "title": "So let's go see the stars",
+    "album": "HOW?",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2746913901,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/311049ad716903e55f07336de140ff2f/500x500-000000-80-0-0.jpg",
+    "coverMd5": "311049ad716903e55f07336de140ff2f"
+  },
+  {
+    "id": 11,
+    "title": "l i f e i s c o o l",
+    "album": "HOW?",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2746913921,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/311049ad716903e55f07336de140ff2f/500x500-000000-80-0-0.jpg",
+    "coverMd5": "311049ad716903e55f07336de140ff2f"
+  },
+  {
+    "id": 12,
+    "title": "Dear. My Darling",
+    "album": "HOW?",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2746913931,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/311049ad716903e55f07336de140ff2f/500x500-000000-80-0-0.jpg",
+    "coverMd5": "311049ad716903e55f07336de140ff2f"
+  },
+  {
+    "id": 13,
+    "title": "Dangerous",
+    "album": "19.99",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2969633911,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/588dfc55f4d6b454d4b7280ce635dd27/500x500-000000-80-0-0.jpg",
+    "coverMd5": "588dfc55f4d6b454d4b7280ce635dd27"
+  },
+  {
+    "id": 14,
+    "title": "Gonna Be a Rock",
+    "album": "19.99",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2980735991,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2b093de18bab1ba9fe79d9ae4b7c8df1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2b093de18bab1ba9fe79d9ae4b7c8df1"
+  },
+  {
+    "id": 15,
+    "title": "Nice Guy",
+    "album": "19.99",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2980736011,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2b093de18bab1ba9fe79d9ae4b7c8df1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2b093de18bab1ba9fe79d9ae4b7c8df1"
+  },
+  {
+    "id": 16,
+    "title": "20",
+    "album": "19.99",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2980736021,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2b093de18bab1ba9fe79d9ae4b7c8df1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2b093de18bab1ba9fe79d9ae4b7c8df1"
+  },
+  {
+    "id": 17,
+    "title": "Call Me",
+    "album": "19.99",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2980736031,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2b093de18bab1ba9fe79d9ae4b7c8df1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2b093de18bab1ba9fe79d9ae4b7c8df1"
+  },
+  {
+    "id": 18,
+    "title": "IF I SAY, I LOVE YOU",
+    "album": "No Genre",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3167020171,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3689585b778e5558029b79c75ab1a420/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3689585b778e5558029b79c75ab1a420"
+  },
+  {
+    "id": 19,
+    "title": "123-78",
+    "album": "No Genre",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3359004371,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/713a23522b88887a98c88ff81c096dae/500x500-000000-80-0-0.jpg",
+    "coverMd5": "713a23522b88887a98c88ff81c096dae"
+  },
+  {
+    "id": 20,
+    "title": "I Feel Good",
+    "album": "No Genre",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3359004381,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/713a23522b88887a98c88ff81c096dae/500x500-000000-80-0-0.jpg",
+    "coverMd5": "713a23522b88887a98c88ff81c096dae"
+  },
+  {
+    "id": 21,
+    "title": "Step By Step",
+    "album": "No Genre",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3359004391,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/713a23522b88887a98c88ff81c096dae/500x500-000000-80-0-0.jpg",
+    "coverMd5": "713a23522b88887a98c88ff81c096dae"
+  },
+  {
+    "id": 22,
+    "title": "Is That True?",
+    "album": "No Genre",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3359004401,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/713a23522b88887a98c88ff81c096dae/500x500-000000-80-0-0.jpg",
+    "coverMd5": "713a23522b88887a98c88ff81c096dae"
+  },
+  {
+    "id": 23,
+    "title": "Next Mistake",
+    "album": "No Genre",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3359004411,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/713a23522b88887a98c88ff81c096dae/500x500-000000-80-0-0.jpg",
+    "coverMd5": "713a23522b88887a98c88ff81c096dae"
+  },
+  {
+    "id": 24,
+    "title": "Live in Paris",
+    "album": "The Action",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3605170772,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c36980ea2cdf554a062e59f62f48ef5e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c36980ea2cdf554a062e59f62f48ef5e"
+  },
+  {
+    "id": 25,
+    "title": "Hollywood Action",
+    "album": "The Action",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3605170782,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c36980ea2cdf554a062e59f62f48ef5e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c36980ea2cdf554a062e59f62f48ef5e"
+  },
+  {
+    "id": 26,
+    "title": "JAM!",
+    "album": "The Action",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3605170792,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c36980ea2cdf554a062e59f62f48ef5e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c36980ea2cdf554a062e59f62f48ef5e"
+  },
+  {
+    "id": 27,
+    "title": "Bathroom",
+    "album": "The Action",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3605170802,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c36980ea2cdf554a062e59f62f48ef5e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c36980ea2cdf554a062e59f62f48ef5e"
+  },
+  {
+    "id": 28,
+    "title": "As Time Goes By",
+    "album": "The Action",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3605170812,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c36980ea2cdf554a062e59f62f48ef5e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c36980ea2cdf554a062e59f62f48ef5e"
+  }
+]

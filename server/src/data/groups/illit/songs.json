@@ -1,0 +1,190 @@
+[
+  {
+    "id": 1,
+    "title": "My World",
+    "album": "Super Real Me",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2714845012,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/0e165cdc21de750706d96b643a452ee6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "0e165cdc21de750706d96b643a452ee6"
+  },
+  {
+    "id": 2,
+    "title": "Magnetic",
+    "album": "Super Real Me",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2714845022,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/0e165cdc21de750706d96b643a452ee6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "0e165cdc21de750706d96b643a452ee6"
+  },
+  {
+    "id": 3,
+    "title": "Midnight Fiction",
+    "album": "Super Real Me",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2714845032,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/0e165cdc21de750706d96b643a452ee6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "0e165cdc21de750706d96b643a452ee6"
+  },
+  {
+    "id": 4,
+    "title": "Lucky Girl Syndrome",
+    "album": "Super Real Me",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2714845042,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/0e165cdc21de750706d96b643a452ee6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "0e165cdc21de750706d96b643a452ee6"
+  },
+  {
+    "id": 5,
+    "title": "I'll Like You",
+    "album": "I'll Like You",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3049682551,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6c4abcc8e4a6086f2ca9d9ed620e9f85/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6c4abcc8e4a6086f2ca9d9ed620e9f85"
+  },
+  {
+    "id": 6,
+    "title": "Cherish (My Love)",
+    "album": "I'll Like You",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3049682561,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6c4abcc8e4a6086f2ca9d9ed620e9f85/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6c4abcc8e4a6086f2ca9d9ed620e9f85"
+  },
+  {
+    "id": 7,
+    "title": "IYKYK (If You Know You Know)",
+    "album": "I'll Like You",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3049682571,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6c4abcc8e4a6086f2ca9d9ed620e9f85/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6c4abcc8e4a6086f2ca9d9ed620e9f85"
+  },
+  {
+    "id": 8,
+    "title": "Pimple",
+    "album": "I'll Like You",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3049682581,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6c4abcc8e4a6086f2ca9d9ed620e9f85/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6c4abcc8e4a6086f2ca9d9ed620e9f85"
+  },
+  {
+    "id": 9,
+    "title": "Tick-Tack",
+    "album": "I'll Like You",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3049682591,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6c4abcc8e4a6086f2ca9d9ed620e9f85/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6c4abcc8e4a6086f2ca9d9ed620e9f85"
+  },
+  {
+    "id": 10,
+    "title": "Almond Chocolate (Korean Ver.)",
+    "album": "Almond Chocolate (Korean Ver.)",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3265340581,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/1023ccffb25baaf647fb98c6a71c0ee9/500x500-000000-80-0-0.jpg",
+    "coverMd5": "1023ccffb25baaf647fb98c6a71c0ee9"
+  },
+  {
+    "id": 11,
+    "title": "little monster",
+    "album": "bomb",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3410990791,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e26714f04ae85b3388db4d1231544b66/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e26714f04ae85b3388db4d1231544b66"
+  },
+  {
+    "id": 12,
+    "title": "Do the Dance",
+    "album": "bomb",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 13,
+    "title": "jellyous",
+    "album": "bomb",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3410990811,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e26714f04ae85b3388db4d1231544b66/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e26714f04ae85b3388db4d1231544b66"
+  },
+  {
+    "id": 14,
+    "title": "oops!",
+    "album": "bomb",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3410990821,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e26714f04ae85b3388db4d1231544b66/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e26714f04ae85b3388db4d1231544b66"
+  },
+  {
+    "id": 15,
+    "title": "bamsopoong",
+    "album": "bomb",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3410990831,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e26714f04ae85b3388db4d1231544b66/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e26714f04ae85b3388db4d1231544b66"
+  },
+  {
+    "id": 16,
+    "title": "NOT CUTE ANYMORE",
+    "album": "NOT CUTE ANYMORE",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3667806702,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3ba04f1d23b5801365db62fb5a18838f/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3ba04f1d23b5801365db62fb5a18838f"
+  },
+  {
+    "id": 17,
+    "title": "NOT ME",
+    "album": "NOT CUTE ANYMORE",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3667806712,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3ba04f1d23b5801365db62fb5a18838f/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3ba04f1d23b5801365db62fb5a18838f"
+  },
+  {
+    "id": 18,
+    "title": "ALL FOR YOU",
+    "album": "ALL FOR YOU, 2027",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3716236592,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2a34d22cb459fd0214a234ff0f929a26/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2a34d22cb459fd0214a234ff0f929a26"
+  },
+  {
+    "id": 19,
+    "title": "Bubee (Korean Ver.)",
+    "album": "Bubee (Korean Ver.)",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3950788981,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/60b26dd15554aa7adc942158ba40665a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "60b26dd15554aa7adc942158ba40665a"
+  }
+]

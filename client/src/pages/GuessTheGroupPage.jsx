@@ -34,7 +34,7 @@ export default function GuessTheGroupPage() {
 
   useDocumentMeta({
     title: 'Guess the Group — Daily K-pop Clip Challenge',
-    description: 'Hear one daily K-pop clip and name the group in 3 tries. A cross-group K-pop guessing game from all 8 groups, new every day at midnight KST.',
+    description: 'Hear one daily K-pop clip and name the group in 3 tries. A cross-group K-pop guessing game from all 28 groups, new every day at midnight KST.',
     path: '/guess-the-group',
   })
 
@@ -87,9 +87,9 @@ export default function GuessTheGroupPage() {
           eyebrow="Daily K-pop artist ID challenge"
           title="About Guess the Group — Name the K-pop Artist From a Clip"
           paragraphs={[
-            'Guess the Group is the artist-identification mode on K-POPDLE: you hear a short clip from one of 500+ tracks across eight groups — TWICE, BLACKPINK, aespa, NewJeans, LE SSERAFIM, IVE, Red Velvet, and KISS OF LIFE — and you have three tries to name which group performs it. A new clip drops every day at midnight KST.',
-            'Three tries instead of six because the answer space is much smaller: just eight options. The snippet ladder is tighter too — one, three, and six seconds — so you have to lean on production fingerprints, member vocal timbres, and signature sounds rather than waiting for an obvious chorus hook. The deep cuts force you off easy "I know the chorus" answers and into real listening.',
-            'It pairs naturally with the per-group dailies: warm up on Guess the Group to widen your K-pop ear, then dive into a single-group Heardle to test depth. Your streak is tracked separately from every other mode, archived rounds are replayable, and the autocomplete dropdown shows the eight eligible groups so you never have to type a perfect spelling.',
+            'Guess the Group is the artist-identification mode on K-POPDLE: you hear a short clip from one of 1,900+ tracks across 28 groups — spanning 2nd-gen acts like BIGBANG, Girls’ Generation, SHINee, and EXO, 3rd-/4th-gen powerhouses like BTS, BLACKPINK, TWICE, SEVENTEEN, Stray Kids, NewJeans, LE SSERAFIM, aespa, and IVE, and 5th-gen rookies like BABYMONSTER, RIIZE, BOYNEXTDOOR, TWS, and ILLIT — and you have three tries to name which group performs it. A new clip drops every day at midnight KST.',
+            'Three tries instead of six because the snippet ladder is tight — one, three, and six seconds — so you have to lean on production fingerprints, member vocal timbres, and signature sounds rather than waiting for an obvious chorus hook. The deep cuts force you off easy "I know the chorus" answers and into real listening.',
+            'It pairs naturally with the per-group dailies: warm up on Guess the Group to widen your K-pop ear, then dive into a single-group Heardle to test depth. Your streak is tracked separately from every other mode, archived rounds are replayable, and the autocomplete dropdown shows every eligible group so you never have to type a perfect spelling.',
           ]}
           howToPlay={[
             'Press play to hear today\'s clip — it starts at one second.',

@@ -6,22 +6,9 @@ import { GAME_STATES } from '../lib/constants'
 import { useSnippetLadder, useArchiveDate } from '../lib/GroupContext'
 import GuessInput from './GuessInput'
 import ResultModal from './ResultModal'
-import { recordGameResult, fetchCommunityStats } from '../lib/api'
+import { recordGameResult, fetchCommunityStats, fetchGroups } from '../lib/api'
 import { useAuth } from '../lib/AuthContext'
 import { useSound } from '../lib/SoundContext'
-
-// The 8 active groups — palette matches the design brief and groups.json.
-// Chips render in this fixed order so each row pairs related palettes.
-const CHIP_GROUPS = [
-  { id: 'twice',      name: 'TWICE',        meta: '9 MEMBERS · 2015', p: '#FF2D78', s: '#A855F7' },
-  { id: 'aespa',      name: 'aespa',        meta: '4 MEMBERS · 2020', p: '#C084FC', s: '#67E8F9' },
-  { id: 'newjeans',   name: 'NewJeans',     meta: '5 MEMBERS · 2022', p: '#38BDF8', s: '#818CF8' },
-  { id: 'lesserafim', name: 'LE SSERAFIM',  meta: '5 MEMBERS · 2022', p: '#60A5FA', s: '#2563EB' },
-  { id: 'blackpink',  name: 'BLACKPINK',    meta: '4 MEMBERS · 2016', p: '#EC4899', s: '#DB2777' },
-  { id: 'redvelvet',  name: 'Red Velvet',   meta: '5 MEMBERS · 2014', p: '#EF4444', s: '#FB7185' },
-  { id: 'kissoflife', name: 'KISS OF LIFE', meta: '4 MEMBERS · 2023', p: '#F97316', s: '#EAB308' },
-  { id: 'ive',        name: 'IVE',          meta: '6 MEMBERS · 2021', p: '#7C3AED', s: '#F59E0B' },
-]
 
 // Total visualized track length on the timeline. Matches the design's 12s
 // horizon — the longest snippet (6s) fills half, leaving headroom on the right.
@@ -163,6 +150,25 @@ function GroupChip({ group, status, onClick }) {
 }
 
 export default function GuessTheGroupGame() {
+  // Chip data is derived at runtime from the active group registry so the
+  // answer-space picker grows automatically as new groups launch.
+  const [chipGroups, setChipGroups] = useState([])
+  useEffect(() => {
+    fetchGroups()
+      .then((gs) => {
+        setChipGroups(
+          gs.map((g) => ({
+            id: g.id,
+            name: g.displayName,
+            meta: `${g.members} MEMBERS`,
+            p: g.colors.primary,
+            s: g.colors.secondary,
+          }))
+        )
+      })
+      .catch(() => {})
+  }, [])
+
   const {
     gameDate,
     gameNumber,
@@ -253,19 +259,19 @@ export default function GuessTheGroupGame() {
     const correctName = revealedSong?.groupDisplayName?.toLowerCase()
     for (const g of guesses) {
       if (g.type === 'wrong' && g.song) {
-        const match = CHIP_GROUPS.find(c => c.name.toLowerCase() === g.song.toLowerCase())
+        const match = chipGroups.find(c => c.name.toLowerCase() === g.song.toLowerCase())
         if (match) status[match.id] = 'wrong'
       } else if (g.type === 'correct' && g.song) {
-        const match = CHIP_GROUPS.find(c => c.name.toLowerCase() === g.song.toLowerCase())
+        const match = chipGroups.find(c => c.name.toLowerCase() === g.song.toLowerCase())
         if (match) status[match.id] = 'correct'
       }
     }
     if (gameState === GAME_STATES.LOST && correctName) {
-      const match = CHIP_GROUPS.find(c => c.name.toLowerCase() === correctName)
+      const match = chipGroups.find(c => c.name.toLowerCase() === correctName)
       if (match) status[match.id] = 'answer'
     }
     return status
-  }, [guesses, gameState, revealedSong])
+  }, [guesses, gameState, revealedSong, chipGroups])
 
   if (loading) {
     return (
@@ -324,7 +330,7 @@ export default function GuessTheGroupGame() {
 
         {/* Group picker — primary affordance */}
         <div className={`gtg-grid ${gameOver ? 'is-over' : ''}`}>
-          {CHIP_GROUPS.map((g) => {
+          {chipGroups.map((g) => {
             const status = chipStatus[g.id] || (gameOver ? 'disabled' : 'default')
             return (
               <GroupChip

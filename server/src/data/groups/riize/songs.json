@@ -1,0 +1,232 @@
+[
+  {
+    "id": 1,
+    "title": "Memories",
+    "album": "Get A Guitar",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2517780731,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2ea49c8efd38b99337a6fe511d9bc6d5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2ea49c8efd38b99337a6fe511d9bc6d5"
+  },
+  {
+    "id": 2,
+    "title": "Get A Guitar",
+    "album": "Get A Guitar",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2521359701,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7ed179530ac81913bddd00c04ad7945e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7ed179530ac81913bddd00c04ad7945e"
+  },
+  {
+    "id": 3,
+    "title": "Siren",
+    "album": "Get A Guitar",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2721747822,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e2f02459ef1cb98c36c679f14f0ce894/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e2f02459ef1cb98c36c679f14f0ce894"
+  },
+  {
+    "id": 4,
+    "title": "Talk Saxy",
+    "album": "Talk Saxy",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2506369211,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/71d051b68209d632737eb186a2e639ca/500x500-000000-80-0-0.jpg",
+    "coverMd5": "71d051b68209d632737eb186a2e639ca"
+  },
+  {
+    "id": 5,
+    "title": "Love 119",
+    "album": "Riizing",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2585394352,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/77f156fac3fb75affb3893e21e7f7df8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "77f156fac3fb75affb3893e21e7f7df8"
+  },
+  {
+    "id": 6,
+    "title": "Impossible",
+    "album": "Riizing",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2739095591,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/93f295529c12fe58690cd7d7bcde002e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "93f295529c12fe58690cd7d7bcde002e"
+  },
+  {
+    "id": 7,
+    "title": "9 Days",
+    "album": "Riizing",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2959244831,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9208f1b0fd344e34a463a3a20ad8fc5c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9208f1b0fd344e34a463a3a20ad8fc5c"
+  },
+  {
+    "id": 8,
+    "title": "Honestly",
+    "album": "Riizing",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2758846761,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b28aa2e724f95f60155fabbe9953e242/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b28aa2e724f95f60155fabbe9953e242"
+  },
+  {
+    "id": 9,
+    "title": "One Kiss",
+    "album": "Riizing",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2758846771,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b28aa2e724f95f60155fabbe9953e242/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b28aa2e724f95f60155fabbe9953e242"
+  },
+  {
+    "id": 10,
+    "title": "Boom Boom Bass",
+    "album": "Riizing",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2827595042,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3dfe8d70b01e559264f160a2cefc1cf6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3dfe8d70b01e559264f160a2cefc1cf6"
+  },
+  {
+    "id": 11,
+    "title": "Combo",
+    "album": "Riizing: Epilogue",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2959244791,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9208f1b0fd344e34a463a3a20ad8fc5c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9208f1b0fd344e34a463a3a20ad8fc5c"
+  },
+  {
+    "id": 12,
+    "title": "Lucky",
+    "album": "Lucky",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2903113091,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/8559cb4ff58c7215fc962c62659018a1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "8559cb4ff58c7215fc962c62659018a1"
+  },
+  {
+    "id": 13,
+    "title": "Odyssey",
+    "album": "Odyssey",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3365288501,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d83dfbf0c6af21b45de3d5b750f63e58/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d83dfbf0c6af21b45de3d5b750f63e58"
+  },
+  {
+    "id": 14,
+    "title": "Bag Bad Back",
+    "album": "Odyssey",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3365288511,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d83dfbf0c6af21b45de3d5b750f63e58/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d83dfbf0c6af21b45de3d5b750f63e58"
+  },
+  {
+    "id": 15,
+    "title": "Ember to Solar",
+    "album": "Odyssey",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3365288521,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d83dfbf0c6af21b45de3d5b750f63e58/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d83dfbf0c6af21b45de3d5b750f63e58"
+  },
+  {
+    "id": 16,
+    "title": "Fly Up",
+    "album": "Odyssey",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3365288531,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d83dfbf0c6af21b45de3d5b750f63e58/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d83dfbf0c6af21b45de3d5b750f63e58"
+  },
+  {
+    "id": 17,
+    "title": "Show Me Love",
+    "album": "Odyssey",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3365288541,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d83dfbf0c6af21b45de3d5b750f63e58/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d83dfbf0c6af21b45de3d5b750f63e58"
+  },
+  {
+    "id": 18,
+    "title": "Passage",
+    "album": "Odyssey",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3365288551,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d83dfbf0c6af21b45de3d5b750f63e58/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d83dfbf0c6af21b45de3d5b750f63e58"
+  },
+  {
+    "id": 19,
+    "title": "Midnight Mirage",
+    "album": "Odyssey",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3365288561,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d83dfbf0c6af21b45de3d5b750f63e58/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d83dfbf0c6af21b45de3d5b750f63e58"
+  },
+  {
+    "id": 20,
+    "title": "The End of the Day",
+    "album": "Odyssey",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3365288571,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d83dfbf0c6af21b45de3d5b750f63e58/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d83dfbf0c6af21b45de3d5b750f63e58"
+  },
+  {
+    "id": 21,
+    "title": "Inside My Love",
+    "album": "Odyssey",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3365288581,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d83dfbf0c6af21b45de3d5b750f63e58/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d83dfbf0c6af21b45de3d5b750f63e58"
+  },
+  {
+    "id": 22,
+    "title": "Another Life",
+    "album": "Odyssey",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3365288591,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d83dfbf0c6af21b45de3d5b750f63e58/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d83dfbf0c6af21b45de3d5b750f63e58"
+  },
+  {
+    "id": 23,
+    "title": "Fame",
+    "album": "Fame",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3665701332,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a72c26ebec2862932259b8dad2008356/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a72c26ebec2862932259b8dad2008356"
+  }
+]

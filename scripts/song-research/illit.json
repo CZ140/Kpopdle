@@ -1,0 +1,27 @@
+{
+  "groupId": "illit",
+  "displayName": "ILLIT",
+  "estimatedSongs": 19,
+  "songs": [
+    {"title": "My World", "album": "Super Real Me", "releaseYear": 2024},
+    {"title": "Magnetic", "album": "Super Real Me", "releaseYear": 2024},
+    {"title": "Midnight Fiction", "album": "Super Real Me", "releaseYear": 2024},
+    {"title": "Lucky Girl Syndrome", "album": "Super Real Me", "releaseYear": 2024},
+    {"title": "I'll Like You", "album": "I'll Like You", "releaseYear": 2024},
+    {"title": "Cherish (My Love)", "album": "I'll Like You", "releaseYear": 2024},
+    {"title": "IYKYK (If You Know You Know)", "album": "I'll Like You", "releaseYear": 2024},
+    {"title": "Pimple", "album": "I'll Like You", "releaseYear": 2024},
+    {"title": "Tick-Tack", "album": "I'll Like You", "releaseYear": 2024},
+    {"title": "Almond Chocolate (Korean Ver.)", "album": "Almond Chocolate (Korean Ver.)", "releaseYear": 2025},
+    {"title": "little monster", "album": "bomb", "releaseYear": 2025},
+    {"title": "Do the Dance", "album": "bomb", "releaseYear": 2025},
+    {"title": "jellyous", "album": "bomb", "releaseYear": 2025},
+    {"title": "oops!", "album": "bomb", "releaseYear": 2025},
+    {"title": "bamsopoong", "album": "bomb", "releaseYear": 2025},
+    {"title": "NOT CUTE ANYMORE", "album": "NOT CUTE ANYMORE", "releaseYear": 2025},
+    {"title": "NOT ME", "album": "NOT CUTE ANYMORE", "releaseYear": 2025},
+    {"title": "ALL FOR YOU", "album": "ALL FOR YOU, 2027", "releaseYear": 2025},
+    {"title": "Bubee (Korean Ver.)", "album": "Bubee (Korean Ver.)", "releaseYear": 2026}
+  ],
+  "_note": "Trimmed unverified 2026 Mamihlapinatapai EP — that album may not yet exist as of 2026-05-28. Resolver script will flag any false positives."
+}

@@ -35,7 +35,7 @@ export default function KpopdlePage() {
 
   useDocumentMeta({
     title: 'K-POPDLE Daily Challenge — Guess the K-pop Song',
-    description: 'One daily K-pop song drawn from all 8 groups — guess it in 6 tries without knowing the group. A new cross-group K-pop Heardle challenge every day at midnight KST.',
+    description: 'One daily K-pop song drawn from all 28 groups — guess it in 6 tries without knowing the group. A new cross-group K-pop Heardle challenge every day at midnight KST.',
     path: '/kpopdle',
   })
 
@@ -85,8 +85,8 @@ export default function KpopdlePage() {
           eyebrow="The flagship cross-group daily"
           title="About K-POPDLE — Daily Cross-Group K-pop Heardle"
           paragraphs={[
-            'K-POPDLE is a free, daily K-pop song-guessing game in the Heardle tradition. Each day at midnight KST, one track is drawn from a pool spanning eight of the biggest K-pop groups — TWICE, BLACKPINK, aespa, NewJeans, LE SSERAFIM, IVE, Red Velvet, and KISS OF LIFE — and your job is to identify the song in six tries from progressively longer audio clips.',
-            'Because the daily song can come from any of the eight groups, K-POPDLE is the toughest of the K-popdle modes — it rewards broad K-pop knowledge across both 3rd- and 4th-generation acts. The catalog covers 500+ songs ranging from debut tracks and title cuts to B-sides and recent comebacks, so even longtime listeners regularly meet a tune they only half-remember.',
+            'K-POPDLE is a free, daily K-pop song-guessing game in the Heardle tradition. Each day at midnight KST, one track is drawn from a pool spanning 28 of the biggest K-pop groups — from 2nd-gen legends like BIGBANG, Girls’ Generation, SHINee, and EXO, through 3rd- and 4th-gen powerhouses like BTS, BLACKPINK, TWICE, SEVENTEEN, Stray Kids, NewJeans, LE SSERAFIM, aespa, and IVE, all the way to 5th-gen rookies like BABYMONSTER, RIIZE, BOYNEXTDOOR, TWS, and ILLIT — and your job is to identify the song in six tries from progressively longer audio clips.',
+            'Because the daily song can come from any of the 28 active groups, K-POPDLE is the toughest of the K-popdle modes — it rewards broad K-pop knowledge across 2nd-, 3rd-, 4th- and 5th-generation acts. The catalog spans 1,900+ songs ranging from debut tracks and title cuts to B-sides and recent comebacks, so even longtime listeners regularly meet a tune they only half-remember.',
             'Missed yesterday or want to test yourself on past dailies? Use the archive arrows to play any previous day back to launch. Your streak persists across browser sessions via localStorage, no sign-up required, and the difficulty selector lets you tighten the snippet ladder if six guesses feel too easy.',
           ]}
           howToPlay={[

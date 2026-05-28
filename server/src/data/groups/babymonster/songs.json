@@ -1,0 +1,196 @@
+[
+  {
+    "id": 1,
+    "title": "DREAM",
+    "album": "DREAM",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2724377432,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7c78b86338aa4439b1c8854227cd9721/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7c78b86338aa4439b1c8854227cd9721"
+  },
+  {
+    "id": 2,
+    "title": "BATTER UP",
+    "album": "BATTER UP",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 3,
+    "title": "Stuck In The Middle",
+    "album": "Stuck In The Middle",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2639583792,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3aa15f88acefb7e23d5eca328f33f201/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3aa15f88acefb7e23d5eca328f33f201"
+  },
+  {
+    "id": 4,
+    "title": "MONSTERS",
+    "album": "BABYMONS7ER",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 5,
+    "title": "SHEESH",
+    "album": "BABYMONS7ER",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2724377392,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7c78b86338aa4439b1c8854227cd9721/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7c78b86338aa4439b1c8854227cd9721"
+  },
+  {
+    "id": 6,
+    "title": "LIKE THAT",
+    "album": "BABYMONS7ER",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2724377402,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7c78b86338aa4439b1c8854227cd9721/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7c78b86338aa4439b1c8854227cd9721"
+  },
+  {
+    "id": 7,
+    "title": "FOREVER",
+    "album": "FOREVER",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2864501212,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/71dccc0b72c8f329325c540d9ccd1131/500x500-000000-80-0-0.jpg",
+    "coverMd5": "71dccc0b72c8f329325c540d9ccd1131"
+  },
+  {
+    "id": 8,
+    "title": "CLIK CLAK",
+    "album": "DRIP",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3063891971,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c49d4419cfa49e7939a3d1f3ec3a0605/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c49d4419cfa49e7939a3d1f3ec3a0605"
+  },
+  {
+    "id": 9,
+    "title": "DRIP",
+    "album": "DRIP",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3063891981,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c49d4419cfa49e7939a3d1f3ec3a0605/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c49d4419cfa49e7939a3d1f3ec3a0605"
+  },
+  {
+    "id": 10,
+    "title": "Love, Maybe",
+    "album": "DRIP",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3063891991,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c49d4419cfa49e7939a3d1f3ec3a0605/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c49d4419cfa49e7939a3d1f3ec3a0605"
+  },
+  {
+    "id": 11,
+    "title": "Really Like You",
+    "album": "DRIP",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3063892001,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c49d4419cfa49e7939a3d1f3ec3a0605/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c49d4419cfa49e7939a3d1f3ec3a0605"
+  },
+  {
+    "id": 12,
+    "title": "BILLIONAIRE",
+    "album": "DRIP",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3063892011,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c49d4419cfa49e7939a3d1f3ec3a0605/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c49d4419cfa49e7939a3d1f3ec3a0605"
+  },
+  {
+    "id": 13,
+    "title": "Love In My Heart",
+    "album": "DRIP",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3063892021,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c49d4419cfa49e7939a3d1f3ec3a0605/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c49d4419cfa49e7939a3d1f3ec3a0605"
+  },
+  {
+    "id": 14,
+    "title": "Woke Up In Tokyo",
+    "album": "DRIP",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 15,
+    "title": "Ghost",
+    "album": "Ghost",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3339397501,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7a75edde312fb523b4e97ffd9721b7f6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7a75edde312fb523b4e97ffd9721b7f6"
+  },
+  {
+    "id": 16,
+    "title": "HOT SAUCE",
+    "album": "HOT SAUCE",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3430009741,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a3a889c32f8b78e0f631678b5c055ed8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a3a889c32f8b78e0f631678b5c055ed8"
+  },
+  {
+    "id": 17,
+    "title": "WE GO UP",
+    "album": "WE GO UP",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3582629601,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b8fc928e8b10a4d1463b3200aaa107fa/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b8fc928e8b10a4d1463b3200aaa107fa"
+  },
+  {
+    "id": 18,
+    "title": "PSYCHO",
+    "album": "WE GO UP",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3582629611,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b8fc928e8b10a4d1463b3200aaa107fa/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b8fc928e8b10a4d1463b3200aaa107fa"
+  },
+  {
+    "id": 19,
+    "title": "SUPA DUPA LUV",
+    "album": "WE GO UP",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3582629621,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b8fc928e8b10a4d1463b3200aaa107fa/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b8fc928e8b10a4d1463b3200aaa107fa"
+  },
+  {
+    "id": 20,
+    "title": "WILD",
+    "album": "WE GO UP",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3582629631,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b8fc928e8b10a4d1463b3200aaa107fa/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b8fc928e8b10a4d1463b3200aaa107fa"
+  }
+]

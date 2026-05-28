@@ -1,0 +1,30 @@
+{
+  "groupId": "riize",
+  "displayName": "RIIZE",
+  "estimatedSongs": 23,
+  "songs": [
+    {"title": "Memories", "album": "Get A Guitar", "releaseYear": 2023},
+    {"title": "Get A Guitar", "album": "Get A Guitar", "releaseYear": 2023},
+    {"title": "Siren", "album": "Get A Guitar", "releaseYear": 2023},
+    {"title": "Talk Saxy", "album": "Talk Saxy", "releaseYear": 2023},
+    {"title": "Love 119", "album": "Riizing", "releaseYear": 2024},
+    {"title": "Impossible", "album": "Riizing", "releaseYear": 2024},
+    {"title": "9 Days", "album": "Riizing", "releaseYear": 2024},
+    {"title": "Honestly", "album": "Riizing", "releaseYear": 2024},
+    {"title": "One Kiss", "album": "Riizing", "releaseYear": 2024},
+    {"title": "Boom Boom Bass", "album": "Riizing", "releaseYear": 2024},
+    {"title": "Combo", "album": "Riizing: Epilogue", "releaseYear": 2024},
+    {"title": "Lucky", "album": "Lucky", "releaseYear": 2024},
+    {"title": "Odyssey", "album": "Odyssey", "releaseYear": 2025},
+    {"title": "Bag Bad Back", "album": "Odyssey", "releaseYear": 2025},
+    {"title": "Ember to Solar", "album": "Odyssey", "releaseYear": 2025},
+    {"title": "Fly Up", "album": "Odyssey", "releaseYear": 2025},
+    {"title": "Show Me Love", "album": "Odyssey", "releaseYear": 2025},
+    {"title": "Passage", "album": "Odyssey", "releaseYear": 2025},
+    {"title": "Midnight Mirage", "album": "Odyssey", "releaseYear": 2025},
+    {"title": "The End of the Day", "album": "Odyssey", "releaseYear": 2025},
+    {"title": "Inside My Love", "album": "Odyssey", "releaseYear": 2025},
+    {"title": "Another Life", "album": "Odyssey", "releaseYear": 2025},
+    {"title": "Fame", "album": "Fame", "releaseYear": 2025}
+  ]
+}

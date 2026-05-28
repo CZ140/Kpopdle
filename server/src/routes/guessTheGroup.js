@@ -75,7 +75,7 @@ router.get('/game/archive/:date', async (req, res) => {
   }
 })
 
-// Autocomplete source — the ~8 active group display names. The client's generic
+// Autocomplete source — the active group display names. The client's generic
 // string-list autocomplete consumes this unchanged.
 router.get('/groups-list', (req, res) => {
   try {

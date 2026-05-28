@@ -1,0 +1,588 @@
+[
+  {
+    "id": 1,
+    "title": "DALLA DALLA",
+    "album": "IT'z Different",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 1642056352,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/95aa02e6357cd4d4422a25f4a94b26bd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "95aa02e6357cd4d4422a25f4a94b26bd"
+  },
+  {
+    "id": 2,
+    "title": "Want It?",
+    "album": "IT'z Different",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 1642056362,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/95aa02e6357cd4d4422a25f4a94b26bd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "95aa02e6357cd4d4422a25f4a94b26bd"
+  },
+  {
+    "id": 3,
+    "title": "ICY",
+    "album": "IT'z ICY",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 1642053052,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6de65ceb827fcdaae8997b449849f9e8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6de65ceb827fcdaae8997b449849f9e8"
+  },
+  {
+    "id": 4,
+    "title": "Cherry",
+    "album": "IT'z ICY",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 1642053062,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6de65ceb827fcdaae8997b449849f9e8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6de65ceb827fcdaae8997b449849f9e8"
+  },
+  {
+    "id": 5,
+    "title": "IT'z Summer",
+    "album": "IT'z ICY",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 1642053072,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6de65ceb827fcdaae8997b449849f9e8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6de65ceb827fcdaae8997b449849f9e8"
+  },
+  {
+    "id": 6,
+    "title": "WANNABE",
+    "album": "IT'z ME",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1642054622,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a4712557125cdfc3c4eddb7908f726b0/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a4712557125cdfc3c4eddb7908f726b0"
+  },
+  {
+    "id": 7,
+    "title": "TING TING TING (with Oliver Heldens)",
+    "album": "IT'z ME",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1642054632,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a4712557125cdfc3c4eddb7908f726b0/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a4712557125cdfc3c4eddb7908f726b0"
+  },
+  {
+    "id": 8,
+    "title": "THAT'S A NO NO",
+    "album": "IT'z ME",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 9,
+    "title": "NOBODY LIKE YOU",
+    "album": "IT'z ME",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1642054662,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a4712557125cdfc3c4eddb7908f726b0/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a4712557125cdfc3c4eddb7908f726b0"
+  },
+  {
+    "id": 10,
+    "title": "YOU MAKE ME",
+    "album": "IT'z ME",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1642054672,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a4712557125cdfc3c4eddb7908f726b0/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a4712557125cdfc3c4eddb7908f726b0"
+  },
+  {
+    "id": 11,
+    "title": "I DON'T WANNA DANCE",
+    "album": "IT'z ME",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 12,
+    "title": "24HRS",
+    "album": "IT'z ME",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1642054692,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a4712557125cdfc3c4eddb7908f726b0/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a4712557125cdfc3c4eddb7908f726b0"
+  },
+  {
+    "id": 13,
+    "title": "Not Shy",
+    "album": "Not Shy",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1642056182,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/05b7fedba77f8d248c95fbe996ab0c9c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "05b7fedba77f8d248c95fbe996ab0c9c"
+  },
+  {
+    "id": 14,
+    "title": "Don't Give A What",
+    "album": "Not Shy",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 15,
+    "title": "Louder",
+    "album": "Not Shy",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1642056202,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/05b7fedba77f8d248c95fbe996ab0c9c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "05b7fedba77f8d248c95fbe996ab0c9c"
+  },
+  {
+    "id": 16,
+    "title": "ID",
+    "album": "Not Shy",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1642056212,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/05b7fedba77f8d248c95fbe996ab0c9c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "05b7fedba77f8d248c95fbe996ab0c9c"
+  },
+  {
+    "id": 17,
+    "title": "Surf",
+    "album": "Not Shy",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1642056222,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/05b7fedba77f8d248c95fbe996ab0c9c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "05b7fedba77f8d248c95fbe996ab0c9c"
+  },
+  {
+    "id": 18,
+    "title": "Be in Love",
+    "album": "Not Shy",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1642056232,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/05b7fedba77f8d248c95fbe996ab0c9c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "05b7fedba77f8d248c95fbe996ab0c9c"
+  },
+  {
+    "id": 19,
+    "title": "Trust Me (MIDZY)",
+    "album": "Trust Me (MIDZY)",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1642053212,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6cb00ec6168ce7524f54a6a5fd32d2fd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6cb00ec6168ce7524f54a6a5fd32d2fd"
+  },
+  {
+    "id": 20,
+    "title": "MAFIA In the morning",
+    "album": "GUESS WHO",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 21,
+    "title": "Sorry Not Sorry",
+    "album": "GUESS WHO",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1642055592,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/26e2b138ec3dd2ea7161a32d4cd740b8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "26e2b138ec3dd2ea7161a32d4cd740b8"
+  },
+  {
+    "id": 22,
+    "title": "Kidding Me",
+    "album": "GUESS WHO",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1642055602,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/26e2b138ec3dd2ea7161a32d4cd740b8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "26e2b138ec3dd2ea7161a32d4cd740b8"
+  },
+  {
+    "id": 23,
+    "title": "Wild Wild West",
+    "album": "GUESS WHO",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1642055612,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/26e2b138ec3dd2ea7161a32d4cd740b8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "26e2b138ec3dd2ea7161a32d4cd740b8"
+  },
+  {
+    "id": 24,
+    "title": "Shoot!",
+    "album": "GUESS WHO",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1642055622,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/26e2b138ec3dd2ea7161a32d4cd740b8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "26e2b138ec3dd2ea7161a32d4cd740b8"
+  },
+  {
+    "id": 25,
+    "title": "Tennis (0:0)",
+    "album": "GUESS WHO",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1642055632,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/26e2b138ec3dd2ea7161a32d4cd740b8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "26e2b138ec3dd2ea7161a32d4cd740b8"
+  },
+  {
+    "id": 26,
+    "title": "LOCO",
+    "album": "CRAZY IN LOVE",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1642053592,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3b89c0bd869b2330ef565249c7e1dbfe/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3b89c0bd869b2330ef565249c7e1dbfe"
+  },
+  {
+    "id": 27,
+    "title": "SWIPE",
+    "album": "CRAZY IN LOVE",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1642053602,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3b89c0bd869b2330ef565249c7e1dbfe/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3b89c0bd869b2330ef565249c7e1dbfe"
+  },
+  {
+    "id": 28,
+    "title": "Sooo LUCKY",
+    "album": "CRAZY IN LOVE",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1642053612,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3b89c0bd869b2330ef565249c7e1dbfe/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3b89c0bd869b2330ef565249c7e1dbfe"
+  },
+  {
+    "id": 29,
+    "title": "#Twenty",
+    "album": "CRAZY IN LOVE",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1642053622,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3b89c0bd869b2330ef565249c7e1dbfe/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3b89c0bd869b2330ef565249c7e1dbfe"
+  },
+  {
+    "id": 30,
+    "title": "B(OO)M-BOXX",
+    "album": "CRAZY IN LOVE",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 31,
+    "title": "Gas Me Up",
+    "album": "CRAZY IN LOVE",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1642053642,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3b89c0bd869b2330ef565249c7e1dbfe/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3b89c0bd869b2330ef565249c7e1dbfe"
+  },
+  {
+    "id": 32,
+    "title": "LOVE is",
+    "album": "CRAZY IN LOVE",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1642053652,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3b89c0bd869b2330ef565249c7e1dbfe/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3b89c0bd869b2330ef565249c7e1dbfe"
+  },
+  {
+    "id": 33,
+    "title": "Chillin' Chillin'",
+    "album": "CRAZY IN LOVE",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1642053662,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3b89c0bd869b2330ef565249c7e1dbfe/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3b89c0bd869b2330ef565249c7e1dbfe"
+  },
+  {
+    "id": 34,
+    "title": "Mirror",
+    "album": "CRAZY IN LOVE",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1642053672,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3b89c0bd869b2330ef565249c7e1dbfe/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3b89c0bd869b2330ef565249c7e1dbfe"
+  },
+  {
+    "id": 35,
+    "title": "SNEAKERS",
+    "album": "CHECKMATE",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1826130887,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2cf51aa1772e0a4fa9c966812aca31c7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2cf51aa1772e0a4fa9c966812aca31c7"
+  },
+  {
+    "id": 36,
+    "title": "RAC3R",
+    "album": "CHECKMATE",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 37,
+    "title": "WHAT I WANT",
+    "album": "CHECKMATE",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1826130907,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2cf51aa1772e0a4fa9c966812aca31c7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2cf51aa1772e0a4fa9c966812aca31c7"
+  },
+  {
+    "id": 38,
+    "title": "Free Fall",
+    "album": "CHECKMATE",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1826130917,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2cf51aa1772e0a4fa9c966812aca31c7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2cf51aa1772e0a4fa9c966812aca31c7"
+  },
+  {
+    "id": 39,
+    "title": "365",
+    "album": "CHECKMATE",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1826130927,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2cf51aa1772e0a4fa9c966812aca31c7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2cf51aa1772e0a4fa9c966812aca31c7"
+  },
+  {
+    "id": 40,
+    "title": "DOMINO",
+    "album": "CHECKMATE",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1826130937,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2cf51aa1772e0a4fa9c966812aca31c7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2cf51aa1772e0a4fa9c966812aca31c7"
+  },
+  {
+    "id": 41,
+    "title": "Voltage",
+    "album": "Voltage",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1677301257,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/900133e6bea5718a00b497ca96f57313/500x500-000000-80-0-0.jpg",
+    "coverMd5": "900133e6bea5718a00b497ca96f57313"
+  },
+  {
+    "id": 42,
+    "title": "Blah Blah Blah",
+    "album": "Blah Blah Blah",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1903480797,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a6bbbdb8a9c5acde1c03ec70f7f0d73b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a6bbbdb8a9c5acde1c03ec70f7f0d73b"
+  },
+  {
+    "id": 43,
+    "title": "Cheshire",
+    "album": "CHESHIRE",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 2031050967,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e52620d7eb7490bab28af25f4f1cbed8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e52620d7eb7490bab28af25f4f1cbed8"
+  },
+  {
+    "id": 44,
+    "title": "Snowy",
+    "album": "CHESHIRE",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 2031050977,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e52620d7eb7490bab28af25f4f1cbed8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e52620d7eb7490bab28af25f4f1cbed8"
+  },
+  {
+    "id": 45,
+    "title": "Freaky",
+    "album": "CHESHIRE",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 2031050987,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e52620d7eb7490bab28af25f4f1cbed8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e52620d7eb7490bab28af25f4f1cbed8"
+  },
+  {
+    "id": 46,
+    "title": "Boys Like You",
+    "album": "CHESHIRE",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1973408357,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/04bf17032dceb66369d3790ab690d2ac/500x500-000000-80-0-0.jpg",
+    "coverMd5": "04bf17032dceb66369d3790ab690d2ac"
+  },
+  {
+    "id": 47,
+    "title": "Cake",
+    "album": "KILL MY DOUBT",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2385357515,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/12c47d48d2074fe29a1a860f896bdd95/500x500-000000-80-0-0.jpg",
+    "coverMd5": "12c47d48d2074fe29a1a860f896bdd95"
+  },
+  {
+    "id": 48,
+    "title": "Bet On Me",
+    "album": "KILL MY DOUBT",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2385357505,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/12c47d48d2074fe29a1a860f896bdd95/500x500-000000-80-0-0.jpg",
+    "coverMd5": "12c47d48d2074fe29a1a860f896bdd95"
+  },
+  {
+    "id": 49,
+    "title": "None of My Business",
+    "album": "KILL MY DOUBT",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2385357525,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/12c47d48d2074fe29a1a860f896bdd95/500x500-000000-80-0-0.jpg",
+    "coverMd5": "12c47d48d2074fe29a1a860f896bdd95"
+  },
+  {
+    "id": 50,
+    "title": "BRATTY",
+    "album": "KILL MY DOUBT",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2385357535,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/12c47d48d2074fe29a1a860f896bdd95/500x500-000000-80-0-0.jpg",
+    "coverMd5": "12c47d48d2074fe29a1a860f896bdd95"
+  },
+  {
+    "id": 51,
+    "title": "Psychic Lover",
+    "album": "KILL MY DOUBT",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2385357545,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/12c47d48d2074fe29a1a860f896bdd95/500x500-000000-80-0-0.jpg",
+    "coverMd5": "12c47d48d2074fe29a1a860f896bdd95"
+  },
+  {
+    "id": 52,
+    "title": "Kill Shot",
+    "album": "KILL MY DOUBT",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2385357555,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/12c47d48d2074fe29a1a860f896bdd95/500x500-000000-80-0-0.jpg",
+    "coverMd5": "12c47d48d2074fe29a1a860f896bdd95"
+  },
+  {
+    "id": 53,
+    "title": "Playlist",
+    "album": "RINGO",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2449953775,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ab8d64583ce782db4f65f9a99e84cfc7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ab8d64583ce782db4f65f9a99e84cfc7"
+  },
+  {
+    "id": 54,
+    "title": "BORN TO BE",
+    "album": "BORN TO BE",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2607923052,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9feca7d33732f216de35c36e7ca27b2a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9feca7d33732f216de35c36e7ca27b2a"
+  },
+  {
+    "id": 55,
+    "title": "UNTOUCHABLE",
+    "album": "BORN TO BE",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2607923062,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9feca7d33732f216de35c36e7ca27b2a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9feca7d33732f216de35c36e7ca27b2a"
+  },
+  {
+    "id": 56,
+    "title": "Mr. Vampire",
+    "album": "BORN TO BE",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2607923072,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9feca7d33732f216de35c36e7ca27b2a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9feca7d33732f216de35c36e7ca27b2a"
+  },
+  {
+    "id": 57,
+    "title": "Algorhythm",
+    "album": "Algorhythm",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2764339591,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/52954dce94ac5d7ba8081725b3d46ed9/500x500-000000-80-0-0.jpg",
+    "coverMd5": "52954dce94ac5d7ba8081725b3d46ed9"
+  },
+  {
+    "id": 58,
+    "title": "GOLD",
+    "album": "GOLD",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3041140841,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/cd8efea007bae3e51e6794be2f28b77e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "cd8efea007bae3e51e6794be2f28b77e"
+  },
+  {
+    "id": 59,
+    "title": "Imaginary Friend",
+    "album": "GOLD",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 60,
+    "title": "Girls Will Be Girls",
+    "album": "Girls Will Be Girls",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3400461701,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6f3e6c2255435c2a34319c378aaace12/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6f3e6c2255435c2a34319c378aaace12"
+  }
+]

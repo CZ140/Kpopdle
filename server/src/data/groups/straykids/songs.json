@@ -1,0 +1,1228 @@
+[
+  {
+    "id": 1,
+    "title": "Hellevator",
+    "album": "Mixtape",
+    "releaseYear": 2017,
+    "spotifyId": null,
+    "deezerId": 1642052702,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/4674d3752af24721af31c5725cc9ddcb/500x500-000000-80-0-0.jpg",
+    "coverMd5": "4674d3752af24721af31c5725cc9ddcb"
+  },
+  {
+    "id": 2,
+    "title": "Grrr",
+    "album": "Mixtape",
+    "releaseYear": 2017,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 3,
+    "title": "Spread My Wings",
+    "album": "Mixtape",
+    "releaseYear": 2017,
+    "spotifyId": null,
+    "deezerId": 1642052792,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f6a496c85e2a289758fdad938f473e65/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f6a496c85e2a289758fdad938f473e65"
+  },
+  {
+    "id": 4,
+    "title": "YAYAYA",
+    "album": "Mixtape",
+    "releaseYear": 2017,
+    "spotifyId": null,
+    "deezerId": 1642052732,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/4674d3752af24721af31c5725cc9ddcb/500x500-000000-80-0-0.jpg",
+    "coverMd5": "4674d3752af24721af31c5725cc9ddcb"
+  },
+  {
+    "id": 5,
+    "title": "Glow",
+    "album": "Mixtape",
+    "releaseYear": 2017,
+    "spotifyId": null,
+    "deezerId": 1642052742,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/4674d3752af24721af31c5725cc9ddcb/500x500-000000-80-0-0.jpg",
+    "coverMd5": "4674d3752af24721af31c5725cc9ddcb"
+  },
+  {
+    "id": 6,
+    "title": "School Life",
+    "album": "Mixtape",
+    "releaseYear": 2017,
+    "spotifyId": null,
+    "deezerId": 1642052752,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/4674d3752af24721af31c5725cc9ddcb/500x500-000000-80-0-0.jpg",
+    "coverMd5": "4674d3752af24721af31c5725cc9ddcb"
+  },
+  {
+    "id": 7,
+    "title": "4419",
+    "album": "Mixtape",
+    "releaseYear": 2017,
+    "spotifyId": null,
+    "deezerId": 1642052762,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/4674d3752af24721af31c5725cc9ddcb/500x500-000000-80-0-0.jpg",
+    "coverMd5": "4674d3752af24721af31c5725cc9ddcb"
+  },
+  {
+    "id": 8,
+    "title": "District 9",
+    "album": "I Am Not",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 1642053112,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/4d12a90fe15d5e2e4cd0c591475e968b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "4d12a90fe15d5e2e4cd0c591475e968b"
+  },
+  {
+    "id": 9,
+    "title": "Mirror",
+    "album": "I Am Not",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 1642052822,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f6a496c85e2a289758fdad938f473e65/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f6a496c85e2a289758fdad938f473e65"
+  },
+  {
+    "id": 10,
+    "title": "Awaken",
+    "album": "I Am Not",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 1642054442,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c6ddc29441e25fc8c60656d714224765/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c6ddc29441e25fc8c60656d714224765"
+  },
+  {
+    "id": 11,
+    "title": "Rock",
+    "album": "I Am Not",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 1642054452,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c6ddc29441e25fc8c60656d714224765/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c6ddc29441e25fc8c60656d714224765"
+  },
+  {
+    "id": 12,
+    "title": "Grow Up",
+    "album": "I Am Not",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 1642052832,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f6a496c85e2a289758fdad938f473e65/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f6a496c85e2a289758fdad938f473e65"
+  },
+  {
+    "id": 13,
+    "title": "3rd Eye",
+    "album": "I Am Not",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 1642054462,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c6ddc29441e25fc8c60656d714224765/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c6ddc29441e25fc8c60656d714224765"
+  },
+  {
+    "id": 14,
+    "title": "My Pace",
+    "album": "I Am Who",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 1642052842,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f6a496c85e2a289758fdad938f473e65/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f6a496c85e2a289758fdad938f473e65"
+  },
+  {
+    "id": 15,
+    "title": "Voices",
+    "album": "I Am Who",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 1642052852,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f6a496c85e2a289758fdad938f473e65/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f6a496c85e2a289758fdad938f473e65"
+  },
+  {
+    "id": 16,
+    "title": "Question",
+    "album": "I Am Who",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 1642052862,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f6a496c85e2a289758fdad938f473e65/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f6a496c85e2a289758fdad938f473e65"
+  },
+  {
+    "id": 17,
+    "title": "Insomnia",
+    "album": "I Am Who",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 1642056102,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7bf280788d45d6ad8087e552930f4564/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7bf280788d45d6ad8087e552930f4564"
+  },
+  {
+    "id": 18,
+    "title": "M.I.A.",
+    "album": "I Am Who",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 1642052872,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f6a496c85e2a289758fdad938f473e65/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f6a496c85e2a289758fdad938f473e65"
+  },
+  {
+    "id": 19,
+    "title": "Awkward Silence",
+    "album": "I Am Who",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 1642052882,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f6a496c85e2a289758fdad938f473e65/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f6a496c85e2a289758fdad938f473e65"
+  },
+  {
+    "id": 20,
+    "title": "I Am YOU",
+    "album": "I Am You",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 1642055432,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/dc468e94874cc2efa9f72b8365de2760/500x500-000000-80-0-0.jpg",
+    "coverMd5": "dc468e94874cc2efa9f72b8365de2760"
+  },
+  {
+    "id": 21,
+    "title": "My Side",
+    "album": "I Am You",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 1642055442,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/dc468e94874cc2efa9f72b8365de2760/500x500-000000-80-0-0.jpg",
+    "coverMd5": "dc468e94874cc2efa9f72b8365de2760"
+  },
+  {
+    "id": 22,
+    "title": "Hero's Soup",
+    "album": "I Am You",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 1642055452,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/dc468e94874cc2efa9f72b8365de2760/500x500-000000-80-0-0.jpg",
+    "coverMd5": "dc468e94874cc2efa9f72b8365de2760"
+  },
+  {
+    "id": 23,
+    "title": "Get Cool",
+    "album": "I Am You",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 1642055462,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/dc468e94874cc2efa9f72b8365de2760/500x500-000000-80-0-0.jpg",
+    "coverMd5": "dc468e94874cc2efa9f72b8365de2760"
+  },
+  {
+    "id": 24,
+    "title": "N/S",
+    "album": "I Am You",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 1642055472,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/dc468e94874cc2efa9f72b8365de2760/500x500-000000-80-0-0.jpg",
+    "coverMd5": "dc468e94874cc2efa9f72b8365de2760"
+  },
+  {
+    "id": 25,
+    "title": "0325",
+    "album": "I Am You",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 1642054522,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c6ddc29441e25fc8c60656d714224765/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c6ddc29441e25fc8c60656d714224765"
+  },
+  {
+    "id": 26,
+    "title": "Miroh",
+    "album": "Clé 1: Miroh",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 1642052912,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f6a496c85e2a289758fdad938f473e65/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f6a496c85e2a289758fdad938f473e65"
+  },
+  {
+    "id": 27,
+    "title": "Victory Song",
+    "album": "Clé 1: Miroh",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 1642052922,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f6a496c85e2a289758fdad938f473e65/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f6a496c85e2a289758fdad938f473e65"
+  },
+  {
+    "id": 28,
+    "title": "Maze of Memories",
+    "album": "Clé 1: Miroh",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 1642054852,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/158b26a54bd768025416a1753bdfc553/500x500-000000-80-0-0.jpg",
+    "coverMd5": "158b26a54bd768025416a1753bdfc553"
+  },
+  {
+    "id": 29,
+    "title": "Boxer",
+    "album": "Clé 1: Miroh",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 1642052932,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f6a496c85e2a289758fdad938f473e65/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f6a496c85e2a289758fdad938f473e65"
+  },
+  {
+    "id": 30,
+    "title": "Chronosaurus",
+    "album": "Clé 1: Miroh",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 1642054872,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/158b26a54bd768025416a1753bdfc553/500x500-000000-80-0-0.jpg",
+    "coverMd5": "158b26a54bd768025416a1753bdfc553"
+  },
+  {
+    "id": 31,
+    "title": "19",
+    "album": "Clé 1: Miroh",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 1642052952,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f6a496c85e2a289758fdad938f473e65/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f6a496c85e2a289758fdad938f473e65"
+  },
+  {
+    "id": 32,
+    "title": "Side Effects",
+    "album": "Clé 2: Yellow Wood",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 1642052962,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f6a496c85e2a289758fdad938f473e65/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f6a496c85e2a289758fdad938f473e65"
+  },
+  {
+    "id": 33,
+    "title": "Road Not Taken",
+    "album": "Clé 2: Yellow Wood",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 1642055802,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/cc18f6c42486dc443c41edf05c6d9ed4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "cc18f6c42486dc443c41edf05c6d9ed4"
+  },
+  {
+    "id": 34,
+    "title": "TMT",
+    "album": "Clé 2: Yellow Wood",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 1642052972,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f6a496c85e2a289758fdad938f473e65/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f6a496c85e2a289758fdad938f473e65"
+  },
+  {
+    "id": 35,
+    "title": "Levanter",
+    "album": "Clé: Levanter",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 1642052992,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f6a496c85e2a289758fdad938f473e65/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f6a496c85e2a289758fdad938f473e65"
+  },
+  {
+    "id": 36,
+    "title": "Double Knot",
+    "album": "Clé: Levanter",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 1642052982,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f6a496c85e2a289758fdad938f473e65/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f6a496c85e2a289758fdad938f473e65"
+  },
+  {
+    "id": 37,
+    "title": "Booster",
+    "album": "Clé: Levanter",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 1642053812,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7ae03ed7210ff7cbc6efd24e2dcf84d3/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7ae03ed7210ff7cbc6efd24e2dcf84d3"
+  },
+  {
+    "id": 38,
+    "title": "Astronaut",
+    "album": "Clé: Levanter",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 1642053002,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f6a496c85e2a289758fdad938f473e65/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f6a496c85e2a289758fdad938f473e65"
+  },
+  {
+    "id": 39,
+    "title": "Sunshine",
+    "album": "Clé: Levanter",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 1642053832,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7ae03ed7210ff7cbc6efd24e2dcf84d3/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7ae03ed7210ff7cbc6efd24e2dcf84d3"
+  },
+  {
+    "id": 40,
+    "title": "You Can Stay",
+    "album": "Clé: Levanter",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 1642053842,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7ae03ed7210ff7cbc6efd24e2dcf84d3/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7ae03ed7210ff7cbc6efd24e2dcf84d3"
+  },
+  {
+    "id": 41,
+    "title": "God's Menu",
+    "album": "Go Live",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 42,
+    "title": "Easy",
+    "album": "Go Live",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1642053422,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f39fb259021146914a153c7ecb280f1b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f39fb259021146914a153c7ecb280f1b"
+  },
+  {
+    "id": 43,
+    "title": "Pacemaker",
+    "album": "Go Live",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1642053432,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f39fb259021146914a153c7ecb280f1b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f39fb259021146914a153c7ecb280f1b"
+  },
+  {
+    "id": 44,
+    "title": "Airplane",
+    "album": "Go Live",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1642053442,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f39fb259021146914a153c7ecb280f1b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f39fb259021146914a153c7ecb280f1b"
+  },
+  {
+    "id": 45,
+    "title": "Phobia",
+    "album": "Go Live",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1642053462,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f39fb259021146914a153c7ecb280f1b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f39fb259021146914a153c7ecb280f1b"
+  },
+  {
+    "id": 46,
+    "title": "Blueprint",
+    "album": "Go Live",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1642053472,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f39fb259021146914a153c7ecb280f1b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f39fb259021146914a153c7ecb280f1b"
+  },
+  {
+    "id": 47,
+    "title": "TOP",
+    "album": "Go Live",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 48,
+    "title": "Slump",
+    "album": "Go Live",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 49,
+    "title": "Back Door",
+    "album": "In Life",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1642053342,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f39fb259021146914a153c7ecb280f1b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f39fb259021146914a153c7ecb280f1b"
+  },
+  {
+    "id": 50,
+    "title": "B Me",
+    "album": "In Life",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1642053352,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f39fb259021146914a153c7ecb280f1b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f39fb259021146914a153c7ecb280f1b"
+  },
+  {
+    "id": 51,
+    "title": "Any",
+    "album": "In Life",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1642053362,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f39fb259021146914a153c7ecb280f1b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f39fb259021146914a153c7ecb280f1b"
+  },
+  {
+    "id": 52,
+    "title": "Ex",
+    "album": "In Life",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1642053372,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f39fb259021146914a153c7ecb280f1b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f39fb259021146914a153c7ecb280f1b"
+  },
+  {
+    "id": 53,
+    "title": "Wow",
+    "album": "In Life",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 54,
+    "title": "Going Dumb",
+    "album": "Going Dumb",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 55,
+    "title": "Thunderous",
+    "album": "Noeasy",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1642054092,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9eb24a23b20f6d33ec51e371952f0766/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9eb24a23b20f6d33ec51e371952f0766"
+  },
+  {
+    "id": 56,
+    "title": "Cheese",
+    "album": "Noeasy",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1642054082,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9eb24a23b20f6d33ec51e371952f0766/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9eb24a23b20f6d33ec51e371952f0766"
+  },
+  {
+    "id": 57,
+    "title": "Domino",
+    "album": "Noeasy",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1642054102,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9eb24a23b20f6d33ec51e371952f0766/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9eb24a23b20f6d33ec51e371952f0766"
+  },
+  {
+    "id": 58,
+    "title": "Ssick",
+    "album": "Noeasy",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1642054112,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9eb24a23b20f6d33ec51e371952f0766/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9eb24a23b20f6d33ec51e371952f0766"
+  },
+  {
+    "id": 59,
+    "title": "The View",
+    "album": "Noeasy",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1642054122,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9eb24a23b20f6d33ec51e371952f0766/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9eb24a23b20f6d33ec51e371952f0766"
+  },
+  {
+    "id": 60,
+    "title": "Sorry, I Love You",
+    "album": "Noeasy",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1642054132,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9eb24a23b20f6d33ec51e371952f0766/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9eb24a23b20f6d33ec51e371952f0766"
+  },
+  {
+    "id": 61,
+    "title": "Silent Cry",
+    "album": "Noeasy",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1642054142,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9eb24a23b20f6d33ec51e371952f0766/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9eb24a23b20f6d33ec51e371952f0766"
+  },
+  {
+    "id": 62,
+    "title": "Star Lost",
+    "album": "Noeasy",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1642054162,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9eb24a23b20f6d33ec51e371952f0766/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9eb24a23b20f6d33ec51e371952f0766"
+  },
+  {
+    "id": 63,
+    "title": "Surfin'",
+    "album": "Noeasy",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 64,
+    "title": "Wolfgang",
+    "album": "Noeasy",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1642054202,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9eb24a23b20f6d33ec51e371952f0766/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9eb24a23b20f6d33ec51e371952f0766"
+  },
+  {
+    "id": 65,
+    "title": "Mixtape : OH",
+    "album": "Noeasy",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1642054212,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9eb24a23b20f6d33ec51e371952f0766/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9eb24a23b20f6d33ec51e371952f0766"
+  },
+  {
+    "id": 66,
+    "title": "Scars",
+    "album": "Scars / Thunderous (Japanese ver.)",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1500881702,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/4beeef1d87938ea47067ed39a9b1ea3c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "4beeef1d87938ea47067ed39a9b1ea3c"
+  },
+  {
+    "id": 67,
+    "title": "Christmas EveL",
+    "album": "Christmas EveL",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1642053012,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/5d25ecb5092f18b5ef9b583b3e72aac2/500x500-000000-80-0-0.jpg",
+    "coverMd5": "5d25ecb5092f18b5ef9b583b3e72aac2"
+  },
+  {
+    "id": 68,
+    "title": "Winter Falls",
+    "album": "Christmas EveL",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1642053032,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/5d25ecb5092f18b5ef9b583b3e72aac2/500x500-000000-80-0-0.jpg",
+    "coverMd5": "5d25ecb5092f18b5ef9b583b3e72aac2"
+  },
+  {
+    "id": 69,
+    "title": "Maniac",
+    "album": "Oddinary",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1688660007,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/1c10c0aab6317c66b76d8962bc32c39e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "1c10c0aab6317c66b76d8962bc32c39e"
+  },
+  {
+    "id": 70,
+    "title": "Venom",
+    "album": "Oddinary",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1688659997,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/1c10c0aab6317c66b76d8962bc32c39e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "1c10c0aab6317c66b76d8962bc32c39e"
+  },
+  {
+    "id": 71,
+    "title": "Charmer",
+    "album": "Oddinary",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1688660017,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/1c10c0aab6317c66b76d8962bc32c39e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "1c10c0aab6317c66b76d8962bc32c39e"
+  },
+  {
+    "id": 72,
+    "title": "Freeze",
+    "album": "Oddinary",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1688660027,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/1c10c0aab6317c66b76d8962bc32c39e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "1c10c0aab6317c66b76d8962bc32c39e"
+  },
+  {
+    "id": 73,
+    "title": "Lonely St.",
+    "album": "Oddinary",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1688660037,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/1c10c0aab6317c66b76d8962bc32c39e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "1c10c0aab6317c66b76d8962bc32c39e"
+  },
+  {
+    "id": 74,
+    "title": "Waiting For Us",
+    "album": "Oddinary",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 75,
+    "title": "Muddy Water",
+    "album": "Oddinary",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 76,
+    "title": "Case 143",
+    "album": "Maxident",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1948539997,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/76fdbd7918c7906f9c1199db571d2283/500x500-000000-80-0-0.jpg",
+    "coverMd5": "76fdbd7918c7906f9c1199db571d2283"
+  },
+  {
+    "id": 77,
+    "title": "Chill",
+    "album": "Maxident",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1948540007,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/76fdbd7918c7906f9c1199db571d2283/500x500-000000-80-0-0.jpg",
+    "coverMd5": "76fdbd7918c7906f9c1199db571d2283"
+  },
+  {
+    "id": 78,
+    "title": "Give Me Your TMI",
+    "album": "Maxident",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1948540017,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/76fdbd7918c7906f9c1199db571d2283/500x500-000000-80-0-0.jpg",
+    "coverMd5": "76fdbd7918c7906f9c1199db571d2283"
+  },
+  {
+    "id": 79,
+    "title": "Super Board",
+    "album": "Maxident",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1948540027,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/76fdbd7918c7906f9c1199db571d2283/500x500-000000-80-0-0.jpg",
+    "coverMd5": "76fdbd7918c7906f9c1199db571d2283"
+  },
+  {
+    "id": 80,
+    "title": "3Racha",
+    "album": "Maxident",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 81,
+    "title": "Taste",
+    "album": "Maxident",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 82,
+    "title": "Can't Stop",
+    "album": "Maxident",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 83,
+    "title": "Circus",
+    "album": "Maxident",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1777909757,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/1d392386551e2da171730869937c5568/500x500-000000-80-0-0.jpg",
+    "coverMd5": "1d392386551e2da171730869937c5568"
+  },
+  {
+    "id": 84,
+    "title": "S-Class",
+    "album": "5-Star",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2303246835,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/deb46deb25179d2f56900ca0a4e2e0f4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "deb46deb25179d2f56900ca0a4e2e0f4"
+  },
+  {
+    "id": 85,
+    "title": "Hall of Fame",
+    "album": "5-Star",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2303246825,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/deb46deb25179d2f56900ca0a4e2e0f4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "deb46deb25179d2f56900ca0a4e2e0f4"
+  },
+  {
+    "id": 86,
+    "title": "Item",
+    "album": "5-Star",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2303246845,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/deb46deb25179d2f56900ca0a4e2e0f4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "deb46deb25179d2f56900ca0a4e2e0f4"
+  },
+  {
+    "id": 87,
+    "title": "Super Bowl",
+    "album": "5-Star",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2303246855,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/deb46deb25179d2f56900ca0a4e2e0f4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "deb46deb25179d2f56900ca0a4e2e0f4"
+  },
+  {
+    "id": 88,
+    "title": "Topline (feat. Tiger JK)",
+    "album": "5-Star",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2303246865,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/deb46deb25179d2f56900ca0a4e2e0f4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "deb46deb25179d2f56900ca0a4e2e0f4"
+  },
+  {
+    "id": 89,
+    "title": "DLC",
+    "album": "5-Star",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2303246875,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/deb46deb25179d2f56900ca0a4e2e0f4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "deb46deb25179d2f56900ca0a4e2e0f4"
+  },
+  {
+    "id": 90,
+    "title": "Get Lit",
+    "album": "5-Star",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2303246885,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/deb46deb25179d2f56900ca0a4e2e0f4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "deb46deb25179d2f56900ca0a4e2e0f4"
+  },
+  {
+    "id": 91,
+    "title": "Collision",
+    "album": "5-Star",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2303246895,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/deb46deb25179d2f56900ca0a4e2e0f4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "deb46deb25179d2f56900ca0a4e2e0f4"
+  },
+  {
+    "id": 92,
+    "title": "FNF",
+    "album": "5-Star",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2303246905,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/deb46deb25179d2f56900ca0a4e2e0f4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "deb46deb25179d2f56900ca0a4e2e0f4"
+  },
+  {
+    "id": 93,
+    "title": "Youtiful",
+    "album": "5-Star",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2303246915,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/deb46deb25179d2f56900ca0a4e2e0f4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "deb46deb25179d2f56900ca0a4e2e0f4"
+  },
+  {
+    "id": 94,
+    "title": "Mixtape : Time Out",
+    "album": "5-Star",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2303246935,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/deb46deb25179d2f56900ca0a4e2e0f4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "deb46deb25179d2f56900ca0a4e2e0f4"
+  },
+  {
+    "id": 95,
+    "title": "Lalalala",
+    "album": "Rock-Star",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2533705261,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3020cc256b8bd705b1b530d01d45f984/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3020cc256b8bd705b1b530d01d45f984"
+  },
+  {
+    "id": 96,
+    "title": "Megaverse",
+    "album": "Rock-Star",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2533705251,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3020cc256b8bd705b1b530d01d45f984/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3020cc256b8bd705b1b530d01d45f984"
+  },
+  {
+    "id": 97,
+    "title": "Blind Spot",
+    "album": "Rock-Star",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2533705271,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3020cc256b8bd705b1b530d01d45f984/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3020cc256b8bd705b1b530d01d45f984"
+  },
+  {
+    "id": 98,
+    "title": "Comflex",
+    "album": "Rock-Star",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2533705281,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3020cc256b8bd705b1b530d01d45f984/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3020cc256b8bd705b1b530d01d45f984"
+  },
+  {
+    "id": 99,
+    "title": "Cover Me",
+    "album": "Rock-Star",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2533705291,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3020cc256b8bd705b1b530d01d45f984/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3020cc256b8bd705b1b530d01d45f984"
+  },
+  {
+    "id": 100,
+    "title": "Leave",
+    "album": "Rock-Star",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2533705301,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3020cc256b8bd705b1b530d01d45f984/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3020cc256b8bd705b1b530d01d45f984"
+  },
+  {
+    "id": 101,
+    "title": "Social Path (feat. LiSA)",
+    "album": "Rock-Star",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 102,
+    "title": "Chk Chk Boom",
+    "album": "Ate",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2893837431,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/bbe508aec4360f5adc963c9829d0d529/500x500-000000-80-0-0.jpg",
+    "coverMd5": "bbe508aec4360f5adc963c9829d0d529"
+  },
+  {
+    "id": 103,
+    "title": "Mountains",
+    "album": "Ate",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2893837421,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/bbe508aec4360f5adc963c9829d0d529/500x500-000000-80-0-0.jpg",
+    "coverMd5": "bbe508aec4360f5adc963c9829d0d529"
+  },
+  {
+    "id": 104,
+    "title": "Jjam",
+    "album": "Ate",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2893837441,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/bbe508aec4360f5adc963c9829d0d529/500x500-000000-80-0-0.jpg",
+    "coverMd5": "bbe508aec4360f5adc963c9829d0d529"
+  },
+  {
+    "id": 105,
+    "title": "I Like It",
+    "album": "Ate",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2893837451,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/bbe508aec4360f5adc963c9829d0d529/500x500-000000-80-0-0.jpg",
+    "coverMd5": "bbe508aec4360f5adc963c9829d0d529"
+  },
+  {
+    "id": 106,
+    "title": "Runners",
+    "album": "Ate",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2893837461,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/bbe508aec4360f5adc963c9829d0d529/500x500-000000-80-0-0.jpg",
+    "coverMd5": "bbe508aec4360f5adc963c9829d0d529"
+  },
+  {
+    "id": 107,
+    "title": "twilight",
+    "album": "Ate",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2893837471,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/bbe508aec4360f5adc963c9829d0d529/500x500-000000-80-0-0.jpg",
+    "coverMd5": "bbe508aec4360f5adc963c9829d0d529"
+  },
+  {
+    "id": 108,
+    "title": "Stray Kids",
+    "album": "Ate",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2893837481,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/bbe508aec4360f5adc963c9829d0d529/500x500-000000-80-0-0.jpg",
+    "coverMd5": "bbe508aec4360f5adc963c9829d0d529"
+  },
+  {
+    "id": 109,
+    "title": "Lose My Breath (feat. Charlie Puth)",
+    "album": "Lose My Breath",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2788841312,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/528c7b285e43379bfa03dbc2e51207a6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "528c7b285e43379bfa03dbc2e51207a6"
+  },
+  {
+    "id": 110,
+    "title": "Walkin On Water",
+    "album": "Hop",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3137161951,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/4bfd63ec62eb391aaf2d2646ba5d8920/500x500-000000-80-0-0.jpg",
+    "coverMd5": "4bfd63ec62eb391aaf2d2646ba5d8920"
+  },
+  {
+    "id": 111,
+    "title": "Bounce Back",
+    "album": "Hop",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3137161961,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/4bfd63ec62eb391aaf2d2646ba5d8920/500x500-000000-80-0-0.jpg",
+    "coverMd5": "4bfd63ec62eb391aaf2d2646ba5d8920"
+  },
+  {
+    "id": 112,
+    "title": "U (feat. Tablo)",
+    "album": "Hop",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3137161971,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/4bfd63ec62eb391aaf2d2646ba5d8920/500x500-000000-80-0-0.jpg",
+    "coverMd5": "4bfd63ec62eb391aaf2d2646ba5d8920"
+  },
+  {
+    "id": 113,
+    "title": "Giant",
+    "album": "Mixtape : Dominate",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3066993971,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/eceaee7aae115ce8b591597916d9a51f/500x500-000000-80-0-0.jpg",
+    "coverMd5": "eceaee7aae115ce8b591597916d9a51f"
+  },
+  {
+    "id": 114,
+    "title": "Burnin' Tires",
+    "album": "Mixtape : Dominate",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 115,
+    "title": "Truman",
+    "album": "Mixtape : Dominate",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 116,
+    "title": "Escape",
+    "album": "Mixtape : Dominate",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 117,
+    "title": "Cinema",
+    "album": "Mixtape : Dominate",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 118,
+    "title": "Ceremony",
+    "album": "Karma",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3516241231,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7c80bf75c716aed05a33dbe51dfb2847/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7c80bf75c716aed05a33dbe51dfb2847"
+  },
+  {
+    "id": 119,
+    "title": "Bleep",
+    "album": "Karma",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3516241221,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7c80bf75c716aed05a33dbe51dfb2847/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7c80bf75c716aed05a33dbe51dfb2847"
+  },
+  {
+    "id": 120,
+    "title": "Creed",
+    "album": "Karma",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3516241241,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7c80bf75c716aed05a33dbe51dfb2847/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7c80bf75c716aed05a33dbe51dfb2847"
+  },
+  {
+    "id": 121,
+    "title": "Mess",
+    "album": "Karma",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3516241251,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7c80bf75c716aed05a33dbe51dfb2847/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7c80bf75c716aed05a33dbe51dfb2847"
+  },
+  {
+    "id": 122,
+    "title": "In My Head",
+    "album": "Karma",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3516241261,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7c80bf75c716aed05a33dbe51dfb2847/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7c80bf75c716aed05a33dbe51dfb2847"
+  },
+  {
+    "id": 123,
+    "title": "Half Time",
+    "album": "Karma",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3516241271,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7c80bf75c716aed05a33dbe51dfb2847/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7c80bf75c716aed05a33dbe51dfb2847"
+  },
+  {
+    "id": 124,
+    "title": "Phoenix",
+    "album": "Karma",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3516241281,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7c80bf75c716aed05a33dbe51dfb2847/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7c80bf75c716aed05a33dbe51dfb2847"
+  },
+  {
+    "id": 125,
+    "title": "Ghost",
+    "album": "Karma",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3516241291,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7c80bf75c716aed05a33dbe51dfb2847/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7c80bf75c716aed05a33dbe51dfb2847"
+  },
+  {
+    "id": 126,
+    "title": "0801",
+    "album": "Karma",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3516241301,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7c80bf75c716aed05a33dbe51dfb2847/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7c80bf75c716aed05a33dbe51dfb2847"
+  }
+]

@@ -1,0 +1,646 @@
+[
+  {
+    "id": 1,
+    "title": "Mr. Ambiguous",
+    "album": "Hello",
+    "releaseYear": 2014,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 2,
+    "title": "Hello",
+    "album": "Hello",
+    "releaseYear": 2014,
+    "spotifyId": null,
+    "deezerId": 1773752017,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6bf0180a5d477beec531d33b9528b51a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6bf0180a5d477beec531d33b9528b51a"
+  },
+  {
+    "id": 3,
+    "title": "Peppermint Chocolate",
+    "album": "Hello",
+    "releaseYear": 2014,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 4,
+    "title": "Don't Be Happy",
+    "album": "Hello",
+    "releaseYear": 2014,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 5,
+    "title": "Heeheehaheho",
+    "album": "Hello",
+    "releaseYear": 2014,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 6,
+    "title": "Piano Man",
+    "album": "Piano Man",
+    "releaseYear": 2014,
+    "spotifyId": null,
+    "deezerId": 1773772357,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a97dd73646d38588213ede55f1dde244/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a97dd73646d38588213ede55f1dde244"
+  },
+  {
+    "id": 7,
+    "title": "Gentleman",
+    "album": "Piano Man",
+    "releaseYear": 2014,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 8,
+    "title": "Um Oh Ah Yeh",
+    "album": "Pink Funky",
+    "releaseYear": 2015,
+    "spotifyId": null,
+    "deezerId": 1773815127,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/161a2ddbdc9e6906174996c7c7ca3c3b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "161a2ddbdc9e6906174996c7c7ca3c3b"
+  },
+  {
+    "id": 9,
+    "title": "Ahh Oop!",
+    "album": "Pink Funky",
+    "releaseYear": 2015,
+    "spotifyId": null,
+    "deezerId": 1773815167,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/161a2ddbdc9e6906174996c7c7ca3c3b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "161a2ddbdc9e6906174996c7c7ca3c3b"
+  },
+  {
+    "id": 10,
+    "title": "Freakin Shoes",
+    "album": "Pink Funky",
+    "releaseYear": 2015,
+    "spotifyId": null,
+    "deezerId": 1773815117,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/161a2ddbdc9e6906174996c7c7ca3c3b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "161a2ddbdc9e6906174996c7c7ca3c3b"
+  },
+  {
+    "id": 11,
+    "title": "No No No",
+    "album": "Pink Funky",
+    "releaseYear": 2015,
+    "spotifyId": null,
+    "deezerId": 1773815147,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/161a2ddbdc9e6906174996c7c7ca3c3b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "161a2ddbdc9e6906174996c7c7ca3c3b"
+  },
+  {
+    "id": 12,
+    "title": "You're the Best",
+    "album": "Melting",
+    "releaseYear": 2016,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 13,
+    "title": "Taller Than You",
+    "album": "Melting",
+    "releaseYear": 2016,
+    "spotifyId": null,
+    "deezerId": 1767402337,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d7ac599b132c21081dc3cf76733c508c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d7ac599b132c21081dc3cf76733c508c"
+  },
+  {
+    "id": 14,
+    "title": "Words Don't Come Easy",
+    "album": "Melting",
+    "releaseYear": 2016,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 15,
+    "title": "I Miss You",
+    "album": "Melting",
+    "releaseYear": 2016,
+    "spotifyId": null,
+    "deezerId": 1767402397,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d7ac599b132c21081dc3cf76733c508c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d7ac599b132c21081dc3cf76733c508c"
+  },
+  {
+    "id": 16,
+    "title": "Girl Crush",
+    "album": "Melting",
+    "releaseYear": 2016,
+    "spotifyId": null,
+    "deezerId": 1851233407,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/69721113d01c7005b496501c721cffcb/500x500-000000-80-0-0.jpg",
+    "coverMd5": "69721113d01c7005b496501c721cffcb"
+  },
+  {
+    "id": 17,
+    "title": "Recipe",
+    "album": "Melting",
+    "releaseYear": 2016,
+    "spotifyId": null,
+    "deezerId": 1767402417,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d7ac599b132c21081dc3cf76733c508c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d7ac599b132c21081dc3cf76733c508c"
+  },
+  {
+    "id": 18,
+    "title": "Cat Fight",
+    "album": "Melting",
+    "releaseYear": 2016,
+    "spotifyId": null,
+    "deezerId": 1767402427,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d7ac599b132c21081dc3cf76733c508c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d7ac599b132c21081dc3cf76733c508c"
+  },
+  {
+    "id": 19,
+    "title": "Friday Night",
+    "album": "Melting",
+    "releaseYear": 2016,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 20,
+    "title": "Emotion",
+    "album": "Melting",
+    "releaseYear": 2016,
+    "spotifyId": null,
+    "deezerId": 1767402387,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d7ac599b132c21081dc3cf76733c508c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d7ac599b132c21081dc3cf76733c508c"
+  },
+  {
+    "id": 21,
+    "title": "My Hometown",
+    "album": "Melting",
+    "releaseYear": 2016,
+    "spotifyId": null,
+    "deezerId": 1767402377,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d7ac599b132c21081dc3cf76733c508c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d7ac599b132c21081dc3cf76733c508c"
+  },
+  {
+    "id": 22,
+    "title": "Décalcomanie",
+    "album": "Memory",
+    "releaseYear": 2016,
+    "spotifyId": null,
+    "deezerId": 1767393727,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f4565b70e4b5accc93029b9bf606ee67/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f4565b70e4b5accc93029b9bf606ee67"
+  },
+  {
+    "id": 23,
+    "title": "New York",
+    "album": "Memory",
+    "releaseYear": 2016,
+    "spotifyId": null,
+    "deezerId": 1767393737,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f4565b70e4b5accc93029b9bf606ee67/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f4565b70e4b5accc93029b9bf606ee67"
+  },
+  {
+    "id": 24,
+    "title": "Memory",
+    "album": "Memory",
+    "releaseYear": 2016,
+    "spotifyId": null,
+    "deezerId": 1767393717,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f4565b70e4b5accc93029b9bf606ee67/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f4565b70e4b5accc93029b9bf606ee67"
+  },
+  {
+    "id": 25,
+    "title": "Moderato",
+    "album": "Memory",
+    "releaseYear": 2016,
+    "spotifyId": null,
+    "deezerId": 1767393747,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f4565b70e4b5accc93029b9bf606ee67/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f4565b70e4b5accc93029b9bf606ee67"
+  },
+  {
+    "id": 26,
+    "title": "Angel",
+    "album": "Memory",
+    "releaseYear": 2016,
+    "spotifyId": null,
+    "deezerId": 1767393757,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f4565b70e4b5accc93029b9bf606ee67/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f4565b70e4b5accc93029b9bf606ee67"
+  },
+  {
+    "id": 27,
+    "title": "Dab Dab",
+    "album": "Memory",
+    "releaseYear": 2016,
+    "spotifyId": null,
+    "deezerId": 1767393767,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f4565b70e4b5accc93029b9bf606ee67/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f4565b70e4b5accc93029b9bf606ee67"
+  },
+  {
+    "id": 28,
+    "title": "Yes I Am",
+    "album": "Purple",
+    "releaseYear": 2017,
+    "spotifyId": null,
+    "deezerId": 2963932861,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c66fbfd33788b882b44082f2696974d0/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c66fbfd33788b882b44082f2696974d0"
+  },
+  {
+    "id": 29,
+    "title": "Aze Gag",
+    "album": "Purple",
+    "releaseYear": 2017,
+    "spotifyId": null,
+    "deezerId": 2963932891,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c66fbfd33788b882b44082f2696974d0/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c66fbfd33788b882b44082f2696974d0"
+  },
+  {
+    "id": 30,
+    "title": "Finally",
+    "album": "Purple",
+    "releaseYear": 2017,
+    "spotifyId": null,
+    "deezerId": 2963932871,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c66fbfd33788b882b44082f2696974d0/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c66fbfd33788b882b44082f2696974d0"
+  },
+  {
+    "id": 31,
+    "title": "Love & Hate",
+    "album": "Purple",
+    "releaseYear": 2017,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 32,
+    "title": "Da Ra Da",
+    "album": "Purple",
+    "releaseYear": 2017,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 33,
+    "title": "Starry Night",
+    "album": "Yellow Flower",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 2181629417,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2e3b315bedc00ac827f97019a0537f5c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2e3b315bedc00ac827f97019a0537f5c"
+  },
+  {
+    "id": 34,
+    "title": "Paint Me",
+    "album": "Yellow Flower",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 1857974327,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/0b6cd0cce76e8463acd0a4f88feb4213/500x500-000000-80-0-0.jpg",
+    "coverMd5": "0b6cd0cce76e8463acd0a4f88feb4213"
+  },
+  {
+    "id": 35,
+    "title": "Be Calm",
+    "album": "Yellow Flower",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 36,
+    "title": "Rude Boy",
+    "album": "Yellow Flower",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 2181629437,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2e3b315bedc00ac827f97019a0537f5c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2e3b315bedc00ac827f97019a0537f5c"
+  },
+  {
+    "id": 37,
+    "title": "Egotistic",
+    "album": "Red Moon",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 2181635297,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/4b27061b0adff8c5befe0c191313983c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "4b27061b0adff8c5befe0c191313983c"
+  },
+  {
+    "id": 38,
+    "title": "Midnight Summer Dream",
+    "album": "Red Moon",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 2181635287,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/4b27061b0adff8c5befe0c191313983c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "4b27061b0adff8c5befe0c191313983c"
+  },
+  {
+    "id": 39,
+    "title": "Rainy Season",
+    "album": "Red Moon",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 2181635307,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/4b27061b0adff8c5befe0c191313983c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "4b27061b0adff8c5befe0c191313983c"
+  },
+  {
+    "id": 40,
+    "title": "Sky! Sky!",
+    "album": "Red Moon",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 2181635317,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/4b27061b0adff8c5befe0c191313983c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "4b27061b0adff8c5befe0c191313983c"
+  },
+  {
+    "id": 41,
+    "title": "Selfish",
+    "album": "Red Moon",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 42,
+    "title": "Wind Flower",
+    "album": "Blue;s",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 1868922957,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/18f7bc45fd5fda0dc15a6e39013e45fd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "18f7bc45fd5fda0dc15a6e39013e45fd"
+  },
+  {
+    "id": 43,
+    "title": "No More Drama",
+    "album": "Blue;s",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 1868922947,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/18f7bc45fd5fda0dc15a6e39013e45fd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "18f7bc45fd5fda0dc15a6e39013e45fd"
+  },
+  {
+    "id": 44,
+    "title": "Better Than I Thought",
+    "album": "Blue;s",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 1868922977,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/18f7bc45fd5fda0dc15a6e39013e45fd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "18f7bc45fd5fda0dc15a6e39013e45fd"
+  },
+  {
+    "id": 45,
+    "title": "Gogobebe",
+    "album": "White Wind",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 1869520477,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/680552a95844721a4292324772911acf/500x500-000000-80-0-0.jpg",
+    "coverMd5": "680552a95844721a4292324772911acf"
+  },
+  {
+    "id": 46,
+    "title": "Waggy",
+    "album": "White Wind",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 1869520487,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/680552a95844721a4292324772911acf/500x500-000000-80-0-0.jpg",
+    "coverMd5": "680552a95844721a4292324772911acf"
+  },
+  {
+    "id": 47,
+    "title": "My Star",
+    "album": "White Wind",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 1869520517,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/680552a95844721a4292324772911acf/500x500-000000-80-0-0.jpg",
+    "coverMd5": "680552a95844721a4292324772911acf"
+  },
+  {
+    "id": 48,
+    "title": "Where R U",
+    "album": "White Wind",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 1869520467,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/680552a95844721a4292324772911acf/500x500-000000-80-0-0.jpg",
+    "coverMd5": "680552a95844721a4292324772911acf"
+  },
+  {
+    "id": 49,
+    "title": "25",
+    "album": "White Wind",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 50,
+    "title": "HIP",
+    "album": "Reality in Black",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 806276532,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e27d1eaceb866b7ac0d3bed3d1e57ba9/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e27d1eaceb866b7ac0d3bed3d1e57ba9"
+  },
+  {
+    "id": 51,
+    "title": "Destiny",
+    "album": "Reality in Black",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 806276502,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e27d1eaceb866b7ac0d3bed3d1e57ba9/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e27d1eaceb866b7ac0d3bed3d1e57ba9"
+  },
+  {
+    "id": 52,
+    "title": "Better",
+    "album": "Reality in Black",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 806276552,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e27d1eaceb866b7ac0d3bed3d1e57ba9/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e27d1eaceb866b7ac0d3bed3d1e57ba9"
+  },
+  {
+    "id": 53,
+    "title": "Universe",
+    "album": "Reality in Black",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 806276512,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e27d1eaceb866b7ac0d3bed3d1e57ba9/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e27d1eaceb866b7ac0d3bed3d1e57ba9"
+  },
+  {
+    "id": 54,
+    "title": "Hello Mama",
+    "album": "Reality in Black",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 806276562,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e27d1eaceb866b7ac0d3bed3d1e57ba9/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e27d1eaceb866b7ac0d3bed3d1e57ba9"
+  },
+  {
+    "id": 55,
+    "title": "Ten Nights",
+    "album": "Reality in Black",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 806276522,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e27d1eaceb866b7ac0d3bed3d1e57ba9/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e27d1eaceb866b7ac0d3bed3d1e57ba9"
+  },
+  {
+    "id": 56,
+    "title": "AYA",
+    "album": "Travel",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1130251002,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/812545c9d1772931131f6530030fc3fd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "812545c9d1772931131f6530030fc3fd"
+  },
+  {
+    "id": 57,
+    "title": "Dingga",
+    "album": "Travel",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1114774832,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/cc43ff1788b991e14d53efeb3af93922/500x500-000000-80-0-0.jpg",
+    "coverMd5": "cc43ff1788b991e14d53efeb3af93922"
+  },
+  {
+    "id": 58,
+    "title": "Travel",
+    "album": "Travel",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1130250992,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/812545c9d1772931131f6530030fc3fd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "812545c9d1772931131f6530030fc3fd"
+  },
+  {
+    "id": 59,
+    "title": "Chuck",
+    "album": "Travel",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1130251012,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/812545c9d1772931131f6530030fc3fd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "812545c9d1772931131f6530030fc3fd"
+  },
+  {
+    "id": 60,
+    "title": "Where Are We Now",
+    "album": "WAW",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1391738502,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a4202e473f89ee844be3035cdaf7895d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a4202e473f89ee844be3035cdaf7895d"
+  },
+  {
+    "id": 61,
+    "title": "Another Day",
+    "album": "WAW",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1391738512,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a4202e473f89ee844be3035cdaf7895d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a4202e473f89ee844be3035cdaf7895d"
+  },
+  {
+    "id": 62,
+    "title": "Mumumumuch",
+    "album": "I Say Mamamoo: The Best",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1494602152,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6e0ae3ae5d6d186703926902efdd3df1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6e0ae3ae5d6d186703926902efdd3df1"
+  },
+  {
+    "id": 63,
+    "title": "Illella",
+    "album": "Mic On",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1958747217,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2e6a5aeb88688050c32c0abddd5d999f/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2e6a5aeb88688050c32c0abddd5d999f"
+  },
+  {
+    "id": 64,
+    "title": "1, 2",
+    "album": "Mic On",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 65,
+    "title": "Chico Malo",
+    "album": "Act 1, Scene 1",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 66,
+    "title": "GGBB",
+    "album": "Act 1, Scene 1",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 67,
+    "title": "Dang Dang",
+    "album": "Two Rabbits",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 68,
+    "title": "Save Me",
+    "album": "Two Rabbits",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 0
+  }
+]

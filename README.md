@@ -2,7 +2,7 @@
 
 # K-POPDLE
 
-**A daily K-pop music guessing game platform — Heardle-style, for 8 groups.**
+**A daily K-pop music guessing game platform — Heardle-style, for 28 groups.**
 
 [![Live](https://img.shields.io/badge/Live-k--popdle.com-FF2D78?style=flat-square&logo=railway&logoColor=white)](https://k-popdle.com)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev)
@@ -25,14 +25,14 @@
 
 K-POPDLE is a full-stack daily music quiz platform. Players listen to a short audio snippet and guess the song — with each wrong answer revealing a slightly longer clip. Every group has its own independent daily game, driven by a deterministic **HMAC-SHA256** algorithm so the answer is consistent for all players worldwide.
 
-Currently supports **8 groups** and **509 songs**, all with verified 30-second Deezer preview URLs. All song titles use their English names so every song is typeable on a standard keyboard.
+Currently supports **28 groups** and **1,915 songs**, all with verified 30-second Deezer preview URLs. All song titles use their English names so every song is typeable on a standard keyboard.
 
 ---
 
 ## Features
 
 ### 🎵 Multi-Group Platform
-Eight K-pop groups, each with their own daily game, color theme, and branded name. The K-POPDLE homepage shows all groups at a glance with glassmorphic cards and live solved-state detection from localStorage.
+Twenty-eight K-pop groups — boy groups, girl groups, and legacy acts — each with their own daily game, color theme, and branded name. The K-POPDLE homepage shows all groups at a glance with glassmorphic cards and live solved-state detection from localStorage.
 
 | Group | Game | Songs |
 |---|---|---|
@@ -44,6 +44,26 @@ Eight K-pop groups, each with their own daily game, color theme, and branded nam
 | KISS OF LIFE | KOLFDLE | 43 |
 | IVE | IVEDLE | 58 |
 | BLACKPINK | BPINKDLE | 36 |
+| BTS | BTSDLE | 108 |
+| Stray Kids | SKZDLE | 126 |
+| SEVENTEEN | SVTDLE | 134 |
+| (G)I-DLE | GIDLEDLE | 57 |
+| ENHYPEN | ENHYDLE | 76 |
+| ATEEZ | ATEEZDLE | 93 |
+| TOMORROW X TOGETHER | TXTDLE | 71 |
+| ITZY | ITZYDLE | 60 |
+| ILLIT | ILLITDLE | 19 |
+| NMIXX | NMIXXDLE | 38 |
+| EXO | EXODLE | 146 |
+| BIGBANG | BIGDLE | 61 |
+| SHINee | SHINEEDLE | 103 |
+| MAMAMOO | MAMOODLE | 68 |
+| Girls' Generation | SNSDDLE | 112 |
+| BABYMONSTER | BABYDLE | 20 |
+| RIIZE | RIIZEDLE | 23 |
+| BOYNEXTDOOR | BNDDLE | 28 |
+| TWS | TWSDLE | 26 |
+| ZEROBASEONE | ZB1DLE | 37 |
 
 ### 🎮 Daily Game
 - Up to **6 guesses**, each revealing a progressively longer audio clip
@@ -79,10 +99,10 @@ Replay any past daily game. The same HMAC algorithm that picks today's song work
 ![Archive Modal](docs/screenshot-archive.png)
 
 ### 🌐 K-POPDLE — Cross-Group Daily Challenge
-A separate daily game at `/kpopdle` that draws from the full merged catalog of all 8 active groups. The song could be from any group — players must identify it without knowing which group it's from. The autocomplete labels each song with its group (e.g. `Black Mamba (aespa)`) for disambiguation, and the group is revealed in the result. Share output correctly labels results as `K-POPDLE #N M/6`. Archive mode is fully supported — replay any past K-POPDLE game from the archive button.
+A separate daily game at `/kpopdle` that draws from the full merged catalog of all 28 active groups. The song could be from any group — players must identify it without knowing which group it's from. The autocomplete labels each song with its group (e.g. `Black Mamba (aespa)`) for disambiguation, and the group is revealed in the result. Share output correctly labels results as `K-POPDLE #N M/6`. Archive mode is fully supported — replay any past K-POPDLE game from the archive button.
 
 ### 🎯 Guess the Group — Cross-Group, 3 Tries
-A second cross-group daily at `/guess-the-group` that flips the audio quiz: *name the K-pop group*, not the song. The clip lengthens after each miss on a tight `1s → 3s → 6s` ladder, and the answer space is just the 8 active groups, so the player picks from a 4×2 grid of palette-tinted group chips (or types via autocomplete). One server-side hint is exposed — `year` — since `era` or `firstLetter` would give the group away. Cover/Audio toggles aren't applicable; share output uses `Guess the Group #N M/3`. Reuses the same HMAC daily-selection algorithm against the merged song pool.
+A second cross-group daily at `/guess-the-group` that flips the audio quiz: *name the K-pop group*, not the song. The clip lengthens after each miss on a tight `1s → 3s → 6s` ladder, and the answer space is the full active-group roster, so the player picks from a scrollable grid of palette-tinted group chips (or types via autocomplete). One server-side hint is exposed — `year` — since `era` or `firstLetter` would give the group away. Cover/Audio toggles aren't applicable; share output uses `Guess the Group #N M/3`. Reuses the same HMAC daily-selection algorithm against the merged song pool.
 
 ### 🖼️ Coverdle — Album-Cover Reveal
 Per-group cover-guessing mode at `/{group}/cover` (e.g. `/twice/cover`). The album cover starts heavily pixelated and sharpens with each guess: a `[6, 12, 22, 40, 90, full]` resolution ladder rendered to a canvas via nearest-neighbour scaling (no CSS blur — the mosaic is real). The **answer space is albums, not songs** — a Deezer album cover is typically shared by 5+ tracks on the same EP, so a song-level answer would degenerate into "the cover shows the *Get Up* EP; pick whichever song on it the coin flip chose today." The deduped album pool is built first-appearance in `songs.json` so the daily HMAC index stays stable across catalog edits, autocomplete lists albums, and `/guess` matches on album name. Six guesses, three hints (year → track count → first letter of the album). Cover-mode streaks live under a `${group}-cover` localStorage key, so a Coverdle solve doesn't double-count toward audio stats. A backfill script (`server/scripts/backfillCovers.js`) populates `coverUrl` on each song from the Deezer album endpoint; covers are served direct from Deezer's CDN. The site CSP `img-src https:` already allows them, and the canvas draws cross-origin without `crossOrigin` (the image renders, the canvas becomes tainted but no readback is ever needed).
@@ -129,7 +149,7 @@ Songs play as 30-second MP3 previews via the **Deezer public API** — no auth r
 1. Direct lookup by stored Deezer track ID
 2. Artist + title search fallback
 
-On startup the server pre-warms the preview URL cache for all 8 active groups sequentially, so the first player each day never waits on Deezer.
+On startup the server pre-warms the preview URL cache for all 28 active groups sequentially, so the first player each day never waits on Deezer.
 
 ### Analytics Database
 Game results are written to a SQLite database (`better-sqlite3`) at the end of every daily game. Three query endpoints expose aggregated insights:
@@ -169,7 +189,7 @@ Runtime health is observable without a third-party log drain bolted on top:
 - **`GET /healthz`** — a liveness probe (Railway's healthcheck target) that returns `200` while the database is reachable, `503` if not. Audio/Deezer status is reported in the body but is deliberately **non-fatal**: a Deezer outage is external and can't be fixed by a restart, so it never triggers a restart loop. It's defined ahead of the telemetry middleware so health polls don't pollute the request log.
 
 ### Discoverability (SEO)
-The SPA is tuned for search and social sharing despite being client-rendered. `index.html` ships Open Graph, Twitter-card, and JSON-LD (`WebSite` + `VideoGame`) tags, an SVG favicon, and a web manifest — but **no static canonical or `og:url`**, because hardcoding `/` as the canonical caused Google's URL Inspection live test to reject every sub-route as a duplicate of the homepage. Instead, a `useDocumentMeta` hook injects the per-route title, description, canonical URL, and `og:url` once React mounts; Googlebot self-canonicalizes to the requested URL on the pre-render pass and confirms via the JS-injected tag on the rendered pass. A static `robots.txt` and `sitemap.xml` (21 URLs — homepage, K-POPDLE, all 8 group dailies, all 8 Coverdle routes, Guess the Group, Battle, Stats) are served straight from the build output, ahead of the SPA catch-all.
+The SPA is tuned for search and social sharing despite being client-rendered. `index.html` ships Open Graph, Twitter-card, and JSON-LD (`WebSite` + `VideoGame`) tags, an SVG favicon, and a web manifest — but **no static canonical or `og:url`**, because hardcoding `/` as the canonical caused Google's URL Inspection live test to reject every sub-route as a duplicate of the homepage. Instead, a `useDocumentMeta` hook injects the per-route title, description, canonical URL, and `og:url` once React mounts; Googlebot self-canonicalizes to the requested URL on the pre-render pass and confirms via the JS-injected tag on the rendered pass. A static `robots.txt` and `sitemap.xml` (61 URLs — homepage, K-POPDLE, all 28 group dailies, all 28 Coverdle routes, Guess the Group, Battle, Stats) are served straight from the build output, ahead of the SPA catch-all.
 
 Because the game UI is mostly chrome + a guess grid, the rendered body text on each game route was ~100 chars — enough to trip Google's **Soft 404** classifier. A shared `<GameAboutSection>` component now ships ~1500 chars of per-route descriptive copy on every thin route, rendered inside a default-collapsed `<details>` disclosure. Users see a single slim row at the bottom of the page; Googlebot reads the full content from the initial HTML (accordion content is indexed regardless of open state — *not* the same as `display:none`-for-SEO cloaking, which the spam policies explicitly penalize).
 
@@ -228,7 +248,7 @@ A single `GroupContext` carries the active `groupId`, `archiveDate`, `practiceMo
     └── src/
         ├── instrument.js          # Sentry init — imported first, before app code
         ├── data/
-        │   ├── groups.json        # Group registry (8 groups, colors, launchDate)
+        │   ├── groups.json        # Group registry (28 groups, colors, launchDate)
         │   ├── launch.js          # K-POPDLE launch date (single source; mirrored client-side)
         │   ├── songIndex.js       # Merged cross-group song pool (kpopdle + guess-the-group)
         │   ├── groups/{id}/
@@ -286,7 +306,7 @@ npm run dev
 # API    → http://localhost:3001
 ```
 
-On first start the server warms the Deezer preview cache for all 8 groups before serving requests — you'll see `Cache warm.` in the terminal when it's ready.
+On first start the server warms the Deezer preview cache for all 28 groups before serving requests — you'll see `Cache warm.` in the terminal when it's ready.
 
 ### Testing & quality
 
@@ -305,16 +325,17 @@ Every push and PR runs the same tests, build, lint, and both data validators via
 ## Roadmap
 
 - [x] Phase 1 — Multi-group architecture & K-POPDLE homepage
-- [x] Phase 2 — Song databases for all 8 groups (509 songs, Deezer-verified)
+- [x] Phase 2 — Song databases for all 8 launch groups (509 songs, Deezer-verified)
 - [x] Phase 3 — Practice mode (unlimited random rounds, no stats impact)
 - [x] Phase 4 — Archive mode (replay any past daily game)
 - [x] Phase 5 — Hint system (era / year / first letter, tracked in share output)
 - [x] Phase 6 — Difficulty modes (Easy / Normal / Hard clip lengths)
-- [x] Phase 7 — K-POPDLE cross-group challenge (daily game drawn from all 8 catalogs, group revealed on finish)
+- [x] Phase 7 — K-POPDLE cross-group challenge (daily game drawn from all active catalogs, group revealed on finish)
 - [x] Phase 8 — User accounts (Google OAuth, cloud streak + stats sync, GDPR account deletion)
 - [x] Phase 9 — Battle (real-time 1v1, Socket.IO, server-authoritative scoring + audio proxy)
 - [x] Phase 10 — Guess the Group + Coverdle + Async Challenge + homepage Game Modes section
 - [x] Phase 11 — Design unification (dashboard vibe + Battle parity), Coverdle album-answer fix, SEO indexability (per-route canonical via `useDocumentMeta`, `<GameAboutSection>` for Soft-404 mitigation, expanded sitemap)
+- [x] Phase 12 — Roster expansion to 28 groups (BTS, Stray Kids, SEVENTEEN, (G)I-DLE, ENHYPEN, ATEEZ, TXT, ITZY, ILLIT, NMIXX, EXO, BIGBANG, SHINee, MAMAMOO, Girls' Generation, BABYMONSTER, RIIZE, BOYNEXTDOOR, TWS, ZEROBASEONE — 1,406 new songs across boy groups, 4th/5th-gen, and legacy acts)
 
 ---
 

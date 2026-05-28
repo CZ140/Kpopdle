@@ -1,0 +1,28 @@
+{
+  "groupId": "babymonster",
+  "displayName": "BABYMONSTER",
+  "estimatedSongs": 24,
+  "songs": [
+    {"title": "DREAM", "album": "DREAM", "releaseYear": 2023},
+    {"title": "BATTER UP", "album": "BATTER UP", "releaseYear": 2023},
+    {"title": "Stuck In The Middle", "album": "Stuck In The Middle", "releaseYear": 2024},
+    {"title": "MONSTERS", "album": "BABYMONS7ER", "releaseYear": 2024},
+    {"title": "SHEESH", "album": "BABYMONS7ER", "releaseYear": 2024},
+    {"title": "LIKE THAT", "album": "BABYMONS7ER", "releaseYear": 2024},
+    {"title": "FOREVER", "album": "FOREVER", "releaseYear": 2024},
+    {"title": "CLIK CLAK", "album": "DRIP", "releaseYear": 2024},
+    {"title": "DRIP", "album": "DRIP", "releaseYear": 2024},
+    {"title": "Love, Maybe", "album": "DRIP", "releaseYear": 2024},
+    {"title": "Really Like You", "album": "DRIP", "releaseYear": 2024},
+    {"title": "BILLIONAIRE", "album": "DRIP", "releaseYear": 2024},
+    {"title": "Love In My Heart", "album": "DRIP", "releaseYear": 2024},
+    {"title": "Woke Up In Tokyo", "album": "DRIP", "releaseYear": 2024},
+    {"title": "Ghost", "album": "Ghost", "releaseYear": 2025},
+    {"title": "HOT SAUCE", "album": "HOT SAUCE", "releaseYear": 2025},
+    {"title": "WE GO UP", "album": "WE GO UP", "releaseYear": 2025},
+    {"title": "PSYCHO", "album": "WE GO UP", "releaseYear": 2025},
+    {"title": "SUPA DUPA LUV", "album": "WE GO UP", "releaseYear": 2025},
+    {"title": "WILD", "album": "WE GO UP", "releaseYear": 2025}
+  ],
+  "_note": "Trimmed unverified 2026 CHOOM EP entries from agent output — album may not yet exist as of 2026-05-28. Resolver will catch any remaining false positives."
+}

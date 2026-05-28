@@ -1,0 +1,920 @@
+[
+  {
+    "id": 1,
+    "title": "Pirate King",
+    "album": "Treasure EP.1: All to Zero",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 3745201752,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/bca000a476c7b7a12f8dd7a8304caa78/500x500-000000-80-0-0.jpg",
+    "coverMd5": "bca000a476c7b7a12f8dd7a8304caa78"
+  },
+  {
+    "id": 2,
+    "title": "Treasure",
+    "album": "Treasure EP.1: All to Zero",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 3,
+    "title": "Twilight",
+    "album": "Treasure EP.1: All to Zero",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 3745201782,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/bca000a476c7b7a12f8dd7a8304caa78/500x500-000000-80-0-0.jpg",
+    "coverMd5": "bca000a476c7b7a12f8dd7a8304caa78"
+  },
+  {
+    "id": 4,
+    "title": "Stay",
+    "album": "Treasure EP.1: All to Zero",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 3745201792,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/bca000a476c7b7a12f8dd7a8304caa78/500x500-000000-80-0-0.jpg",
+    "coverMd5": "bca000a476c7b7a12f8dd7a8304caa78"
+  },
+  {
+    "id": 5,
+    "title": "My Way",
+    "album": "Treasure EP.1: All to Zero",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 3745201802,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/bca000a476c7b7a12f8dd7a8304caa78/500x500-000000-80-0-0.jpg",
+    "coverMd5": "bca000a476c7b7a12f8dd7a8304caa78"
+  },
+  {
+    "id": 6,
+    "title": "HALA HALA (Hearts Awakened, Live Alive)",
+    "album": "Treasure EP.2: Zero to One",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 3745201932,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/04c497a8e9756576a138c35028d8deef/500x500-000000-80-0-0.jpg",
+    "coverMd5": "04c497a8e9756576a138c35028d8deef"
+  },
+  {
+    "id": 7,
+    "title": "Say My Name",
+    "album": "Treasure EP.2: Zero to One",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 3745201952,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/04c497a8e9756576a138c35028d8deef/500x500-000000-80-0-0.jpg",
+    "coverMd5": "04c497a8e9756576a138c35028d8deef"
+  },
+  {
+    "id": 8,
+    "title": "Desire",
+    "album": "Treasure EP.2: Zero to One",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 3745201982,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/04c497a8e9756576a138c35028d8deef/500x500-000000-80-0-0.jpg",
+    "coverMd5": "04c497a8e9756576a138c35028d8deef"
+  },
+  {
+    "id": 9,
+    "title": "Light",
+    "album": "Treasure EP.2: Zero to One",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 3745202012,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/04c497a8e9756576a138c35028d8deef/500x500-000000-80-0-0.jpg",
+    "coverMd5": "04c497a8e9756576a138c35028d8deef"
+  },
+  {
+    "id": 10,
+    "title": "Promise",
+    "album": "Treasure EP.2: Zero to One",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 3745202042,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/04c497a8e9756576a138c35028d8deef/500x500-000000-80-0-0.jpg",
+    "coverMd5": "04c497a8e9756576a138c35028d8deef"
+  },
+  {
+    "id": 11,
+    "title": "Illusion",
+    "album": "Treasure EP.3: One to All",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 3745202372,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9446cd523f22c7ebcaa2ba4c2d0b2a2f/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9446cd523f22c7ebcaa2ba4c2d0b2a2f"
+  },
+  {
+    "id": 12,
+    "title": "Wave",
+    "album": "Treasure EP.3: One to All",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 3745202412,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9446cd523f22c7ebcaa2ba4c2d0b2a2f/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9446cd523f22c7ebcaa2ba4c2d0b2a2f"
+  },
+  {
+    "id": 13,
+    "title": "Aurora",
+    "album": "Treasure EP.3: One to All",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 3745202422,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9446cd523f22c7ebcaa2ba4c2d0b2a2f/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9446cd523f22c7ebcaa2ba4c2d0b2a2f"
+  },
+  {
+    "id": 14,
+    "title": "Utopia",
+    "album": "Treasure EP.3: One to All",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 15,
+    "title": "Crescent",
+    "album": "Treasure EP.3: One to All",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 3745202392,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9446cd523f22c7ebcaa2ba4c2d0b2a2f/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9446cd523f22c7ebcaa2ba4c2d0b2a2f"
+  },
+  {
+    "id": 16,
+    "title": "Dancing Like Butterfly Wings",
+    "album": "Treasure EP.3: One to All",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 3745202432,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9446cd523f22c7ebcaa2ba4c2d0b2a2f/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9446cd523f22c7ebcaa2ba4c2d0b2a2f"
+  },
+  {
+    "id": 17,
+    "title": "WONDERLAND",
+    "album": "Treasure EP.Fin: All to Action",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 3745202622,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9dd66120cdf8ac14c4dfc702d1ad30b1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9dd66120cdf8ac14c4dfc702d1ad30b1"
+  },
+  {
+    "id": 18,
+    "title": "WIN",
+    "album": "Treasure EP.Fin: All to Action",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 3745202692,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9dd66120cdf8ac14c4dfc702d1ad30b1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9dd66120cdf8ac14c4dfc702d1ad30b1"
+  },
+  {
+    "id": 19,
+    "title": "Sunrise",
+    "album": "Treasure EP.Fin: All to Action",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 3745202732,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9dd66120cdf8ac14c4dfc702d1ad30b1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9dd66120cdf8ac14c4dfc702d1ad30b1"
+  },
+  {
+    "id": 20,
+    "title": "THANK U",
+    "album": "Treasure EP.Fin: All to Action",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 3745202722,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9dd66120cdf8ac14c4dfc702d1ad30b1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9dd66120cdf8ac14c4dfc702d1ad30b1"
+  },
+  {
+    "id": 21,
+    "title": "If Without You",
+    "album": "Treasure EP.Fin: All to Action",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 3745202702,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9dd66120cdf8ac14c4dfc702d1ad30b1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9dd66120cdf8ac14c4dfc702d1ad30b1"
+  },
+  {
+    "id": 22,
+    "title": "Dazzling Light",
+    "album": "Treasure EP.Fin: All to Action",
+    "releaseYear": 2019,
+    "spotifyId": null,
+    "deezerId": 3745202632,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9dd66120cdf8ac14c4dfc702d1ad30b1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9dd66120cdf8ac14c4dfc702d1ad30b1"
+  },
+  {
+    "id": 23,
+    "title": "Answer",
+    "album": "Treasure Epilogue: Action to Answer",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 3745202832,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/414a110ded46ab212bce42c3f5546515/500x500-000000-80-0-0.jpg",
+    "coverMd5": "414a110ded46ab212bce42c3f5546515"
+  },
+  {
+    "id": 24,
+    "title": "Horizon",
+    "album": "Treasure Epilogue: Action to Answer",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 3745202862,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/414a110ded46ab212bce42c3f5546515/500x500-000000-80-0-0.jpg",
+    "coverMd5": "414a110ded46ab212bce42c3f5546515"
+  },
+  {
+    "id": 25,
+    "title": "Star 1117",
+    "album": "Treasure Epilogue: Action to Answer",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 3745202882,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/414a110ded46ab212bce42c3f5546515/500x500-000000-80-0-0.jpg",
+    "coverMd5": "414a110ded46ab212bce42c3f5546515"
+  },
+  {
+    "id": 26,
+    "title": "Precious",
+    "album": "Treasure Epilogue: Action to Answer",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 3745202912,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/414a110ded46ab212bce42c3f5546515/500x500-000000-80-0-0.jpg",
+    "coverMd5": "414a110ded46ab212bce42c3f5546515"
+  },
+  {
+    "id": 27,
+    "title": "INCEPTION",
+    "album": "Zero: Fever Part.1",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1021374322,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/29989ef62e61797c08cd35123aae6593/500x500-000000-80-0-0.jpg",
+    "coverMd5": "29989ef62e61797c08cd35123aae6593"
+  },
+  {
+    "id": 28,
+    "title": "THANXX",
+    "album": "Zero: Fever Part.1",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1021374302,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/29989ef62e61797c08cd35123aae6593/500x500-000000-80-0-0.jpg",
+    "coverMd5": "29989ef62e61797c08cd35123aae6593"
+  },
+  {
+    "id": 29,
+    "title": "FEVER",
+    "album": "Zero: Fever Part.1",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1021374292,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/29989ef62e61797c08cd35123aae6593/500x500-000000-80-0-0.jpg",
+    "coverMd5": "29989ef62e61797c08cd35123aae6593"
+  },
+  {
+    "id": 30,
+    "title": "Good Lil Boy",
+    "album": "Zero: Fever Part.1",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1021374332,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/29989ef62e61797c08cd35123aae6593/500x500-000000-80-0-0.jpg",
+    "coverMd5": "29989ef62e61797c08cd35123aae6593"
+  },
+  {
+    "id": 31,
+    "title": "TO THE BEAT",
+    "album": "Zero: Fever Part.1",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1021374312,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/29989ef62e61797c08cd35123aae6593/500x500-000000-80-0-0.jpg",
+    "coverMd5": "29989ef62e61797c08cd35123aae6593"
+  },
+  {
+    "id": 32,
+    "title": "One Day at a Time",
+    "album": "Zero: Fever Part.1",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1021374342,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/29989ef62e61797c08cd35123aae6593/500x500-000000-80-0-0.jpg",
+    "coverMd5": "29989ef62e61797c08cd35123aae6593"
+  },
+  {
+    "id": 33,
+    "title": "Fireworks (I'm the One)",
+    "album": "Zero: Fever Part.2",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1254692222,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e9c6f3db70ef04c60d8726ffd1f8bbdc/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e9c6f3db70ef04c60d8726ffd1f8bbdc"
+  },
+  {
+    "id": 34,
+    "title": "The Leaders",
+    "album": "Zero: Fever Part.2",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1254692232,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e9c6f3db70ef04c60d8726ffd1f8bbdc/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e9c6f3db70ef04c60d8726ffd1f8bbdc"
+  },
+  {
+    "id": 35,
+    "title": "Time of Love",
+    "album": "Zero: Fever Part.2",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1254692242,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e9c6f3db70ef04c60d8726ffd1f8bbdc/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e9c6f3db70ef04c60d8726ffd1f8bbdc"
+  },
+  {
+    "id": 36,
+    "title": "Take Me Home",
+    "album": "Zero: Fever Part.2",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1254692252,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e9c6f3db70ef04c60d8726ffd1f8bbdc/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e9c6f3db70ef04c60d8726ffd1f8bbdc"
+  },
+  {
+    "id": 37,
+    "title": "Celebrate",
+    "album": "Zero: Fever Part.2",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1254692262,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e9c6f3db70ef04c60d8726ffd1f8bbdc/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e9c6f3db70ef04c60d8726ffd1f8bbdc"
+  },
+  {
+    "id": 38,
+    "title": "Deja Vu",
+    "album": "Zero: Fever Part.3",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1488314292,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/03bb0aebde00e4817099f350229ff9d6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "03bb0aebde00e4817099f350229ff9d6"
+  },
+  {
+    "id": 39,
+    "title": "Eternal Sunshine",
+    "album": "Zero: Fever Part.3",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1488314272,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/03bb0aebde00e4817099f350229ff9d6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "03bb0aebde00e4817099f350229ff9d6"
+  },
+  {
+    "id": 40,
+    "title": "Rocky",
+    "album": "Zero: Fever Part.3",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1488314302,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/03bb0aebde00e4817099f350229ff9d6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "03bb0aebde00e4817099f350229ff9d6"
+  },
+  {
+    "id": 41,
+    "title": "Feeling Like I Do",
+    "album": "Zero: Fever Part.3",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1488314282,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/03bb0aebde00e4817099f350229ff9d6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "03bb0aebde00e4817099f350229ff9d6"
+  },
+  {
+    "id": 42,
+    "title": "All About You",
+    "album": "Zero: Fever Part.3",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1488314312,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/03bb0aebde00e4817099f350229ff9d6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "03bb0aebde00e4817099f350229ff9d6"
+  },
+  {
+    "id": 43,
+    "title": "Not Too Late",
+    "album": "Zero: Fever Part.3",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1488314322,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/03bb0aebde00e4817099f350229ff9d6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "03bb0aebde00e4817099f350229ff9d6"
+  },
+  {
+    "id": 44,
+    "title": "Turbulence",
+    "album": "Zero: Fever Epilogue",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1569448412,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b27f44ba12e749eebb0baf985b550a89/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b27f44ba12e749eebb0baf985b550a89"
+  },
+  {
+    "id": 45,
+    "title": "The Real (Heung Ver.)",
+    "album": "Zero: Fever Epilogue",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 46,
+    "title": "Be With You",
+    "album": "Zero: Fever Epilogue",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1569448422,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b27f44ba12e749eebb0baf985b550a89/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b27f44ba12e749eebb0baf985b550a89"
+  },
+  {
+    "id": 47,
+    "title": "The Letter",
+    "album": "Zero: Fever Epilogue",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1569448432,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b27f44ba12e749eebb0baf985b550a89/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b27f44ba12e749eebb0baf985b550a89"
+  },
+  {
+    "id": 48,
+    "title": "Guerrilla",
+    "album": "The World EP.1: Movement",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1823714157,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/081f3a3cdf8ff1c03ac6a416bb078023/500x500-000000-80-0-0.jpg",
+    "coverMd5": "081f3a3cdf8ff1c03ac6a416bb078023"
+  },
+  {
+    "id": 49,
+    "title": "Sector 1",
+    "album": "The World EP.1: Movement",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1823714137,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/081f3a3cdf8ff1c03ac6a416bb078023/500x500-000000-80-0-0.jpg",
+    "coverMd5": "081f3a3cdf8ff1c03ac6a416bb078023"
+  },
+  {
+    "id": 50,
+    "title": "Cyberpunk",
+    "album": "The World EP.1: Movement",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1823714147,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/081f3a3cdf8ff1c03ac6a416bb078023/500x500-000000-80-0-0.jpg",
+    "coverMd5": "081f3a3cdf8ff1c03ac6a416bb078023"
+  },
+  {
+    "id": 51,
+    "title": "The Ring",
+    "album": "The World EP.1: Movement",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1823714167,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/081f3a3cdf8ff1c03ac6a416bb078023/500x500-000000-80-0-0.jpg",
+    "coverMd5": "081f3a3cdf8ff1c03ac6a416bb078023"
+  },
+  {
+    "id": 52,
+    "title": "WDIG (Where Do I Go)",
+    "album": "The World EP.1: Movement",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1823714177,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/081f3a3cdf8ff1c03ac6a416bb078023/500x500-000000-80-0-0.jpg",
+    "coverMd5": "081f3a3cdf8ff1c03ac6a416bb078023"
+  },
+  {
+    "id": 53,
+    "title": "New World",
+    "album": "The World EP.1: Movement",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1823714187,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/081f3a3cdf8ff1c03ac6a416bb078023/500x500-000000-80-0-0.jpg",
+    "coverMd5": "081f3a3cdf8ff1c03ac6a416bb078023"
+  },
+  {
+    "id": 54,
+    "title": "Halazia",
+    "album": "Spin Off: From the Witness",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 2062079467,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/bb51654f01a862927f01d6357d0b61d5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "bb51654f01a862927f01d6357d0b61d5"
+  },
+  {
+    "id": 55,
+    "title": "BOUNCY (K-HOT CHILLI PEPPERS)",
+    "album": "The World EP.2: Outlaw",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2320139425,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/4531f6caacd34f0adb5c3ebb7cd99ed1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "4531f6caacd34f0adb5c3ebb7cd99ed1"
+  },
+  {
+    "id": 56,
+    "title": "Wake Up",
+    "album": "The World EP.2: Outlaw",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2320139445,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/4531f6caacd34f0adb5c3ebb7cd99ed1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "4531f6caacd34f0adb5c3ebb7cd99ed1"
+  },
+  {
+    "id": 57,
+    "title": "Dune",
+    "album": "The World EP.2: Outlaw",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2320139415,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/4531f6caacd34f0adb5c3ebb7cd99ed1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "4531f6caacd34f0adb5c3ebb7cd99ed1"
+  },
+  {
+    "id": 58,
+    "title": "DJANGO",
+    "album": "The World EP.2: Outlaw",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2320139435,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/4531f6caacd34f0adb5c3ebb7cd99ed1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "4531f6caacd34f0adb5c3ebb7cd99ed1"
+  },
+  {
+    "id": 59,
+    "title": "Outlaw",
+    "album": "The World EP.2: Outlaw",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2320139455,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/4531f6caacd34f0adb5c3ebb7cd99ed1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "4531f6caacd34f0adb5c3ebb7cd99ed1"
+  },
+  {
+    "id": 60,
+    "title": "Crazy Form",
+    "album": "The World EP.Fin: Will",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2545005721,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f408e0c0aae24124f3796876a0dafac8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f408e0c0aae24124f3796876a0dafac8"
+  },
+  {
+    "id": 61,
+    "title": "MATZ",
+    "album": "The World EP.Fin: Will",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 62,
+    "title": "ARRIBA",
+    "album": "The World EP.Fin: Will",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2545005731,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f408e0c0aae24124f3796876a0dafac8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f408e0c0aae24124f3796876a0dafac8"
+  },
+  {
+    "id": 63,
+    "title": "Emergency",
+    "album": "The World EP.Fin: Will",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2545005711,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f408e0c0aae24124f3796876a0dafac8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f408e0c0aae24124f3796876a0dafac8"
+  },
+  {
+    "id": 64,
+    "title": "Silver Light",
+    "album": "The World EP.Fin: Will",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2545005741,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f408e0c0aae24124f3796876a0dafac8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f408e0c0aae24124f3796876a0dafac8"
+  },
+  {
+    "id": 65,
+    "title": "Youth",
+    "album": "The World EP.Fin: Will",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 66,
+    "title": "IT's You",
+    "album": "The World EP.Fin: Will",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 67,
+    "title": "Dreamy Day",
+    "album": "The World EP.Fin: Will",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2545005761,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f408e0c0aae24124f3796876a0dafac8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f408e0c0aae24124f3796876a0dafac8"
+  },
+  {
+    "id": 68,
+    "title": "Work",
+    "album": "Golden Hour: Part.1",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2811862352,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/eba976dd0399610b87130e5c1446812b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "eba976dd0399610b87130e5c1446812b"
+  },
+  {
+    "id": 69,
+    "title": "Blind",
+    "album": "Golden Hour: Part.1",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2811862342,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/eba976dd0399610b87130e5c1446812b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "eba976dd0399610b87130e5c1446812b"
+  },
+  {
+    "id": 70,
+    "title": "Empty Box",
+    "album": "Golden Hour: Part.1",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2811862362,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/eba976dd0399610b87130e5c1446812b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "eba976dd0399610b87130e5c1446812b"
+  },
+  {
+    "id": 71,
+    "title": "Shaboom",
+    "album": "Golden Hour: Part.1",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2811862372,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/eba976dd0399610b87130e5c1446812b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "eba976dd0399610b87130e5c1446812b"
+  },
+  {
+    "id": 72,
+    "title": "Siren",
+    "album": "Golden Hour: Part.1",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2811862382,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/eba976dd0399610b87130e5c1446812b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "eba976dd0399610b87130e5c1446812b"
+  },
+  {
+    "id": 73,
+    "title": "Ice On My Teeth",
+    "album": "Golden Hour: Part.2",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3075722491,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/bcb90609b6f021fbca5918e78f98093f/500x500-000000-80-0-0.jpg",
+    "coverMd5": "bcb90609b6f021fbca5918e78f98093f"
+  },
+  {
+    "id": 74,
+    "title": "Deep Dive",
+    "album": "Golden Hour: Part.2",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3075722471,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/bcb90609b6f021fbca5918e78f98093f/500x500-000000-80-0-0.jpg",
+    "coverMd5": "bcb90609b6f021fbca5918e78f98093f"
+  },
+  {
+    "id": 75,
+    "title": "Man on Fire",
+    "album": "Golden Hour: Part.2",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3075722501,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/bcb90609b6f021fbca5918e78f98093f/500x500-000000-80-0-0.jpg",
+    "coverMd5": "bcb90609b6f021fbca5918e78f98093f"
+  },
+  {
+    "id": 76,
+    "title": "Selfish Waltz",
+    "album": "Golden Hour: Part.2",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3075722511,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/bcb90609b6f021fbca5918e78f98093f/500x500-000000-80-0-0.jpg",
+    "coverMd5": "bcb90609b6f021fbca5918e78f98093f"
+  },
+  {
+    "id": 77,
+    "title": "Enough",
+    "album": "Golden Hour: Part.2",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3075722521,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/bcb90609b6f021fbca5918e78f98093f/500x500-000000-80-0-0.jpg",
+    "coverMd5": "bcb90609b6f021fbca5918e78f98093f"
+  },
+  {
+    "id": 78,
+    "title": "Lemon Drop",
+    "album": "Golden Hour: Part.3",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3386137971,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/28e2879642c67832e1422a629b047767/500x500-000000-80-0-0.jpg",
+    "coverMd5": "28e2879642c67832e1422a629b047767"
+  },
+  {
+    "id": 79,
+    "title": "In Your Fantasy",
+    "album": "Golden Hour: Part.3",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3428993801,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/da9dad45d52e5c70e7fd70bab386dce0/500x500-000000-80-0-0.jpg",
+    "coverMd5": "da9dad45d52e5c70e7fd70bab386dce0"
+  },
+  {
+    "id": 80,
+    "title": "Masterpiece",
+    "album": "Golden Hour: Part.3",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3386137981,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/28e2879642c67832e1422a629b047767/500x500-000000-80-0-0.jpg",
+    "coverMd5": "28e2879642c67832e1422a629b047767"
+  },
+  {
+    "id": 81,
+    "title": "Castle",
+    "album": "Golden Hour: Part.3",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3386138001,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/28e2879642c67832e1422a629b047767/500x500-000000-80-0-0.jpg",
+    "coverMd5": "28e2879642c67832e1422a629b047767"
+  },
+  {
+    "id": 82,
+    "title": "Better",
+    "album": "Treasure EP. Map to Answer",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 2514893951,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a2d653d1f57d3136c469bac94fa4b0e9/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a2d653d1f57d3136c469bac94fa4b0e9"
+  },
+  {
+    "id": 83,
+    "title": "Still Here",
+    "album": "Into the A to Z",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 2514901941,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/742e996895fef6cc456427563e785daa/500x500-000000-80-0-0.jpg",
+    "coverMd5": "742e996895fef6cc456427563e785daa"
+  },
+  {
+    "id": 84,
+    "title": "Dreamers",
+    "album": "Dreamers",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 2475330351,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/09d5bc23703bbaf2e05564df63d81caa/500x500-000000-80-0-0.jpg",
+    "coverMd5": "09d5bc23703bbaf2e05564df63d81caa"
+  },
+  {
+    "id": 85,
+    "title": "Blue Summer",
+    "album": "Dreamers",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 2475330361,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/09d5bc23703bbaf2e05564df63d81caa/500x500-000000-80-0-0.jpg",
+    "coverMd5": "09d5bc23703bbaf2e05564df63d81caa"
+  },
+  {
+    "id": 86,
+    "title": "The King",
+    "album": "Beyond: Zero",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1842362587,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9a17072e0b40b683cd93ae60d6f9b706/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9a17072e0b40b683cd93ae60d6f9b706"
+  },
+  {
+    "id": 87,
+    "title": "Paradigm",
+    "album": "The World EP. Paradigm",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 2041936637,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e5a9b998d5d2b4d6e36bdc846b134c5f/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e5a9b998d5d2b4d6e36bdc846b134c5f"
+  },
+  {
+    "id": 88,
+    "title": "Limitless",
+    "album": "Limitless",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2192070917,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/af00bbf2407be5714bcf4e7a828b6705/500x500-000000-80-0-0.jpg",
+    "coverMd5": "af00bbf2407be5714bcf4e7a828b6705"
+  },
+  {
+    "id": 89,
+    "title": "DIAMOND",
+    "album": "Limitless",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2192070927,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/af00bbf2407be5714bcf4e7a828b6705/500x500-000000-80-0-0.jpg",
+    "coverMd5": "af00bbf2407be5714bcf4e7a828b6705"
+  },
+  {
+    "id": 90,
+    "title": "NOT OKAY",
+    "album": "Not Okay",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2670468842,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c9671c1e67a0b21c45fb4359af996b10/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c9671c1e67a0b21c45fb4359af996b10"
+  },
+  {
+    "id": 91,
+    "title": "Days",
+    "album": "Not Okay",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3548215551,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e1b46d115d70d49f5a7b69e42811c907/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e1b46d115d70d49f5a7b69e42811c907"
+  },
+  {
+    "id": 92,
+    "title": "Birthday",
+    "album": "Birthday",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3013999091,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/cb1d82d9f6c978139f70557ec1ddf67a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "cb1d82d9f6c978139f70557ec1ddf67a"
+  },
+  {
+    "id": 93,
+    "title": "Forevermore",
+    "album": "Birthday",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3548215591,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e1b46d115d70d49f5a7b69e42811c907/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e1b46d115d70d49f5a7b69e42811c907"
+  }
+]

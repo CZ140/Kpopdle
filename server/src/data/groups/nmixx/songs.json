@@ -1,0 +1,378 @@
+[
+  {
+    "id": 1,
+    "title": "O.O",
+    "album": "AD MARE",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 2297164395,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2690e82370948a5929652817b91b162e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2690e82370948a5929652817b91b162e"
+  },
+  {
+    "id": 2,
+    "title": "Tank",
+    "album": "AD MARE",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 2297164385,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2690e82370948a5929652817b91b162e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2690e82370948a5929652817b91b162e"
+  },
+  {
+    "id": 3,
+    "title": "DICE",
+    "album": "ENTWURF",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 2292275515,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/4346d3eb6e72cbc9a2963cfea0319589/500x500-000000-80-0-0.jpg",
+    "coverMd5": "4346d3eb6e72cbc9a2963cfea0319589"
+  },
+  {
+    "id": 4,
+    "title": "COOL (Your Rainbow)",
+    "album": "ENTWURF",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 2292275525,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/4346d3eb6e72cbc9a2963cfea0319589/500x500-000000-80-0-0.jpg",
+    "coverMd5": "4346d3eb6e72cbc9a2963cfea0319589"
+  },
+  {
+    "id": 5,
+    "title": "Funky Glitter Christmas",
+    "album": "Funky Glitter Christmas",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 2298802335,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/8a50b8572eeedb3f4f4ab62254c9b544/500x500-000000-80-0-0.jpg",
+    "coverMd5": "8a50b8572eeedb3f4f4ab62254c9b544"
+  },
+  {
+    "id": 6,
+    "title": "Love Me Like This",
+    "album": "expérgo",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2296960375,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6c0ef349965b0ab898a8a175f7866d44/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6c0ef349965b0ab898a8a175f7866d44"
+  },
+  {
+    "id": 7,
+    "title": "Young, Dumb, Stupid",
+    "album": "expérgo",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2296960445,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ab4f04665b4b9e248a4657bf9136e9e1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ab4f04665b4b9e248a4657bf9136e9e1"
+  },
+  {
+    "id": 8,
+    "title": "PAXXWORD",
+    "album": "expérgo",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2296960385,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6c0ef349965b0ab898a8a175f7866d44/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6c0ef349965b0ab898a8a175f7866d44"
+  },
+  {
+    "id": 9,
+    "title": "Just Did It",
+    "album": "expérgo",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2296960395,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6c0ef349965b0ab898a8a175f7866d44/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6c0ef349965b0ab898a8a175f7866d44"
+  },
+  {
+    "id": 10,
+    "title": "My Gosh",
+    "album": "expérgo",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2296960405,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6c0ef349965b0ab898a8a175f7866d44/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6c0ef349965b0ab898a8a175f7866d44"
+  },
+  {
+    "id": 11,
+    "title": "HOME",
+    "album": "expérgo",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2296960415,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6c0ef349965b0ab898a8a175f7866d44/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6c0ef349965b0ab898a8a175f7866d44"
+  },
+  {
+    "id": 12,
+    "title": "Party O'Clock",
+    "album": "A Midsummer NMIXX's Dream",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2358770735,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/000a99cb20603c826ddd8fcbd787d26c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "000a99cb20603c826ddd8fcbd787d26c"
+  },
+  {
+    "id": 13,
+    "title": "Roller Coaster",
+    "album": "A Midsummer NMIXX's Dream",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2347567515,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/4e5ac45569ba7df65d34a8b8113a31a1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "4e5ac45569ba7df65d34a8b8113a31a1"
+  },
+  {
+    "id": 14,
+    "title": "Soñar (Breaker)",
+    "album": "Fe3O4: BREAK",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2564547562,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/af08cc3b593bf8e01191abeb5c01105e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "af08cc3b593bf8e01191abeb5c01105e"
+  },
+  {
+    "id": 15,
+    "title": "DASH",
+    "album": "Fe3O4: BREAK",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2616629602,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b1163cf61f2591b309037aabdfede590/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b1163cf61f2591b309037aabdfede590"
+  },
+  {
+    "id": 16,
+    "title": "Run For Roses",
+    "album": "Fe3O4: BREAK",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2616629632,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b1163cf61f2591b309037aabdfede590/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b1163cf61f2591b309037aabdfede590"
+  },
+  {
+    "id": 17,
+    "title": "BOOM",
+    "album": "Fe3O4: BREAK",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2616629642,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b1163cf61f2591b309037aabdfede590/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b1163cf61f2591b309037aabdfede590"
+  },
+  {
+    "id": 18,
+    "title": "Passionfruit",
+    "album": "Fe3O4: BREAK",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2616629652,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b1163cf61f2591b309037aabdfede590/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b1163cf61f2591b309037aabdfede590"
+  },
+  {
+    "id": 19,
+    "title": "XOXO",
+    "album": "Fe3O4: BREAK",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2616629662,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b1163cf61f2591b309037aabdfede590/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b1163cf61f2591b309037aabdfede590"
+  },
+  {
+    "id": 20,
+    "title": "Break the Wall",
+    "album": "Fe3O4: BREAK",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2616629672,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b1163cf61f2591b309037aabdfede590/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b1163cf61f2591b309037aabdfede590"
+  },
+  {
+    "id": 21,
+    "title": "See That?",
+    "album": "Fe3O4: STICK OUT",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2948436721,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/48f78be13aa4eb099b1095f8aff9d53a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "48f78be13aa4eb099b1095f8aff9d53a"
+  },
+  {
+    "id": 22,
+    "title": "SICKUHH (feat. Kid Milli)",
+    "album": "Fe3O4: STICK OUT",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2948436731,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/48f78be13aa4eb099b1095f8aff9d53a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "48f78be13aa4eb099b1095f8aff9d53a"
+  },
+  {
+    "id": 23,
+    "title": "Red Light Sign, But We Go",
+    "album": "Fe3O4: STICK OUT",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2948436741,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/48f78be13aa4eb099b1095f8aff9d53a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "48f78be13aa4eb099b1095f8aff9d53a"
+  },
+  {
+    "id": 24,
+    "title": "BEAT BEAT",
+    "album": "Fe3O4: STICK OUT",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2948436751,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/48f78be13aa4eb099b1095f8aff9d53a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "48f78be13aa4eb099b1095f8aff9d53a"
+  },
+  {
+    "id": 25,
+    "title": "Moving On",
+    "album": "Fe3O4: STICK OUT",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2948436761,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/48f78be13aa4eb099b1095f8aff9d53a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "48f78be13aa4eb099b1095f8aff9d53a"
+  },
+  {
+    "id": 26,
+    "title": "Love Is Lonely",
+    "album": "Fe3O4: STICK OUT",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2948436771,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/48f78be13aa4eb099b1095f8aff9d53a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "48f78be13aa4eb099b1095f8aff9d53a"
+  },
+  {
+    "id": 27,
+    "title": "High Horse",
+    "album": "Fe3O4: FORWARD",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3276717841,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/36499f4fba1ed647a8e2ca74bbc449b1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "36499f4fba1ed647a8e2ca74bbc449b1"
+  },
+  {
+    "id": 28,
+    "title": "KNOW ABOUT ME",
+    "album": "Fe3O4: FORWARD",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3276717851,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/36499f4fba1ed647a8e2ca74bbc449b1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "36499f4fba1ed647a8e2ca74bbc449b1"
+  },
+  {
+    "id": 29,
+    "title": "Slingshot",
+    "album": "Fe3O4: FORWARD",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 30,
+    "title": "Golden Recipe",
+    "album": "Fe3O4: FORWARD",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3276717871,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/36499f4fba1ed647a8e2ca74bbc449b1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "36499f4fba1ed647a8e2ca74bbc449b1"
+  },
+  {
+    "id": 31,
+    "title": "Papillon",
+    "album": "Fe3O4: FORWARD",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3276717881,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/36499f4fba1ed647a8e2ca74bbc449b1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "36499f4fba1ed647a8e2ca74bbc449b1"
+  },
+  {
+    "id": 32,
+    "title": "Ocean",
+    "album": "Fe3O4: FORWARD",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3276717891,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/36499f4fba1ed647a8e2ca74bbc449b1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "36499f4fba1ed647a8e2ca74bbc449b1"
+  },
+  {
+    "id": 33,
+    "title": "Blue Valentine",
+    "album": "Blue Valentine",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3593847642,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c137e9d90a0c70f0e8c0abbc203a0ee4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c137e9d90a0c70f0e8c0abbc203a0ee4"
+  },
+  {
+    "id": 34,
+    "title": "Spinnin' On It",
+    "album": "Blue Valentine",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 35,
+    "title": "Phoenix",
+    "album": "Blue Valentine",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3593847662,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c137e9d90a0c70f0e8c0abbc203a0ee4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c137e9d90a0c70f0e8c0abbc203a0ee4"
+  },
+  {
+    "id": 36,
+    "title": "Reality Hurts",
+    "album": "Blue Valentine",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3593847672,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c137e9d90a0c70f0e8c0abbc203a0ee4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c137e9d90a0c70f0e8c0abbc203a0ee4"
+  },
+  {
+    "id": 37,
+    "title": "RICO",
+    "album": "Blue Valentine",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3593847682,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c137e9d90a0c70f0e8c0abbc203a0ee4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c137e9d90a0c70f0e8c0abbc203a0ee4"
+  },
+  {
+    "id": 38,
+    "title": "Game Face",
+    "album": "Blue Valentine",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3593847692,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c137e9d90a0c70f0e8c0abbc203a0ee4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c137e9d90a0c70f0e8c0abbc203a0ee4"
+  }
+]

@@ -1,0 +1,960 @@
+[
+  {
+    "id": 1,
+    "title": "Replay",
+    "album": "Replay",
+    "releaseYear": 2008,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 2,
+    "title": "In My Room",
+    "album": "Replay",
+    "releaseYear": 2008,
+    "spotifyId": null,
+    "deezerId": 728384452,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a7bf6c341eff53e9ec1471dc887ae641/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a7bf6c341eff53e9ec1471dc887ae641"
+  },
+  {
+    "id": 3,
+    "title": "Real",
+    "album": "Replay",
+    "releaseYear": 2008,
+    "spotifyId": null,
+    "deezerId": 728384462,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a7bf6c341eff53e9ec1471dc887ae641/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a7bf6c341eff53e9ec1471dc887ae641"
+  },
+  {
+    "id": 4,
+    "title": "Love Should Go On",
+    "album": "Replay",
+    "releaseYear": 2008,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 5,
+    "title": "The Shinee World (Doo-Bop)",
+    "album": "The Shinee World",
+    "releaseYear": 2008,
+    "spotifyId": null,
+    "deezerId": 1700249587,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e8b0424c1b254f01705cd68261046b99/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e8b0424c1b254f01705cd68261046b99"
+  },
+  {
+    "id": 6,
+    "title": "Love Like Oxygen",
+    "album": "The Shinee World",
+    "releaseYear": 2008,
+    "spotifyId": null,
+    "deezerId": 486044262,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/956c848ee2366de068c37b4c17c523a5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "956c848ee2366de068c37b4c17c523a5"
+  },
+  {
+    "id": 7,
+    "title": "Love's Way",
+    "album": "The Shinee World",
+    "releaseYear": 2008,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 8,
+    "title": "Romantic",
+    "album": "The Shinee World",
+    "releaseYear": 2008,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 9,
+    "title": "Y Si Fuera Ella",
+    "album": "The Shinee World",
+    "releaseYear": 2008,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 10,
+    "title": "Best Place",
+    "album": "The Shinee World",
+    "releaseYear": 2008,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 11,
+    "title": "Amigo",
+    "album": "Amigo",
+    "releaseYear": 2008,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 12,
+    "title": "Forever or Never",
+    "album": "Amigo",
+    "releaseYear": 2008,
+    "spotifyId": null,
+    "deezerId": 728462582,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/cbef3a0f54bbcd37faf4232e9c9fd8b7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "cbef3a0f54bbcd37faf4232e9c9fd8b7"
+  },
+  {
+    "id": 13,
+    "title": "Stand by Me",
+    "album": "Boys Over Flowers OST",
+    "releaseYear": 2009,
+    "spotifyId": null,
+    "deezerId": 1041886142,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/4baf7c2070b78d84658abf35061d88f6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "4baf7c2070b78d84658abf35061d88f6"
+  },
+  {
+    "id": 14,
+    "title": "Juliette",
+    "album": "Romeo",
+    "releaseYear": 2009,
+    "spotifyId": null,
+    "deezerId": 13796377,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/4e28a8eacd5790ee6a28b517f0a8d001/500x500-000000-80-0-0.jpg",
+    "coverMd5": "4e28a8eacd5790ee6a28b517f0a8d001"
+  },
+  {
+    "id": 15,
+    "title": "Talk to You",
+    "album": "Romeo",
+    "releaseYear": 2009,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 16,
+    "title": "Hit Me",
+    "album": "Romeo",
+    "releaseYear": 2009,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 17,
+    "title": "Señorita",
+    "album": "Romeo",
+    "releaseYear": 2009,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 18,
+    "title": "Romeo + Juliette",
+    "album": "Romeo",
+    "releaseYear": 2009,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 19,
+    "title": "Ring Ding Dong",
+    "album": "2009, Year of Us",
+    "releaseYear": 2009,
+    "spotifyId": null,
+    "deezerId": 728728392,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/06a43c4423cce5fc630c990af9ced770/500x500-000000-80-0-0.jpg",
+    "coverMd5": "06a43c4423cce5fc630c990af9ced770"
+  },
+  {
+    "id": 20,
+    "title": "Jojo",
+    "album": "2009, Year of Us",
+    "releaseYear": 2009,
+    "spotifyId": null,
+    "deezerId": 728728402,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/06a43c4423cce5fc630c990af9ced770/500x500-000000-80-0-0.jpg",
+    "coverMd5": "06a43c4423cce5fc630c990af9ced770"
+  },
+  {
+    "id": 21,
+    "title": "Y.O.U. (Year of Us)",
+    "album": "2009, Year of Us",
+    "releaseYear": 2009,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 22,
+    "title": "Get Down",
+    "album": "2009, Year of Us",
+    "releaseYear": 2009,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 23,
+    "title": "Lucifer",
+    "album": "Lucifer",
+    "releaseYear": 2010,
+    "spotifyId": null,
+    "deezerId": 728582682,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7267395b4d0c65de015021ba5ade1952/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7267395b4d0c65de015021ba5ade1952"
+  },
+  {
+    "id": 24,
+    "title": "Up & Down",
+    "album": "Lucifer",
+    "releaseYear": 2010,
+    "spotifyId": null,
+    "deezerId": 728582672,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7267395b4d0c65de015021ba5ade1952/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7267395b4d0c65de015021ba5ade1952"
+  },
+  {
+    "id": 25,
+    "title": "Electric Heart",
+    "album": "Lucifer",
+    "releaseYear": 2010,
+    "spotifyId": null,
+    "deezerId": 728582692,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7267395b4d0c65de015021ba5ade1952/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7267395b4d0c65de015021ba5ade1952"
+  },
+  {
+    "id": 26,
+    "title": "A-Yo",
+    "album": "Lucifer",
+    "releaseYear": 2010,
+    "spotifyId": null,
+    "deezerId": 728582702,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7267395b4d0c65de015021ba5ade1952/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7267395b4d0c65de015021ba5ade1952"
+  },
+  {
+    "id": 27,
+    "title": "Obsession",
+    "album": "Lucifer",
+    "releaseYear": 2010,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 28,
+    "title": "Quasimodo",
+    "album": "Lucifer",
+    "releaseYear": 2010,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 29,
+    "title": "Ready or Not",
+    "album": "Lucifer",
+    "releaseYear": 2010,
+    "spotifyId": null,
+    "deezerId": 728582772,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7267395b4d0c65de015021ba5ade1952/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7267395b4d0c65de015021ba5ade1952"
+  },
+  {
+    "id": 30,
+    "title": "Hello",
+    "album": "Hello",
+    "releaseYear": 2010,
+    "spotifyId": null,
+    "deezerId": 728367912,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/1dbc6232b66b9082f85d73e861dded49/500x500-000000-80-0-0.jpg",
+    "coverMd5": "1dbc6232b66b9082f85d73e861dded49"
+  },
+  {
+    "id": 31,
+    "title": "One",
+    "album": "Hello",
+    "releaseYear": 2010,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 32,
+    "title": "Get It",
+    "album": "Hello",
+    "releaseYear": 2010,
+    "spotifyId": null,
+    "deezerId": 728367932,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/1dbc6232b66b9082f85d73e861dded49/500x500-000000-80-0-0.jpg",
+    "coverMd5": "1dbc6232b66b9082f85d73e861dded49"
+  },
+  {
+    "id": 33,
+    "title": "Sherlock (Clue + Note)",
+    "album": "Sherlock",
+    "releaseYear": 2012,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 34,
+    "title": "Clue",
+    "album": "Sherlock",
+    "releaseYear": 2012,
+    "spotifyId": null,
+    "deezerId": 728420582,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/51664e738bba44b3a94d9d89ce69f420/500x500-000000-80-0-0.jpg",
+    "coverMd5": "51664e738bba44b3a94d9d89ce69f420"
+  },
+  {
+    "id": 35,
+    "title": "Note",
+    "album": "Sherlock",
+    "releaseYear": 2012,
+    "spotifyId": null,
+    "deezerId": 728420592,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/51664e738bba44b3a94d9d89ce69f420/500x500-000000-80-0-0.jpg",
+    "coverMd5": "51664e738bba44b3a94d9d89ce69f420"
+  },
+  {
+    "id": 36,
+    "title": "Alarm Clock",
+    "album": "Sherlock",
+    "releaseYear": 2012,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 37,
+    "title": "The Reason",
+    "album": "Sherlock",
+    "releaseYear": 2012,
+    "spotifyId": null,
+    "deezerId": 728420612,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/51664e738bba44b3a94d9d89ce69f420/500x500-000000-80-0-0.jpg",
+    "coverMd5": "51664e738bba44b3a94d9d89ce69f420"
+  },
+  {
+    "id": 38,
+    "title": "Stranger",
+    "album": "Sherlock",
+    "releaseYear": 2012,
+    "spotifyId": null,
+    "deezerId": 486044302,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/956c848ee2366de068c37b4c17c523a5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "956c848ee2366de068c37b4c17c523a5"
+  },
+  {
+    "id": 39,
+    "title": "Honesty",
+    "album": "Sherlock",
+    "releaseYear": 2012,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 40,
+    "title": "Dazzling Girl",
+    "album": "Dazzling Girl",
+    "releaseYear": 2012,
+    "spotifyId": null,
+    "deezerId": 441611082,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/79dc42f3f97f8decf1099322d5d6fd33/500x500-000000-80-0-0.jpg",
+    "coverMd5": "79dc42f3f97f8decf1099322d5d6fd33"
+  },
+  {
+    "id": 41,
+    "title": "1000-nen, Zutto Soba ni Ite...",
+    "album": "1000-nen, Zutto Soba ni Ite...",
+    "releaseYear": 2012,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 42,
+    "title": "Dream Girl",
+    "album": "Dream Girl - The Misconceptions of You",
+    "releaseYear": 2013,
+    "spotifyId": null,
+    "deezerId": 728220622,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2bc598ff2cde9f625b6183693bb6afab/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2bc598ff2cde9f625b6183693bb6afab"
+  },
+  {
+    "id": 43,
+    "title": "Hitchhiking",
+    "album": "Dream Girl - The Misconceptions of You",
+    "releaseYear": 2013,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 44,
+    "title": "Punch Drunk Love",
+    "album": "Dream Girl - The Misconceptions of You",
+    "releaseYear": 2013,
+    "spotifyId": null,
+    "deezerId": 728220642,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2bc598ff2cde9f625b6183693bb6afab/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2bc598ff2cde9f625b6183693bb6afab"
+  },
+  {
+    "id": 45,
+    "title": "Beautiful",
+    "album": "Dream Girl - The Misconceptions of You",
+    "releaseYear": 2013,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 46,
+    "title": "Selene 6.23",
+    "album": "Dream Girl - The Misconceptions of You",
+    "releaseYear": 2013,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 47,
+    "title": "Runaway",
+    "album": "Dream Girl - The Misconceptions of You",
+    "releaseYear": 2013,
+    "spotifyId": null,
+    "deezerId": 728220692,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2bc598ff2cde9f625b6183693bb6afab/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2bc598ff2cde9f625b6183693bb6afab"
+  },
+  {
+    "id": 48,
+    "title": "Why So Serious?",
+    "album": "Why So Serious? - The Misconceptions of Me",
+    "releaseYear": 2013,
+    "spotifyId": null,
+    "deezerId": 728262632,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3fca2ea4138cc7c8b86bd6b3c145fc45/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3fca2ea4138cc7c8b86bd6b3c145fc45"
+  },
+  {
+    "id": 49,
+    "title": "Nightmare",
+    "album": "Why So Serious? - The Misconceptions of Me",
+    "releaseYear": 2013,
+    "spotifyId": null,
+    "deezerId": 728220712,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2bc598ff2cde9f625b6183693bb6afab/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2bc598ff2cde9f625b6183693bb6afab"
+  },
+  {
+    "id": 50,
+    "title": "Excuse Me Miss",
+    "album": "Why So Serious? - The Misconceptions of Me",
+    "releaseYear": 2013,
+    "spotifyId": null,
+    "deezerId": 728262682,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3fca2ea4138cc7c8b86bd6b3c145fc45/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3fca2ea4138cc7c8b86bd6b3c145fc45"
+  },
+  {
+    "id": 51,
+    "title": "Sleepless Night",
+    "album": "Why So Serious? - The Misconceptions of Me",
+    "releaseYear": 2013,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 52,
+    "title": "Fire",
+    "album": "Boys Meet U",
+    "releaseYear": 2013,
+    "spotifyId": null,
+    "deezerId": 65464228,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3bcba54a6fc9eaa7142513f56453af9a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3bcba54a6fc9eaa7142513f56453af9a"
+  },
+  {
+    "id": 53,
+    "title": "Boys Meet U",
+    "album": "Boys Meet U",
+    "releaseYear": 2013,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 54,
+    "title": "3 2 1",
+    "album": "Boys Meet U",
+    "releaseYear": 2013,
+    "spotifyId": null,
+    "deezerId": 72850115,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/09da24b0ea7460a81297d16a044aca47/500x500-000000-80-0-0.jpg",
+    "coverMd5": "09da24b0ea7460a81297d16a044aca47"
+  },
+  {
+    "id": 55,
+    "title": "Everybody",
+    "album": "Everybody",
+    "releaseYear": 2013,
+    "spotifyId": null,
+    "deezerId": 728374462,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d8b28f38b020bb65a93c265a6226dd8c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d8b28f38b020bb65a93c265a6226dd8c"
+  },
+  {
+    "id": 56,
+    "title": "Symptoms",
+    "album": "Everybody",
+    "releaseYear": 2013,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 57,
+    "title": "Queen of New York",
+    "album": "Everybody",
+    "releaseYear": 2013,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 58,
+    "title": "Colorful",
+    "album": "Everybody",
+    "releaseYear": 2013,
+    "spotifyId": null,
+    "deezerId": 728374522,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d8b28f38b020bb65a93c265a6226dd8c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d8b28f38b020bb65a93c265a6226dd8c"
+  },
+  {
+    "id": 59,
+    "title": "Close the Door",
+    "album": "Everybody",
+    "releaseYear": 2013,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 60,
+    "title": "Lucky Star",
+    "album": "I'm Your Boy",
+    "releaseYear": 2014,
+    "spotifyId": null,
+    "deezerId": 486041132,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/52051897552b57c92dcc8129da35efff/500x500-000000-80-0-0.jpg",
+    "coverMd5": "52051897552b57c92dcc8129da35efff"
+  },
+  {
+    "id": 61,
+    "title": "Downtown Baby",
+    "album": "I'm Your Boy",
+    "releaseYear": 2014,
+    "spotifyId": null,
+    "deezerId": 486041122,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/52051897552b57c92dcc8129da35efff/500x500-000000-80-0-0.jpg",
+    "coverMd5": "52051897552b57c92dcc8129da35efff"
+  },
+  {
+    "id": 62,
+    "title": "View",
+    "album": "Odd",
+    "releaseYear": 2015,
+    "spotifyId": null,
+    "deezerId": 728536382,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d9111dc7bfdec92346dabe3d9b30c1c7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d9111dc7bfdec92346dabe3d9b30c1c7"
+  },
+  {
+    "id": 63,
+    "title": "Love Sick",
+    "album": "Odd",
+    "releaseYear": 2015,
+    "spotifyId": null,
+    "deezerId": 728536372,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d9111dc7bfdec92346dabe3d9b30c1c7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d9111dc7bfdec92346dabe3d9b30c1c7"
+  },
+  {
+    "id": 64,
+    "title": "Romance",
+    "album": "Odd",
+    "releaseYear": 2015,
+    "spotifyId": null,
+    "deezerId": 728536392,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d9111dc7bfdec92346dabe3d9b30c1c7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d9111dc7bfdec92346dabe3d9b30c1c7"
+  },
+  {
+    "id": 65,
+    "title": "An Encore",
+    "album": "Odd",
+    "releaseYear": 2015,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 66,
+    "title": "Trigger",
+    "album": "Odd",
+    "releaseYear": 2015,
+    "spotifyId": null,
+    "deezerId": 728683152,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b8dc927151de04f5b316c85accf069e1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b8dc927151de04f5b316c85accf069e1"
+  },
+  {
+    "id": 67,
+    "title": "Married to the Music",
+    "album": "Married to the Music",
+    "releaseYear": 2015,
+    "spotifyId": null,
+    "deezerId": 728683092,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b8dc927151de04f5b316c85accf069e1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b8dc927151de04f5b316c85accf069e1"
+  },
+  {
+    "id": 68,
+    "title": "Savior",
+    "album": "Married to the Music",
+    "releaseYear": 2015,
+    "spotifyId": null,
+    "deezerId": 728683102,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b8dc927151de04f5b316c85accf069e1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b8dc927151de04f5b316c85accf069e1"
+  },
+  {
+    "id": 69,
+    "title": "Chocolate",
+    "album": "Married to the Music",
+    "releaseYear": 2015,
+    "spotifyId": null,
+    "deezerId": 728683212,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b8dc927151de04f5b316c85accf069e1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b8dc927151de04f5b316c85accf069e1"
+  },
+  {
+    "id": 70,
+    "title": "Your Number",
+    "album": "Your Number",
+    "releaseYear": 2015,
+    "spotifyId": null,
+    "deezerId": 116595974,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/91433128937c8c9ff2fd8bf95c316ddb/500x500-000000-80-0-0.jpg",
+    "coverMd5": "91433128937c8c9ff2fd8bf95c316ddb"
+  },
+  {
+    "id": 71,
+    "title": "Sing Your Song",
+    "album": "D x D x D",
+    "releaseYear": 2016,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 72,
+    "title": "1 of 1",
+    "album": "1 of 1",
+    "releaseYear": 2016,
+    "spotifyId": null,
+    "deezerId": 728057742,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/68fc6e6b7ec289aca703372538b83ef3/500x500-000000-80-0-0.jpg",
+    "coverMd5": "68fc6e6b7ec289aca703372538b83ef3"
+  },
+  {
+    "id": 73,
+    "title": "Prism",
+    "album": "1 of 1",
+    "releaseYear": 2016,
+    "spotifyId": null,
+    "deezerId": 728057732,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/68fc6e6b7ec289aca703372538b83ef3/500x500-000000-80-0-0.jpg",
+    "coverMd5": "68fc6e6b7ec289aca703372538b83ef3"
+  },
+  {
+    "id": 74,
+    "title": "Feel Good",
+    "album": "1 of 1",
+    "releaseYear": 2016,
+    "spotifyId": null,
+    "deezerId": 728057752,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/68fc6e6b7ec289aca703372538b83ef3/500x500-000000-80-0-0.jpg",
+    "coverMd5": "68fc6e6b7ec289aca703372538b83ef3"
+  },
+  {
+    "id": 75,
+    "title": "Lipstick",
+    "album": "1 of 1",
+    "releaseYear": 2016,
+    "spotifyId": null,
+    "deezerId": 728057772,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/68fc6e6b7ec289aca703372538b83ef3/500x500-000000-80-0-0.jpg",
+    "coverMd5": "68fc6e6b7ec289aca703372538b83ef3"
+  },
+  {
+    "id": 76,
+    "title": "Shift",
+    "album": "1 of 1",
+    "releaseYear": 2016,
+    "spotifyId": null,
+    "deezerId": 728057792,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/68fc6e6b7ec289aca703372538b83ef3/500x500-000000-80-0-0.jpg",
+    "coverMd5": "68fc6e6b7ec289aca703372538b83ef3"
+  },
+  {
+    "id": 77,
+    "title": "So Amazing",
+    "album": "1 of 1",
+    "releaseYear": 2016,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 78,
+    "title": "Tell Me What to Do",
+    "album": "1 and 1",
+    "releaseYear": 2016,
+    "spotifyId": null,
+    "deezerId": 727985062,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d54eda2fee59b14d34ea4575ab3e29d5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d54eda2fee59b14d34ea4575ab3e29d5"
+  },
+  {
+    "id": 79,
+    "title": "Get the Treasure",
+    "album": "Five",
+    "releaseYear": 2017,
+    "spotifyId": null,
+    "deezerId": 142547984,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/8fa47ea7741d6f718b7e22bb96e73232/500x500-000000-80-0-0.jpg",
+    "coverMd5": "8fa47ea7741d6f718b7e22bb96e73232"
+  },
+  {
+    "id": 80,
+    "title": "Good Evening",
+    "album": "The Story of Light EP.1",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 81,
+    "title": "All Day All Night",
+    "album": "The Story of Light EP.1",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 727836312,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f35d437d24fa5671c848d48ce7ce4f12/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f35d437d24fa5671c848d48ce7ce4f12"
+  },
+  {
+    "id": 82,
+    "title": "Undercover",
+    "album": "The Story of Light EP.1",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 727836332,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f35d437d24fa5671c848d48ce7ce4f12/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f35d437d24fa5671c848d48ce7ce4f12"
+  },
+  {
+    "id": 83,
+    "title": "I Want You",
+    "album": "The Story of Light EP.2",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 727825232,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d776e30a06983ef5c47b63c5515a4f2a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d776e30a06983ef5c47b63c5515a4f2a"
+  },
+  {
+    "id": 84,
+    "title": "Chemistry",
+    "album": "The Story of Light EP.2",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 728231552,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7a826723e15e6aee3df6b171f6d2569f/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7a826723e15e6aee3df6b171f6d2569f"
+  },
+  {
+    "id": 85,
+    "title": "Electric",
+    "album": "The Story of Light EP.2",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 727825252,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d776e30a06983ef5c47b63c5515a4f2a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d776e30a06983ef5c47b63c5515a4f2a"
+  },
+  {
+    "id": 86,
+    "title": "Our Page",
+    "album": "The Story of Light EP.3",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 87,
+    "title": "Tonight",
+    "album": "The Story of Light EP.3",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 727842562,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/16855d9021156a39cabe032a5cb5395f/500x500-000000-80-0-0.jpg",
+    "coverMd5": "16855d9021156a39cabe032a5cb5395f"
+  },
+  {
+    "id": 88,
+    "title": "From Now On",
+    "album": "Shinee The Best From Now On",
+    "releaseYear": 2018,
+    "spotifyId": null,
+    "deezerId": 486046042,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ec58c063fd67488379bdda3b7e84d271/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ec58c063fd67488379bdda3b7e84d271"
+  },
+  {
+    "id": 89,
+    "title": "Don't Call Me",
+    "album": "Don't Call Me",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1249505632,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7b161586bdc2b1955719ee6daa70e838/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7b161586bdc2b1955719ee6daa70e838"
+  },
+  {
+    "id": 90,
+    "title": "Heart Attack",
+    "album": "Don't Call Me",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1249505642,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7b161586bdc2b1955719ee6daa70e838/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7b161586bdc2b1955719ee6daa70e838"
+  },
+  {
+    "id": 91,
+    "title": "Marry You",
+    "album": "Don't Call Me",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1249505652,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7b161586bdc2b1955719ee6daa70e838/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7b161586bdc2b1955719ee6daa70e838"
+  },
+  {
+    "id": 92,
+    "title": "Code",
+    "album": "Don't Call Me",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 93,
+    "title": "Body Rhythm",
+    "album": "Don't Call Me",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1249505692,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7b161586bdc2b1955719ee6daa70e838/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7b161586bdc2b1955719ee6daa70e838"
+  },
+  {
+    "id": 94,
+    "title": "Kiss Kiss",
+    "album": "Don't Call Me",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1249505682,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7b161586bdc2b1955719ee6daa70e838/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7b161586bdc2b1955719ee6daa70e838"
+  },
+  {
+    "id": 95,
+    "title": "Atlantis",
+    "album": "Atlantis",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1329860092,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f1fbc71c0ee81fcf001168b21b107d55/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f1fbc71c0ee81fcf001168b21b107d55"
+  },
+  {
+    "id": 96,
+    "title": "Area",
+    "album": "Atlantis",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 0
+  },
+  {
+    "id": 97,
+    "title": "Days and Years",
+    "album": "Atlantis",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1329860152,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f1fbc71c0ee81fcf001168b21b107d55/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f1fbc71c0ee81fcf001168b21b107d55"
+  },
+  {
+    "id": 98,
+    "title": "Hard",
+    "album": "Hard",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2334260035,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/503ebd49d17a5ceb6113c19679c8646c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "503ebd49d17a5ceb6113c19679c8646c"
+  },
+  {
+    "id": 99,
+    "title": "Juice",
+    "album": "Hard",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2334260045,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/503ebd49d17a5ceb6113c19679c8646c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "503ebd49d17a5ceb6113c19679c8646c"
+  },
+  {
+    "id": 100,
+    "title": "The Feeling",
+    "album": "Hard",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2334260085,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/503ebd49d17a5ceb6113c19679c8646c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "503ebd49d17a5ceb6113c19679c8646c"
+  },
+  {
+    "id": 101,
+    "title": "Satellite",
+    "album": "Hard",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2334260065,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/503ebd49d17a5ceb6113c19679c8646c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "503ebd49d17a5ceb6113c19679c8646c"
+  },
+  {
+    "id": 102,
+    "title": "Identity",
+    "album": "Hard",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2334260075,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/503ebd49d17a5ceb6113c19679c8646c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "503ebd49d17a5ceb6113c19679c8646c"
+  },
+  {
+    "id": 103,
+    "title": "Insomnia",
+    "album": "Hard",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 0
+  }
+]
