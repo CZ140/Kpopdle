@@ -1,5 +1,5 @@
 import crypto from 'crypto'
-import { getSongsForGroup, getMergedPool } from '../data/songIndex.js'
+import { getSongsForGroup, getMergedPool, getCoverAlbumPoolForGroup } from '../data/songIndex.js'
 import { getKSTDateString, getGameNumber } from '../utils/dateUtils.js'
 import { KPOPDLE_LAUNCH, GUESS_GROUP_LAUNCH } from '../data/launch.js'
 import { logger } from './observability.js'
@@ -100,6 +100,30 @@ export function getCoverSongForDate(groupId, dateString) {
 
   return {
     song: songs[index],
+    dateString,
+    gameNumber,
+  }
+}
+
+export function getTodaysCoverAlbum(groupId) {
+  return getCoverAlbumForDate(groupId, getKSTDateString())
+}
+
+// Cover-mode daily, album edition — the actual answer space for Coverdle.
+// Songs sharing an album collapse to one entry, so the puzzle stops degenerating
+// into "which song on this EP did the coin flip pick today" when an EP cover is
+// shared by 5+ tracks. Uses the same -cover HMAC suffix as the song-level helper
+// so the pool *size* changes today but determinism per (group, date) is intact.
+export function getCoverAlbumForDate(groupId, dateString) {
+  const albums = getCoverAlbumPoolForGroup(groupId)
+  if (albums.length === 0) {
+    throw new Error(`No songs with album covers available for group: ${groupId}`)
+  }
+  const index = getDailyCoverIndex(albums.length, dateString, groupId)
+  const gameNumber = getGameNumber(dateString)
+
+  return {
+    album: albums[index],
     dateString,
     gameNumber,
   }

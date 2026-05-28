@@ -3,7 +3,7 @@ import ChallengeButton from './ChallengeButton'
 import Countdown from './Countdown'
 import VSCard from './VSCard'
 
-export default function ResultModal({ gameState, revealedSong, guesses, gameNumber, gameDate, hintsUsed = 0, isArchive = false, isPractice = false, communityStats = null, challenge = null, gameName, onPlayAgain, onClose }) {
+export default function ResultModal({ gameState, revealedSong, revealedAlbum, guesses, gameNumber, gameDate, hintsUsed = 0, isArchive = false, isPractice = false, communityStats = null, challenge = null, gameName, onPlayAgain, onClose }) {
   const won = gameState === 'won'
 
   // Head-to-head: this modal only renders once the game is over, so showing
@@ -66,7 +66,26 @@ export default function ResultModal({ gameState, revealedSong, guesses, gameNumb
           )}
         </div>
 
-        {revealedSong && (
+        {revealedAlbum && (
+          // Coverdle reveal — album as the headline, year + track count as the
+          // small line, and an optional list of tracks on the album (so the
+          // player can see which songs share the cover they were guessing).
+          <div className="glass-card rounded-xl p-5 mb-6 text-center">
+            <p className="text-xl font-black text-white mb-1">{revealedAlbum.album}</p>
+            <p className="text-sm text-white/40 font-medium">
+              {revealedAlbum.releaseYear}
+              {Array.isArray(revealedAlbum.tracks) && revealedAlbum.tracks.length > 0 && (
+                <> · {revealedAlbum.tracks.length} {revealedAlbum.tracks.length === 1 ? 'track' : 'tracks'}</>
+              )}
+            </p>
+            {Array.isArray(revealedAlbum.tracks) && revealedAlbum.tracks.length > 0 && (
+              <p className="text-xs text-white/35 mt-3 leading-relaxed">
+                {revealedAlbum.tracks.join(' · ')}
+              </p>
+            )}
+          </div>
+        )}
+        {!revealedAlbum && revealedSong && (
           <div className="glass-card rounded-xl p-5 mb-6 text-center">
             <p className="text-xl font-black text-white mb-1">{revealedSong.title}</p>
             {revealedSong.groupDisplayName && (

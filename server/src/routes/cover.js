@@ -1,14 +1,17 @@
 import { Router } from 'express'
-import { getTodaysCoverSong, getCoverSongForDate } from '../services/dailySong.js'
-import { getCoverPoolForGroup } from '../data/songIndex.js'
+import { getTodaysCoverAlbum, getCoverAlbumForDate } from '../services/dailySong.js'
+import { getCoverAlbumPoolForGroup } from '../data/songIndex.js'
 import { getKSTDateString } from '../utils/dateUtils.js'
 import validateGroup from '../middleware/validateGroup.js'
 import { getCommunityStats } from '../services/statsDb.js'
 import { captureError } from '../services/observability.js'
 
-// Coverdle mode — mirrors routes/game.js but serves an album coverUrl instead of
-// an audio previewUrl. The answer is withheld until gameOver, identical to the
-// audio daily (FR-4). Only songs with a backfilled coverUrl are selectable (FR-8).
+// Coverdle mode — mirrors routes/game.js but the answer is the ALBUM the cover
+// belongs to (not a song on that album). Most album covers are shared by 5+
+// tracks, so a song-level answer made the puzzle degenerate into "guess which
+// song on this EP today's coin flip picked." Albums are the natural answer
+// space for "guess the cover." Only albums with a backfilled coverUrl (and at
+// least one Deezer-verified track) are selectable.
 const router = Router({ mergeParams: true })
 
 // dailySong throws this exact message when a group has no playable covers yet.
@@ -19,10 +22,24 @@ const NO_COVERS_BODY = { error: 'No album covers available for this group yet' }
 
 router.use(validateGroup)
 
+// Hints for the album-answer Coverdle:
+//   1. releaseYear — when did this album drop
+//   2. trackCount — how many songs are on the album
+//   3. firstLetter — first character of the album name
+// `era` (= album name) was the first hint in song-mode but is now the answer,
+// so we drop it. firstLetter likewise now points at the album, not a song.
+function hintsForAlbum(album) {
+  return {
+    year: album.releaseYear,
+    trackCount: album.songs.length,
+    firstLetter: album.album[0].toUpperCase(),
+  }
+}
+
 router.get('/today', (req, res) => {
   const { group } = req.params
   try {
-    const { song, dateString, gameNumber } = getTodaysCoverSong(group)
+    const { album, dateString, gameNumber } = getTodaysCoverAlbum(group)
 
     // Identical for every player for the day, and coverUrl is a stable CDN URL
     // (no short expiry like audio previews) — safe to cache briefly at the CDN.
@@ -30,13 +47,9 @@ router.get('/today', (req, res) => {
     res.json({
       gameDate: dateString,
       gameNumber,
-      coverUrl: song.coverUrl,
-      totalSongs: getCoverPoolForGroup(group).length,
-      hints: {
-        era: song.album,
-        year: song.releaseYear,
-        firstLetter: song.title[0].toUpperCase(),
-      },
+      coverUrl: album.coverUrl,
+      totalSongs: getCoverAlbumPoolForGroup(group).length,
+      hints: hintsForAlbum(album),
     })
   } catch (err) {
     if (NO_COVERS_RE.test(err.message)) {
@@ -65,18 +78,14 @@ router.get('/archive/:date', (req, res) => {
   }
 
   try {
-    const { song, dateString, gameNumber } = getCoverSongForDate(group, date)
+    const { album, dateString, gameNumber } = getCoverAlbumForDate(group, date)
 
     res.json({
       gameDate: dateString,
       gameNumber,
-      coverUrl: song.coverUrl,
-      totalSongs: getCoverPoolForGroup(group).length,
-      hints: {
-        era: song.album,
-        year: song.releaseYear,
-        firstLetter: song.title[0].toUpperCase(),
-      },
+      coverUrl: album.coverUrl,
+      totalSongs: getCoverAlbumPoolForGroup(group).length,
+      hints: hintsForAlbum(album),
     })
   } catch (err) {
     if (NO_COVERS_RE.test(err.message)) {
@@ -90,17 +99,21 @@ router.get('/archive/:date', (req, res) => {
 router.get('/practice', (req, res) => {
   const { group } = req.params
   try {
-    // Only pick from songs that have a cover — otherwise practice could serve a
-    // round with no image to reveal (daily mode filters the same way).
-    const songs = getCoverPoolForGroup(group)
-    if (songs.length === 0) {
+    const albums = getCoverAlbumPoolForGroup(group)
+    if (albums.length === 0) {
       return res.status(404).json(NO_COVERS_BODY)
     }
-    const song = songs[Math.floor(Math.random() * songs.length)]
+    const idx = Math.floor(Math.random() * albums.length)
+    const album = albums[idx]
     res.json({
-      coverUrl: song.coverUrl,
-      totalSongs: songs.length,
-      practiceSongId: song.id,
+      coverUrl: album.coverUrl,
+      totalSongs: albums.length,
+      // Index into the deduped album pool — the client echoes this back on each
+      // guess so we can validate against the exact album that was served (the
+      // pool is built deterministically from songs.json, so the index is stable
+      // for the lifetime of a deploy).
+      practiceAlbumIndex: idx,
+      hints: hintsForAlbum(album),
     })
   } catch (err) {
     captureError(err, { msg: 'Error fetching practice cover game', group })
@@ -108,32 +121,49 @@ router.get('/practice', (req, res) => {
   }
 })
 
+// Album autocomplete — same response shape as /:group/songs (`{songs: [...]}`)
+// so the existing useSongList hook can consume it without a new branch.
+router.get('/albums-list', (req, res) => {
+  const { group } = req.params
+  try {
+    const albums = getCoverAlbumPoolForGroup(group)
+    res.json({ songs: albums.map(a => a.album) })
+  } catch (err) {
+    captureError(err, { msg: 'Error fetching album list', group })
+    res.status(500).json({ error: 'Failed to load album list' })
+  }
+})
+
+function albumPayload(album) {
+  return {
+    album: album.album,
+    releaseYear: album.releaseYear,
+    coverUrl: album.coverUrl,
+    tracks: album.songs.map(s => s.title),
+  }
+}
+
 router.post('/guess', (req, res) => {
   const { group } = req.params
   try {
-    const { gameDate, guess, practiceSongId } = req.body
+    const { gameDate, guess, practiceAlbumIndex } = req.body
 
-    // Practice mode: validate against the specific song sent with the request
+    // Practice mode: validate against the specific album sent with the request
     if (gameDate === 'practice') {
-      if (!practiceSongId || typeof practiceSongId !== 'number') {
-        return res.status(400).json({ error: 'practiceSongId required for practice mode' })
+      if (typeof practiceAlbumIndex !== 'number') {
+        return res.status(400).json({ error: 'practiceAlbumIndex required for practice mode' })
       }
-      const song = getCoverPoolForGroup(group).find(s => s.id === practiceSongId)
-      if (!song) {
-        return res.status(400).json({ error: 'Invalid practice song' })
+      const albums = getCoverAlbumPoolForGroup(group)
+      const album = albums[practiceAlbumIndex]
+      if (!album) {
+        return res.status(400).json({ error: 'Invalid practice album' })
       }
-      const songPayload = {
-        title: song.title,
-        album: song.album,
-        releaseYear: song.releaseYear,
-        spotifyId: song.spotifyId,
-      }
+      const payload = albumPayload(album)
       if (!guess || guess.trim() === '') {
-        return res.json({ correct: false, gameOver: true, song: songPayload })
+        return res.json({ correct: false, gameOver: true, album: payload })
       }
-      const isCorrect = guess.trim().toLowerCase() === song.title.toLowerCase()
-      // Only reveal the song when the game is over — not on intermediate wrong guesses
-      return res.json({ correct: isCorrect, gameOver: isCorrect, ...(isCorrect && { song: songPayload }) })
+      const isCorrect = guess.trim().toLowerCase() === album.album.toLowerCase()
+      return res.json({ correct: isCorrect, gameOver: isCorrect, ...(isCorrect && { album: payload }) })
     }
 
     if (!gameDate || typeof gameDate !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(gameDate)) {
@@ -151,36 +181,23 @@ router.post('/guess', (req, res) => {
     }
 
     // Works for today and any past archive date
-    const { song } = getCoverSongForDate(group, gameDate)
+    const { album } = getCoverAlbumForDate(group, gameDate)
 
     if (!guess || guess.trim() === '') {
       return res.json({
         correct: false,
         gameOver: true,
-        song: {
-          title: song.title,
-          album: song.album,
-          releaseYear: song.releaseYear,
-          spotifyId: song.spotifyId,
-        },
+        album: albumPayload(album),
       })
     }
 
-    const isCorrect = guess.trim().toLowerCase() === song.title.toLowerCase()
+    const isCorrect = guess.trim().toLowerCase() === album.album.toLowerCase()
 
-    // Only reveal the song when the game is over — not on intermediate wrong guesses
+    // Only reveal the answer when the game is over — not on intermediate wrong guesses
     res.json({
       correct: isCorrect,
       gameOver: isCorrect,
-      ...(isCorrect && {
-        song: {
-          id: song.id,
-          title: song.title,
-          album: song.album,
-          releaseYear: song.releaseYear,
-          spotifyId: song.spotifyId,
-        },
-      }),
+      ...(isCorrect && { album: albumPayload(album) }),
     })
   } catch (err) {
     captureError(err, { msg: 'Error processing cover guess', group })

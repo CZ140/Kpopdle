@@ -4,15 +4,17 @@ import { vi, describe, it, expect, beforeEach } from 'vitest'
 vi.mock('../data/songIndex.js', () => ({
   getSongsForGroup: vi.fn(),
   getMergedPool: vi.fn(),
+  getCoverAlbumPoolForGroup: vi.fn(),
 }))
 
-import { getSongForDate, getKpopdleSongForDate, getGuessGroupSongForDate, getCoverSongForDate } from './dailySong.js'
-import { getSongsForGroup, getMergedPool } from '../data/songIndex.js'
+import { getSongForDate, getKpopdleSongForDate, getGuessGroupSongForDate, getCoverSongForDate, getCoverAlbumForDate } from './dailySong.js'
+import { getSongsForGroup, getMergedPool, getCoverAlbumPoolForGroup } from '../data/songIndex.js'
 
-const makeSong = (id, hasPreview = true, hasCover = true) => ({
+// Each test song lands on its own album by default — flip `album` to share covers.
+const makeSong = (id, hasPreview = true, hasCover = true, album = `Album ${id}`) => ({
   id,
   title: `Song ${id}`,
-  album: 'Album',
+  album,
   releaseYear: 2020,
   deezerId: hasPreview ? id : 0,
   coverUrl: hasCover ? `https://cdn.example/cover/${id}.jpg` : null,
@@ -21,9 +23,30 @@ const makeSong = (id, hasPreview = true, hasCover = true) => ({
 
 const CATALOG = Array.from({ length: 20 }, (_, i) => makeSong(i + 1))
 
+// Mirror getCoverAlbumPoolForGroup's first-appearance dedupe so cover-album
+// tests can drive it off the same catalog the song-level tests use.
+function albumPoolFrom(songs) {
+  const byKey = new Map()
+  for (const s of songs.filter(x => x.deezerId && x.deezerId !== 0 && x.coverUrl)) {
+    const key = s.album.toLowerCase()
+    if (byKey.has(key)) {
+      byKey.get(key).songs.push({ id: s.id, title: s.title })
+      continue
+    }
+    byKey.set(key, {
+      album: s.album,
+      releaseYear: s.releaseYear,
+      coverUrl: s.coverUrl,
+      songs: [{ id: s.id, title: s.title }],
+    })
+  }
+  return [...byKey.values()]
+}
+
 beforeEach(() => {
   getSongsForGroup.mockReturnValue(CATALOG)
   getMergedPool.mockReturnValue(CATALOG)
+  getCoverAlbumPoolForGroup.mockReturnValue(albumPoolFrom(CATALOG))
 })
 
 describe('getSongForDate — determinism', () => {
@@ -186,6 +209,61 @@ describe('getCoverSongForDate — determinism & independence', () => {
   it('cover gameNumber matches the audio daily numbering (same launch math)', () => {
     expect(getCoverSongForDate('twice', '2026-02-20').gameNumber).toBe(1)
     expect(getCoverSongForDate('twice', '2026-02-21').gameNumber).toBe(2)
+  })
+})
+
+describe('getCoverAlbumForDate — album-as-answer dailies', () => {
+  it('returns the same album every time for the same group and date', () => {
+    const a = getCoverAlbumForDate('twice', '2026-05-21')
+    const b = getCoverAlbumForDate('twice', '2026-05-21')
+    expect(a.album.album).toBe(b.album.album)
+    expect(a.gameNumber).toBe(b.gameNumber)
+  })
+
+  it('passes through the date string', () => {
+    const { dateString } = getCoverAlbumForDate('twice', '2026-03-15')
+    expect(dateString).toBe('2026-03-15')
+  })
+
+  it('throws when the album pool is empty', () => {
+    getCoverAlbumPoolForGroup.mockReturnValue([])
+    expect(() => getCoverAlbumForDate('twice', '2026-05-21')).toThrow(/No songs with album covers/)
+  })
+
+  it('dedupes songs that share an album — pool size shrinks accordingly', () => {
+    // Five tracks on one EP + one standalone single → 2 unique albums.
+    const ep = Array.from({ length: 5 }, (_, i) => makeSong(i + 1, true, true, 'Get Up'))
+    const single = makeSong(99, true, true, 'Ditto')
+    const pool = albumPoolFrom([...ep, single])
+    expect(pool.length).toBe(2)
+    expect(pool.find(a => a.album === 'Get Up').songs.length).toBe(5)
+    expect(pool.find(a => a.album === 'Ditto').songs.length).toBe(1)
+
+    // And the daily picker indexes that 2-album space — never landing on a
+    // duplicate EP entry, which was the core bug.
+    getCoverAlbumPoolForGroup.mockReturnValue(pool)
+    const albums = new Set()
+    for (let d = 1; d <= 14; d++) {
+      const date = `2026-05-${String(d).padStart(2, '0')}`
+      albums.add(getCoverAlbumForDate('twice', date).album.album)
+    }
+    expect(albums.size).toBeLessThanOrEqual(2)
+    // All picks must be a real album in the pool
+    for (const a of albums) {
+      expect(['Get Up', 'Ditto']).toContain(a)
+    }
+  })
+
+  it('selects independently across groups (per-group HMAC secret)', () => {
+    const date = '2026-05-21'
+    const groups = ['twice', 'newjeans', 'aespa', 'redvelvet', 'ive', 'blackpink']
+    const chosen = groups.map(g => getCoverAlbumForDate(g, date).album.album)
+    expect(new Set(chosen).size).toBeGreaterThan(1)
+  })
+
+  it('cover gameNumber matches the audio daily numbering', () => {
+    expect(getCoverAlbumForDate('twice', '2026-02-20').gameNumber).toBe(1)
+    expect(getCoverAlbumForDate('twice', '2026-02-21').gameNumber).toBe(2)
   })
 })
 

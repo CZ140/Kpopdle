@@ -24,7 +24,7 @@ export default function CoverGame() {
     guesses,
     gameState,
     currentGuessNumber,
-    revealedSong,
+    revealedAlbum,
     hints,
     hintsUsed,
     revealHint,
@@ -73,12 +73,15 @@ export default function CoverGame() {
           sessionStorage.setItem('loginPromptShown', '1')
           setTimeout(() => setShowLoginPrompt(true), 2000)
         }
-        if (revealedSong) {
+        if (revealedAlbum) {
           recordGameResult({
-            // `${group}-cover` keeps these out of the audio daily's analytics (FR-7)
+            // `${group}-cover` keeps these out of the audio daily's analytics (FR-7).
+            // Answer space is albums now, so songId is no longer meaningful and
+            // songTitle carries the album name (the recorded "what was the
+            // answer" string the stats view shows).
             groupId: `${group}-cover`,
-            songId: revealedSong.id,
-            songTitle: revealedSong.title,
+            songId: null,
+            songTitle: revealedAlbum.album,
             guessCount: guesses.length,
             won: gameState === GAME_STATES.WON,
             wrongGuesses: guesses.filter(g => g.type === 'wrong').map(g => g.song),
@@ -94,7 +97,7 @@ export default function CoverGame() {
         }
       }, 800)
     }
-  }, [gameState, guesses, recordResult, isArchive, revealedSong, group, hintsUsed, difficulty])
+  }, [gameState, guesses, recordResult, isArchive, revealedAlbum, group, hintsUsed, difficulty])
 
   if (loading) {
     return (
@@ -156,14 +159,17 @@ export default function CoverGame() {
             <div className="cd-hint w-full">
               {hintsUsed > 0 && (
                 <div className="flex flex-col gap-1 mb-3">
+                  {/* Hints rework for the album-as-answer Coverdle: `era` is now
+                      the answer so it can't be a hint. The 3-hint shape is
+                      year → track count → first letter of the album. */}
                   {hintsUsed >= 1 && (
                     <p className="text-xs text-center text-white/50">
-                      💡 Era — <span className="text-white/70 font-medium">{hints.era}</span>
+                      💡 Year — <span className="text-white/70 font-medium">{hints.year}</span>
                     </p>
                   )}
                   {hintsUsed >= 2 && (
                     <p className="text-xs text-center text-white/50">
-                      💡 Year — <span className="text-white/70 font-medium">{hints.year}</span>
+                      💡 Tracks — <span className="text-white/70 font-medium">{hints.trackCount}</span>
                     </p>
                   )}
                   {hintsUsed >= 3 && (
@@ -245,7 +251,7 @@ export default function CoverGame() {
       {showResult && (
         <ResultModal
           gameState={gameState}
-          revealedSong={revealedSong}
+          revealedAlbum={revealedAlbum}
           guesses={guesses}
           gameNumber={gameNumber}
           hintsUsed={hintsUsed}

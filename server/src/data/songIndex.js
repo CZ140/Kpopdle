@@ -46,6 +46,43 @@ export function getCoverPoolForGroup(groupId) {
   return loadGroup(groupId).songs.filter((s) => s.deezerId && s.deezerId !== 0 && s.coverUrl)
 }
 
+// Per-group cache of album pools: groupId → albums[]
+const coverAlbumPoolCache = new Map()
+
+// Coverdle answer space — one entry per unique album (case-insensitive match on
+// `album`). Built from the song-level cover pool: walk songs in source order
+// and keep the first occurrence of each album. First-appearance order is stable
+// against the kind of edits we actually make (appending new songs) — adding a
+// new song to an existing album doesn't shuffle prior album indices.
+//
+// Each album entry carries the cover image and release metadata, plus the list
+// of songs that map to it (handy for diagnostics / future hints) and the
+// underlying songIds (so /guess can record which song appeared on that cover).
+export function getCoverAlbumPoolForGroup(groupId) {
+  if (coverAlbumPoolCache.has(groupId)) return coverAlbumPoolCache.get(groupId)
+
+  const songs = getCoverPoolForGroup(groupId)
+  const byKey = new Map()
+  for (const song of songs) {
+    const key = song.album.toLowerCase()
+    if (byKey.has(key)) {
+      const existing = byKey.get(key)
+      existing.songs.push({ id: song.id, title: song.title })
+      continue
+    }
+    byKey.set(key, {
+      album: song.album,
+      releaseYear: song.releaseYear,
+      coverUrl: song.coverUrl,
+      coverMd5: song.coverMd5,
+      songs: [{ id: song.id, title: song.title }],
+    })
+  }
+  const albums = [...byKey.values()]
+  coverAlbumPoolCache.set(groupId, albums)
+  return albums
+}
+
 // Merged pool for the K-POPDLE cross-group game.
 // Sorted by groupId then song.id for deterministic HMAC indexing.
 //
