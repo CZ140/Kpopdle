@@ -10,12 +10,22 @@ export default function ResultScreen({ state, matchOver, myId, onRematch }) {
   const opp = matchOver.scores.find((s) => s.playerId !== myId)
   const iWon = matchOver.winnerId === myId
   const winner = matchOver.scores.find((s) => s.playerId === matchOver.winnerId)
+
+  // Compact, semantic headline. The big gradient wordmark below is the visual
+  // anchor; this eyebrow communicates what happened in JetBrains-Mono voice.
+  const eyebrow = matchOver.forfeit
+    ? 'Match abandoned'
+    : matchOver.draw
+      ? 'Draw'
+      : iWon
+        ? 'Victory'
+        : 'Defeat'
   const headline = matchOver.forfeit
-    ? 'Opponent left — you win 🏆'
+    ? 'You win 🏆'
     : matchOver.draw
       ? "It's a draw"
       : iWon
-        ? 'You win! 🏆'
+        ? 'You win 🏆'
         : `${winner?.displayName ?? 'Opponent'} wins`
 
   const iRequested = state?.players.find((p) => p.id === myId)?.wantsRematch
@@ -33,64 +43,83 @@ export default function ResultScreen({ state, matchOver, myId, onRematch }) {
   }
 
   return (
-    <div className="text-center">
-      <h1 className="text-3xl font-black tracking-tight mb-6">{headline}</h1>
+    <div>
+      <div className="text-center mb-8">
+        <div className="btl-eyebrow mb-5 mx-auto"><span className="pip-l" />{eyebrow}<span className="pip-r" /></div>
+        <h1 className="btl-winner-headline">{headline}</h1>
+        {matchOver.forfeit && (
+          <p className="text-xs font-mono uppercase tracking-[0.14em] text-white/40 mt-3">
+            Opponent left the match
+          </p>
+        )}
+      </div>
 
-      {/* Final score */}
-      <div className="flex items-center justify-center gap-6 mb-8">
-        <ScoreBlock label={`${me?.displayName ?? 'You'} (you)`} score={me?.score ?? 0} highlight={iWon} />
-        <span className="text-white/20 font-black">vs</span>
-        <ScoreBlock label={opp?.displayName ?? 'Opponent'} score={opp?.score ?? 0} highlight={!iWon && !matchOver.draw} />
+      {/* Final score — dual you-pink / foe-cyan */}
+      <div className="btl-arena rounded-2xl p-6 mb-6">
+        <div className="btl-score-row">
+          <div className="text-left min-w-0">
+            <div className={`btl-score-num you tabular-nums ${iWon || matchOver.draw ? '' : 'opacity-60'}`}>{me?.score ?? 0}</div>
+            <div className="btl-score-lbl truncate">{me?.displayName ?? 'You'} · YOU</div>
+          </div>
+          <div className="btl-vs-pill">VS</div>
+          <div className="text-right min-w-0">
+            <div className={`btl-score-num foe tabular-nums ${!iWon && !matchOver.draw ? '' : 'opacity-60'}`}>{opp?.score ?? 0}</div>
+            <div className="btl-score-lbl truncate">{opp?.displayName ?? 'Opponent'}</div>
+          </div>
+        </div>
       </div>
 
       {/* Per-round breakdown */}
-      <div className="flex flex-col gap-1.5 mb-8 text-left">
-        {matchOver.rounds.map((r) => {
-          const mine = r.results.find((x) => x.playerId === myId)
-          const theirs = r.results.find((x) => x.playerId !== myId)
-          return (
-            <div key={r.roundIndex} className="flex items-center justify-between px-3 py-2 rounded-lg bg-white/[0.03] text-sm">
-              <span className="text-white/50 truncate mr-2">
-                <span className="text-white/30">{r.roundIndex + 1}.</span> {r.answer.title}
-              </span>
-              <span className="tabular-nums whitespace-nowrap">
-                <span className={mine?.points >= (theirs?.points ?? 0) ? 'font-bold text-[#EC4899]' : 'text-white/40'}>{mine?.points ?? 0}</span>
-                <span className="text-white/20"> · </span>
-                <span className={(theirs?.points ?? 0) > (mine?.points ?? 0) ? 'font-bold text-[#EC4899]' : 'text-white/40'}>{theirs?.points ?? 0}</span>
-              </span>
-            </div>
-          )
-        })}
-      </div>
+      {matchOver.rounds?.length > 0 && (
+        <div className="mb-6">
+          <p className="text-[10px] font-mono uppercase tracking-[0.14em] text-white/40 mb-2 px-1">Rounds</p>
+          <div className="flex flex-col gap-1.5">
+            {matchOver.rounds.map((r) => {
+              const mine = r.results.find((x) => x.playerId === myId)
+              const theirs = r.results.find((x) => x.playerId !== myId)
+              const myPts = mine?.points ?? 0
+              const theirPts = theirs?.points ?? 0
+              const youWonRound = myPts > theirPts
+              const theyWonRound = theirPts > myPts
+              return (
+                <div key={r.roundIndex} className="flex items-center justify-between px-3 py-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+                  <span className="text-sm text-white/70 truncate mr-2">
+                    <span className="text-[10px] font-mono text-white/30 mr-2">{String(r.roundIndex + 1).padStart(2, '0')}</span>
+                    {r.answer.title}
+                  </span>
+                  <span className="tabular-nums whitespace-nowrap text-sm font-bold">
+                    <span className={youWonRound ? 'text-[#FF2D78]' : 'text-white/40'}>{myPts}</span>
+                    <span className="text-white/20 mx-1.5">·</span>
+                    <span className={theyWonRound ? 'text-[#06B6D4]' : 'text-white/40'}>{theirPts}</span>
+                  </span>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      )}
 
       {/* Actions */}
       {oppRequested && !iRequested && (
-        <p className="text-xs text-[#EC4899] font-bold mb-2">Your opponent wants a rematch!</p>
+        <p className="text-center text-[11px] font-mono uppercase tracking-[0.14em] text-[#FF2D78] mb-2 animate-pulse">
+          ⚔ Opponent wants a rematch
+        </p>
       )}
       <button
         onClick={onRematch}
         disabled={iRequested}
-        className="w-full px-5 py-3.5 rounded-xl font-black bg-[#EC4899] text-white hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
+        className="btl-btn-primary w-full px-5 py-4 rounded-xl font-black tracking-wide"
       >
-        {iRequested ? 'Waiting for opponent…' : 'Rematch'}
+        {iRequested ? 'WAITING FOR OPPONENT…' : 'REMATCH →'}
       </button>
       <div className="flex gap-2 mt-2">
-        <button onClick={share} className="flex-1 px-4 py-3 rounded-xl font-bold text-sm bg-white/[0.06] border border-white/[0.1] text-white/70 hover:text-white transition-colors">
+        <button onClick={share} className="btl-btn-ghost flex-1 px-4 py-3 rounded-xl font-bold text-sm">
           {copied ? 'Copied!' : 'Share result'}
         </button>
-        <Link to="/battle" className="flex-1 px-4 py-3 rounded-xl font-bold text-sm bg-white/[0.06] border border-white/[0.1] text-white/70 hover:text-white transition-colors text-center">
+        <Link to="/battle" className="btl-btn-ghost flex-1 px-4 py-3 rounded-xl font-bold text-sm text-center">
           New match
         </Link>
       </div>
-    </div>
-  )
-}
-
-function ScoreBlock({ label, score, highlight }) {
-  return (
-    <div className="text-center">
-      <p className={`text-5xl font-black tabular-nums ${highlight ? 'text-[#EC4899]' : 'text-white/70'}`}>{score}</p>
-      <p className="text-xs text-white/40 mt-1 max-w-[8rem] truncate">{label}</p>
     </div>
   )
 }

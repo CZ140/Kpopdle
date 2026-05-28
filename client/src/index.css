@@ -630,3 +630,372 @@ input[type="range"]::-moz-range-thumb {
   .acct-game-stats { grid-template-columns: repeat(2, 1fr); }
   .acct-avatar-xl { width: 72px; height: 72px; font-size: 26px; }
 }
+
+/* ============================================================
+   BATTLE
+   Ported from the Claude Design Battle.html mockup. Reuses the
+   homepage backdrop (.kp-backdrop / .kp-grid-noise / .kp-orb)
+   and the same Poppins + JetBrains Mono / glassmorphic family;
+   .btl-* classes carry the you-pink / foe-cyan dual identity,
+   the arena specular border, VS treatment, and pips.
+   The MVP is mobile-first single-column (max-w-md shell) — these
+   styles layer the visual identity on top of the existing flow.
+   ============================================================ */
+
+:root {
+  --btl-you: #FF2D78;
+  --btl-you-2: #A855F7;
+  --btl-foe: #06B6D4;
+  --btl-foe-2: #6366F1;
+}
+
+/* Decorative vertical scanline = battle line */
+.btl-line {
+  position: fixed;
+  top: 0; bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.05) 20%, rgba(255,255,255,0.09) 50%, rgba(255,255,255,0.05) 80%, transparent 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Mono eyebrow chip — the "▸ 1v1 · Best of 5 ◂" pill */
+.btl-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.62);
+}
+.btl-eyebrow .pip-l, .btl-eyebrow .pip-r {
+  width: 6px; height: 6px; border-radius: 50%;
+}
+.btl-eyebrow .pip-l { background: var(--btl-you); box-shadow: 0 0 8px var(--btl-you); }
+.btl-eyebrow .pip-r { background: var(--btl-foe); box-shadow: 0 0 8px var(--btl-foe); }
+
+/* Top strip back link */
+.btl-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.62);
+  transition: color .2s, border-color .2s, transform .2s;
+}
+.btl-back:hover { color: #fff; border-color: rgba(255,255,255,0.28); transform: translateY(-1px); }
+
+.btl-live-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.62);
+}
+.btl-live-tag .dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--btl-you);
+  box-shadow: 0 0 8px var(--btl-you);
+  margin-right: 8px;
+  vertical-align: middle;
+  animation: btl-pulse 1.6s ease-in-out infinite;
+}
+@keyframes btl-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* BAT VS TLE title for the create screen */
+.btl-title {
+  font-weight: 900;
+  font-size: clamp(48px, 14vw, 84px);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  margin: 0 0 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(10px, 3vw, 20px);
+  filter: drop-shadow(0 0 30px rgba(168,85,247,0.30));
+}
+.btl-title .side-l {
+  background: linear-gradient(135deg, #FF2D78 0%, #EC4899 50%, #A855F7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.btl-title .side-r {
+  background: linear-gradient(135deg, #06B6D4 0%, #6366F1 50%, #A855F7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.btl-title .vs {
+  font-size: clamp(20px, 5vw, 30px);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: rgba(255,255,255,0.85);
+  padding: 6px 12px;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 14px;
+  background:
+    radial-gradient(120% 120% at 50% 50%, rgba(255,45,120,0.18) 0%, transparent 60%),
+    radial-gradient(120% 120% at 50% 50%, rgba(6,182,212,0.18) 100%, transparent 60%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  text-shadow: 0 2px 16px rgba(0,0,0,0.4);
+  transform: translateY(-4px) rotate(-2deg);
+  filter: drop-shadow(0 0 16px rgba(255,255,255,0.15));
+}
+
+/* Glass arena container with specular hairline + dual color wash */
+.btl-arena {
+  position: relative;
+  border-radius: 24px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  overflow: hidden;
+  isolation: isolate;
+}
+.btl-arena::before {
+  content: "";
+  position: absolute; inset: 0; z-index: -1;
+  background:
+    radial-gradient(60% 80% at 0% 50%, rgba(255,45,120,0.16) 0%, transparent 60%),
+    radial-gradient(60% 80% at 100% 50%, rgba(6,182,212,0.16) 0%, transparent 60%);
+}
+.btl-arena::after {
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0.18) 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.btl-arena-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+.btl-arena-head .live-dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--btl-you);
+  box-shadow: 0 0 8px var(--btl-you);
+  margin-right: 8px;
+  vertical-align: middle;
+  animation: btl-pulse 1.4s ease-in-out infinite;
+}
+.btl-arena-head .timer { color: #fff; font-weight: 600; font-size: 12px; }
+
+/* You/Foe identity rows — used in lobby + scoreboard + result */
+.btl-side {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  position: relative;
+}
+.btl-side .av {
+  width: 40px; height: 40px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+.btl-side.you .av {
+  background: linear-gradient(135deg, var(--btl-you), var(--btl-you-2));
+  box-shadow: 0 6px 18px rgba(255,45,120,0.4), 0 0 0 1px rgba(255,255,255,0.08) inset;
+}
+.btl-side.foe .av {
+  background: linear-gradient(135deg, var(--btl-foe), var(--btl-foe-2));
+  box-shadow: 0 6px 18px rgba(6,182,212,0.4), 0 0 0 1px rgba(255,255,255,0.08) inset;
+}
+.btl-side .who {
+  flex: 1;
+  min-width: 0;
+}
+.btl-side .who .label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.38);
+  margin-bottom: 2px;
+}
+.btl-side.you .who .label { color: rgba(255,45,120,0.85); }
+.btl-side.foe .who .label { color: rgba(6,182,212,0.95); }
+.btl-side .who .name {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Round pips — 5 dashes across, fills win=you-color, loss=foe-color */
+.btl-pips {
+  display: flex; gap: 5px;
+}
+.btl-pips .pip {
+  width: 22px; height: 5px; border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  position: relative;
+  overflow: hidden;
+}
+.btl-pips .pip.you { background: linear-gradient(90deg, var(--btl-you), var(--btl-you-2)); box-shadow: 0 0 10px rgba(255,45,120,0.5); }
+.btl-pips .pip.foe { background: linear-gradient(90deg, var(--btl-foe), var(--btl-foe-2)); box-shadow: 0 0 10px rgba(6,182,212,0.5); }
+.btl-pips .pip.tie { background: linear-gradient(90deg, rgba(255,255,255,0.4), rgba(255,255,255,0.18)); }
+.btl-pips .pip.active::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: rgba(255,255,255,0.55);
+  animation: btl-blink 1s ease-in-out infinite;
+}
+@keyframes btl-blink { 0%,100% { opacity: 0.2; } 50% { opacity: 0.9; } }
+
+/* Dual scoreboard — you-pink / foe-cyan score numbers */
+.btl-score-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 12px;
+}
+.btl-score-num {
+  font-family: 'Poppins', sans-serif;
+  font-size: 44px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.btl-score-num.you { background: linear-gradient(180deg, #fff 0%, rgba(255,45,120,0.95) 100%); -webkit-background-clip: text; background-clip: text; }
+.btl-score-num.foe { background: linear-gradient(180deg, #fff 0%, rgba(6,182,212,0.95) 100%); -webkit-background-clip: text; background-clip: text; }
+.btl-score-lbl {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.38);
+  margin-top: 2px;
+}
+
+/* Mid-scoreboard VS divider pill */
+.btl-vs-pill {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(20,20,30,0.95) 0%, rgba(13,13,20,0.95) 100%);
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow:
+    0 0 0 3px rgba(13,13,20,0.6),
+    0 0 16px rgba(255,255,255,0.06),
+    0 0 32px rgba(255,45,120,0.18),
+    0 0 32px rgba(6,182,212,0.18);
+}
+
+/* Gradient primary button — pink → purple → cyan */
+.btl-btn-primary {
+  background: linear-gradient(135deg, #FF2D78 0%, #A855F7 50%, #06B6D4 100%);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(168,85,247,0.30);
+  transition: transform .2s, box-shadow .2s, filter .2s;
+}
+.btl-btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 32px rgba(168,85,247,0.45);
+}
+.btl-btn-primary:disabled { filter: saturate(0.4); opacity: 0.5; cursor: not-allowed; }
+
+/* Ghost / secondary glass button */
+.btl-btn-ghost {
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.14);
+  transition: color .2s, border-color .2s, background .2s, transform .2s;
+}
+.btl-btn-ghost:hover { color: #fff; border-color: rgba(255,255,255,0.28); transform: translateY(-1px); }
+
+/* Big countdown number — gradient text */
+.btl-countdown-num {
+  font-size: 72px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  background: linear-gradient(135deg, #FF2D78 0%, #A855F7 50%, #06B6D4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 24px rgba(168,85,247,0.35));
+}
+
+/* Progress bar fill */
+.btl-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #FF2D78 0%, #A855F7 50%, #06B6D4 100%);
+  border-radius: 999px;
+  box-shadow: 0 0 12px rgba(255,45,120,0.4);
+  transition: width 0.2s linear;
+}
+
+/* Result winner headline */
+.btl-winner-headline {
+  font-size: clamp(28px, 6vw, 36px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #FF2D78 0%, #A855F7 50%, #06B6D4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 24px rgba(168,85,247,0.30));
+}

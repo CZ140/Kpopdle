@@ -25,6 +25,7 @@ export default function BattlePage() {
   const matchId = splat.split('/')[0] || null
   const navigate = useNavigate()
 
+
   useDocumentMeta({
     title: 'K-POPDLE Battle — Live 1v1 Song Guessing',
     description: 'Challenge a friend to a real-time K-pop song-guessing battle. Same clips, race to guess, best score wins.',
@@ -133,15 +134,27 @@ export default function BattlePage() {
 
   // --- Render ---------------------------------------------------------------
   // --color-* feed GuessInput's themed active-option styling on the battle page.
+  // Backdrop reuses the shared .kp-* orbs from the homepage, retuned with
+  // pink/purple/cyan/indigo — the battle palette from Battle.html.
   const shell = (children) => (
     <div
-      className="min-h-screen bg-[#0a0a0f] text-white flex flex-col items-center px-4 py-10"
-      style={{ '--color-primary': '#EC4899', '--color-secondary': '#A855F7' }}
+      className="relative min-h-screen text-white flex flex-col items-center px-4 py-8"
+      style={{ '--color-primary': '#FF2D78', '--color-secondary': '#A855F7' }}
     >
-      <Link to="/" className="text-xs text-white/30 hover:text-white/60 transition-colors mb-8 self-start">
-        ← K-POPDLE
-      </Link>
-      <div className="w-full max-w-md">{children}</div>
+      <div className="kp-backdrop">
+        <div className="kp-grid-noise" />
+        <div className="kp-orb" style={{ width: 560, height: 560, background: 'radial-gradient(circle, #FF2D78 0%, transparent 65%)', top: -120, left: -140, opacity: 0.55, animationDelay: '0s' }} />
+        <div className="kp-orb" style={{ width: 600, height: 600, background: 'radial-gradient(circle, #06B6D4 0%, transparent 65%)', top: -80, right: -160, opacity: 0.55, animationDelay: '-7s' }} />
+        <div className="kp-orb" style={{ width: 460, height: 460, background: 'radial-gradient(circle, #A855F7 0%, transparent 65%)', bottom: -120, left: '10%', opacity: 0.4, animationDelay: '-14s' }} />
+        <div className="kp-orb" style={{ width: 460, height: 460, background: 'radial-gradient(circle, #6366F1 0%, transparent 65%)', bottom: -100, right: '12%', opacity: 0.4, animationDelay: '-11s' }} />
+      </div>
+      <div className="btl-line" />
+
+      <div className="relative z-10 w-full max-w-md flex items-center justify-between mb-10">
+        <Link to="/" className="btl-back">← K-POPDLE</Link>
+        <span className="btl-live-tag"><span className="dot" />BATTLE</span>
+      </div>
+      <div className="relative z-10 w-full max-w-md">{children}</div>
     </div>
   )
 
@@ -154,10 +167,10 @@ export default function BattlePage() {
         <h1 className="text-2xl font-black tracking-tight mb-2">
           {isNotFound ? 'Match not found' : 'Battle ended'}
         </h1>
-        <p className="text-sm text-white/40 mb-6">
+        <p className="text-sm text-white/50 mb-8">
           {error.message || 'This battle has expired or never existed.'}
         </p>
-        <Link to="/battle" className="inline-block px-5 py-3 rounded-xl font-bold bg-[#EC4899] text-white hover:opacity-90 transition-opacity">
+        <Link to="/battle" className="btl-btn-primary inline-block px-6 py-3.5 rounded-xl font-bold">
           Start a new battle
         </Link>
       </div>,
@@ -167,13 +180,14 @@ export default function BattlePage() {
   // Need a display name before joining a shared link.
   if (matchId && !name) {
     return shell(
-      <div>
-        <h1 className="text-2xl font-black tracking-tight mb-1">Join the battle</h1>
-        <p className="text-sm text-white/40 mb-6">Pick a name your opponent will see.</p>
+      <div className="text-center">
+        <div className="btl-eyebrow mb-6 mx-auto"><span className="pip-l" />Incoming challenge<span className="pip-r" /></div>
+        <h1 className="text-3xl font-black tracking-tight mb-2">Join the battle</h1>
+        <p className="text-sm text-white/50 mb-8">Pick a name your opponent will see.</p>
         <NameInput value={nameDraft} onChange={setNameDraft} onSubmit={handleConfirmName} />
         <button
           onClick={handleConfirmName}
-          className="w-full mt-3 px-5 py-3 rounded-xl font-bold bg-[#EC4899] text-white hover:opacity-90 transition-opacity"
+          className="btl-btn-primary w-full mt-4 px-5 py-3.5 rounded-xl font-black"
         >
           Join
         </button>
@@ -185,28 +199,37 @@ export default function BattlePage() {
   if (!matchId) {
     return shell(
       <div>
-        <h1 className="text-3xl font-black tracking-tight mb-1">Battle</h1>
-        <p className="text-sm text-white/40 mb-8">Challenge a friend to a live 1v1. Race to guess the song.</p>
+        <div className="text-center mb-10">
+          <div className="btl-eyebrow mb-6 mx-auto"><span className="pip-l" />1v1 · Best of 5<span className="pip-r" /></div>
+          <h1 className="btl-title">
+            <span className="side-l">BAT</span>
+            <span className="vs">VS</span>
+            <span className="side-r">TLE</span>
+          </h1>
+          <p className="text-sm text-white/55 max-w-xs mx-auto leading-relaxed">
+            Challenge a friend to a live 1v1. Same clip, fastest correct guess wins the round.
+          </p>
+        </div>
 
-        <label className="block text-xs font-bold uppercase tracking-wider text-white/40 mb-2">Your name</label>
+        <label className="block text-[10px] font-mono uppercase tracking-[0.14em] text-white/40 mb-2">Your name</label>
         <NameInput value={nameDraft} onChange={setNameDraft} onSubmit={handleCreate} />
 
-        <label className="block text-xs font-bold uppercase tracking-wider text-white/40 mt-6 mb-2">Songs from</label>
+        <label className="block text-[10px] font-mono uppercase tracking-[0.14em] text-white/40 mt-6 mb-2">Songs from</label>
         <select
           value={scope}
           onChange={(e) => setScope(e.target.value)}
-          className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white focus:outline-none focus:border-[#EC4899]/50"
+          className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.1] text-white focus:outline-none focus:border-[#FF2D78]/50 transition-colors"
         >
           {SCOPES.map((s) => (
-            <option key={s.id} value={s.id} className="bg-[#0a0a0f]">{s.label}</option>
+            <option key={s.id} value={s.id} className="bg-[#0d0d14]">{s.label}</option>
           ))}
         </select>
 
         <button
           onClick={handleCreate}
-          className="w-full mt-8 px-5 py-3.5 rounded-xl font-black bg-[#EC4899] text-white hover:opacity-90 transition-opacity"
+          className="btl-btn-primary w-full mt-8 px-5 py-4 rounded-xl font-black tracking-wide"
         >
-          Create match
+          CREATE MATCH →
         </button>
       </div>,
     )
@@ -238,7 +261,7 @@ function NameInput({ value, onChange, onSubmit }) {
       placeholder="e.g. ONCE_4ever"
       onChange={(e) => onChange(e.target.value)}
       onKeyDown={(e) => e.key === 'Enter' && onSubmit()}
-      className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white placeholder-white/20 focus:outline-none focus:border-[#EC4899]/50"
+      className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.1] text-white placeholder-white/25 focus:outline-none focus:border-[#FF2D78]/50 transition-colors"
     />
   )
 }

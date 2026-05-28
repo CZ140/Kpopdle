@@ -113,7 +113,20 @@ Separate the **match state machine from the transport**. `Match` takes an inject
 ---
 
 ## ✅ Phase A complete (2026-05-27)
-All six milestones built, tested, and (M0–M4) browser-verified. Battle is feature-complete for MVP: create → invite → lobby → 5 synced server-authoritative rounds → winner/draw (with sudden-death) → rematch + share, with reconnect/forfeit robustness and abuse guards. Commits: 72a4486 (M0–M2), f0656bd (M3), fc32197 (M4), + M5. **Remaining before ship:** README update (deferred until merge), the design restyle (Claude designs, in progress), and merge to `main`. Deferred by design: Phase B (matchmaking queue), Phase C (accounts/leaderboards/ELO, spectate, party mode).
+All six milestones built, tested, and (M0–M4) browser-verified. Battle is feature-complete for MVP: create → invite → lobby → 5 synced server-authoritative rounds → winner/draw (with sudden-death) → rematch + share, with reconnect/forfeit robustness and abuse guards. Commits: 72a4486 (M0–M2), f0656bd (M3), fc32197 (M4), + M5. **Remaining before ship:** README update (deferred until merge) and merge to `main`. Deferred by design: Phase B (matchmaking queue), Phase C (accounts/leaderboards/ELO, spectate, party mode).
+
+---
+
+## ✅ Design restyle — Battle.html port (2026-05-27)
+Ported the Claude Design `game-plans/coverdle-design/k-popdle/project/Battle.html` mockup onto the Phase-A components. Same convention as the homepage and account-page ports — namespaced CSS block in `client/src/index.css` (`.btl-*`), data-driven JSX, shared `.kp-backdrop` orbs. Logic and component structure unchanged (mobile-first single-column `max-w-md` shell preserved).
+
+**Visual language brought in:** you-pink `#FF2D78→#A855F7` / foe-cyan `#06B6D4→#6366F1` dual identity, `.btl-arena` specular hairline glass with dual radial wash, BAT vs TLE gradient wordmark on the create screen, JetBrains-Mono eyebrow chips, round pips, VS pill divider between dual you/foe score numbers, gradient primary button (pink → purple → cyan), gradient countdown digit and progress bar, victory/defeat gradient headlines.
+
+**Files touched:** `client/src/index.css` (+369 lines `.btl-*` block), `pages/BattlePage.jsx` (shell + create/join/error screens), `components/battle/{Lobby,RoundView,ResultScreen}.jsx`, new `lib/initials.js` (word-boundary initials so "Player One"/"Player Two" → PO/PT, not both PL).
+
+**Not built** — the mockup also shows Phase B/C features (matchmaking queue, ranked, ELO, open-rooms list, leaderboards). Those stay deferred per spec §11; the restyle only touches the MVP screens.
+
+**Verified:** lint 0 errors, 35 client tests green, build clean (BattlePage chunk 18.93 kB gzip, CSS 11.49 kB gzip — +1.3 kB total). Visual capture across create / join / lobby (both perspectives) / countdown / active round / reveal / win / loss confirmed against the mockup.
 
 ---
 
