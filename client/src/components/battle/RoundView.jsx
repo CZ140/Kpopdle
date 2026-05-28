@@ -4,10 +4,11 @@ import { nameInitials } from '../../lib/initials'
 import { toLocalTime } from '../../lib/serverTime'
 import { getSavedVolume, saveVolume } from '../../lib/volume'
 import GuessInput from '../GuessInput'
-import VolumeSlider from '../VolumeSlider'
 
-// One Battle round: a synchronized countdown, the clip (served opaquely from the
-// proxy), the reused autocomplete, a live opponent indicator, and the reveal.
+// One Battle round: synchronized countdown → auto-play clip with waveform +
+// status pills + guess input → reveal. The persistent top scoreboard (rendered
+// by BattlePage) carries the live score; this component renders everything
+// below it.
 export default function RoundView({ state, round, reveal, myId, liveResults, onGuess }) {
   const [now, setNow] = useState(() => Date.now())
   const [needsTap, setNeedsTap] = useState(false)
@@ -20,7 +21,6 @@ export default function RoundView({ state, round, reveal, myId, liveResults, onG
   const inCountdown = countdownMs > 0
   const elapsedMs = Math.max(0, now - startLocal)
   const windowMs = round?.windowMs ?? 30000
-  // The autocomplete pulls from the scope's song list via GroupContext.
   const songListId = state.scope === 'all' ? 'kpopdle' : state.scope
 
   const opponent = state.players.find((p) => p.id !== myId)
@@ -29,22 +29,20 @@ export default function RoundView({ state, round, reveal, myId, liveResults, onG
   const oppResult = opponent ? liveResults[opponent.id] : null
   const iAnswered = !!myResult?.correct
 
-  // Tick for the countdown / elapsed timer.
+  // Tick.
   useEffect(() => {
     const t = setInterval(() => setNow(Date.now()), 200)
     return () => clearInterval(t)
   }, [])
 
-  // Each new round mounts a fresh <audio> element (the reveal in between has
-  // none), so reset the auto-play guard or only round 1 would ever play.
+  // Each new round mounts a fresh <audio>, so reset the auto-play guard.
   useEffect(() => {
     playedRef.current = false
-    // Intentional reset when the round's clip changes.
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setNeedsTap(false)
   }, [round?.clipToken])
 
-  // Start playback the moment the synchronized clip start is reached.
+  // Start playback the moment startAt is reached.
   useEffect(() => {
     if (!round || reveal || playedRef.current) return
     if (now >= startLocal && audioRef.current) {
@@ -53,7 +51,6 @@ export default function RoundView({ state, round, reveal, myId, liveResults, onG
     }
   }, [now, startLocal, round, reveal])
 
-  // Keep the audio element's volume in sync with the (persisted) preference.
   useEffect(() => {
     if (audioRef.current) audioRef.current.volume = volume
   }, [volume, round, reveal])
@@ -67,86 +64,87 @@ export default function RoundView({ state, round, reveal, myId, liveResults, onG
 
   // --- Reveal ---------------------------------------------------------------
   if (reveal) {
-    const mineResult = reveal.results.find((r) => r.playerId === myId)
-    const theirResult = reveal.results.find((r) => r.playerId !== myId)
     const isLast = reveal.roundIndex + 1 >= state.totalRounds
     return (
-      <div>
-        <div className="text-center mb-6">
-          <p className="text-[10px] font-mono uppercase tracking-[0.14em] text-white/40 mb-3">
-            Round {reveal.roundIndex + 1} of {state.totalRounds} · Reveal
-          </p>
-          <h2 className="text-3xl font-black tracking-tight">{reveal.answer.title}</h2>
-          <p className="text-sm text-white/50 mt-1">
-            {reveal.answer.groupDisplayName}
-            {reveal.answer.releaseYear ? ` · ${reveal.answer.releaseYear}` : ''}
-          </p>
+      <div className="btl-reveal">
+        <div className="btl-reveal-head">
+          <span className="btl-reveal-tag">Round {reveal.roundIndex + 1} of {state.totalRounds} · Reveal</span>
+          <span className="btl-reveal-auto">
+            <span className="auto-dot" />
+            {isLast ? 'Tallying…' : 'Next round'}
+          </span>
         </div>
-
-        <div className="flex flex-col gap-2 mb-6">
-          <RevealRow result={mineResult} side="you" isYou />
-          <RevealRow result={theirResult} side="foe" />
+        <h2 className="btl-reveal-title">{reveal.answer.title}</h2>
+        <div className="btl-reveal-meta">
+          <b>{reveal.answer.groupDisplayName}</b>
+          {reveal.answer.releaseYear ? ` · ${reveal.answer.releaseYear}` : ''}
         </div>
-
-        <Scoreboard
-          scores={reveal.scores}
-          myId={myId}
-          totalRounds={state.totalRounds}
-          activeRoundIndex={reveal.roundIndex}
-        />
-
-        <p className="text-center text-[10px] font-mono uppercase tracking-[0.14em] text-white/30 mt-6">
-          {isLast ? 'Tallying the result…' : 'Next round starting…'}
-        </p>
+        <div className="btl-reveal-results">
+          <RevealRow result={reveal.results.find((r) => r.playerId === myId)} side="you" isYou />
+          <RevealRow result={reveal.results.find((r) => r.playerId !== myId)} side="foe" />
+        </div>
       </div>
     )
   }
 
-  // --- Active round ---------------------------------------------------------
+  // --- Active round --------------------------------------------------------
   const audioUrl = `/api/battle/${state.id}/clip/${round.clipToken}`
-  const progress = Math.min(100, (elapsedMs / windowMs) * 100)
+  const progressFrac = Math.min(1, elapsedMs / windowMs)
   const elapsedSec = (elapsedMs / 1000).toFixed(1)
 
   return (
-    <div>
-      {/* Arena header strip — live indicator + round meta */}
-      <div className="btl-arena rounded-2xl mb-5">
-        <div className="btl-arena-head">
-          <span><span className="live-dot" />LIVE</span>
-          <span>{round.suddenDeath ? 'SUDDEN DEATH' : `ROUND ${round.roundIndex + 1} / ${round.totalRounds}`}</span>
-          <span className="timer tabular-nums">{elapsedSec}s</span>
+    <div className="flex flex-col gap-4">
+      {round.suddenDeath && <SuddenDeathBanner />}
+
+      {inCountdown ? (
+        <div className="relative flex flex-col items-center justify-center py-10 sm:py-14">
+          <div className="btl-count-ring" />
+          <div className="btl-count-ring r2" />
+          <div className="btl-count-ring r3" />
+          <span className="btl-count tabular-nums">{Math.ceil(countdownMs / 1000)}</span>
+          <p className="btl-count-sub">
+            Get ready · {round.suddenDeath ? 'SUDDEN DEATH' : `ROUND ${round.roundIndex + 1} of ${round.totalRounds}`}
+          </p>
         </div>
-
-        {inCountdown ? (
-          <div className="py-10 text-center px-6">
-            <p className="text-[10px] font-mono uppercase tracking-[0.14em] text-white/40 mb-3">Get ready…</p>
-            <p className="btl-countdown-num tabular-nums">{Math.ceil(countdownMs / 1000)}</p>
+      ) : needsTap ? (
+        <div className="py-8 flex flex-col items-center">
+          <div className="btl-autoplay-block">
+            <div className="ap-glyph">▶</div>
+            <h3>Tap to start the clip</h3>
+            <p>Your browser blocked autoplay. Give it a tap and the round will sync up.</p>
+            <button onClick={tapToPlay} className="btl-cta">PLAY CLIP</button>
           </div>
-        ) : (
-          <div className="px-5 py-5">
-            <audio ref={audioRef} src={audioUrl} preload="auto" />
-            <div className="h-1.5 rounded-full bg-white/[0.08] overflow-hidden mb-2">
-              <div className="btl-progress-fill" style={{ width: `${progress}%` }} />
-            </div>
-            <VolumeSlider volume={volume} onChange={changeVolume} />
-          </div>
-        )}
-      </div>
-
-      {/* Active-round body */}
-      {!inCountdown && (
+          <audio ref={audioRef} src={audioUrl} preload="auto" />
+        </div>
+      ) : (
         <>
-          {needsTap && (
-            <button onClick={tapToPlay} className="btl-btn-primary w-full mb-4 px-4 py-3.5 rounded-xl font-bold">
-              ▶ Tap to start the clip
-            </button>
-          )}
+          {/* Now-playing strip: elapsed · waveform · volume — no play button */}
+          <div className="btl-now">
+            <div className="btl-now-elapsed">
+              <span>{elapsedSec}</span>
+              <span className="lbl">Elapsed</span>
+            </div>
+            <Waveform progress={progressFrac} />
+            <VolumeRail volume={volume} onChange={changeVolume} />
+          </div>
+          <audio ref={audioRef} src={audioUrl} preload="auto" />
 
+          {/* Status pills — you / foe live state */}
+          <div className="btl-status-row">
+            <StatusPill side="you" player={me} liveResult={myResult} />
+            <StatusPill side="foe" player={opponent} liveResult={oppResult} />
+          </div>
+
+          {/* Guess input (or correct splash) */}
           {iAnswered ? (
-            <div className="px-4 py-4 rounded-xl border border-emerald-500/30 text-center"
-                 style={{ background: 'linear-gradient(135deg, rgba(34,197,94,0.12), rgba(6,182,212,0.10))' }}>
+            <div
+              className="px-4 py-4 rounded-xl border border-emerald-500/30 text-center"
+              style={{ background: 'linear-gradient(135deg, color-mix(in oklab, #4ADE80 12%, transparent), color-mix(in oklab, #6366F1 10%, transparent))' }}
+            >
               <p className="font-black text-emerald-300 text-lg">Correct! +{myResult.points}</p>
-              <p className="text-[10px] font-mono uppercase tracking-[0.14em] text-white/40 mt-1">Waiting for the round to finish…</p>
+              <p className="text-[10px] font-mono uppercase tracking-[0.18em] text-white/40 mt-1">
+                Waiting for the round to finish…
+              </p>
             </div>
           ) : (
             <GroupContext.Provider value={{ id: songListId }}>
@@ -154,77 +152,109 @@ export default function RoundView({ state, round, reveal, myId, liveResults, onG
             </GroupContext.Provider>
           )}
           {myResult && !myResult.correct && (
-            <p className="text-center text-xs text-white/50 mt-3">Not quite — keep guessing!</p>
+            <p className="text-center text-xs text-white/50 -mt-1">Not quite — keep guessing!</p>
           )}
         </>
       )}
-
-      {inCountdown && (
-        <p className="text-center text-xs text-white/45 mt-2">
-          <span className="font-bold text-white/65">{me?.displayName ?? 'You'}</span>
-          <span className="mx-2 text-white/25">vs</span>
-          <span className="font-bold text-white/65">{opponent?.displayName ?? '…'}</span>
-        </p>
-      )}
-
-      <Scoreboard
-        scores={state.players.map((p) => ({ playerId: p.id, displayName: p.displayName, score: p.score }))}
-        myId={myId}
-        oppResult={oppResult}
-        opponent={opponent}
-        totalRounds={state.totalRounds}
-        activeRoundIndex={round.roundIndex}
-      />
     </div>
   )
 }
 
-// Reveal row — one per player, you-pink or foe-cyan tinted.
+// Decorative waveform: bars colored "played" up to the elapsed fraction, with a
+// single "live" bar at the cursor that pulses. Not driven by real audio data —
+// purely visual progress.
+function Waveform({ progress, bars = 40 }) {
+  const liveIdx = Math.floor(progress * bars)
+  return (
+    <div className="btl-wave-wrap min-w-0">
+      <div className="btl-wave">
+        {Array.from({ length: bars }).map((_, i) => {
+          const h = 6 + Math.abs(Math.sin(i * 0.7) + Math.sin(i * 0.31)) * 14
+          const cls = i < liveIdx ? 'played' : i === liveIdx ? 'live' : ''
+          return <div key={i} className={`bar ${cls}`} style={{ height: `${h}px` }} />
+        })}
+      </div>
+    </div>
+  )
+}
+
+function VolumeRail({ volume, onChange }) {
+  // Visual rail with native range overlaid for accessibility.
+  const pct = Math.round(volume * 100)
+  return (
+    <div className="btl-vol">
+      <div className="btl-vol-rail" onClick={(e) => {
+        const rect = e.currentTarget.getBoundingClientRect()
+        const v = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width))
+        onChange(v)
+      }}>
+        <div className="btl-vol-fill" style={{ width: `${pct}%` }} />
+        <div className="btl-vol-knob" style={{ left: `${pct}%` }} />
+      </div>
+      <span className="btl-vol-lbl">VOL {pct}</span>
+    </div>
+  )
+}
+
+function StatusPill({ side, player, liveResult }) {
+  if (!player) {
+    return (
+      <div className="btl-status-pill gone">
+        <span className="side-mono">?</span>
+        <span className="side-name">Opponent</span>
+        <span className="side-state">— · —</span>
+      </div>
+    )
+  }
+  const initials = nameInitials(player.displayName)
+  const status = !player.connected
+    ? { cls: 'gone', text: 'Disconnected' }
+    : liveResult?.correct
+      ? { cls: 'got', text: `Got it · +${liveResult.points}` }
+      : { cls: 'guessing', text: 'Guessing…' }
+  return (
+    <div className={`btl-status-pill ${side} ${status.cls}`}>
+      <span className="side-mono">{initials}</span>
+      <span className="side-name">{player.displayName}</span>
+      <span className="side-state">
+        {status.cls === 'guessing' && (
+          <span className="side-dots"><span /><span /><span /></span>
+        )}
+        {status.cls === 'got' && '✓ '}
+        {status.text}
+      </span>
+    </div>
+  )
+}
+
 function RevealRow({ result, side, isYou }) {
   if (!result) return null
-  const youColor = side === 'you'
+  const wonSide = result.correct
   return (
-    <div className={`btl-side ${side}`}>
-      <span className="av">{nameInitials(result.displayName)}</span>
-      <div className="who">
-        <div className="label">{isYou ? '▸ YOU' : 'OPPONENT ◂'}</div>
-        <div className="name">{result.displayName}</div>
-      </div>
-      <div className="text-right flex-shrink-0">
-        <p className="text-[10px] font-mono uppercase tracking-[0.14em] text-white/40">
+    <div className={`btl-result-row ${wonSide ? 'win' : 'miss'}`}>
+      <span className="btl-mono" style={{ '--c': side === 'you' ? 'var(--btl-you)' : 'var(--btl-foe)' }}>
+        {nameInitials(result.displayName)}
+      </span>
+      <div className="rmeta">
+        <div className="rname">{result.displayName}{isYou ? ' (you)' : ''}</div>
+        <div className="rtime">
           {result.elapsedMs != null ? `${(result.elapsedMs / 1000).toFixed(1)}s` : 'no answer'}
-        </p>
-        <p className={`text-xl font-black tabular-nums ${youColor ? 'text-[#FF2D78]' : 'text-[#06B6D4]'}`}>
-          +{result.points}
-        </p>
+        </div>
       </div>
+      <div className="rpts">{result.correct ? `+${result.points}` : '+0'}</div>
     </div>
   )
 }
 
-// Live scoreboard: pips strip on top, you/vs/foe scores below.
-function Scoreboard({ scores, myId, opponent, oppResult, totalRounds = 5, activeRoundIndex = -1 }) {
-  const me = scores.find((s) => s.playerId === myId)
-  const opp = scores.find((s) => s.playerId !== myId)
-  if (!me) return null
-
+function SuddenDeathBanner() {
   return (
-    <div className="mt-6 pt-5 border-t border-white/[0.08]">
-      <div className="btl-pips justify-center mb-4">
-        {Array.from({ length: totalRounds }).map((_, i) => (
-          <div key={i} className={`pip ${i === activeRoundIndex ? 'active' : ''}`} />
-        ))}
-      </div>
-      <div className="btl-score-row">
-        <div className="text-left">
-          <div className="btl-score-num you tabular-nums">{me.score}</div>
-          <div className="btl-score-lbl">{me.displayName} · YOU</div>
-        </div>
-        <div className="btl-vs-pill">VS</div>
-        <div className="text-right">
-          <div className="btl-score-num foe tabular-nums">{opp?.score ?? 0}</div>
-          <div className="btl-score-lbl">{opp?.displayName ?? 'OPP'}{oppResult?.correct ? ' · GOT IT ✓' : opponent && !opponent.connected ? ' · DISCONNECTED' : ''}</div>
-        </div>
+    <div className="btl-sudden-banner">
+      <div className="btl-sudden-bolt">⚡</div>
+      <div>
+        <div className="btl-sudden-title">Sudden death</div>
+        <span className="btl-sudden-rule">
+          Tied after 5 — <b>first decisive round wins</b>
+        </span>
       </div>
     </div>
   )

@@ -4,6 +4,7 @@ import { getBattleSocket, getPlayerToken, getSavedName, saveName } from '../lib/
 import { syncServerTime } from '../lib/serverTime'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
 import { ALL_GROUP_IDS, GROUP_META } from '../lib/constants'
+import { nameInitials } from '../lib/initials'
 import Lobby from '../components/battle/Lobby'
 import RoundView from '../components/battle/RoundView'
 import ResultScreen from '../components/battle/ResultScreen'
@@ -24,7 +25,6 @@ export default function BattlePage() {
   const splat = useParams()['*'] || ''
   const matchId = splat.split('/')[0] || null
   const navigate = useNavigate()
-
 
   useDocumentMeta({
     title: 'K-POPDLE Battle — Live 1v1 Song Guessing',
@@ -133,28 +133,27 @@ export default function BattlePage() {
   const handleRematch = useCallback(() => getBattleSocket().emit('battle:rematch'), [])
 
   // --- Render ---------------------------------------------------------------
-  // --color-* feed GuessInput's themed active-option styling on the battle page.
-  // Backdrop reuses the shared .kp-* orbs from the homepage, retuned with
-  // pink/purple/cyan/indigo — the battle palette from Battle.html.
-  const shell = (children) => (
+  // The Battle palette is the §0 cross-group pair (EC4899 + 6366F1). Setting
+  // --color-* here cascades into GuessInput's themed autocomplete and into all
+  // the .btl-* classes that read from var(--btl-you|foe).
+  const shell = (children, { wide = false } = {}) => (
     <div
-      className="relative min-h-screen text-white flex flex-col items-center px-4 py-8"
-      style={{ '--color-primary': '#FF2D78', '--color-secondary': '#A855F7' }}
+      className="relative min-h-screen text-white flex flex-col items-center px-4 sm:px-6 py-6"
+      style={{ '--color-primary': '#EC4899', '--color-secondary': '#6366F1' }}
     >
       <div className="kp-backdrop">
         <div className="kp-grid-noise" />
-        <div className="kp-orb" style={{ width: 560, height: 560, background: 'radial-gradient(circle, #FF2D78 0%, transparent 65%)', top: -120, left: -140, opacity: 0.55, animationDelay: '0s' }} />
-        <div className="kp-orb" style={{ width: 600, height: 600, background: 'radial-gradient(circle, #06B6D4 0%, transparent 65%)', top: -80, right: -160, opacity: 0.55, animationDelay: '-7s' }} />
-        <div className="kp-orb" style={{ width: 460, height: 460, background: 'radial-gradient(circle, #A855F7 0%, transparent 65%)', bottom: -120, left: '10%', opacity: 0.4, animationDelay: '-14s' }} />
-        <div className="kp-orb" style={{ width: 460, height: 460, background: 'radial-gradient(circle, #6366F1 0%, transparent 65%)', bottom: -100, right: '12%', opacity: 0.4, animationDelay: '-11s' }} />
+        {/* Two-tone backdrop: pink-left + indigo-right, the §0 cross-group palette */}
+        <div className="kp-orb" style={{ width: 560, height: 560, background: 'radial-gradient(circle, #EC4899 0%, transparent 65%)', top: -160, left: -180, opacity: 0.38, animationDelay: '0s' }} />
+        <div className="kp-orb" style={{ width: 560, height: 560, background: 'radial-gradient(circle, #6366F1 0%, transparent 65%)', bottom: -160, right: -180, opacity: 0.38, animationDelay: '-9s' }} />
       </div>
       <div className="btl-line" />
 
-      <div className="relative z-10 w-full max-w-md flex items-center justify-between mb-10">
+      <div className={`relative z-10 w-full ${wide ? 'max-w-3xl' : 'max-w-xl'} flex items-center justify-between mb-6 sm:mb-8`}>
         <Link to="/" className="btl-back">← K-POPDLE</Link>
-        <span className="btl-live-tag"><span className="dot" />BATTLE</span>
+        <span className="btl-chip"><span className="live-dot" />BATTLE</span>
       </div>
-      <div className="relative z-10 w-full max-w-md">{children}</div>
+      <div className={`relative z-10 w-full ${wide ? 'max-w-3xl' : 'max-w-xl'} flex flex-col gap-5`}>{children}</div>
     </div>
   )
 
@@ -163,14 +162,14 @@ export default function BattlePage() {
   if (error) {
     const isNotFound = error.code === 'not_found'
     return shell(
-      <div className="text-center">
+      <div className="text-center py-10">
         <h1 className="text-2xl font-black tracking-tight mb-2">
           {isNotFound ? 'Match not found' : 'Battle ended'}
         </h1>
         <p className="text-sm text-white/50 mb-8">
           {error.message || 'This battle has expired or never existed.'}
         </p>
-        <Link to="/battle" className="btl-btn-primary inline-block px-6 py-3.5 rounded-xl font-bold">
+        <Link to="/battle" className="btl-cta inline-flex w-auto px-6 py-3.5">
           Start a new battle
         </Link>
       </div>,
@@ -180,17 +179,12 @@ export default function BattlePage() {
   // Need a display name before joining a shared link.
   if (matchId && !name) {
     return shell(
-      <div className="text-center">
-        <div className="btl-eyebrow mb-6 mx-auto"><span className="pip-l" />Incoming challenge<span className="pip-r" /></div>
+      <div className="text-center py-8">
+        <div className="btl-pill mb-6 mx-auto"><span className="pip" />Incoming challenge<span className="pip foe" /></div>
         <h1 className="text-3xl font-black tracking-tight mb-2">Join the battle</h1>
-        <p className="text-sm text-white/50 mb-8">Pick a name your opponent will see.</p>
+        <p className="text-sm text-white/55 mb-8">Pick a name your opponent will see.</p>
         <NameInput value={nameDraft} onChange={setNameDraft} onSubmit={handleConfirmName} />
-        <button
-          onClick={handleConfirmName}
-          className="btl-btn-primary w-full mt-4 px-5 py-3.5 rounded-xl font-black"
-        >
-          Join
-        </button>
+        <button onClick={handleConfirmName} className="btl-cta mt-4">Join</button>
       </div>,
     )
   }
@@ -198,58 +192,145 @@ export default function BattlePage() {
   // Create screen.
   if (!matchId) {
     return shell(
-      <div>
-        <div className="text-center mb-10">
-          <div className="btl-eyebrow mb-6 mx-auto"><span className="pip-l" />1v1 · Best of 5<span className="pip-r" /></div>
-          <h1 className="btl-title">
+      <div className="py-2">
+        <div className="text-center mb-8">
+          <div className="btl-pill mb-6 mx-auto"><span className="pip" />1v1 · Best of 5<span className="pip foe" /></div>
+          <h1 className="btl-title justify-center">
             <span className="side-l">BAT</span>
             <span className="vs">VS</span>
             <span className="side-r">TLE</span>
           </h1>
-          <p className="text-sm text-white/55 max-w-xs mx-auto leading-relaxed">
+          <p className="text-sm text-white/55 max-w-xs mx-auto leading-relaxed mt-4">
             Challenge a friend to a live 1v1. Same clip, fastest correct guess wins the round.
           </p>
         </div>
 
-        <label className="block text-[10px] font-mono uppercase tracking-[0.14em] text-white/40 mb-2">Your name</label>
+        <label className="block text-[10px] font-mono uppercase tracking-[0.18em] text-white/38 mb-2">Your name</label>
         <NameInput value={nameDraft} onChange={setNameDraft} onSubmit={handleCreate} />
 
-        <label className="block text-[10px] font-mono uppercase tracking-[0.14em] text-white/40 mt-6 mb-2">Songs from</label>
+        <label className="block text-[10px] font-mono uppercase tracking-[0.18em] text-white/38 mt-5 mb-2">Songs from</label>
         <select
           value={scope}
           onChange={(e) => setScope(e.target.value)}
-          className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.1] text-white focus:outline-none focus:border-[#FF2D78]/50 transition-colors"
+          className="w-full px-4 py-3.5 rounded-xl bg-white/[0.05] border border-white/[0.14] text-white focus:outline-none focus:border-[#EC4899]/50 transition-colors"
         >
           {SCOPES.map((s) => (
-            <option key={s.id} value={s.id} className="bg-[#0d0d14]">{s.label}</option>
+            <option key={s.id} value={s.id} className="bg-[#0d0b1a]">{s.label}</option>
           ))}
         </select>
 
-        <button
-          onClick={handleCreate}
-          className="btl-btn-primary w-full mt-8 px-5 py-4 rounded-xl font-black tracking-wide"
-        >
-          CREATE MATCH →
-        </button>
+        <button onClick={handleCreate} className="btl-cta mt-6">CREATE MATCH →</button>
       </div>,
     )
   }
 
-  // Match over → results + rematch.
+  // ===== Persistent scoreboard for every in-match phase =====
+  // Lobby still renders the scoreboard with placeholder state so the visual anchor is there from
+  // the moment you land in the room — even before the opponent joins.
   if (state && state.phase === 'FINISHED' && matchOver) {
-    return shell(<ResultScreen state={state} matchOver={matchOver} myId={myId} onRematch={handleRematch} />)
+    return shell(
+      <ResultScreen state={state} matchOver={matchOver} myId={myId} onRematch={handleRematch} />,
+      { wide: true },
+    )
   }
 
-  // In a round (active clip or reveal).
   const inRound = state && (round || reveal) && (state.phase === 'ROUND_ACTIVE' || state.phase === 'ROUND_REVEAL')
   if (inRound) {
     return shell(
-      <RoundView state={state} round={round} reveal={reveal} myId={myId} liveResults={liveResults} onGuess={handleGuess} />,
+      <>
+        <MatchHeader state={state} myId={myId} round={round} reveal={reveal} liveResults={liveResults} />
+        <RoundView state={state} round={round} reveal={reveal} myId={myId} liveResults={liveResults} onGuess={handleGuess} />
+      </>,
+      { wide: true },
     )
   }
 
   // Lobby (waiting / ready-up).
-  return shell(<Lobby state={state} myId={myId} onReady={handleReady} />)
+  return shell(
+    <>
+      <MatchHeader state={state} myId={myId} lobby />
+      <Lobby state={state} myId={myId} onReady={handleReady} />
+    </>,
+    { wide: true },
+  )
+}
+
+// MatchHeader — the persistent two-tone scoreboard at the top of every
+// in-match screen. Shows monogram avatars + display names + status + live
+// score for both sides, with a center VS plate. The lobby variant shows a
+// dimmed empty foe seat until the opponent joins.
+function MatchHeader({ state, myId, round, reveal, liveResults = {}, lobby = false }) {
+  if (!state) return null
+  const me = state.players.find((p) => p.id === myId)
+  const opp = state.players.find((p) => p.id !== myId)
+  const suddenDeath = round?.suddenDeath || reveal?.suddenDeath
+  return (
+    <div className={`btl-scoreboard ${suddenDeath ? 'sudden' : ''}`}>
+      <SideBlock side="you" player={me} liveResult={liveResults[me?.id]} reveal={reveal} lobby={lobby} />
+      <span className={`btl-vs-plate ${suddenDeath ? 'sudden' : ''}`}>VS</span>
+      <SideBlock side="foe" player={opp} liveResult={liveResults[opp?.id]} reveal={reveal} lobby={lobby} dim={!opp} />
+    </div>
+  )
+}
+
+function SideBlock({ side, player, liveResult, reveal, lobby, dim }) {
+  if (!player) {
+    return (
+      <div className={`btl-pblock ${side} dim`}>
+        <span className="btl-mono dim">?</span>
+        <div className="btl-pmeta">
+          <div className="btl-ptag">{side === 'you' ? 'YOU' : 'OPPONENT'}</div>
+          <div className="btl-pname text-white/40">Waiting…</div>
+          <div className="btl-pstatus gone">No one here yet</div>
+        </div>
+        <div className="btl-pscore opacity-40">0</div>
+      </div>
+    )
+  }
+  const status = computeStatus({ player, liveResult, reveal, lobby })
+  return (
+    <div className={`btl-pblock ${side} ${dim ? 'dim' : ''}`}>
+      <span className="btl-mono">
+        {nameInitials(player.displayName)}
+        <span className={`btl-presence ${player.connected ? '' : 'off'}`} />
+      </span>
+      <div className="btl-pmeta">
+        <div className="btl-ptag">{side === 'you' ? '▸ YOU' : 'OPPONENT ◂'}</div>
+        <div className="btl-pname">{player.displayName}</div>
+        <PlayerStatus status={status} side={side} />
+      </div>
+      <div className="btl-pscore tabular-nums">{player.score ?? 0}</div>
+    </div>
+  )
+}
+
+// Derive a status from the available signals. Lobby phase has no liveResult yet;
+// reveal carries the final per-round outcome; ROUND_ACTIVE uses liveResult.
+function computeStatus({ player, liveResult, reveal, lobby }) {
+  if (!player.connected) return { kind: 'gone', text: 'Disconnected' }
+  if (lobby) return { kind: 'guessing', text: player.ready ? 'Ready' : 'Not ready' }
+  if (reveal) {
+    const r = reveal.results?.find((x) => x.playerId === player.id)
+    if (r?.correct) return { kind: 'got', text: `+${r.points} · ${(r.elapsedMs / 1000).toFixed(1)}s` }
+    return { kind: 'missed', text: 'no answer' }
+  }
+  if (liveResult?.correct) return { kind: 'got', text: `Got it · +${liveResult.points}` }
+  return { kind: 'guessing', text: 'Guessing…' }
+}
+
+function PlayerStatus({ status }) {
+  const cls = `btl-pstatus ${status.kind}`
+  if (status.kind === 'guessing') {
+    return (
+      <div className={cls}>
+        <span className="btl-pdot" />
+        {status.text}
+      </div>
+    )
+  }
+  if (status.kind === 'got') return <div className={cls}>✓ {status.text}</div>
+  if (status.kind === 'missed') return <div className={cls}>✕ {status.text}</div>
+  return <div className={cls}>{status.text}</div>
 }
 
 function NameInput({ value, onChange, onSubmit }) {
@@ -261,7 +342,7 @@ function NameInput({ value, onChange, onSubmit }) {
       placeholder="e.g. ONCE_4ever"
       onChange={(e) => onChange(e.target.value)}
       onKeyDown={(e) => e.key === 'Enter' && onSubmit()}
-      className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.1] text-white placeholder-white/25 focus:outline-none focus:border-[#FF2D78]/50 transition-colors"
+      className="w-full px-4 py-3.5 rounded-xl bg-white/[0.05] border border-white/[0.14] text-white placeholder-white/25 focus:outline-none focus:border-[#EC4899]/60 transition-colors"
     />
   )
 }

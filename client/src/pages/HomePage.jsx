@@ -205,7 +205,7 @@ export default function HomePage() {
 
         {/* K-POPDLE cross-group challenge banner */}
         <div
-          className="relative rounded-2xl overflow-hidden mb-10 cursor-pointer group"
+          className="relative rounded-2xl overflow-hidden mb-4 cursor-pointer group"
           onClick={() => navigate('/kpopdle')}
           style={{ background: 'linear-gradient(135deg, #FF2D78 0%, #A855F7 35%, #6366F1 65%, #06B6D4 100%)' }}
         >
@@ -222,6 +222,44 @@ export default function HomePage() {
               </div>
               <button className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-[#0d0d14] text-sm font-black tracking-wide group-hover:scale-105 transition-transform flex-shrink-0">
                 PLAY →
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Battle 1v1 banner — sibling to K-POPDLE; sets up its own you-pink / foe-cyan VS frame */}
+        <div
+          className="btl-home-banner mb-10"
+          onClick={() => navigate('/battle')}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); navigate('/battle') } }}
+        >
+          <div className="relative z-[1] grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-6 px-5 sm:px-8 py-5 sm:py-6">
+            <div className="min-w-0">
+              <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/75 mb-1">⚔ NEW · Real-Time 1v1</div>
+              <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white leading-none mb-2">BATTLE</h2>
+              <p className="text-sm text-white/85 font-medium">Challenge a friend. Same clip. Fastest correct guess wins the round.</p>
+            </div>
+
+            {/* Center VS plate, hidden on mobile */}
+            <div
+              className="hidden sm:inline-grid place-items-center px-3 py-1.5 rounded-xl border border-white/20 text-white font-black tracking-[0.08em] text-base"
+              style={{
+                background: 'linear-gradient(180deg, rgba(30,20,55,0.95), rgba(10,8,24,0.95))',
+                boxShadow: '0 0 0 4px rgba(13,11,26,0.6), 0 0 18px rgba(236,72,153,0.35), 0 0 18px rgba(99,102,241,0.35)',
+              }}
+            >VS</div>
+
+            <div className="flex flex-row-reverse sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-3 sm:gap-2 w-full sm:w-auto">
+              <div className="font-mono text-[11px] uppercase tracking-[0.12em] text-white/70 text-right">
+                Best of 5 · Live audio · No sign-up
+              </div>
+              <button
+                onClick={(e) => { e.stopPropagation(); navigate('/battle') }}
+                className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-[#0d0d14] text-sm font-black tracking-wide hover:scale-105 transition-transform flex-shrink-0"
+              >
+                START →
               </button>
             </div>
           </div>
