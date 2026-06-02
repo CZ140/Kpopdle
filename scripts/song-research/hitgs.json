@@ -1,0 +1,48 @@
+{
+  "groupId": "hitgs",
+  "displayName": "HITGS",
+  "estimatedSongs": 8,
+  "_source": "Built from Deezer artist catalog (verified previews) — see scripts/extract-deezer-catalog.mjs",
+  "songs": [
+    {
+      "title": "A-HA!",
+      "album": "Things we love : I",
+      "releaseYear": 2025
+    },
+    {
+      "title": "CHARIZZMA",
+      "album": "Things we love : I",
+      "releaseYear": 2025
+    },
+    {
+      "title": "GROSS",
+      "album": "Things we love : I",
+      "releaseYear": 2025
+    },
+    {
+      "title": "HAPPY",
+      "album": "Things we love : I",
+      "releaseYear": 2025
+    },
+    {
+      "title": "Never Be Me",
+      "album": "The 1st Single Album - Things we love : H",
+      "releaseYear": 2025
+    },
+    {
+      "title": "PAGE",
+      "album": "Things we love : I",
+      "releaseYear": 2025
+    },
+    {
+      "title": "SOURPATCH",
+      "album": "The 1st Single Album - Things we love : H",
+      "releaseYear": 2025
+    },
+    {
+      "title": "Cherry Blossom",
+      "album": "Things We Dream: Vol.1",
+      "releaseYear": 2026
+    }
+  ]
+}

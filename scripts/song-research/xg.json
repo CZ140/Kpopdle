@@ -1,0 +1,153 @@
+{
+  "groupId": "xg",
+  "displayName": "XG",
+  "estimatedSongs": 29,
+  "_source": "Built from Deezer artist catalog (verified previews) — see scripts/extract-deezer-catalog.mjs",
+  "songs": [
+    {
+      "title": "MASCARA",
+      "album": "MASCARA",
+      "releaseYear": 2022
+    },
+    {
+      "title": "Tippy Toes",
+      "album": "Tippy Toes",
+      "releaseYear": 2022
+    },
+    {
+      "title": "GRL GVNG",
+      "album": "NEW DNA",
+      "releaseYear": 2023
+    },
+    {
+      "title": "HESONOO",
+      "album": "NEW DNA",
+      "releaseYear": 2023
+    },
+    {
+      "title": "LEFT RIGHT",
+      "album": "SHOOTING STAR",
+      "releaseYear": 2023
+    },
+    {
+      "title": "NEW DANCE",
+      "album": "NEW DNA",
+      "releaseYear": 2023
+    },
+    {
+      "title": "PUPPET SHOW",
+      "album": "NEW DNA",
+      "releaseYear": 2023
+    },
+    {
+      "title": "SHOOTING STAR",
+      "album": "SHOOTING STAR",
+      "releaseYear": 2023
+    },
+    {
+      "title": "TGIF",
+      "album": "NEW DNA",
+      "releaseYear": 2023
+    },
+    {
+      "title": "WINTER WITHOUT YOU",
+      "album": "WINTER WITHOUT YOU",
+      "releaseYear": 2023
+    },
+    {
+      "title": "X-GENE",
+      "album": "NEW DNA",
+      "releaseYear": 2023
+    },
+    {
+      "title": "HOWL",
+      "album": "AWE",
+      "releaseYear": 2024
+    },
+    {
+      "title": "HOWLING",
+      "album": "AWE",
+      "releaseYear": 2024
+    },
+    {
+      "title": "IN THE RAIN",
+      "album": "AWE",
+      "releaseYear": 2024
+    },
+    {
+      "title": "IS THIS LOVE",
+      "album": "AWE",
+      "releaseYear": 2024
+    },
+    {
+      "title": "IYKYK",
+      "album": "AWE",
+      "releaseYear": 2024
+    },
+    {
+      "title": "SOMETHING AIN'T RIGHT",
+      "album": "AWE",
+      "releaseYear": 2024
+    },
+    {
+      "title": "WOKE UP",
+      "album": "WOKE UP",
+      "releaseYear": 2024
+    },
+    {
+      "title": "4 SEASONS",
+      "album": "4 SEASONS",
+      "releaseYear": 2025
+    },
+    {
+      "title": "GALA",
+      "album": "GALA",
+      "releaseYear": 2025
+    },
+    {
+      "title": "MILLION PLACES",
+      "album": "MILLION PLACES",
+      "releaseYear": 2025
+    },
+    {
+      "title": "HYPNOTIZE",
+      "album": "THE CORE - 核",
+      "releaseYear": 2026
+    },
+    {
+      "title": "NO GOOD",
+      "album": "THE CORE - 核",
+      "releaseYear": 2026
+    },
+    {
+      "title": "O.R.B (Obviously Reads Bro)",
+      "album": "THE CORE - 核",
+      "releaseYear": 2026
+    },
+    {
+      "title": "PS118",
+      "album": "THE CORE - 核",
+      "releaseYear": 2026
+    },
+    {
+      "title": "ROCK THE BOAT",
+      "album": "THE CORE - 核",
+      "releaseYear": 2026
+    },
+    {
+      "title": "TAKE MY BREATH",
+      "album": "THE CORE - 核",
+      "releaseYear": 2026
+    },
+    {
+      "title": "UP NOW",
+      "album": "THE CORE - 核",
+      "releaseYear": 2026
+    },
+    {
+      "title": "XIGNAL (The Intro)",
+      "album": "THE CORE - 核",
+      "releaseYear": 2026
+    }
+  ]
+}

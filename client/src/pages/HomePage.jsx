@@ -53,7 +53,7 @@ export default function HomePage() {
 
   useDocumentMeta({
     title: 'K-POPDLE — Daily K-pop Music Quiz',
-    description: 'Daily K-pop music guessing game — 28 groups, 1,900+ songs. Listen to a clip and guess the song. New drop every day at midnight KST. Free, no sign-up needed.',
+    description: 'Daily K-pop music guessing game — 34 groups, 2,000+ songs. Listen to a clip and guess the song. New drop every day at midnight KST. Free, no sign-up needed.',
     path: '/',
   })
 

@@ -1,0 +1,542 @@
+[
+  {
+    "id": 1,
+    "title": "LIKE THIS",
+    "album": "Star To A Young Culture",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1139970152,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2aa99b1d55bfca1743a4115c63470f50/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2aa99b1d55bfca1743a4115c63470f50"
+  },
+  {
+    "id": 2,
+    "title": "SO BAD",
+    "album": "Star To A Young Culture",
+    "releaseYear": 2020,
+    "spotifyId": null,
+    "deezerId": 1139970142,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2aa99b1d55bfca1743a4115c63470f50/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2aa99b1d55bfca1743a4115c63470f50"
+  },
+  {
+    "id": 3,
+    "title": "ASAP",
+    "album": "STAYDOM",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1330032082,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7dabe9ca04105e7e05972703718f888c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7dabe9ca04105e7e05972703718f888c"
+  },
+  {
+    "id": 4,
+    "title": "COMPLEX",
+    "album": "STEREOTYPE",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1486563922,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e0802eaa693fbf2bce550442a8f25aef/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e0802eaa693fbf2bce550442a8f25aef"
+  },
+  {
+    "id": 5,
+    "title": "I’ll BE THERE",
+    "album": "STEREOTYPE",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1486563902,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e0802eaa693fbf2bce550442a8f25aef/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e0802eaa693fbf2bce550442a8f25aef"
+  },
+  {
+    "id": 6,
+    "title": "LOVE FOOL",
+    "album": "STAYDOM",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1330032102,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7dabe9ca04105e7e05972703718f888c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7dabe9ca04105e7e05972703718f888c"
+  },
+  {
+    "id": 7,
+    "title": "SLOW DOWN",
+    "album": "STEREOTYPE",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1486563912,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e0802eaa693fbf2bce550442a8f25aef/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e0802eaa693fbf2bce550442a8f25aef"
+  },
+  {
+    "id": 8,
+    "title": "SO WHAT",
+    "album": "STAYDOM",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1330032092,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7dabe9ca04105e7e05972703718f888c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7dabe9ca04105e7e05972703718f888c"
+  },
+  {
+    "id": 9,
+    "title": "STEREOTYPE",
+    "album": "STEREOTYPE",
+    "releaseYear": 2021,
+    "spotifyId": null,
+    "deezerId": 1486563892,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e0802eaa693fbf2bce550442a8f25aef/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e0802eaa693fbf2bce550442a8f25aef"
+  },
+  {
+    "id": 10,
+    "title": "247",
+    "album": "YOUNG-LUV.COM",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1662545982,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/854e85f55093e7bad0e6883cbee61da0/500x500-000000-80-0-0.jpg",
+    "coverMd5": "854e85f55093e7bad0e6883cbee61da0"
+  },
+  {
+    "id": 11,
+    "title": "BEAUTIFUL MONSTER",
+    "album": "WE NEED LOVE",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1830424427,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/0eaa723f5533cb0e208970bea868941b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "0eaa723f5533cb0e208970bea868941b"
+  },
+  {
+    "id": 12,
+    "title": "BUTTERFLY",
+    "album": "YOUNG-LUV.COM",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1662546002,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/854e85f55093e7bad0e6883cbee61da0/500x500-000000-80-0-0.jpg",
+    "coverMd5": "854e85f55093e7bad0e6883cbee61da0"
+  },
+  {
+    "id": 13,
+    "title": "I LIKE IT",
+    "album": "WE NEED LOVE",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1830424437,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/0eaa723f5533cb0e208970bea868941b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "0eaa723f5533cb0e208970bea868941b"
+  },
+  {
+    "id": 14,
+    "title": "I WANT U BABY",
+    "album": "YOUNG-LUV.COM",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1662546012,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/854e85f55093e7bad0e6883cbee61da0/500x500-000000-80-0-0.jpg",
+    "coverMd5": "854e85f55093e7bad0e6883cbee61da0"
+  },
+  {
+    "id": 15,
+    "title": "LOVE",
+    "album": "WE NEED LOVE",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1830424447,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/0eaa723f5533cb0e208970bea868941b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "0eaa723f5533cb0e208970bea868941b"
+  },
+  {
+    "id": 16,
+    "title": "RUN2U",
+    "album": "YOUNG-LUV.COM",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1662545962,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/854e85f55093e7bad0e6883cbee61da0/500x500-000000-80-0-0.jpg",
+    "coverMd5": "854e85f55093e7bad0e6883cbee61da0"
+  },
+  {
+    "id": 17,
+    "title": "SAME SAME",
+    "album": "YOUNG-LUV.COM",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1662545972,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/854e85f55093e7bad0e6883cbee61da0/500x500-000000-80-0-0.jpg",
+    "coverMd5": "854e85f55093e7bad0e6883cbee61da0"
+  },
+  {
+    "id": 18,
+    "title": "STAR",
+    "album": "Our Blues OST Part 8",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1750350587,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/da53dffadebbd647498a0fa3e13fe79d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "da53dffadebbd647498a0fa3e13fe79d"
+  },
+  {
+    "id": 19,
+    "title": "YOUNG LUV",
+    "album": "YOUNG-LUV.COM",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1662545992,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/854e85f55093e7bad0e6883cbee61da0/500x500-000000-80-0-0.jpg",
+    "coverMd5": "854e85f55093e7bad0e6883cbee61da0"
+  },
+  {
+    "id": 20,
+    "title": "Be Mine",
+    "album": "TEENFRESH",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2413514915,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f08c28b3da1bf869edf1f68245662797/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f08c28b3da1bf869edf1f68245662797"
+  },
+  {
+    "id": 21,
+    "title": "Bubble",
+    "album": "TEENFRESH",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2413514885,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f08c28b3da1bf869edf1f68245662797/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f08c28b3da1bf869edf1f68245662797"
+  },
+  {
+    "id": 22,
+    "title": "I Wanna Do",
+    "album": "TEENFRESH",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2413514905,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f08c28b3da1bf869edf1f68245662797/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f08c28b3da1bf869edf1f68245662797"
+  },
+  {
+    "id": 23,
+    "title": "LIT",
+    "album": "LIT",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2553000672,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/092355f2ec4e4ad5190f91d753ac5d06/500x500-000000-80-0-0.jpg",
+    "coverMd5": "092355f2ec4e4ad5190f91d753ac5d06"
+  },
+  {
+    "id": 24,
+    "title": "Not Like You",
+    "album": "TEENFRESH",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2413514895,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/f08c28b3da1bf869edf1f68245662797/500x500-000000-80-0-0.jpg",
+    "coverMd5": "f08c28b3da1bf869edf1f68245662797"
+  },
+  {
+    "id": 25,
+    "title": "Teddy Bear",
+    "album": "Teddy Bear",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2148742347,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c055b09c6bfc9b9c62d14e7beb0ee77d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c055b09c6bfc9b9c62d14e7beb0ee77d"
+  },
+  {
+    "id": 26,
+    "title": "1 Thing",
+    "album": "Metamorphic",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2871148862,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9d58598cf0b8d451583ca6a19058e033/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9d58598cf0b8d451583ca6a19058e033"
+  },
+  {
+    "id": 27,
+    "title": "Beauty Bomb",
+    "album": "Metamorphic",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2871148932,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9d58598cf0b8d451583ca6a19058e033/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9d58598cf0b8d451583ca6a19058e033"
+  },
+  {
+    "id": 28,
+    "title": "Cheeky Icy Thang",
+    "album": "Metamorphic",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2871148852,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9d58598cf0b8d451583ca6a19058e033/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9d58598cf0b8d451583ca6a19058e033"
+  },
+  {
+    "id": 29,
+    "title": "Fakin’ (Sumin & Yoon)",
+    "album": "Metamorphic",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2871148912,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9d58598cf0b8d451583ca6a19058e033/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9d58598cf0b8d451583ca6a19058e033"
+  },
+  {
+    "id": 30,
+    "title": "Find (Sieun & Seeun & J)",
+    "album": "Metamorphic",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2871148882,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9d58598cf0b8d451583ca6a19058e033/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9d58598cf0b8d451583ca6a19058e033"
+  },
+  {
+    "id": 31,
+    "title": "Flexing On My Ex",
+    "album": "Metamorphic",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2871148962,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9d58598cf0b8d451583ca6a19058e033/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9d58598cf0b8d451583ca6a19058e033"
+  },
+  {
+    "id": 32,
+    "title": "Give It 2 Me",
+    "album": "Metamorphic",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2871148872,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9d58598cf0b8d451583ca6a19058e033/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9d58598cf0b8d451583ca6a19058e033"
+  },
+  {
+    "id": 33,
+    "title": "GPT",
+    "album": "...l",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3066876291,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/68442d12dd69d89bc2342d357a2d9640/500x500-000000-80-0-0.jpg",
+    "coverMd5": "68442d12dd69d89bc2342d357a2d9640"
+  },
+  {
+    "id": 34,
+    "title": "Gummy Bear",
+    "album": "Metamorphic",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2871148942,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9d58598cf0b8d451583ca6a19058e033/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9d58598cf0b8d451583ca6a19058e033"
+  },
+  {
+    "id": 35,
+    "title": "Let Me Know",
+    "album": "Metamorphic",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2871148892,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9d58598cf0b8d451583ca6a19058e033/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9d58598cf0b8d451583ca6a19058e033"
+  },
+  {
+    "id": 36,
+    "title": "Meant To Be",
+    "album": "...l",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3066876301,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/68442d12dd69d89bc2342d357a2d9640/500x500-000000-80-0-0.jpg",
+    "coverMd5": "68442d12dd69d89bc2342d357a2d9640"
+  },
+  {
+    "id": 37,
+    "title": "MEOW",
+    "album": "MEOW / Cheeky Icy Thang (Japanese Version)",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2946725371,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d11b1465aad84bf61ac9107f46403b93/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d11b1465aad84bf61ac9107f46403b93"
+  },
+  {
+    "id": 38,
+    "title": "Nada",
+    "album": "Metamorphic",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2871148902,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9d58598cf0b8d451583ca6a19058e033/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9d58598cf0b8d451583ca6a19058e033"
+  },
+  {
+    "id": 39,
+    "title": "Over U, Goodbye (Seeun x J)",
+    "album": "Over U, Goodbye (Seeun x J)",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3148410371,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7635275dc729ed8513ae4d5e75ca3bfa/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7635275dc729ed8513ae4d5e75ca3bfa"
+  },
+  {
+    "id": 40,
+    "title": "Roses (ISA)",
+    "album": "Metamorphic",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2871148922,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9d58598cf0b8d451583ca6a19058e033/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9d58598cf0b8d451583ca6a19058e033"
+  },
+  {
+    "id": 41,
+    "title": "Stay WITH me",
+    "album": "Metamorphic",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2871148952,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9d58598cf0b8d451583ca6a19058e033/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9d58598cf0b8d451583ca6a19058e033"
+  },
+  {
+    "id": 42,
+    "title": "Tell Me Now",
+    "album": "GPT (Japanese Version) / Tell Me Now",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3076552471,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a9db3cbd2adab7db9d91897d56bdaaf0/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a9db3cbd2adab7db9d91897d56bdaaf0"
+  },
+  {
+    "id": 43,
+    "title": "Trouble Maker",
+    "album": "Metamorphic",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2871148972,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9d58598cf0b8d451583ca6a19058e033/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9d58598cf0b8d451583ca6a19058e033"
+  },
+  {
+    "id": 44,
+    "title": "Twenty",
+    "album": "Metamorphic",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2871148842,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9d58598cf0b8d451583ca6a19058e033/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9d58598cf0b8d451583ca6a19058e033"
+  },
+  {
+    "id": 45,
+    "title": "BEBE",
+    "album": "S",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3265366061,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/41232da99c89c1af29eceff172aac359/500x500-000000-80-0-0.jpg",
+    "coverMd5": "41232da99c89c1af29eceff172aac359"
+  },
+  {
+    "id": 46,
+    "title": "BOY",
+    "album": "STAYC Special Single [I WANT IT]",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3460743351,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2b415c6d4bccaaf95f201491eaa29644/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2b415c6d4bccaaf95f201491eaa29644"
+  },
+  {
+    "id": 47,
+    "title": "DIAMOND",
+    "album": "S",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3265366071,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/41232da99c89c1af29eceff172aac359/500x500-000000-80-0-0.jpg",
+    "coverMd5": "41232da99c89c1af29eceff172aac359"
+  },
+  {
+    "id": 48,
+    "title": "I WANT IT",
+    "album": "STAYC Special Single [I WANT IT]",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3460743341,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2b415c6d4bccaaf95f201491eaa29644/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2b415c6d4bccaaf95f201491eaa29644"
+  },
+  {
+    "id": 49,
+    "title": "Lover, Killer",
+    "album": "Lover, Killer / BEBE (Japanese Ver.)",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3387709861,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c1b5f7fa39a07c1f51454d61a2b9314a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c1b5f7fa39a07c1f51454d61a2b9314a"
+  },
+  {
+    "id": 50,
+    "title": "PIPE DOWN",
+    "album": "S",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3265366081,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/41232da99c89c1af29eceff172aac359/500x500-000000-80-0-0.jpg",
+    "coverMd5": "41232da99c89c1af29eceff172aac359"
+  },
+  {
+    "id": 51,
+    "title": "반칙(Honestly)",
+    "album": "STAYC Special Single [I WANT IT]",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3460743361,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2b415c6d4bccaaf95f201491eaa29644/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2b415c6d4bccaaf95f201491eaa29644"
+  },
+  {
+    "id": 52,
+    "title": "MWUAH",
+    "album": "STAY ALIVE",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3825507091,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b5dc2c91a8c592244cd434ab59ca135a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b5dc2c91a8c592244cd434ab59ca135a"
+  },
+  {
+    "id": 53,
+    "title": "Satellite",
+    "album": "STAY ALIVE",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3825507181,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b5dc2c91a8c592244cd434ab59ca135a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b5dc2c91a8c592244cd434ab59ca135a"
+  },
+  {
+    "id": 54,
+    "title": "Say My Name",
+    "album": "STAY ALIVE",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3825507201,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b5dc2c91a8c592244cd434ab59ca135a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b5dc2c91a8c592244cd434ab59ca135a"
+  }
+]

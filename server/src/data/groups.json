@@ -306,5 +306,71 @@
     "members": 9,
     "launchDate": "2026-05-28",
     "active": true
+  },
+  {
+    "id": "stayc",
+    "displayName": "STAYC",
+    "gameName": "STAYCDLE",
+    "tagline": "Daily STAYC Song Quiz",
+    "colors": { "primary": "#FF4D8D", "secondary": "#3FA9F5" },
+    "deezerArtistName": "STAYC",
+    "members": 6,
+    "launchDate": "2026-06-01",
+    "active": true
+  },
+  {
+    "id": "hearts2hearts",
+    "displayName": "Hearts2Hearts",
+    "gameName": "H2HDLE",
+    "tagline": "Daily Hearts2Hearts Song Quiz",
+    "colors": { "primary": "#38BDF8", "secondary": "#34D399" },
+    "deezerArtistName": "Hearts2Hearts",
+    "members": 8,
+    "launchDate": "2026-06-01",
+    "active": true
+  },
+  {
+    "id": "fromis9",
+    "displayName": "fromis_9",
+    "gameName": "FROMISDLE",
+    "tagline": "Daily fromis_9 Song Quiz",
+    "colors": { "primary": "#9B5CFF", "secondary": "#34D399" },
+    "deezerArtistName": "fromis_9",
+    "members": 5,
+    "launchDate": "2026-06-01",
+    "active": true
+  },
+  {
+    "id": "hitgs",
+    "displayName": "HITGS",
+    "gameName": "HITGSDLE",
+    "tagline": "Daily HITGS Song Quiz",
+    "colors": { "primary": "#EC4899", "secondary": "#A3E635" },
+    "deezerArtistName": "HITGS",
+    "members": 5,
+    "launchDate": "2026-06-01",
+    "active": true
+  },
+  {
+    "id": "kiiikiii",
+    "displayName": "KiiiKiii",
+    "gameName": "KIIIDLE",
+    "tagline": "Daily KiiiKiii Song Quiz",
+    "colors": { "primary": "#C04DFF", "secondary": "#2DD4BF" },
+    "deezerArtistName": "KiiiKiii",
+    "members": 5,
+    "launchDate": "2026-06-01",
+    "active": true
+  },
+  {
+    "id": "xg",
+    "displayName": "XG",
+    "gameName": "XGDLE",
+    "tagline": "Daily XG Song Quiz",
+    "colors": { "primary": "#5B6CFF", "secondary": "#1E293B" },
+    "deezerArtistName": "XG",
+    "members": 7,
+    "launchDate": "2026-06-01",
+    "active": true
   }
 ]

@@ -48,6 +48,12 @@ export const GAME_NAMES = {
   boynextdoor: 'BNDDLE',
   tws:         'TWSDLE',
   zerobaseone: 'ZB1DLE',
+  stayc:         'STAYCDLE',
+  hearts2hearts: 'H2HDLE',
+  fromis9:       'FROMISDLE',
+  hitgs:         'HITGSDLE',
+  kiiikiii:      'KIIIDLE',
+  xg:            'XGDLE',
   kpopdle:     'K-POPDLE',
 }
 
@@ -91,6 +97,12 @@ export const LAUNCH_DATES = {
   boynextdoor: '2026-05-28',
   tws:         '2026-05-28',
   zerobaseone: '2026-05-28',
+  stayc:         '2026-06-01',
+  hearts2hearts: '2026-06-01',
+  fromis9:       '2026-06-01',
+  hitgs:         '2026-06-01',
+  kiiikiii:      '2026-06-01',
+  xg:            '2026-06-01',
   kpopdle:     '2026-05-21',
   'guess-the-group': '2026-05-27',
 }
@@ -125,4 +137,10 @@ export const GROUP_META = {
   boynextdoor: { displayName: 'BOYNEXTDOOR',         tagline: 'Daily BOYNEXTDOOR Song Quiz' },
   tws:         { displayName: 'TWS',                 tagline: 'Daily TWS Song Quiz' },
   zerobaseone: { displayName: 'ZEROBASEONE',         tagline: 'Daily ZEROBASEONE Song Quiz' },
+  stayc:         { displayName: 'STAYC',          tagline: 'Daily STAYC Song Quiz' },
+  hearts2hearts: { displayName: 'Hearts2Hearts',  tagline: 'Daily Hearts2Hearts Song Quiz' },
+  fromis9:       { displayName: 'fromis_9',       tagline: 'Daily fromis_9 Song Quiz' },
+  hitgs:         { displayName: 'HITGS',          tagline: 'Daily HITGS Song Quiz' },
+  kiiikiii:      { displayName: 'KiiiKiii',       tagline: 'Daily KiiiKiii Song Quiz' },
+  xg:            { displayName: 'XG',             tagline: 'Daily XG Song Quiz' },
 }

@@ -1,0 +1,292 @@
+[
+  {
+    "id": 1,
+    "title": "MASCARA",
+    "album": "MASCARA",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1778311397,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3ae2a0801a08b1490e073074b2f4d341/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3ae2a0801a08b1490e073074b2f4d341"
+  },
+  {
+    "id": 2,
+    "title": "Tippy Toes",
+    "album": "Tippy Toes",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1675312807,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7029ae0d3cd44b1f5fce660167b72071/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7029ae0d3cd44b1f5fce660167b72071"
+  },
+  {
+    "id": 3,
+    "title": "GRL GVNG",
+    "album": "NEW DNA",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2382088995,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/8018ddc58ec1180437a2b4e2ec5d7552/500x500-000000-80-0-0.jpg",
+    "coverMd5": "8018ddc58ec1180437a2b4e2ec5d7552"
+  },
+  {
+    "id": 4,
+    "title": "HESONOO",
+    "album": "NEW DNA",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2382088975,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/8018ddc58ec1180437a2b4e2ec5d7552/500x500-000000-80-0-0.jpg",
+    "coverMd5": "8018ddc58ec1180437a2b4e2ec5d7552"
+  },
+  {
+    "id": 5,
+    "title": "LEFT RIGHT",
+    "album": "SHOOTING STAR",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2082768397,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/797734a6a0c8151cd539f438ecd59e8e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "797734a6a0c8151cd539f438ecd59e8e"
+  },
+  {
+    "id": 6,
+    "title": "NEW DANCE",
+    "album": "NEW DNA",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2382089015,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/8018ddc58ec1180437a2b4e2ec5d7552/500x500-000000-80-0-0.jpg",
+    "coverMd5": "8018ddc58ec1180437a2b4e2ec5d7552"
+  },
+  {
+    "id": 7,
+    "title": "PUPPET SHOW",
+    "album": "NEW DNA",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2382089025,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/8018ddc58ec1180437a2b4e2ec5d7552/500x500-000000-80-0-0.jpg",
+    "coverMd5": "8018ddc58ec1180437a2b4e2ec5d7552"
+  },
+  {
+    "id": 8,
+    "title": "SHOOTING STAR",
+    "album": "SHOOTING STAR",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2082768387,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/797734a6a0c8151cd539f438ecd59e8e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "797734a6a0c8151cd539f438ecd59e8e"
+  },
+  {
+    "id": 9,
+    "title": "TGIF",
+    "album": "NEW DNA",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2382089005,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/8018ddc58ec1180437a2b4e2ec5d7552/500x500-000000-80-0-0.jpg",
+    "coverMd5": "8018ddc58ec1180437a2b4e2ec5d7552"
+  },
+  {
+    "id": 10,
+    "title": "WINTER WITHOUT YOU",
+    "album": "WINTER WITHOUT YOU",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2555179392,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/4657d1849a5cd130922081e149645dd0/500x500-000000-80-0-0.jpg",
+    "coverMd5": "4657d1849a5cd130922081e149645dd0"
+  },
+  {
+    "id": 11,
+    "title": "X-GENE",
+    "album": "NEW DNA",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2382088985,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/8018ddc58ec1180437a2b4e2ec5d7552/500x500-000000-80-0-0.jpg",
+    "coverMd5": "8018ddc58ec1180437a2b4e2ec5d7552"
+  },
+  {
+    "id": 12,
+    "title": "HOWL",
+    "album": "AWE",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3049233321,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/38172bb02ecc6ebeb207f8b95ab42930/500x500-000000-80-0-0.jpg",
+    "coverMd5": "38172bb02ecc6ebeb207f8b95ab42930"
+  },
+  {
+    "id": 13,
+    "title": "HOWLING",
+    "album": "AWE",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3049233331,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/38172bb02ecc6ebeb207f8b95ab42930/500x500-000000-80-0-0.jpg",
+    "coverMd5": "38172bb02ecc6ebeb207f8b95ab42930"
+  },
+  {
+    "id": 14,
+    "title": "IN THE RAIN",
+    "album": "AWE",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3049233371,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/38172bb02ecc6ebeb207f8b95ab42930/500x500-000000-80-0-0.jpg",
+    "coverMd5": "38172bb02ecc6ebeb207f8b95ab42930"
+  },
+  {
+    "id": 15,
+    "title": "IS THIS LOVE",
+    "album": "AWE",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3049233391,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/38172bb02ecc6ebeb207f8b95ab42930/500x500-000000-80-0-0.jpg",
+    "coverMd5": "38172bb02ecc6ebeb207f8b95ab42930"
+  },
+  {
+    "id": 16,
+    "title": "IYKYK",
+    "album": "AWE",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3049233351,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/38172bb02ecc6ebeb207f8b95ab42930/500x500-000000-80-0-0.jpg",
+    "coverMd5": "38172bb02ecc6ebeb207f8b95ab42930"
+  },
+  {
+    "id": 17,
+    "title": "SOMETHING AIN'T RIGHT",
+    "album": "AWE",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3049233361,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/38172bb02ecc6ebeb207f8b95ab42930/500x500-000000-80-0-0.jpg",
+    "coverMd5": "38172bb02ecc6ebeb207f8b95ab42930"
+  },
+  {
+    "id": 18,
+    "title": "WOKE UP",
+    "album": "WOKE UP",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2762459281,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/542e0d981de39a7691154b8a296ebb62/500x500-000000-80-0-0.jpg",
+    "coverMd5": "542e0d981de39a7691154b8a296ebb62"
+  },
+  {
+    "id": 19,
+    "title": "4 SEASONS",
+    "album": "4 SEASONS",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3725229192,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/8bfb69cb8fcea83a9da13c4374b5a6d5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "8bfb69cb8fcea83a9da13c4374b5a6d5"
+  },
+  {
+    "id": 20,
+    "title": "GALA",
+    "album": "GALA",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3779385992,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/4f79ac7bef235ad4fd0bbd9e7ed960f6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "4f79ac7bef235ad4fd0bbd9e7ed960f6"
+  },
+  {
+    "id": 21,
+    "title": "MILLION PLACES",
+    "album": "MILLION PLACES",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3340977071,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a064535da368b9e963d54b1a0d7f0788/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a064535da368b9e963d54b1a0d7f0788"
+  },
+  {
+    "id": 22,
+    "title": "HYPNOTIZE",
+    "album": "THE CORE - 核",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3785497642,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/8bfb69cb8fcea83a9da13c4374b5a6d5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "8bfb69cb8fcea83a9da13c4374b5a6d5"
+  },
+  {
+    "id": 23,
+    "title": "NO GOOD",
+    "album": "THE CORE - 核",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3785497612,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/8bfb69cb8fcea83a9da13c4374b5a6d5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "8bfb69cb8fcea83a9da13c4374b5a6d5"
+  },
+  {
+    "id": 24,
+    "title": "O.R.B (Obviously Reads Bro)",
+    "album": "THE CORE - 核",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3785497732,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/8bfb69cb8fcea83a9da13c4374b5a6d5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "8bfb69cb8fcea83a9da13c4374b5a6d5"
+  },
+  {
+    "id": 25,
+    "title": "PS118",
+    "album": "THE CORE - 核",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3785497792,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/8bfb69cb8fcea83a9da13c4374b5a6d5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "8bfb69cb8fcea83a9da13c4374b5a6d5"
+  },
+  {
+    "id": 26,
+    "title": "ROCK THE BOAT",
+    "album": "THE CORE - 核",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3785497562,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/8bfb69cb8fcea83a9da13c4374b5a6d5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "8bfb69cb8fcea83a9da13c4374b5a6d5"
+  },
+  {
+    "id": 27,
+    "title": "TAKE MY BREATH",
+    "album": "THE CORE - 核",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3785497592,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/8bfb69cb8fcea83a9da13c4374b5a6d5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "8bfb69cb8fcea83a9da13c4374b5a6d5"
+  },
+  {
+    "id": 28,
+    "title": "UP NOW",
+    "album": "THE CORE - 核",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3785497692,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/8bfb69cb8fcea83a9da13c4374b5a6d5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "8bfb69cb8fcea83a9da13c4374b5a6d5"
+  },
+  {
+    "id": 29,
+    "title": "XIGNAL (The Intro)",
+    "album": "THE CORE - 核",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3785497522,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/8bfb69cb8fcea83a9da13c4374b5a6d5/500x500-000000-80-0-0.jpg",
+    "coverMd5": "8bfb69cb8fcea83a9da13c4374b5a6d5"
+  }
+]

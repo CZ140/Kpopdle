@@ -1,0 +1,278 @@
+{
+  "groupId": "stayc",
+  "displayName": "STAYC",
+  "estimatedSongs": 54,
+  "_source": "Built from Deezer artist catalog (verified previews) — see scripts/extract-deezer-catalog.mjs",
+  "songs": [
+    {
+      "title": "LIKE THIS",
+      "album": "Star To A Young Culture",
+      "releaseYear": 2020
+    },
+    {
+      "title": "SO BAD",
+      "album": "Star To A Young Culture",
+      "releaseYear": 2020
+    },
+    {
+      "title": "ASAP",
+      "album": "STAYDOM",
+      "releaseYear": 2021
+    },
+    {
+      "title": "COMPLEX",
+      "album": "STEREOTYPE",
+      "releaseYear": 2021
+    },
+    {
+      "title": "I’ll BE THERE",
+      "album": "STEREOTYPE",
+      "releaseYear": 2021
+    },
+    {
+      "title": "LOVE FOOL",
+      "album": "STAYDOM",
+      "releaseYear": 2021
+    },
+    {
+      "title": "SLOW DOWN",
+      "album": "STEREOTYPE",
+      "releaseYear": 2021
+    },
+    {
+      "title": "SO WHAT",
+      "album": "STAYDOM",
+      "releaseYear": 2021
+    },
+    {
+      "title": "STEREOTYPE",
+      "album": "STEREOTYPE",
+      "releaseYear": 2021
+    },
+    {
+      "title": "247",
+      "album": "YOUNG-LUV.COM",
+      "releaseYear": 2022
+    },
+    {
+      "title": "BEAUTIFUL MONSTER",
+      "album": "WE NEED LOVE",
+      "releaseYear": 2022
+    },
+    {
+      "title": "BUTTERFLY",
+      "album": "YOUNG-LUV.COM",
+      "releaseYear": 2022
+    },
+    {
+      "title": "I LIKE IT",
+      "album": "WE NEED LOVE",
+      "releaseYear": 2022
+    },
+    {
+      "title": "I WANT U BABY",
+      "album": "YOUNG-LUV.COM",
+      "releaseYear": 2022
+    },
+    {
+      "title": "LOVE",
+      "album": "WE NEED LOVE",
+      "releaseYear": 2022
+    },
+    {
+      "title": "RUN2U",
+      "album": "YOUNG-LUV.COM",
+      "releaseYear": 2022
+    },
+    {
+      "title": "SAME SAME",
+      "album": "YOUNG-LUV.COM",
+      "releaseYear": 2022
+    },
+    {
+      "title": "STAR",
+      "album": "Our Blues OST Part 8",
+      "releaseYear": 2022
+    },
+    {
+      "title": "YOUNG LUV",
+      "album": "YOUNG-LUV.COM",
+      "releaseYear": 2022
+    },
+    {
+      "title": "Be Mine",
+      "album": "TEENFRESH",
+      "releaseYear": 2023
+    },
+    {
+      "title": "Bubble",
+      "album": "TEENFRESH",
+      "releaseYear": 2023
+    },
+    {
+      "title": "I Wanna Do",
+      "album": "TEENFRESH",
+      "releaseYear": 2023
+    },
+    {
+      "title": "LIT",
+      "album": "LIT",
+      "releaseYear": 2023
+    },
+    {
+      "title": "Not Like You",
+      "album": "TEENFRESH",
+      "releaseYear": 2023
+    },
+    {
+      "title": "Teddy Bear",
+      "album": "Teddy Bear",
+      "releaseYear": 2023
+    },
+    {
+      "title": "1 Thing",
+      "album": "Metamorphic",
+      "releaseYear": 2024
+    },
+    {
+      "title": "Beauty Bomb",
+      "album": "Metamorphic",
+      "releaseYear": 2024
+    },
+    {
+      "title": "Cheeky Icy Thang",
+      "album": "Metamorphic",
+      "releaseYear": 2024
+    },
+    {
+      "title": "Fakin’ (Sumin & Yoon)",
+      "album": "Metamorphic",
+      "releaseYear": 2024
+    },
+    {
+      "title": "Find (Sieun & Seeun & J)",
+      "album": "Metamorphic",
+      "releaseYear": 2024
+    },
+    {
+      "title": "Flexing On My Ex",
+      "album": "Metamorphic",
+      "releaseYear": 2024
+    },
+    {
+      "title": "Give It 2 Me",
+      "album": "Metamorphic",
+      "releaseYear": 2024
+    },
+    {
+      "title": "GPT",
+      "album": "...l",
+      "releaseYear": 2024
+    },
+    {
+      "title": "Gummy Bear",
+      "album": "Metamorphic",
+      "releaseYear": 2024
+    },
+    {
+      "title": "Let Me Know",
+      "album": "Metamorphic",
+      "releaseYear": 2024
+    },
+    {
+      "title": "Meant To Be",
+      "album": "...l",
+      "releaseYear": 2024
+    },
+    {
+      "title": "MEOW",
+      "album": "MEOW / Cheeky Icy Thang (Japanese Version)",
+      "releaseYear": 2024
+    },
+    {
+      "title": "Nada",
+      "album": "Metamorphic",
+      "releaseYear": 2024
+    },
+    {
+      "title": "Over U, Goodbye (Seeun x J)",
+      "album": "Over U, Goodbye (Seeun x J)",
+      "releaseYear": 2024
+    },
+    {
+      "title": "Roses (ISA)",
+      "album": "Metamorphic",
+      "releaseYear": 2024
+    },
+    {
+      "title": "Stay WITH me",
+      "album": "Metamorphic",
+      "releaseYear": 2024
+    },
+    {
+      "title": "Tell Me Now",
+      "album": "GPT (Japanese Version) / Tell Me Now",
+      "releaseYear": 2024
+    },
+    {
+      "title": "Trouble Maker",
+      "album": "Metamorphic",
+      "releaseYear": 2024
+    },
+    {
+      "title": "Twenty",
+      "album": "Metamorphic",
+      "releaseYear": 2024
+    },
+    {
+      "title": "BEBE",
+      "album": "S",
+      "releaseYear": 2025
+    },
+    {
+      "title": "BOY",
+      "album": "STAYC Special Single [I WANT IT]",
+      "releaseYear": 2025
+    },
+    {
+      "title": "DIAMOND",
+      "album": "S",
+      "releaseYear": 2025
+    },
+    {
+      "title": "I WANT IT",
+      "album": "STAYC Special Single [I WANT IT]",
+      "releaseYear": 2025
+    },
+    {
+      "title": "Lover, Killer",
+      "album": "Lover, Killer / BEBE (Japanese Ver.)",
+      "releaseYear": 2025
+    },
+    {
+      "title": "PIPE DOWN",
+      "album": "S",
+      "releaseYear": 2025
+    },
+    {
+      "title": "반칙(Honestly)",
+      "album": "STAYC Special Single [I WANT IT]",
+      "releaseYear": 2025
+    },
+    {
+      "title": "MWUAH",
+      "album": "STAY ALIVE",
+      "releaseYear": 2026
+    },
+    {
+      "title": "Satellite",
+      "album": "STAY ALIVE",
+      "releaseYear": 2026
+    },
+    {
+      "title": "Say My Name",
+      "album": "STAY ALIVE",
+      "releaseYear": 2026
+    }
+  ]
+}

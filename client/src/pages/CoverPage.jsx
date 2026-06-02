@@ -44,6 +44,12 @@ const GROUP_GAME_COLORS = {
   boynextdoor: { primary: '#EA580C', secondary: '#FED7AA' },
   tws:         { primary: '#38BDF8', secondary: '#FBCFE8' },
   zerobaseone: { primary: '#6366F1', secondary: '#FB923C' },
+  stayc:         { primary: '#FF4D8D', secondary: '#3FA9F5' },
+  hearts2hearts: { primary: '#38BDF8', secondary: '#34D399' },
+  fromis9:       { primary: '#A855F7', secondary: '#34D399' },
+  hitgs:         { primary: '#A3E635', secondary: '#F472B6' },
+  kiiikiii:      { primary: '#C04DFF', secondary: '#2DD4BF' },
+  xg:            { primary: '#818CF8', secondary: '#94A3B8' },
 }
 
 function subtractDay(dateStr) {

@@ -1,0 +1,53 @@
+{
+  "groupId": "hearts2hearts",
+  "displayName": "Hearts2Hearts",
+  "estimatedSongs": 9,
+  "_source": "Built from Deezer artist catalog (verified previews) — see scripts/extract-deezer-catalog.mjs",
+  "songs": [
+    {
+      "title": "Apple Pie",
+      "album": "FOCUS - The 1st Mini Album",
+      "releaseYear": 2025
+    },
+    {
+      "title": "Blue Moon",
+      "album": "FOCUS - The 1st Mini Album",
+      "releaseYear": 2025
+    },
+    {
+      "title": "Butterflies",
+      "album": "The Chase",
+      "releaseYear": 2025
+    },
+    {
+      "title": "Flutter",
+      "album": "FOCUS - The 1st Mini Album",
+      "releaseYear": 2025
+    },
+    {
+      "title": "FOCUS",
+      "album": "FOCUS - The 1st Mini Album",
+      "releaseYear": 2025
+    },
+    {
+      "title": "Pretty Please",
+      "album": "FOCUS - The 1st Mini Album",
+      "releaseYear": 2025
+    },
+    {
+      "title": "STYLE",
+      "album": "STYLE",
+      "releaseYear": 2025
+    },
+    {
+      "title": "The Chase",
+      "album": "The Chase",
+      "releaseYear": 2025
+    },
+    {
+      "title": "RUDE!",
+      "album": "RUDE!",
+      "releaseYear": 2026
+    }
+  ]
+}

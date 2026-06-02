@@ -1,0 +1,78 @@
+{
+  "groupId": "kiiikiii",
+  "displayName": "KiiiKiii",
+  "estimatedSongs": 14,
+  "_source": "Built from Deezer artist catalog (verified previews) — see scripts/extract-deezer-catalog.mjs",
+  "songs": [
+    {
+      "title": "BTG",
+      "album": "UNCUT GEM",
+      "releaseYear": 2025
+    },
+    {
+      "title": "DANCING ALONE",
+      "album": "DANCING ALONE",
+      "releaseYear": 2025
+    },
+    {
+      "title": "DEBUT SONG",
+      "album": "UNCUT GEM",
+      "releaseYear": 2025
+    },
+    {
+      "title": "GROUNDWORK",
+      "album": "UNCUT GEM",
+      "releaseYear": 2025
+    },
+    {
+      "title": "I DO ME",
+      "album": "UNCUT GEM",
+      "releaseYear": 2025
+    },
+    {
+      "title": "THERE THEY GO",
+      "album": "UNCUT GEM",
+      "releaseYear": 2025
+    },
+    {
+      "title": "딸기게임 (Strawberry Cheesegame)",
+      "album": "DANCING ALONE",
+      "releaseYear": 2025
+    },
+    {
+      "title": "한 개뿐인 (ONE OFF)",
+      "album": "UNCUT GEM",
+      "releaseYear": 2025
+    },
+    {
+      "title": "404 (New Era)",
+      "album": "Delulu Pack",
+      "releaseYear": 2026
+    },
+    {
+      "title": "Delulu",
+      "album": "Delulu Pack",
+      "releaseYear": 2026
+    },
+    {
+      "title": "Dizzy",
+      "album": "Delulu Pack",
+      "releaseYear": 2026
+    },
+    {
+      "title": "Go On",
+      "album": "Perfect Crown OST Part.2",
+      "releaseYear": 2026
+    },
+    {
+      "title": "MUNGNYANG",
+      "album": "Delulu Pack",
+      "releaseYear": 2026
+    },
+    {
+      "title": "UNDERDOGS",
+      "album": "Delulu Pack",
+      "releaseYear": 2026
+    }
+  ]
+}

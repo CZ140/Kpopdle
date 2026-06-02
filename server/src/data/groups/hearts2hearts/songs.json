@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "title": "Apple Pie",
+    "album": "FOCUS - The 1st Mini Album",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3570464791,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/06342234b90d74114f9ded94d124e02e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "06342234b90d74114f9ded94d124e02e"
+  },
+  {
+    "id": 2,
+    "title": "Blue Moon",
+    "album": "FOCUS - The 1st Mini Album",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3570464821,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/06342234b90d74114f9ded94d124e02e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "06342234b90d74114f9ded94d124e02e"
+  },
+  {
+    "id": 3,
+    "title": "Butterflies",
+    "album": "The Chase",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3234208291,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a9f7de4c629e2808261b508008356905/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a9f7de4c629e2808261b508008356905"
+  },
+  {
+    "id": 4,
+    "title": "Flutter",
+    "album": "FOCUS - The 1st Mini Album",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3570464811,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/06342234b90d74114f9ded94d124e02e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "06342234b90d74114f9ded94d124e02e"
+  },
+  {
+    "id": 5,
+    "title": "FOCUS",
+    "album": "FOCUS - The 1st Mini Album",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3570464781,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/06342234b90d74114f9ded94d124e02e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "06342234b90d74114f9ded94d124e02e"
+  },
+  {
+    "id": 6,
+    "title": "Pretty Please",
+    "album": "FOCUS - The 1st Mini Album",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3570464801,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/06342234b90d74114f9ded94d124e02e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "06342234b90d74114f9ded94d124e02e"
+  },
+  {
+    "id": 7,
+    "title": "STYLE",
+    "album": "STYLE",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3407280351,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a903e666dfaf6012d43e453330dd19b0/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a903e666dfaf6012d43e453330dd19b0"
+  },
+  {
+    "id": 8,
+    "title": "The Chase",
+    "album": "The Chase",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3234208281,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a9f7de4c629e2808261b508008356905/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a9f7de4c629e2808261b508008356905"
+  },
+  {
+    "id": 9,
+    "title": "RUDE!",
+    "album": "RUDE!",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3827375541,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/da53678166431bddcbc470712bd43fa7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "da53678166431bddcbc470712bd43fa7"
+  }
+]

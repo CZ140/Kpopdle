@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "title": "A-HA!",
+    "album": "Things we love : I",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3570355471,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7222205116dd09d7af44495c3b7fdf37/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7222205116dd09d7af44495c3b7fdf37"
+  },
+  {
+    "id": 2,
+    "title": "CHARIZZMA",
+    "album": "Things we love : I",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3570355501,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7222205116dd09d7af44495c3b7fdf37/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7222205116dd09d7af44495c3b7fdf37"
+  },
+  {
+    "id": 3,
+    "title": "GROSS",
+    "album": "Things we love : I",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3570355491,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7222205116dd09d7af44495c3b7fdf37/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7222205116dd09d7af44495c3b7fdf37"
+  },
+  {
+    "id": 4,
+    "title": "HAPPY",
+    "album": "Things we love : I",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3570355461,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7222205116dd09d7af44495c3b7fdf37/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7222205116dd09d7af44495c3b7fdf37"
+  },
+  {
+    "id": 5,
+    "title": "Never Be Me",
+    "album": "The 1st Single Album - Things we love : H",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3336280171,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d5c703c109ad6bbcbf114f30cdd2cba6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d5c703c109ad6bbcbf114f30cdd2cba6"
+  },
+  {
+    "id": 6,
+    "title": "PAGE",
+    "album": "Things we love : I",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3570355481,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7222205116dd09d7af44495c3b7fdf37/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7222205116dd09d7af44495c3b7fdf37"
+  },
+  {
+    "id": 7,
+    "title": "SOURPATCH",
+    "album": "The 1st Single Album - Things we love : H",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3336280161,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d5c703c109ad6bbcbf114f30cdd2cba6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d5c703c109ad6bbcbf114f30cdd2cba6"
+  },
+  {
+    "id": 8,
+    "title": "Cherry Blossom",
+    "album": "Things We Dream: Vol.1",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3950596781,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c2510253e940641e08a92d18b167e3c1/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c2510253e940641e08a92d18b167e3c1"
+  }
+]

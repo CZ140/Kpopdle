@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "title": "BTG",
+    "album": "UNCUT GEM",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3269045511,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/707fd7656822d7da238ece97be989920/500x500-000000-80-0-0.jpg",
+    "coverMd5": "707fd7656822d7da238ece97be989920"
+  },
+  {
+    "id": 2,
+    "title": "DANCING ALONE",
+    "album": "DANCING ALONE",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3488151141,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b076c7f75a6f9a84fa8dc235c0af23a3/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b076c7f75a6f9a84fa8dc235c0af23a3"
+  },
+  {
+    "id": 3,
+    "title": "DEBUT SONG",
+    "album": "UNCUT GEM",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3269045471,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/707fd7656822d7da238ece97be989920/500x500-000000-80-0-0.jpg",
+    "coverMd5": "707fd7656822d7da238ece97be989920"
+  },
+  {
+    "id": 4,
+    "title": "GROUNDWORK",
+    "album": "UNCUT GEM",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3269045481,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/707fd7656822d7da238ece97be989920/500x500-000000-80-0-0.jpg",
+    "coverMd5": "707fd7656822d7da238ece97be989920"
+  },
+  {
+    "id": 5,
+    "title": "I DO ME",
+    "album": "UNCUT GEM",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3269045491,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/707fd7656822d7da238ece97be989920/500x500-000000-80-0-0.jpg",
+    "coverMd5": "707fd7656822d7da238ece97be989920"
+  },
+  {
+    "id": 6,
+    "title": "THERE THEY GO",
+    "album": "UNCUT GEM",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3269045501,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/707fd7656822d7da238ece97be989920/500x500-000000-80-0-0.jpg",
+    "coverMd5": "707fd7656822d7da238ece97be989920"
+  },
+  {
+    "id": 7,
+    "title": "딸기게임 (Strawberry Cheesegame)",
+    "album": "DANCING ALONE",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3488151151,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b076c7f75a6f9a84fa8dc235c0af23a3/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b076c7f75a6f9a84fa8dc235c0af23a3"
+  },
+  {
+    "id": 8,
+    "title": "한 개뿐인 (ONE OFF)",
+    "album": "UNCUT GEM",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3269045521,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/707fd7656822d7da238ece97be989920/500x500-000000-80-0-0.jpg",
+    "coverMd5": "707fd7656822d7da238ece97be989920"
+  },
+  {
+    "id": 9,
+    "title": "404 (New Era)",
+    "album": "Delulu Pack",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3758369852,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a25c0ced4167de8b49b73a8ffba880c9/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a25c0ced4167de8b49b73a8ffba880c9"
+  },
+  {
+    "id": 10,
+    "title": "Delulu",
+    "album": "Delulu Pack",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3758369842,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a25c0ced4167de8b49b73a8ffba880c9/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a25c0ced4167de8b49b73a8ffba880c9"
+  },
+  {
+    "id": 11,
+    "title": "Dizzy",
+    "album": "Delulu Pack",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3758369882,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a25c0ced4167de8b49b73a8ffba880c9/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a25c0ced4167de8b49b73a8ffba880c9"
+  },
+  {
+    "id": 12,
+    "title": "Go On",
+    "album": "Perfect Crown OST Part.2",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3948103531,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ec7b59da9b98be7c6845b1e6c3287967/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ec7b59da9b98be7c6845b1e6c3287967"
+  },
+  {
+    "id": 13,
+    "title": "MUNGNYANG",
+    "album": "Delulu Pack",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3758369872,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a25c0ced4167de8b49b73a8ffba880c9/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a25c0ced4167de8b49b73a8ffba880c9"
+  },
+  {
+    "id": 14,
+    "title": "UNDERDOGS",
+    "album": "Delulu Pack",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3758369862,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a25c0ced4167de8b49b73a8ffba880c9/500x500-000000-80-0-0.jpg",
+    "coverMd5": "a25c0ced4167de8b49b73a8ffba880c9"
+  }
+]

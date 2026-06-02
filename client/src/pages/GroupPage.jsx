@@ -52,6 +52,12 @@ const GROUP_BLURBS = {
   boynextdoor: { era: "HYBE/KOZ's 6-member Zico-produced rookies", vibe: 'boy-band warmth crossed with old-school hip-hop production cues from producer-leader Zico', span: 'One and Only in 2023 through But Sometimes, Earth, Wind & Fire, Dangerous and the 19.99 and No Genre eras' },
   tws:         { era: "Pledis's bright 6-member SEVENTEEN-sibling group", vibe: 'youth-pop hooks, sparkling production and easy-to-love coming-of-age songwriting', span: 'plot twist in 2024 through Oh Mymy : 7s, hey! hey!, BFF and the play hard era' },
   zerobaseone: { era: "WAKEONE's 9-member Boys Planet survival winners", vibe: 'polished concept pop, choreo-forward title tracks and a relentless four-album-deep rookie velocity', span: 'In Bloom in 2023 through Crush, Take My Hand, Feel the POP, Good So Bad and BLUE' },
+  stayc:         { era: "High Up Entertainment's 6-member girl-crush hit-makers", vibe: 'bright "teen fresh" hooks, brassy synth-pop and Black Eyed Pilseung production', span: 'their 2020 "SO BAD" debut through ASAP, RUN2U, Teddy Bear, Cheeky Icy Thang and the latest era' },
+  hearts2hearts: { era: "SM's 8-member 2025 girl-group debut", vibe: 'cool, dreamy synth-pop and clover-motif branding pitched between Girls\' Generation and f(x)', span: 'their 2025 "The Chase" debut through FOCUS, STYLE and RUDE!' },
+  fromis9:       { era: "ASND's (formerly Pledis) 5-member girl group", vibe: 'bright, friendly retro-disco pop with warm Flover-era charm', span: 'their 2018 "To Heart" debut through LOVE BOMB, WE GO, DM, Stay This Way, #menow and Supersonic' },
+  hitgs:         { era: "H Music Entertainment's 5-member rookie girls", vibe: 'playful sour-candy teen-pop produced by Ryan Jhun, all sugar-rush hooks and Y2K colour', span: 'their 2025 "SOURPATCH" debut through the Things We Love and Things We Dream singles' },
+  kiiikiii:      { era: "Starship's 5-member 2025 girl group", vibe: 'Y2K-meets-weirdcore jewel-toned styling and scrappy, anti-polish indie-pop energy', span: 'their 2025 "I DO ME" debut and UNCUT GEM EP through Dancing Alone and the Delulu Pack' },
+  xg:            { era: "XGALX's 7-member globally-minded group", vibe: 'sleek, futuristic English-language hip-hop and R&B with chrome-on-black "Xtraordinary" branding', span: 'their 2022 "Tippy Toes" debut through SHOOTING STAR, LEFT RIGHT, WOKE UP, the AWE album and THE CORE' },
 }
 
 // Game UI colors — primary must be a vivid color usable on dark bg (BLACKPINK uses pink not dark)
@@ -84,6 +90,12 @@ const GROUP_GAME_COLORS = {
   boynextdoor: { primary: '#EA580C', secondary: '#FED7AA' },
   tws:         { primary: '#38BDF8', secondary: '#FBCFE8' },
   zerobaseone: { primary: '#6366F1', secondary: '#FB923C' },
+  stayc:         { primary: '#FF4D8D', secondary: '#3FA9F5' },
+  hearts2hearts: { primary: '#38BDF8', secondary: '#34D399' },
+  fromis9:       { primary: '#A855F7', secondary: '#34D399' },
+  hitgs:         { primary: '#A3E635', secondary: '#F472B6' },
+  kiiikiii:      { primary: '#C04DFF', secondary: '#2DD4BF' },
+  xg:            { primary: '#818CF8', secondary: '#94A3B8' },
 }
 
 function subtractDay(dateStr) {

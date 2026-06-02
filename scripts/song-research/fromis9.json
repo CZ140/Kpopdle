@@ -1,0 +1,333 @@
+{
+  "groupId": "fromis9",
+  "displayName": "fromis_9",
+  "estimatedSongs": 65,
+  "_source": "Built from Deezer artist catalog (verified previews) — see scripts/extract-deezer-catalog.mjs",
+  "songs": [
+    {
+      "title": "Glass Shoes",
+      "album": "Fromis_9 PRE-DEBUT Single",
+      "releaseYear": 2017
+    },
+    {
+      "title": "22CENTURY GIRL",
+      "album": "To. Day",
+      "releaseYear": 2018
+    },
+    {
+      "title": "Be With You",
+      "album": "To. Heart",
+      "releaseYear": 2018
+    },
+    {
+      "title": "CLOSE TO YOU",
+      "album": "To. Day",
+      "releaseYear": 2018
+    },
+    {
+      "title": "CLOVER",
+      "album": "To. Day",
+      "releaseYear": 2018
+    },
+    {
+      "title": "COLORING",
+      "album": "From.9",
+      "releaseYear": 2018
+    },
+    {
+      "title": "DANCING QUEEN",
+      "album": "From.9",
+      "releaseYear": 2018
+    },
+    {
+      "title": "FIRST LOVE",
+      "album": "To. Day",
+      "releaseYear": 2018
+    },
+    {
+      "title": "LOVE BOMB",
+      "album": "From.9",
+      "releaseYear": 2018
+    },
+    {
+      "title": "Miracle",
+      "album": "To. Heart",
+      "releaseYear": 2018
+    },
+    {
+      "title": "Pinocchio",
+      "album": "To. Heart",
+      "releaseYear": 2018
+    },
+    {
+      "title": "PITAPAT (DKDK)",
+      "album": "To. Day",
+      "releaseYear": 2018
+    },
+    {
+      "title": "The Way To Me (Intro.)",
+      "album": "To. Heart",
+      "releaseYear": 2018
+    },
+    {
+      "title": "THINK OF YOU",
+      "album": "To. Day",
+      "releaseYear": 2018
+    },
+    {
+      "title": "To Heart",
+      "album": "To. Heart",
+      "releaseYear": 2018
+    },
+    {
+      "title": "FLY HIGH",
+      "album": "FUN FACTORY",
+      "releaseYear": 2019
+    },
+    {
+      "title": "FUN!",
+      "album": "FUN FACTORY",
+      "releaseYear": 2019
+    },
+    {
+      "title": "LOVE RUMPUMPUM",
+      "album": "FUN FACTORY",
+      "releaseYear": 2019
+    },
+    {
+      "title": "Feel Good (SECRET CODE)",
+      "album": "My Little Society",
+      "releaseYear": 2020
+    },
+    {
+      "title": "Mulgogi",
+      "album": "My Little Society",
+      "releaseYear": 2020
+    },
+    {
+      "title": "Somebody to love",
+      "album": "My Little Society",
+      "releaseYear": 2020
+    },
+    {
+      "title": "Starry night",
+      "album": "My Little Society",
+      "releaseYear": 2020
+    },
+    {
+      "title": "Weather",
+      "album": "My Little Society",
+      "releaseYear": 2020
+    },
+    {
+      "title": "Airplane Mode",
+      "album": "9 WAY TICKET",
+      "releaseYear": 2021
+    },
+    {
+      "title": "Promise",
+      "album": "9 WAY TICKET",
+      "releaseYear": 2021
+    },
+    {
+      "title": "Star",
+      "album": "CYWORLD BGM 2021",
+      "releaseYear": 2021
+    },
+    {
+      "title": "Talk & Talk",
+      "album": "Talk & Talk",
+      "releaseYear": 2021
+    },
+    {
+      "title": "WE GO",
+      "album": "9 WAY TICKET",
+      "releaseYear": 2021
+    },
+    {
+      "title": "0g",
+      "album": "Midnight Guest",
+      "releaseYear": 2022
+    },
+    {
+      "title": "Blind Letter",
+      "album": "from our Memento Box",
+      "releaseYear": 2022
+    },
+    {
+      "title": "Cheese",
+      "album": "from our Memento Box",
+      "releaseYear": 2022
+    },
+    {
+      "title": "DM",
+      "album": "Midnight Guest",
+      "releaseYear": 2022
+    },
+    {
+      "title": "Escape Room",
+      "album": "Midnight Guest",
+      "releaseYear": 2022
+    },
+    {
+      "title": "Hush Hush",
+      "album": "Midnight Guest",
+      "releaseYear": 2022
+    },
+    {
+      "title": "Love is Around",
+      "album": "Midnight Guest",
+      "releaseYear": 2022
+    },
+    {
+      "title": "Rewind",
+      "album": "from our Memento Box",
+      "releaseYear": 2022
+    },
+    {
+      "title": "Sea of Moonlight",
+      "album": "Sea of Moonlight",
+      "releaseYear": 2022
+    },
+    {
+      "title": "Stay Alive",
+      "album": "Crazy Love (Original Television Soundtrack) Pt. 2",
+      "releaseYear": 2022
+    },
+    {
+      "title": "Stay This Way",
+      "album": "from our Memento Box",
+      "releaseYear": 2022
+    },
+    {
+      "title": "Up And",
+      "album": "from our Memento Box",
+      "releaseYear": 2022
+    },
+    {
+      "title": "#menow",
+      "album": "Unlock My World",
+      "releaseYear": 2023
+    },
+    {
+      "title": "Attitude",
+      "album": "Unlock My World",
+      "releaseYear": 2023
+    },
+    {
+      "title": "Bring It On",
+      "album": "Unlock My World",
+      "releaseYear": 2023
+    },
+    {
+      "title": "Don't Care",
+      "album": "Unlock My World",
+      "releaseYear": 2023
+    },
+    {
+      "title": "Eye Contact",
+      "album": "Unlock My World",
+      "releaseYear": 2023
+    },
+    {
+      "title": "In the Mirror",
+      "album": "Unlock My World",
+      "releaseYear": 2023
+    },
+    {
+      "title": "Love Me Back",
+      "album": "Love Me Back",
+      "releaseYear": 2023
+    },
+    {
+      "title": "My Night Routine",
+      "album": "Unlock My World",
+      "releaseYear": 2023
+    },
+    {
+      "title": "Prom Night",
+      "album": "Unlock My World",
+      "releaseYear": 2023
+    },
+    {
+      "title": "What I Want",
+      "album": "Unlock My World",
+      "releaseYear": 2023
+    },
+    {
+      "title": "Wishlist",
+      "album": "Unlock My World",
+      "releaseYear": 2023
+    },
+    {
+      "title": "Beat the Heat",
+      "album": "Supersonic",
+      "releaseYear": 2024
+    },
+    {
+      "title": "from",
+      "album": "from",
+      "releaseYear": 2024
+    },
+    {
+      "title": "Supersonic",
+      "album": "Supersonic",
+      "releaseYear": 2024
+    },
+    {
+      "title": "Take A Chance",
+      "album": "Supersonic",
+      "releaseYear": 2024
+    },
+    {
+      "title": "LIKE YOU BETTER",
+      "album": "From Our 20's",
+      "releaseYear": 2025
+    },
+    {
+      "title": "Love=Disaster",
+      "album": "From Our 20's",
+      "releaseYear": 2025
+    },
+    {
+      "title": "Merry Go Round",
+      "album": "From Our 20's",
+      "releaseYear": 2025
+    },
+    {
+      "title": "REBELUTIONAL",
+      "album": "From Our 20's",
+      "releaseYear": 2025
+    },
+    {
+      "title": "Strawberry Mimosa",
+      "album": "From Our 20's",
+      "releaseYear": 2025
+    },
+    {
+      "title": "Touchdown",
+      "album": "The Winning Try OST Part.2",
+      "releaseYear": 2025
+    },
+    {
+      "title": "Twisted love",
+      "album": "From Our 20's",
+      "releaseYear": 2025
+    },
+    {
+      "title": "White Memories",
+      "album": "White Memories",
+      "releaseYear": 2025
+    },
+    {
+      "title": "Sky Runner",
+      "album": "LIKE YOU BETTER (Japanese ver.)",
+      "releaseYear": 2026
+    },
+    {
+      "title": "Swipe It Out",
+      "album": "Boyfriend on Demand Part 2 (Soundtrack from the Netflix Series)",
+      "releaseYear": 2026
+    }
+  ]
+}
