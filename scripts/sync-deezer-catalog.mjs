@@ -41,8 +41,11 @@ const norm = (t) => t.toLowerCase().normalize('NFKD').replace(/[^\p{L}\p{N}]/gu,
 // One song is listed several ways across releases ("HEYA" / "해야 (HEYA)" /
 // "WOKE UP x XDM"), so match on any of: the whole title, the part before "(",
 // each parenthetical, and the part before a trailing " x <remixer>".
+// '완벽한 장면 Summer Night' -> 'Summer Night': catalog titles are the Latin name.
+const latinTitle = (t) => t.replace(/^[\p{Script=Hangul}\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}\s]+(?=[A-Za-z0-9])/u, '')
+
 const keys = (t) => {
-  const clean = t.replace(/\s*[\(\[]\s*(feat|with|prod)\.?[^\)\]]*[\)\]]/gi, '')
+  const clean = latinTitle(t).replace(/\s*[\(\[]\s*(feat|with|prod)\.?[^\)\]]*[\)\]]/gi, '')
   const out = [clean, clean.replace(/\s*[\(\[].*$/, ''), clean.replace(/\s+x\s+\S+\s*$/i, '')]
   for (const m of clean.matchAll(/[\(\[]([^\)\]]+)[\)\]]/g)) out.push(m[1])
   return [...new Set(out.map(norm).filter(Boolean))]
@@ -108,7 +111,7 @@ for (const g of groups) {
       const ks = keys(t.title)
       if (!ks.length || ks.some(k => have.has(k) || found.has(k))) continue
       const entry = {
-        title: t.title.replace(/\s*[\(\[]from [^\)\]]*[\)\]]/gi, '').trim(),
+        title: latinTitle(t.title).replace(/\s*[\(\[]from [^\)\]]*[\)\]]/gi, '').trim(),
         album: a.title,
         releaseYear: Number(a.release_date.slice(0, 4)),
         spotifyId: null,

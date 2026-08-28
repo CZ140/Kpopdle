@@ -25,7 +25,7 @@
 
 K-POPDLE is a full-stack daily music quiz platform. Players listen to a short audio snippet and guess the song — with each wrong answer revealing a slightly longer clip. Every group has its own independent daily game, driven by a deterministic **HMAC-SHA256** algorithm so the answer is consistent for all players worldwide.
 
-Currently supports **34 groups** and **2,533 songs** (2,241 with verified 30-second Deezer preview URLs; the rest are catalogued but sit out of the daily rotation), current through 2026 releases. All song titles use their English names so every song is typeable on a standard keyboard.
+Currently supports **34 groups** and **2,530 songs** (2,240 with verified 30-second Deezer preview URLs; the rest are catalogued but sit out of the daily rotation), current through 2026 releases. All song titles use their English names so every song is typeable on a standard keyboard.
 
 ---
 
@@ -36,34 +36,40 @@ Thirty-four K-pop groups — boy groups, girl groups, and legacy acts — each w
 
 | Group | Game | Songs |
 |---|---|---|
-| TWICE | TWICEDLE | 100 |
+| TWICE | TWICEDLE | 160 |
 | NewJeans | NEWJEANDLE | 21 |
-| LE SSERAFIM | SERAFIDLE | 47 |
-| aespa | AESPADLE | 74 |
-| Red Velvet | VELVETLE | 130 |
-| KISS OF LIFE | KOLFDLE | 43 |
-| IVE | IVEDLE | 58 |
+| LE SSERAFIM | SERAFIDLE | 58 |
+| aespa | AESPADLE | 90 |
+| Red Velvet | VELVETLE | 135 |
+| KISS OF LIFE | KOLFDLE | 46 |
+| IVE | IVEDLE | 66 |
 | BLACKPINK | BPINKDLE | 36 |
-| BTS | BTSDLE | 108 |
-| Stray Kids | SKZDLE | 126 |
-| SEVENTEEN | SVTDLE | 134 |
-| (G)I-DLE | GIDLEDLE | 57 |
-| ENHYPEN | ENHYDLE | 76 |
-| ATEEZ | ATEEZDLE | 93 |
-| TOMORROW X TOGETHER | TXTDLE | 71 |
-| ITZY | ITZYDLE | 60 |
-| ILLIT | ILLITDLE | 19 |
-| NMIXX | NMIXXDLE | 38 |
-| EXO | EXODLE | 146 |
-| BIGBANG | BIGDLE | 61 |
-| SHINee | SHINEEDLE | 103 |
-| MAMAMOO | MAMOODLE | 68 |
-| Girls' Generation | SNSDDLE | 112 |
-| BABYMONSTER | BABYDLE | 20 |
-| RIIZE | RIIZEDLE | 23 |
-| BOYNEXTDOOR | BNDDLE | 28 |
-| TWS | TWSDLE | 26 |
-| ZEROBASEONE | ZB1DLE | 37 |
+| BTS | BTSDLE | 127 |
+| Stray Kids | SKZDLE | 159 |
+| SEVENTEEN | SVTDLE | 150 |
+| (G)I-DLE | GIDLEDLE | 69 |
+| ENHYPEN | ENHYDLE | 89 |
+| ATEEZ | ATEEZDLE | 122 |
+| TOMORROW X TOGETHER | TXTDLE | 96 |
+| ITZY | ITZYDLE | 90 |
+| ILLIT | ILLITDLE | 29 |
+| NMIXX | NMIXXDLE | 52 |
+| EXO | EXODLE | 155 |
+| BIGBANG | BIGDLE | 62 |
+| SHINee | SHINEEDLE | 115 |
+| MAMAMOO | MAMOODLE | 74 |
+| Girls' Generation | SNSDDLE | 114 |
+| BABYMONSTER | BABYDLE | 25 |
+| RIIZE | RIIZEDLE | 39 |
+| BOYNEXTDOOR | BNDDLE | 43 |
+| TWS | TWSDLE | 40 |
+| ZEROBASEONE | ZB1DLE | 57 |
+| STAYC | STAYCDLE | 59 |
+| Hearts2Hearts | H2HDLE | 15 |
+| fromis_9 | FROMISDLE | 75 |
+| HITGS | HITGSDLE | 12 |
+| KiiiKiii | KIIIDLE | 21 |
+| XG | XGDLE | 29 |
 
 ### 🎮 Daily Game
 - Up to **6 guesses**, each revealing a progressively longer audio clip

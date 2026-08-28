@@ -955,7 +955,9 @@
     "album": "Hard",
     "releaseYear": 2023,
     "spotifyId": null,
-    "deezerId": 0
+    "deezerId": 2334260115,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/503ebd49d17a5ceb6113c19679c8646c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "503ebd49d17a5ceb6113c19679c8646c"
   },
   {
     "id": 104,
@@ -1019,7 +1021,7 @@
   },
   {
     "id": 110,
-    "title": "소나기 Still Raining",
+    "title": "Still Raining",
     "album": "Atmos - The 6th Mini Album",
     "releaseYear": 2026,
     "spotifyId": null,
@@ -1064,16 +1066,6 @@
     "releaseYear": 2023,
     "spotifyId": null,
     "deezerId": 2334260105,
-    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/503ebd49d17a5ceb6113c19679c8646c/500x500-000000-80-0-0.jpg",
-    "coverMd5": "503ebd49d17a5ceb6113c19679c8646c"
-  },
-  {
-    "id": 115,
-    "title": "불면증 Insomnia",
-    "album": "HARD - The 8th Album",
-    "releaseYear": 2023,
-    "spotifyId": null,
-    "deezerId": 2334260115,
     "coverUrl": "https://cdn-images.dzcdn.net/images/cover/503ebd49d17a5ceb6113c19679c8646c/500x500-000000-80-0-0.jpg",
     "coverMd5": "503ebd49d17a5ceb6113c19679c8646c"
   },
