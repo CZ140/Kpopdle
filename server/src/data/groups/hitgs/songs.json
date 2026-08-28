@@ -78,5 +78,45 @@
     "deezerId": 3950596781,
     "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c2510253e940641e08a92d18b167e3c1/500x500-000000-80-0-0.jpg",
     "coverMd5": "c2510253e940641e08a92d18b167e3c1"
+  },
+  {
+    "id": 9,
+    "title": "Little By Little",
+    "album": "[Things We Dream : Vol.2]",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4110042341,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/bf2f4b7971cbe3acb5c3ef7046951ee4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "bf2f4b7971cbe3acb5c3ef7046951ee4"
+  },
+  {
+    "id": 10,
+    "title": "I’m in Love",
+    "album": "[Things We Dream : Vol.2]",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4110042351,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/bf2f4b7971cbe3acb5c3ef7046951ee4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "bf2f4b7971cbe3acb5c3ef7046951ee4"
+  },
+  {
+    "id": 11,
+    "title": "Gulliver!",
+    "album": "Things We Dream : Vol.3",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4232902912,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/291c808803e55cd9c5c694b46f27b12c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "291c808803e55cd9c5c694b46f27b12c"
+  },
+  {
+    "id": 12,
+    "title": "Ctrl C",
+    "album": "Things We Dream : Vol.3",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4232902922,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/291c808803e55cd9c5c694b46f27b12c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "291c808803e55cd9c5c694b46f27b12c"
   }
 ]

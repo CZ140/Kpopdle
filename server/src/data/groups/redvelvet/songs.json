@@ -1292,5 +1292,65 @@
     "deezerId": 2923555791,
     "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ec9e8adcb4f0d3e15a36be397f04b558/500x500-000000-80-0-0.jpg",
     "coverMd5": "ec9e8adcb4f0d3e15a36be397f04b558"
+  },
+  {
+    "id": 131,
+    "title": "Surfin' Boy",
+    "album": "Velvet Summer - Summer Mini Album",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4178965332,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3d833a2c1c6a9fd7c1b34571ac6d61b6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3d833a2c1c6a9fd7c1b34571ac6d61b6"
+  },
+  {
+    "id": 132,
+    "title": "Hot Girls Cold Vibe",
+    "album": "Velvet Summer - Summer Mini Album",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4178965342,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3d833a2c1c6a9fd7c1b34571ac6d61b6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3d833a2c1c6a9fd7c1b34571ac6d61b6"
+  },
+  {
+    "id": 133,
+    "title": "Orchestra",
+    "album": "Velvet Summer - Summer Mini Album",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4178965352,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3d833a2c1c6a9fd7c1b34571ac6d61b6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3d833a2c1c6a9fd7c1b34571ac6d61b6"
+  },
+  {
+    "id": 134,
+    "title": "Hula Hoop",
+    "album": "Velvet Summer - Summer Mini Album",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4178965362,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3d833a2c1c6a9fd7c1b34571ac6d61b6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3d833a2c1c6a9fd7c1b34571ac6d61b6"
+  },
+  {
+    "id": 135,
+    "title": "Hawaii",
+    "album": "Velvet Summer - Summer Mini Album",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4178965372,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/3d833a2c1c6a9fd7c1b34571ac6d61b6/500x500-000000-80-0-0.jpg",
+    "coverMd5": "3d833a2c1c6a9fd7c1b34571ac6d61b6"
+  },
+  {
+    "id": 136,
+    "title": "롤러코스터 On A Ride",
+    "album": "‘The ReVe Festival 2022 - Birthday’",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 2027345977,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d79ff610d0ebde288479141b10cdf35a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d79ff610d0ebde288479141b10cdf35a"
   }
 ]

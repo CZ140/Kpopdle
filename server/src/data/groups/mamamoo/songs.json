@@ -642,5 +642,65 @@
     "releaseYear": 2023,
     "spotifyId": null,
     "deezerId": 0
+  },
+  {
+    "id": 69,
+    "title": "Blooming (Intro)",
+    "album": "4WARD",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4052286151,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d2fe6e5297c87ae4330fc49cdb9d46ed/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d2fe6e5297c87ae4330fc49cdb9d46ed"
+  },
+  {
+    "id": 70,
+    "title": "4 Flowers",
+    "album": "4WARD",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4052286161,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d2fe6e5297c87ae4330fc49cdb9d46ed/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d2fe6e5297c87ae4330fc49cdb9d46ed"
+  },
+  {
+    "id": 71,
+    "title": "Star Wind Flower Sun",
+    "album": "Yellow Flower",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 2181629407,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2e3b315bedc00ac827f97019a0537f5c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2e3b315bedc00ac827f97019a0537f5c"
+  },
+  {
+    "id": 72,
+    "title": "Spring Fever",
+    "album": "Yellow Flower",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 2181629447,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2e3b315bedc00ac827f97019a0537f5c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2e3b315bedc00ac827f97019a0537f5c"
+  },
+  {
+    "id": 73,
+    "title": "1,2,3 Eoi!",
+    "album": "MIC ON",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1958747207,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2e6a5aeb88688050c32c0abddd5d999f/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2e6a5aeb88688050c32c0abddd5d999f"
+  },
+  {
+    "id": 74,
+    "title": "L.I.E.C",
+    "album": "MIC ON",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1958747227,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/2e6a5aeb88688050c32c0abddd5d999f/500x500-000000-80-0-0.jpg",
+    "coverMd5": "2e6a5aeb88688050c32c0abddd5d999f"
   }
 ]

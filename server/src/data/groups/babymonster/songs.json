@@ -192,5 +192,55 @@
     "deezerId": 3582629631,
     "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b8fc928e8b10a4d1463b3200aaa107fa/500x500-000000-80-0-0.jpg",
     "coverMd5": "b8fc928e8b10a4d1463b3200aaa107fa"
+  },
+  {
+    "id": 21,
+    "title": "MOON",
+    "album": "춤 (CHOOM)",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3986645031,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e7096154e400af2dad487e6237be3dd2/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e7096154e400af2dad487e6237be3dd2"
+  },
+  {
+    "id": 22,
+    "title": "CHOOM",
+    "album": "춤 (CHOOM)",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3986645071,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e7096154e400af2dad487e6237be3dd2/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e7096154e400af2dad487e6237be3dd2"
+  },
+  {
+    "id": 23,
+    "title": "I LIKE IT",
+    "album": "춤 (CHOOM)",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3986645121,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e7096154e400af2dad487e6237be3dd2/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e7096154e400af2dad487e6237be3dd2"
+  },
+  {
+    "id": 24,
+    "title": "LOCKED IN",
+    "album": "춤 (CHOOM)",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3986645151,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e7096154e400af2dad487e6237be3dd2/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e7096154e400af2dad487e6237be3dd2"
+  },
+  {
+    "id": 25,
+    "title": "SUGAR HONEY ICE TEA",
+    "album": "SUGAR HONEY ICE TEA",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4056495431,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/378cc060ff322a5c9c6301fc53f28aa2/500x500-000000-80-0-0.jpg",
+    "coverMd5": "378cc060ff322a5c9c6301fc53f28aa2"
   }
 ]

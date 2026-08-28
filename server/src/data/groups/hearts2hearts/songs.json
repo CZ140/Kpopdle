@@ -88,5 +88,65 @@
     "deezerId": 3827375541,
     "coverUrl": "https://cdn-images.dzcdn.net/images/cover/da53678166431bddcbc470712bd43fa7/500x500-000000-80-0-0.jpg",
     "coverMd5": "da53678166431bddcbc470712bd43fa7"
+  },
+  {
+    "id": 10,
+    "title": "Lemon Tang",
+    "album": "Lemon Tang - The 2nd Mini Album",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4087604431,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/5c87e467d211b7f5a9131c2deccbaa97/500x500-000000-80-0-0.jpg",
+    "coverMd5": "5c87e467d211b7f5a9131c2deccbaa97"
+  },
+  {
+    "id": 11,
+    "title": "15-LOVE",
+    "album": "Lemon Tang - The 2nd Mini Album",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4087604441,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/5c87e467d211b7f5a9131c2deccbaa97/500x500-000000-80-0-0.jpg",
+    "coverMd5": "5c87e467d211b7f5a9131c2deccbaa97"
+  },
+  {
+    "id": 12,
+    "title": "처음투성이 Baby Steps",
+    "album": "Lemon Tang - The 2nd Mini Album",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4087604451,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/5c87e467d211b7f5a9131c2deccbaa97/500x500-000000-80-0-0.jpg",
+    "coverMd5": "5c87e467d211b7f5a9131c2deccbaa97"
+  },
+  {
+    "id": 13,
+    "title": "heart emoji (♡)",
+    "album": "Lemon Tang - The 2nd Mini Album",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4087604461,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/5c87e467d211b7f5a9131c2deccbaa97/500x500-000000-80-0-0.jpg",
+    "coverMd5": "5c87e467d211b7f5a9131c2deccbaa97"
+  },
+  {
+    "id": 14,
+    "title": "Secret Recipe",
+    "album": "Lemon Tang - The 2nd Mini Album",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4087604471,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/5c87e467d211b7f5a9131c2deccbaa97/500x500-000000-80-0-0.jpg",
+    "coverMd5": "5c87e467d211b7f5a9131c2deccbaa97"
+  },
+  {
+    "id": 15,
+    "title": "ICONIC HEART",
+    "album": "ICONIC HEART",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4197249182,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/339242b9287fd4cb84886891ab079750/500x500-000000-80-0-0.jpg",
+    "coverMd5": "339242b9287fd4cb84886891ab079750"
   }
 ]

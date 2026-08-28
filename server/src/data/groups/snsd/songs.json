@@ -994,5 +994,35 @@
     "releaseYear": 2018,
     "spotifyId": null,
     "deezerId": 0
+  },
+  {
+    "id": 113,
+    "title": "Mood Lamp",
+    "album": "FOREVER 1 - The 7th Album",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1848897027,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/04b58518030ca118ad3b6a15e0a60577/500x500-000000-80-0-0.jpg",
+    "coverMd5": "04b58518030ca118ad3b6a15e0a60577"
+  },
+  {
+    "id": 114,
+    "title": "완벽한 장면 Summer Night",
+    "album": "FOREVER 1 - The 7th Album",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1848897037,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/04b58518030ca118ad3b6a15e0a60577/500x500-000000-80-0-0.jpg",
+    "coverMd5": "04b58518030ca118ad3b6a15e0a60577"
+  },
+  {
+    "id": 115,
+    "title": "종이비행기 Paper Plane",
+    "album": "FOREVER 1 - The 7th Album",
+    "releaseYear": 2022,
+    "spotifyId": null,
+    "deezerId": 1848897057,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/04b58518030ca118ad3b6a15e0a60577/500x500-000000-80-0-0.jpg",
+    "coverMd5": "04b58518030ca118ad3b6a15e0a60577"
   }
 ]

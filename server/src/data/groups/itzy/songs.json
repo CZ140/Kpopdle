@@ -584,5 +584,305 @@
     "deezerId": 3400461701,
     "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6f3e6c2255435c2a34319c378aaace12/500x500-000000-80-0-0.jpg",
     "coverMd5": "6f3e6c2255435c2a34319c378aaace12"
+  },
+  {
+    "id": 61,
+    "title": "Dynamite",
+    "album": "BORN TO BE",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2607923082,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9feca7d33732f216de35c36e7ca27b2a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9feca7d33732f216de35c36e7ca27b2a"
+  },
+  {
+    "id": 62,
+    "title": "Crown On My Head (YEJI)",
+    "album": "BORN TO BE",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2607923092,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9feca7d33732f216de35c36e7ca27b2a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9feca7d33732f216de35c36e7ca27b2a"
+  },
+  {
+    "id": 63,
+    "title": "Blossom (LIA)",
+    "album": "BORN TO BE",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2607923102,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9feca7d33732f216de35c36e7ca27b2a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9feca7d33732f216de35c36e7ca27b2a"
+  },
+  {
+    "id": 64,
+    "title": "Run Away (RYUJIN)",
+    "album": "BORN TO BE",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2607923112,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9feca7d33732f216de35c36e7ca27b2a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9feca7d33732f216de35c36e7ca27b2a"
+  },
+  {
+    "id": 65,
+    "title": "Mine (CHAERYEONG)",
+    "album": "BORN TO BE",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2607923122,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9feca7d33732f216de35c36e7ca27b2a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9feca7d33732f216de35c36e7ca27b2a"
+  },
+  {
+    "id": 66,
+    "title": "Yet, but (YUNA)",
+    "album": "BORN TO BE",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2607923132,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9feca7d33732f216de35c36e7ca27b2a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9feca7d33732f216de35c36e7ca27b2a"
+  },
+  {
+    "id": 67,
+    "title": "Escalator",
+    "album": "BORN TO BE",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2607923142,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9feca7d33732f216de35c36e7ca27b2a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9feca7d33732f216de35c36e7ca27b2a"
+  },
+  {
+    "id": 68,
+    "title": "No Biggie",
+    "album": "No Biggie",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2764339541,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/52954dce94ac5d7ba8081725b3d46ed9/500x500-000000-80-0-0.jpg",
+    "coverMd5": "52954dce94ac5d7ba8081725b3d46ed9"
+  },
+  {
+    "id": 69,
+    "title": "Bad Girls R Us",
+    "album": "GOLD",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3041140861,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/cd8efea007bae3e51e6794be2f28b77e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "cd8efea007bae3e51e6794be2f28b77e"
+  },
+  {
+    "id": 70,
+    "title": "Supernatural",
+    "album": "GOLD",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3041140871,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/cd8efea007bae3e51e6794be2f28b77e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "cd8efea007bae3e51e6794be2f28b77e"
+  },
+  {
+    "id": 71,
+    "title": "FIVE",
+    "album": "GOLD",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3041140881,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/cd8efea007bae3e51e6794be2f28b77e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "cd8efea007bae3e51e6794be2f28b77e"
+  },
+  {
+    "id": 72,
+    "title": "VAY (Feat. Changbin of Stray Kids)",
+    "album": "GOLD",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3041140891,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/cd8efea007bae3e51e6794be2f28b77e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "cd8efea007bae3e51e6794be2f28b77e"
+  },
+  {
+    "id": 73,
+    "title": "Kiss & Tell",
+    "album": "Girls Will Be Girls",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3400461711,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6f3e6c2255435c2a34319c378aaace12/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6f3e6c2255435c2a34319c378aaace12"
+  },
+  {
+    "id": 74,
+    "title": "Locked N Loaded",
+    "album": "Girls Will Be Girls",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3400461721,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6f3e6c2255435c2a34319c378aaace12/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6f3e6c2255435c2a34319c378aaace12"
+  },
+  {
+    "id": 75,
+    "title": "Promise",
+    "album": "Girls Will Be Girls",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3400461731,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6f3e6c2255435c2a34319c378aaace12/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6f3e6c2255435c2a34319c378aaace12"
+  },
+  {
+    "id": 76,
+    "title": "Walk",
+    "album": "Girls Will Be Girls",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3400461741,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6f3e6c2255435c2a34319c378aaace12/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6f3e6c2255435c2a34319c378aaace12"
+  },
+  {
+    "id": 77,
+    "title": "ROCK & ROLL",
+    "album": "Collector",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3572812151,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d60f38bb9ea37c7980325c71e99ed35c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d60f38bb9ea37c7980325c71e99ed35c"
+  },
+  {
+    "id": 78,
+    "title": "I. I. Know Me",
+    "album": "Collector",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3572812161,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d60f38bb9ea37c7980325c71e99ed35c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d60f38bb9ea37c7980325c71e99ed35c"
+  },
+  {
+    "id": 79,
+    "title": "Out of season",
+    "album": "Collector",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3572812171,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d60f38bb9ea37c7980325c71e99ed35c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d60f38bb9ea37c7980325c71e99ed35c"
+  },
+  {
+    "id": 80,
+    "title": "Trigger",
+    "album": "Collector",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3572812181,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d60f38bb9ea37c7980325c71e99ed35c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d60f38bb9ea37c7980325c71e99ed35c"
+  },
+  {
+    "id": 81,
+    "title": "Wind Ride",
+    "album": "Collector",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3572812191,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/d60f38bb9ea37c7980325c71e99ed35c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "d60f38bb9ea37c7980325c71e99ed35c"
+  },
+  {
+    "id": 82,
+    "title": "Focus",
+    "album": "TUNNEL VISION",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3641465632,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/561f16b818981f79964e8b5c7a33bd2a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "561f16b818981f79964e8b5c7a33bd2a"
+  },
+  {
+    "id": 83,
+    "title": "TUNNEL VISION",
+    "album": "TUNNEL VISION",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3641465642,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/561f16b818981f79964e8b5c7a33bd2a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "561f16b818981f79964e8b5c7a33bd2a"
+  },
+  {
+    "id": 84,
+    "title": "DYT",
+    "album": "TUNNEL VISION",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3641465652,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/561f16b818981f79964e8b5c7a33bd2a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "561f16b818981f79964e8b5c7a33bd2a"
+  },
+  {
+    "id": 85,
+    "title": "Flicker",
+    "album": "TUNNEL VISION",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3641465662,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/561f16b818981f79964e8b5c7a33bd2a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "561f16b818981f79964e8b5c7a33bd2a"
+  },
+  {
+    "id": 86,
+    "title": "Nocturne",
+    "album": "TUNNEL VISION",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3641465672,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/561f16b818981f79964e8b5c7a33bd2a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "561f16b818981f79964e8b5c7a33bd2a"
+  },
+  {
+    "id": 87,
+    "title": "8-BIT HEART",
+    "album": "TUNNEL VISION",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3641465682,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/561f16b818981f79964e8b5c7a33bd2a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "561f16b818981f79964e8b5c7a33bd2a"
+  },
+  {
+    "id": 88,
+    "title": "Motto",
+    "album": "Motto",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4021131251,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b69cb6e41c5cb42f877f0fbe78d7bcca/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b69cb6e41c5cb42f877f0fbe78d7bcca"
+  },
+  {
+    "id": 89,
+    "title": "Glitch",
+    "album": "Motto",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4021131261,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b69cb6e41c5cb42f877f0fbe78d7bcca/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b69cb6e41c5cb42f877f0fbe78d7bcca"
+  },
+  {
+    "id": 90,
+    "title": "you And I",
+    "album": "Motto",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4021131271,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b69cb6e41c5cb42f877f0fbe78d7bcca/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b69cb6e41c5cb42f877f0fbe78d7bcca"
   }
 ]

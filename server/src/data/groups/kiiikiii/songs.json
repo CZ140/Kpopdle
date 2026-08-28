@@ -138,5 +138,75 @@
     "deezerId": 3758369862,
     "coverUrl": "https://cdn-images.dzcdn.net/images/cover/a25c0ced4167de8b49b73a8ffba880c9/500x500-000000-80-0-0.jpg",
     "coverMd5": "a25c0ced4167de8b49b73a8ffba880c9"
+  },
+  {
+    "id": 15,
+    "title": "To Me From Me (Prod. TABLO)",
+    "album": "To Me From Me (Prod. TABLO)",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3616534442,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e6f812c699b1dd5b39637b3da46d2dab/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e6f812c699b1dd5b39637b3da46d2dab"
+  },
+  {
+    "id": 16,
+    "title": "Ever2Late!",
+    "album": "WhyKiiiKiii",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4204204852,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/61024fc58a125ad7f416eee268bf4ae4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "61024fc58a125ad7f416eee268bf4ae4"
+  },
+  {
+    "id": 17,
+    "title": "Hey Hi",
+    "album": "WhyKiiiKiii",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4204204862,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/61024fc58a125ad7f416eee268bf4ae4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "61024fc58a125ad7f416eee268bf4ae4"
+  },
+  {
+    "id": 18,
+    "title": "Pop Off Pop Off",
+    "album": "WhyKiiiKiii",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4204204872,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/61024fc58a125ad7f416eee268bf4ae4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "61024fc58a125ad7f416eee268bf4ae4"
+  },
+  {
+    "id": 19,
+    "title": "SWEET SOUR",
+    "album": "WhyKiiiKiii",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4204204882,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/61024fc58a125ad7f416eee268bf4ae4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "61024fc58a125ad7f416eee268bf4ae4"
+  },
+  {
+    "id": 20,
+    "title": "Candy Pink Magic Hole Flip Phone",
+    "album": "WhyKiiiKiii",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4204204892,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/61024fc58a125ad7f416eee268bf4ae4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "61024fc58a125ad7f416eee268bf4ae4"
+  },
+  {
+    "id": 21,
+    "title": "Blue Hour",
+    "album": "WhyKiiiKiii",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4204204902,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/61024fc58a125ad7f416eee268bf4ae4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "61024fc58a125ad7f416eee268bf4ae4"
   }
 ]

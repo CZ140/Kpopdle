@@ -25,7 +25,7 @@
 
 K-POPDLE is a full-stack daily music quiz platform. Players listen to a short audio snippet and guess the song — with each wrong answer revealing a slightly longer clip. Every group has its own independent daily game, driven by a deterministic **HMAC-SHA256** algorithm so the answer is consistent for all players worldwide.
 
-Currently supports **34 groups** and **2,094 songs**, all with verified 30-second Deezer preview URLs. All song titles use their English names so every song is typeable on a standard keyboard.
+Currently supports **34 groups** and **2,533 songs** (2,241 with verified 30-second Deezer preview URLs; the rest are catalogued but sit out of the daily rotation), current through 2026 releases. All song titles use their English names so every song is typeable on a standard keyboard.
 
 ---
 
@@ -315,6 +315,7 @@ npm test                 # run both test suites (server + client)
 npm run lint --prefix client   # ESLint
 npm run build --prefix client  # production build
 npm run validate:songs         # structural check of every song catalog (--online probes Deezer)
+node scripts/sync-deezer-catalog.mjs           # lists songs a group has released but the catalog lacks (--apply writes, --since YEAR)
 npm run validate:constants     # fails if the client's group-metadata mirror drifts from the server
 ```
 

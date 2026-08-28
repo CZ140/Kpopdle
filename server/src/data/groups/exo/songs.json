@@ -1320,5 +1320,95 @@
     "releaseYear": 2020,
     "spotifyId": null,
     "deezerId": 0
+  },
+  {
+    "id": 147,
+    "title": "Crown",
+    "album": "REVERXE - The 8th Album",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3770700202,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9d0d18f4dd824700992b9fbe72f7d8bd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9d0d18f4dd824700992b9fbe72f7d8bd"
+  },
+  {
+    "id": 148,
+    "title": "Back It Up",
+    "album": "REVERXE - The 8th Album",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3770700212,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9d0d18f4dd824700992b9fbe72f7d8bd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9d0d18f4dd824700992b9fbe72f7d8bd"
+  },
+  {
+    "id": 149,
+    "title": "Crazy",
+    "album": "REVERXE - The 8th Album",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3770700222,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9d0d18f4dd824700992b9fbe72f7d8bd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9d0d18f4dd824700992b9fbe72f7d8bd"
+  },
+  {
+    "id": 150,
+    "title": "Suffocate",
+    "album": "REVERXE - The 8th Album",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3770700232,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9d0d18f4dd824700992b9fbe72f7d8bd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9d0d18f4dd824700992b9fbe72f7d8bd"
+  },
+  {
+    "id": 151,
+    "title": "Moonlight Shadows",
+    "album": "REVERXE - The 8th Album",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3770700242,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9d0d18f4dd824700992b9fbe72f7d8bd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9d0d18f4dd824700992b9fbe72f7d8bd"
+  },
+  {
+    "id": 152,
+    "title": "Back Pocket",
+    "album": "REVERXE - The 8th Album",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3770700252,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9d0d18f4dd824700992b9fbe72f7d8bd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9d0d18f4dd824700992b9fbe72f7d8bd"
+  },
+  {
+    "id": 153,
+    "title": "Touch & Go",
+    "album": "REVERXE - The 8th Album",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3770700262,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9d0d18f4dd824700992b9fbe72f7d8bd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9d0d18f4dd824700992b9fbe72f7d8bd"
+  },
+  {
+    "id": 154,
+    "title": "Flatline",
+    "album": "REVERXE - The 8th Album",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3770700272,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9d0d18f4dd824700992b9fbe72f7d8bd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9d0d18f4dd824700992b9fbe72f7d8bd"
+  },
+  {
+    "id": 155,
+    "title": "I’m Home",
+    "album": "REVERXE - The 8th Album",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3770700282,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/9d0d18f4dd824700992b9fbe72f7d8bd/500x500-000000-80-0-0.jpg",
+    "coverMd5": "9d0d18f4dd824700992b9fbe72f7d8bd"
   }
 ]

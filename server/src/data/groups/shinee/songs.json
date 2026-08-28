@@ -956,5 +956,135 @@
     "releaseYear": 2023,
     "spotifyId": null,
     "deezerId": 0
+  },
+  {
+    "id": 104,
+    "title": "Poet | Artist",
+    "album": "Poet | Artist",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3370327191,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/30393f8b13918ac66fdc44577dfc7874/500x500-000000-80-0-0.jpg",
+    "coverMd5": "30393f8b13918ac66fdc44577dfc7874"
+  },
+  {
+    "id": 105,
+    "title": "Starlight",
+    "album": "Poet | Artist",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3370327201,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/30393f8b13918ac66fdc44577dfc7874/500x500-000000-80-0-0.jpg",
+    "coverMd5": "30393f8b13918ac66fdc44577dfc7874"
+  },
+  {
+    "id": 106,
+    "title": "Atmos",
+    "album": "Atmos - The 6th Mini Album",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4035574571,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6eedd6652aa7f561c07468e343dfebbe/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6eedd6652aa7f561c07468e343dfebbe"
+  },
+  {
+    "id": 107,
+    "title": "HOURS",
+    "album": "Atmos - The 6th Mini Album",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4035574581,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6eedd6652aa7f561c07468e343dfebbe/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6eedd6652aa7f561c07468e343dfebbe"
+  },
+  {
+    "id": 108,
+    "title": "Possibility",
+    "album": "Atmos - The 6th Mini Album",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4035574591,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6eedd6652aa7f561c07468e343dfebbe/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6eedd6652aa7f561c07468e343dfebbe"
+  },
+  {
+    "id": 109,
+    "title": "Anti Believer",
+    "album": "Atmos - The 6th Mini Album",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4035574601,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6eedd6652aa7f561c07468e343dfebbe/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6eedd6652aa7f561c07468e343dfebbe"
+  },
+  {
+    "id": 110,
+    "title": "소나기 Still Raining",
+    "album": "Atmos - The 6th Mini Album",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4035574611,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6eedd6652aa7f561c07468e343dfebbe/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6eedd6652aa7f561c07468e343dfebbe"
+  },
+  {
+    "id": 111,
+    "title": "Thousand Miles Away",
+    "album": "Atmos - The 6th Mini Album",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4035574621,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6eedd6652aa7f561c07468e343dfebbe/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6eedd6652aa7f561c07468e343dfebbe"
+  },
+  {
+    "id": 112,
+    "title": "10X",
+    "album": "HARD - The 8th Album",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2334260055,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/503ebd49d17a5ceb6113c19679c8646c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "503ebd49d17a5ceb6113c19679c8646c"
+  },
+  {
+    "id": 113,
+    "title": "Like It",
+    "album": "HARD - The 8th Album",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2334260095,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/503ebd49d17a5ceb6113c19679c8646c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "503ebd49d17a5ceb6113c19679c8646c"
+  },
+  {
+    "id": 114,
+    "title": "Sweet Misery",
+    "album": "HARD - The 8th Album",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2334260105,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/503ebd49d17a5ceb6113c19679c8646c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "503ebd49d17a5ceb6113c19679c8646c"
+  },
+  {
+    "id": 115,
+    "title": "불면증 Insomnia",
+    "album": "HARD - The 8th Album",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2334260115,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/503ebd49d17a5ceb6113c19679c8646c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "503ebd49d17a5ceb6113c19679c8646c"
+  },
+  {
+    "id": 116,
+    "title": "Gravity",
+    "album": "HARD - The 8th Album",
+    "releaseYear": 2023,
+    "spotifyId": null,
+    "deezerId": 2334260125,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/503ebd49d17a5ceb6113c19679c8646c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "503ebd49d17a5ceb6113c19679c8646c"
   }
 ]

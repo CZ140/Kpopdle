@@ -374,5 +374,145 @@
     "deezerId": 3593847692,
     "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c137e9d90a0c70f0e8c0abbc203a0ee4/500x500-000000-80-0-0.jpg",
     "coverMd5": "c137e9d90a0c70f0e8c0abbc203a0ee4"
+  },
+  {
+    "id": 39,
+    "title": "FEIFEI",
+    "album": "FEIFEI",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2914051301,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/dc1f106eb6e18cf95c99009eadf355b7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "dc1f106eb6e18cf95c99009eadf355b7"
+  },
+  {
+    "id": 40,
+    "title": "PODIUM",
+    "album": "Blue Valentine",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3593847702,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c137e9d90a0c70f0e8c0abbc203a0ee4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c137e9d90a0c70f0e8c0abbc203a0ee4"
+  },
+  {
+    "id": 41,
+    "title": "Crush On You",
+    "album": "Blue Valentine",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3593847712,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c137e9d90a0c70f0e8c0abbc203a0ee4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c137e9d90a0c70f0e8c0abbc203a0ee4"
+  },
+  {
+    "id": 42,
+    "title": "ADORE U",
+    "album": "Blue Valentine",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3593847722,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c137e9d90a0c70f0e8c0abbc203a0ee4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c137e9d90a0c70f0e8c0abbc203a0ee4"
+  },
+  {
+    "id": 43,
+    "title": "Shape of Love",
+    "album": "Blue Valentine",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3593847732,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c137e9d90a0c70f0e8c0abbc203a0ee4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c137e9d90a0c70f0e8c0abbc203a0ee4"
+  },
+  {
+    "id": 44,
+    "title": "O.O Pt. 1 (Baila)",
+    "album": "Blue Valentine",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3593847742,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c137e9d90a0c70f0e8c0abbc203a0ee4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c137e9d90a0c70f0e8c0abbc203a0ee4"
+  },
+  {
+    "id": 45,
+    "title": "O.O Pt. 2 (Superhero)",
+    "album": "Blue Valentine",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3593847752,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c137e9d90a0c70f0e8c0abbc203a0ee4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "c137e9d90a0c70f0e8c0abbc203a0ee4"
+  },
+  {
+    "id": 46,
+    "title": "TIC TIC",
+    "album": "TIC TIC",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3863349421,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/5329876b7bb3f6ec31dcd01a9c0f119b/500x500-000000-80-0-0.jpg",
+    "coverMd5": "5329876b7bb3f6ec31dcd01a9c0f119b"
+  },
+  {
+    "id": 47,
+    "title": "Crescendo",
+    "album": "Heavy Serenade",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4006888151,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/595bd5da07a6e29dcea288e670471cac/500x500-000000-80-0-0.jpg",
+    "coverMd5": "595bd5da07a6e29dcea288e670471cac"
+  },
+  {
+    "id": 48,
+    "title": "Heavy Serenade",
+    "album": "Heavy Serenade",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4006888161,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/595bd5da07a6e29dcea288e670471cac/500x500-000000-80-0-0.jpg",
+    "coverMd5": "595bd5da07a6e29dcea288e670471cac"
+  },
+  {
+    "id": 49,
+    "title": "IDESERVEIT",
+    "album": "Heavy Serenade",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4006888171,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/595bd5da07a6e29dcea288e670471cac/500x500-000000-80-0-0.jpg",
+    "coverMd5": "595bd5da07a6e29dcea288e670471cac"
+  },
+  {
+    "id": 50,
+    "title": "Different Girl",
+    "album": "Heavy Serenade",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4006888181,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/595bd5da07a6e29dcea288e670471cac/500x500-000000-80-0-0.jpg",
+    "coverMd5": "595bd5da07a6e29dcea288e670471cac"
+  },
+  {
+    "id": 51,
+    "title": "Superior",
+    "album": "Heavy Serenade",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4006888191,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/595bd5da07a6e29dcea288e670471cac/500x500-000000-80-0-0.jpg",
+    "coverMd5": "595bd5da07a6e29dcea288e670471cac"
+  },
+  {
+    "id": 52,
+    "title": "LOUD",
+    "album": "Heavy Serenade",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4006888201,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/595bd5da07a6e29dcea288e670471cac/500x500-000000-80-0-0.jpg",
+    "coverMd5": "595bd5da07a6e29dcea288e670471cac"
   }
 ]

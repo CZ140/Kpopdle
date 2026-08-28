@@ -538,5 +538,55 @@
     "deezerId": 3825507201,
     "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b5dc2c91a8c592244cd434ab59ca135a/500x500-000000-80-0-0.jpg",
     "coverMd5": "b5dc2c91a8c592244cd434ab59ca135a"
+  },
+  {
+    "id": 55,
+    "title": "GPT - Acapella",
+    "album": "...l",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 3066876321,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/68442d12dd69d89bc2342d357a2d9640/500x500-000000-80-0-0.jpg",
+    "coverMd5": "68442d12dd69d89bc2342d357a2d9640"
+  },
+  {
+    "id": 56,
+    "title": "2 L0VE",
+    "album": "2:LOVE",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4063867901,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b655c61342bb1e8607a8e71013b8c053/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b655c61342bb1e8607a8e71013b8c053"
+  },
+  {
+    "id": 57,
+    "title": "WHERE YOU AT?",
+    "album": "2:LOVE",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4063867911,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b655c61342bb1e8607a8e71013b8c053/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b655c61342bb1e8607a8e71013b8c053"
+  },
+  {
+    "id": 58,
+    "title": "SORRY",
+    "album": "2:LOVE",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4063867921,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b655c61342bb1e8607a8e71013b8c053/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b655c61342bb1e8607a8e71013b8c053"
+  },
+  {
+    "id": 59,
+    "title": "BEAT MY LOVE",
+    "album": "2:LOVE",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4063867931,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b655c61342bb1e8607a8e71013b8c053/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b655c61342bb1e8607a8e71013b8c053"
   }
 ]

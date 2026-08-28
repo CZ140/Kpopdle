@@ -186,5 +186,105 @@
     "deezerId": 3950788981,
     "coverUrl": "https://cdn-images.dzcdn.net/images/cover/60b26dd15554aa7adc942158ba40665a/500x500-000000-80-0-0.jpg",
     "coverMd5": "60b26dd15554aa7adc942158ba40665a"
+  },
+  {
+    "id": 20,
+    "title": "Topping",
+    "album": "Topping",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3492215991,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/dda7bae2b73aabd4aa89d0570546ff1a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "dda7bae2b73aabd4aa89d0570546ff1a"
+  },
+  {
+    "id": 21,
+    "title": "Toki Yo Tomare",
+    "album": "Toki Yo Tomare",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3523311031,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/dda7bae2b73aabd4aa89d0570546ff1a/500x500-000000-80-0-0.jpg",
+    "coverMd5": "dda7bae2b73aabd4aa89d0570546ff1a"
+  },
+  {
+    "id": 22,
+    "title": "Secret Quest",
+    "album": "Pokémon | Secret Quest (Original Soundtrack)",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3624432642,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/7fcc8050f470ed5b72b8876855891466/500x500-000000-80-0-0.jpg",
+    "coverMd5": "7fcc8050f470ed5b72b8876855891466"
+  },
+  {
+    "id": 23,
+    "title": "Sunday Morning",
+    "album": "Sunday Morning",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3756718732,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/271a65ec56fa462cbe3abe42b3651cc3/500x500-000000-80-0-0.jpg",
+    "coverMd5": "271a65ec56fa462cbe3abe42b3651cc3"
+  },
+  {
+    "id": 24,
+    "title": "GRWM (Get Ready With Me)",
+    "album": "MAMIHLAPINATAPAI",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3989506091,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/42b6fb598fa710e1c01e8bdcd96f6262/500x500-000000-80-0-0.jpg",
+    "coverMd5": "42b6fb598fa710e1c01e8bdcd96f6262"
+  },
+  {
+    "id": 25,
+    "title": "It's Me",
+    "album": "MAMIHLAPINATAPAI",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3989506131,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/42b6fb598fa710e1c01e8bdcd96f6262/500x500-000000-80-0-0.jpg",
+    "coverMd5": "42b6fb598fa710e1c01e8bdcd96f6262"
+  },
+  {
+    "id": 26,
+    "title": "paw, paw!",
+    "album": "MAMIHLAPINATAPAI",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3989506181,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/42b6fb598fa710e1c01e8bdcd96f6262/500x500-000000-80-0-0.jpg",
+    "coverMd5": "42b6fb598fa710e1c01e8bdcd96f6262"
+  },
+  {
+    "id": 27,
+    "title": "Mamihlapinatapai",
+    "album": "MAMIHLAPINATAPAI",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3989506201,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/42b6fb598fa710e1c01e8bdcd96f6262/500x500-000000-80-0-0.jpg",
+    "coverMd5": "42b6fb598fa710e1c01e8bdcd96f6262"
+  },
+  {
+    "id": 28,
+    "title": "Love, older you",
+    "album": "MAMIHLAPINATAPAI",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3989506211,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/42b6fb598fa710e1c01e8bdcd96f6262/500x500-000000-80-0-0.jpg",
+    "coverMd5": "42b6fb598fa710e1c01e8bdcd96f6262"
+  },
+  {
+    "id": 29,
+    "title": "I Got Your Back (Feat. JISOO, MOMOKA of HANA)",
+    "album": "I Got Your Back",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4166644212,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/725c8972a899eac6e57e3c5dab3f67a4/500x500-000000-80-0-0.jpg",
+    "coverMd5": "725c8972a899eac6e57e3c5dab3f67a4"
   }
 ]

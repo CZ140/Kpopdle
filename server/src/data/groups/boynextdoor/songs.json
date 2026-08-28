@@ -278,5 +278,155 @@
     "deezerId": 3605170812,
     "coverUrl": "https://cdn-images.dzcdn.net/images/cover/c36980ea2cdf554a062e59f62f48ef5e/500x500-000000-80-0-0.jpg",
     "coverMd5": "c36980ea2cdf554a062e59f62f48ef5e"
+  },
+  {
+    "id": 29,
+    "title": "GOOD DAY",
+    "album": "AND,",
+    "releaseYear": 2024,
+    "spotifyId": null,
+    "deezerId": 2874484662,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/613607c230bf2a4f0a975e7c3d8dab9f/500x500-000000-80-0-0.jpg",
+    "coverMd5": "613607c230bf2a4f0a975e7c3d8dab9f"
+  },
+  {
+    "id": 30,
+    "title": "It's Beginning To Look A Lot Like Christmas",
+    "album": "It's Beginning To Look A Lot Like Christmas",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3209288161,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e2f490b0bf2ffeee49c6e285a2a31118/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e2f490b0bf2ffeee49c6e285a2a31118"
+  },
+  {
+    "id": 31,
+    "title": "Never Loved This Way Before",
+    "album": "Never Loved This Way Before (Odd Girl Out X BOYNEXTDOOR) [Original Soundtrack]",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3274729671,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b3b066fa9972ed616fd0226749a6e883/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b3b066fa9972ed616fd0226749a6e883"
+  },
+  {
+    "id": 32,
+    "title": "Count To Love",
+    "album": "BOYLIFE",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3501557261,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e160f16825ae6b05200e160d72313054/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e160f16825ae6b05200e160d72313054"
+  },
+  {
+    "id": 33,
+    "title": "Ruin My Life",
+    "album": "EXchange4, Pt. 1 (Original Soundtrack)",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3574000951,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/4fd9f67179895b3bfaa88b72b0918491/500x500-000000-80-0-0.jpg",
+    "coverMd5": "4fd9f67179895b3bfaa88b72b0918491"
+  },
+  {
+    "id": 34,
+    "title": "SAY CHEESE!",
+    "album": "SAY CHEESE!",
+    "releaseYear": 2025,
+    "spotifyId": null,
+    "deezerId": 3634354322,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/6ca41cb508f0aa96fb5564a900076f6c/500x500-000000-80-0-0.jpg",
+    "coverMd5": "6ca41cb508f0aa96fb5564a900076f6c"
+  },
+  {
+    "id": 35,
+    "title": "ddok ddok ddok",
+    "album": "ddok ddok ddok",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4006888141,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e4587751ed4720dd983139d0e7d2bd67/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e4587751ed4720dd983139d0e7d2bd67"
+  },
+  {
+    "id": 36,
+    "title": "06070",
+    "album": "HOME",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4061444951,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/197a18a3b5c15c8f4961df8e42a56af7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "197a18a3b5c15c8f4961df8e42a56af7"
+  },
+  {
+    "id": 37,
+    "title": "VIRAL",
+    "album": "HOME",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4061444961,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/197a18a3b5c15c8f4961df8e42a56af7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "197a18a3b5c15c8f4961df8e42a56af7"
+  },
+  {
+    "id": 38,
+    "title": "ADIOS!",
+    "album": "HOME",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4061444981,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/197a18a3b5c15c8f4961df8e42a56af7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "197a18a3b5c15c8f4961df8e42a56af7"
+  },
+  {
+    "id": 39,
+    "title": "Upside Down",
+    "album": "HOME",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4061444991,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/197a18a3b5c15c8f4961df8e42a56af7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "197a18a3b5c15c8f4961df8e42a56af7"
+  },
+  {
+    "id": 40,
+    "title": "DIVE",
+    "album": "HOME",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4061445001,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/197a18a3b5c15c8f4961df8e42a56af7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "197a18a3b5c15c8f4961df8e42a56af7"
+  },
+  {
+    "id": 41,
+    "title": "Forever You",
+    "album": "HOME",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4061445011,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/197a18a3b5c15c8f4961df8e42a56af7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "197a18a3b5c15c8f4961df8e42a56af7"
+  },
+  {
+    "id": 42,
+    "title": "I Wonder",
+    "album": "HOME",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4061445021,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/197a18a3b5c15c8f4961df8e42a56af7/500x500-000000-80-0-0.jpg",
+    "coverMd5": "197a18a3b5c15c8f4961df8e42a56af7"
+  },
+  {
+    "id": 43,
+    "title": "Boom Boom Boom",
+    "album": "Boom Boom Boom",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4221921542,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/37944371f69182e4668a8032b8e599c8/500x500-000000-80-0-0.jpg",
+    "coverMd5": "37944371f69182e4668a8032b8e599c8"
   }
 ]

@@ -580,5 +580,15 @@
     "deezerId": 1708152397,
     "coverUrl": "https://cdn-images.dzcdn.net/images/cover/0bbe0b120dae1645a7b5c36dbc4ec61d/500x500-000000-80-0-0.jpg",
     "coverMd5": "0bbe0b120dae1645a7b5c36dbc4ec61d"
+  },
+  {
+    "id": 62,
+    "title": "BiiiG",
+    "album": "BiiiG",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4223081212,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/b9cc78746a7c814d49711bd69f768037/500x500-000000-80-0-0.jpg",
+    "coverMd5": "b9cc78746a7c814d49711bd69f768037"
   }
 ]

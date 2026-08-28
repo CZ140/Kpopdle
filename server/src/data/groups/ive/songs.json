@@ -576,5 +576,85 @@
     "deezerId": 3853731021,
     "coverUrl": "https://cdn-images.dzcdn.net/images/cover/531d5883b0ead12e235cd4ce40e6258d/500x500-000000-80-0-0.jpg",
     "coverMd5": "531d5883b0ead12e235cd4ce40e6258d"
+  },
+  {
+    "id": 59,
+    "title": "8 (JANGWONYOUNG Solo)",
+    "album": "REVIVE+",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3853731031,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/531d5883b0ead12e235cd4ce40e6258d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "531d5883b0ead12e235cd4ce40e6258d"
+  },
+  {
+    "id": 60,
+    "title": "Odd (GAEUL Solo)",
+    "album": "REVIVE+",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3853731041,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/531d5883b0ead12e235cd4ce40e6258d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "531d5883b0ead12e235cd4ce40e6258d"
+  },
+  {
+    "id": 61,
+    "title": "Super ICY (LEESEO Solo)",
+    "album": "REVIVE+",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3853731051,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/531d5883b0ead12e235cd4ce40e6258d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "531d5883b0ead12e235cd4ce40e6258d"
+  },
+  {
+    "id": 62,
+    "title": "Unreal (LIZ Solo)",
+    "album": "REVIVE+",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3853731061,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/531d5883b0ead12e235cd4ce40e6258d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "531d5883b0ead12e235cd4ce40e6258d"
+  },
+  {
+    "id": 63,
+    "title": "In Your Heart (REI Solo)",
+    "album": "REVIVE+",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3853731071,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/531d5883b0ead12e235cd4ce40e6258d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "531d5883b0ead12e235cd4ce40e6258d"
+  },
+  {
+    "id": 64,
+    "title": "Force (ANYUJIN Solo)",
+    "album": "REVIVE+",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 3853731081,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/531d5883b0ead12e235cd4ce40e6258d/500x500-000000-80-0-0.jpg",
+    "coverMd5": "531d5883b0ead12e235cd4ce40e6258d"
+  },
+  {
+    "id": 65,
+    "title": "LUCID DREAM",
+    "album": "LUCID DREAM",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4018650361,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ef78cf999f7f14126252c20350aadd1e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ef78cf999f7f14126252c20350aadd1e"
+  },
+  {
+    "id": 66,
+    "title": "JIGSAW",
+    "album": "LUCID DREAM",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4018650541,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/ef78cf999f7f14126252c20350aadd1e/500x500-000000-80-0-0.jpg",
+    "coverMd5": "ef78cf999f7f14126252c20350aadd1e"
   }
 ]

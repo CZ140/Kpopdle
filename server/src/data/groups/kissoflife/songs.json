@@ -428,5 +428,35 @@
     "deezerId": 3910166351,
     "coverUrl": "https://cdn-images.dzcdn.net/images/cover/112aaeb3003da66b4e4d1ac89611ee1a/500x500-000000-80-0-0.jpg",
     "coverMd5": "112aaeb3003da66b4e4d1ac89611ee1a"
+  },
+  {
+    "id": 44,
+    "title": "BREAK IT",
+    "album": "BREAK IT",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4096135261,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/888b7f19cf591dd626b4a92e65e82b94/500x500-000000-80-0-0.jpg",
+    "coverMd5": "888b7f19cf591dd626b4a92e65e82b94"
+  },
+  {
+    "id": 45,
+    "title": "SWEAT",
+    "album": "SWEAT",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4164951472,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e9990c0b6f95bed4dcfb1b1449c19df3/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e9990c0b6f95bed4dcfb1b1449c19df3"
+  },
+  {
+    "id": 46,
+    "title": "WHAT!",
+    "album": "SWEAT",
+    "releaseYear": 2026,
+    "spotifyId": null,
+    "deezerId": 4164951482,
+    "coverUrl": "https://cdn-images.dzcdn.net/images/cover/e9990c0b6f95bed4dcfb1b1449c19df3/500x500-000000-80-0-0.jpg",
+    "coverMd5": "e9990c0b6f95bed4dcfb1b1449c19df3"
   }
 ]
