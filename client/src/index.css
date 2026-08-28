@@ -3509,3 +3509,41 @@ input[type="range"]::-moz-range-thumb {
   background: linear-gradient(180deg, transparent, rgba(255,255,255,0.25), transparent);
   pointer-events: none;
 }
+
+/* ── Homepage "Today's set" — three dailies, one ring ── */
+.hp-dailyset {
+  margin: 28px auto 0;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 18px 12px 12px;
+  border-radius: 18px;
+  text-align: left;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.hp-dailyset-ring { position: relative; width: 56px; height: 56px; flex-shrink: 0; }
+.hp-dailyset-ring svg { display: block; }
+.hp-dailyset-ring span {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: #fff;
+}
+.hp-dailyset-title {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .14em;
+  text-transform: uppercase; color: rgba(255,255,255,0.38); margin-bottom: 6px;
+}
+.hp-dailyset-items { display: flex; flex-wrap: wrap; gap: 6px; }
+.hp-dailyset-item {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 500;
+  color: rgba(255,255,255,0.62); border: 1px solid rgba(255,255,255,0.12);
+  text-decoration: none; transition: border-color .15s, color .15s;
+}
+.hp-dailyset-item:hover, .hp-dailyset-item:focus-visible { color: #fff; border-color: var(--c); outline: none; }
+.hp-dailyset-item i { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.18); }
+.hp-dailyset-item.is-done { color: #fff; border-color: color-mix(in srgb, var(--c) 50%, transparent); }
+.hp-dailyset-item.is-done i { background: var(--c); box-shadow: 0 0 8px var(--c); }
+@media (max-width: 480px) {
+  .hp-dailyset { width: 100%; }
+}

@@ -14,7 +14,7 @@ export default function ShareButton({ gameNumber, guesses, won, hintsUsed = 0, g
   const [copied, setCopied] = useState(false)
 
   async function handleShare() {
-    const text = generateShareText(gameNumber, guesses, won, difficulty, hintsUsed, gameName, maxGuesses)
+    const text = generateShareText(gameNumber, guesses, won, difficulty, hintsUsed, gameName, maxGuesses, window.location.pathname)
     const success = await copyToClipboard(text)
     if (success) {
       setCopied(true)

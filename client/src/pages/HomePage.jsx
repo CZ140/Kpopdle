@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import GroupCard from '../components/GroupCard'
 import ModeCard from '../components/ModeCard'
+import DailySet from '../components/DailySet'
 import { MODES } from '../lib/modes'
 import { fetchGroups } from '../lib/api'
 import { loadGameState, loadCoverGameState, loadStats } from '../lib/storage'
@@ -205,6 +206,8 @@ export default function HomePage() {
               {countdown.s}<span className="text-white/38 font-normal mx-0.5">s</span>
             </span>
           </div>
+
+          {!loadingGroups && <DailySet groups={groups} today={today} />}
         </header>
 
         {/* ── 01 · GAME MODES — discovery surface for all play modes.

@@ -1,6 +1,6 @@
 import { MAX_GUESSES } from './constants'
 
-export function generateShareText(gameNumber, guesses, won, difficulty = 'normal', hintsUsed = 0, gameName = 'K-POPDLE', maxGuesses = MAX_GUESSES) {
+export function generateShareText(gameNumber, guesses, won, difficulty = 'normal', hintsUsed = 0, gameName = 'K-POPDLE', maxGuesses = MAX_GUESSES, sharePath = '') {
   const guessCount = won ? guesses.length : 'X'
   const badge = difficulty !== 'normal' ? `[${difficulty.toUpperCase()}] ` : ''
   const header = `${badge}${gameName} #${gameNumber} ${guessCount}/${maxGuesses}`
@@ -15,7 +15,10 @@ export function generateShareText(gameNumber, guesses, won, difficulty = 'normal
 
   const hintRow = hintsUsed > 0 ? '\n' + '\u{1F4A1}'.repeat(hintsUsed) : ''
 
-  return `${header}\n\n${grid}${hintRow}`
+  // The link is the whole point of a share for a small site — always the clean route, never the challenge query.
+  const link = sharePath ? `\n\nk-popdle.com${sharePath.replace(/\/$/, '')}` : ''
+
+  return `${header}\n\n${grid}${hintRow}${link}`
 }
 
 export async function copyToClipboard(text) {

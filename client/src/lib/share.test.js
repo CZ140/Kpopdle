@@ -19,6 +19,12 @@ describe('generateShareText — header', () => {
     expect(text).toContain('TWICEDLE #5')
   })
 
+  it('appends the site link when a share path is given', () => {
+    const text = generateShareText(5, [guess('correct')], true, 'normal', 0, 'TWICEDLE', 6, '/twice/')
+    expect(text.endsWith('\n\nk-popdle.com/twice')).toBe(true)
+    expect(generateShareText(5, [guess('correct')], true)).not.toContain('k-popdle.com')
+  })
+
   it('uses a custom max-guess denominator (3-attempt Guess the Group)', () => {
     const text = generateShareText(7, [guess('correct')], true, 'normal', 0, 'Guess the Group', 3)
     expect(text).toContain('Guess the Group #7 1/3')

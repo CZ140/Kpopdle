@@ -4,6 +4,7 @@ import express from 'express'
 import { createServer } from 'http'
 import passport from 'passport'
 import { fileURLToPath } from 'url'
+import { readFileSync } from 'fs'
 import { dirname, join } from 'path'
 import cors from './middleware/cors.js'
 import { sessionMiddleware } from './middleware/session.js'
@@ -28,6 +29,7 @@ import { configurePassport } from './services/authDb.js'
 import { getTodaysSong, getKpopdleSongForDate, getGuessGroupSongForDate } from './services/dailySong.js'
 import { getKSTDateString as getTodayKST } from './utils/dateUtils.js'
 import { getPreviewUrl } from './services/audioProvider.js'
+import { renderIndexForPath } from './utils/ogMeta.js'
 import { getMergedPool } from './data/songIndex.js'
 import groups from './data/groups.json' with { type: 'json' }
 
@@ -105,9 +107,11 @@ app.use('/api', (req, res) => {
 
 if (process.env.NODE_ENV === 'production') {
   const clientBuild = join(__dirname, '../../client/dist')
-  app.use(express.static(clientBuild))
+  const indexHtml = readFileSync(join(clientBuild, 'index.html'), 'utf-8')
+  app.use(express.static(clientBuild, { index: false }))
+  // Per-group routes get their own OG card so shared links unfurl as e.g. TWICEDLE.
   app.get(/(.*)/, (req, res) => {
-    res.sendFile(join(clientBuild, 'index.html'))
+    res.type('html').send(renderIndexForPath(indexHtml, req.path, groups))
   })
 }
 

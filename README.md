@@ -77,7 +77,7 @@ Thirty-four K-pop groups — boy groups, girl groups, and legacy acts — each w
 - Skip to hear more, or guess early to flex
 - After winning or losing, the full 30-second preview unlocks for replay
 - Stats tracked locally: win rate, current streak (Wordle-style — breaks if you miss a day), max streak, guess distribution
-- Shareable emoji grid result (includes difficulty badge and 💡 for hints used)
+- Shareable emoji grid result (includes difficulty badge, 💡 for hints used, and the route link — `k-popdle.com/twice` — so every share is an invite)
 
 ![Game View](docs/screenshot-game.png)
 
@@ -120,6 +120,8 @@ After finishing a daily, a player can copy a stateless challenge link (`/{group}
 A live multiplayer mode at `/battle` — two players, five synchronized rounds, race to guess the same 30-second clip. Speed-scored 5/4/3/2/1 by time bucket; higher total wins, ties resolve via sudden-death rounds. Anonymous: a display name and a persistent local `playerToken` are enough; no sign-in required. Built on **Socket.IO** sharing the existing Express session, with a server-authoritative state machine and a separate **audio proxy** (`/api/battle/:matchId/clip/:roundToken`) that streams Deezer clips behind opaque per-round tokens — so the answer's identity is unobtainable client-side before each reveal. Robust to dropped tabs: a 15-second reconnect grace covers a refresh or background tab; an explicit leave or grace expiry forfeits to the opponent. The UI uses a dual you-pink / foe-cyan identity over the same dark glassmorphic language as the rest of the site.
 
 ### 🧭 Mode Discovery
+The homepage hero carries a **Today's Set** ring — three segments for K-POPDLE, Guess the Group, and any one group daily (audio or cover). Each segment fills in its mode colour as it's completed, and each chip links straight to that daily, so the three dailies read as one habit rather than 70 disconnected puzzles. State comes from localStorage; nothing is fetched.
+
 The homepage opens with a **"Pick your way to play"** section that surfaces the cross-group modes (K-POPDLE hero, Guess the Group, Battle) as landscape cards with per-mode visual centerpieces — animated waveform + vinyl for the audio family, group cluster for GTG, fan-stacked cards for K-POPDLE, VS plate for Battle. Per-group dailies (audio + Coverdle) live in the group grid below; an in-game **`<ModeToggle>`** segmented switch on every group screen flips between Audio and Cover without leaving the page (NEW chip on the Cover side). On the group cards themselves, two small pips per card (`A` / `C`) show today's completion state for each mode independently — green-tick when won, red-X when missed, ghost when not yet played.
 
 ### 🔐 User Accounts
@@ -195,6 +197,8 @@ Runtime health is observable without a third-party log drain bolted on top:
 - **`GET /healthz`** — a liveness probe (Railway's healthcheck target) that returns `200` while the database is reachable, `503` if not. Audio/Deezer status is reported in the body but is deliberately **non-fatal**: a Deezer outage is external and can't be fixed by a restart, so it never triggers a restart loop. It's defined ahead of the telemetry middleware so health polls don't pollute the request log.
 
 ### Discoverability (SEO)
+Every per-group route has its own Open Graph card: `scripts/generate-og-images.mjs` renders a 1200×630 JPEG per group (group colours, branded game name) into `client/public/og/`, and in production the SPA catch-all rewrites the OG/Twitter tags in `index.html` per route (`server/src/utils/ogMeta.js`) — social crawlers don't run JavaScript, so a shared `/twice` link unfurls as TWICEDLE rather than the generic homepage card. Re-run the script when a group is added.
+
 The SPA is tuned for search and social sharing despite being client-rendered. `index.html` ships Open Graph, Twitter-card, and JSON-LD (`WebSite` + `VideoGame`) tags, an SVG favicon, and a web manifest — but **no static canonical or `og:url`**, because hardcoding `/` as the canonical caused Google's URL Inspection live test to reject every sub-route as a duplicate of the homepage. Instead, a `useDocumentMeta` hook injects the per-route title, description, canonical URL, and `og:url` once React mounts; Googlebot self-canonicalizes to the requested URL on the pre-render pass and confirms via the JS-injected tag on the rendered pass. A static `robots.txt` and `sitemap.xml` (73 URLs — homepage, K-POPDLE, all 34 group dailies, all 34 Coverdle routes, Guess the Group, Battle, Stats) are served straight from the build output, ahead of the SPA catch-all.
 
 Because the game UI is mostly chrome + a guess grid, the rendered body text on each game route was ~100 chars — enough to trip Google's **Soft 404** classifier. A shared `<GameAboutSection>` component now ships ~1500 chars of per-route descriptive copy on every thin route, rendered inside a default-collapsed `<details>` disclosure. Users see a single slim row at the bottom of the page; Googlebot reads the full content from the initial HTML (accordion content is indexed regardless of open state — *not* the same as `display:none`-for-SEO cloaking, which the spam policies explicitly penalize).
